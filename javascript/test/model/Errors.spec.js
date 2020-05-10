@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new AliceBookkeeping.DataResponse();
+    instance = new AliceBookkeeping.Errors();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,16 +47,16 @@
       object[property] = value;
   }
 
-  describe('DataResponse', function() {
-    it('should create an instance of DataResponse', function() {
-      // uncomment below and update the code to test DataResponse
-      //var instane = new AliceBookkeeping.DataResponse();
-      //expect(instance).to.be.a(AliceBookkeeping.DataResponse);
+  describe('Errors', function() {
+    it('should create an instance of Errors', function() {
+      // uncomment below and update the code to test Errors
+      //var instane = new AliceBookkeeping.Errors();
+      //expect(instance).to.be.a(AliceBookkeeping.Errors);
     });
 
-    it('should have the property data (base name: "data")', function() {
-      // uncomment below and update the code to test the property data
-      //var instane = new AliceBookkeeping.DataResponse();
+    it('should have the property errors (base name: "errors")', function() {
+      // uncomment below and update the code to test the property errors
+      //var instane = new AliceBookkeeping.Errors();
       //expect(instance).to.be();
     });
 

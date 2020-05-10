@@ -12,22 +12,22 @@
  */
 
 import ApiClient from '../ApiClient';
-import Error from './Error';
 
 /**
- * The ErrorResponse model module.
- * @module model/ErrorResponse
+ * The Log model module.
+ * @module model/Log
  * @version 0.0.0
  */
-class ErrorResponse {
+class Log {
     /**
-     * Constructs a new <code>ErrorResponse</code>.
-     * @alias module:model/ErrorResponse
-     * @param errors {Array.<module:model/Error>} 
+     * Constructs a new <code>Log</code>.
+     * Describes an intervention or an event that happened.
+     * @alias module:model/Log
+     * @param title {String} Title of the log.
      */
-    constructor(errors) { 
+    constructor(title) { 
         
-        ErrorResponse.initialize(this, errors);
+        Log.initialize(this, title);
     }
 
     /**
@@ -35,23 +35,23 @@ class ErrorResponse {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, errors) { 
-        obj['errors'] = errors;
+    static initialize(obj, title) { 
+        obj['title'] = title;
     }
 
     /**
-     * Constructs a <code>ErrorResponse</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>Log</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/ErrorResponse} obj Optional instance to populate.
-     * @return {module:model/ErrorResponse} The populated <code>ErrorResponse</code> instance.
+     * @param {module:model/Log} obj Optional instance to populate.
+     * @return {module:model/Log} The populated <code>Log</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new ErrorResponse();
+            obj = obj || new Log();
 
-            if (data.hasOwnProperty('errors')) {
-                obj['errors'] = ApiClient.convertToType(data['errors'], [Error]);
+            if (data.hasOwnProperty('title')) {
+                obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
         }
         return obj;
@@ -61,14 +61,15 @@ class ErrorResponse {
 }
 
 /**
- * @member {Array.<module:model/Error>} errors
+ * Title of the log.
+ * @member {String} title
  */
-ErrorResponse.prototype['errors'] = undefined;
+Log.prototype['title'] = undefined;
 
 
 
 
 
 
-export default ErrorResponse;
+export default Log;
 

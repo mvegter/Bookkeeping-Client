@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new AliceBookkeeping.DefaultApi();
+    instance = new AliceBookkeeping.LogApi();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,21 +47,31 @@
       object[property] = value;
   }
 
-  describe('DefaultApi', function() {
-    describe('getDeployInformation', function() {
-      it('should call getDeployInformation successfully', function(done) {
-        //uncomment below and update the code to test getDeployInformation
-        //instance.getDeployInformation(function(error) {
+  describe('LogApi', function() {
+    describe('createLog', function() {
+      it('should call createLog successfully', function(done) {
+        //uncomment below and update the code to test createLog
+        //instance.createLog(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('getServerInformation', function() {
-      it('should call getServerInformation successfully', function(done) {
-        //uncomment below and update the code to test getServerInformation
-        //instance.getServerInformation(function(error) {
+    describe('getLogById', function() {
+      it('should call getLogById successfully', function(done) {
+        //uncomment below and update the code to test getLogById
+        //instance.getLogById(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('listLogs', function() {
+      it('should call listLogs successfully', function(done) {
+        //uncomment below and update the code to test listLogs
+        //instance.listLogs(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

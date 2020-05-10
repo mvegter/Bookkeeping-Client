@@ -1,9 +1,9 @@
-# AliceBookkeeping.DataResponse
+# AliceBookkeeping.ArrayOfLogsResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**OneOfarrayobject**](OneOfarrayobject.md) |  | 
+**data** | [**[Log]**](Log.md) | A list of Log objects. | 
 
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** |  | 
-**version** | **String** |  | 
+**name** | **String** | Name of the API | 
+**version** | **String** | Version of the API | 
 
 

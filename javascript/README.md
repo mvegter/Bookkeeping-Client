@@ -109,7 +109,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.createLog(callback);
+api.getDeployInformation(callback);
 
 ```
 
@@ -119,19 +119,22 @@ All URIs are relative to *http://localhost/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AliceBookkeeping.DefaultApi* | [**createLog**](docs/DefaultApi.md#createLog) | **POST** /logs | Adds a new log
 *AliceBookkeeping.DefaultApi* | [**getDeployInformation**](docs/DefaultApi.md#getDeployInformation) | **GET** /status | Get deploy information
-*AliceBookkeeping.DefaultApi* | [**getLogById**](docs/DefaultApi.md#getLogById) | **GET** /logs/{id} | Gets a log by Id
 *AliceBookkeeping.DefaultApi* | [**getServerInformation**](docs/DefaultApi.md#getServerInformation) | **GET** / | Get server information
+*AliceBookkeeping.LogApi* | [**createLog**](docs/LogApi.md#createLog) | **POST** /logs | Adds a new log
+*AliceBookkeeping.LogApi* | [**getLogById**](docs/LogApi.md#getLogById) | **GET** /logs/{id} | Gets a log by Id
+*AliceBookkeeping.LogApi* | [**listLogs**](docs/LogApi.md#listLogs) | **GET** /logs | List all logs
 
 
 ## Documentation for Models
 
  - [AliceBookkeeping.ApiInformation](docs/ApiInformation.md)
- - [AliceBookkeeping.DataResponse](docs/DataResponse.md)
+ - [AliceBookkeeping.ArrayOfLogsResponse](docs/ArrayOfLogsResponse.md)
  - [AliceBookkeeping.DeployInformation](docs/DeployInformation.md)
  - [AliceBookkeeping.Error](docs/Error.md)
- - [AliceBookkeeping.ErrorResponse](docs/ErrorResponse.md)
+ - [AliceBookkeeping.Errors](docs/Errors.md)
+ - [AliceBookkeeping.Log](docs/Log.md)
+ - [AliceBookkeeping.LogResponse](docs/LogResponse.md)
 
 
 ## Documentation for Authorization

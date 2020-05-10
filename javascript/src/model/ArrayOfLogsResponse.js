@@ -12,22 +12,23 @@
  */
 
 import ApiClient from '../ApiClient';
-import OneOfarrayobject from './OneOfarrayobject';
+import Log from './Log';
 
 /**
- * The DataResponse model module.
- * @module model/DataResponse
+ * The ArrayOfLogsResponse model module.
+ * @module model/ArrayOfLogsResponse
  * @version 0.0.0
  */
-class DataResponse {
+class ArrayOfLogsResponse {
     /**
-     * Constructs a new <code>DataResponse</code>.
-     * @alias module:model/DataResponse
-     * @param data {module:model/OneOfarrayobject} 
+     * Constructs a new <code>ArrayOfLogsResponse</code>.
+     * Response containing multiple logs.
+     * @alias module:model/ArrayOfLogsResponse
+     * @param data {Array.<module:model/Log>} A list of Log objects.
      */
     constructor(data) { 
         
-        DataResponse.initialize(this, data);
+        ArrayOfLogsResponse.initialize(this, data);
     }
 
     /**
@@ -40,18 +41,18 @@ class DataResponse {
     }
 
     /**
-     * Constructs a <code>DataResponse</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>ArrayOfLogsResponse</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/DataResponse} obj Optional instance to populate.
-     * @return {module:model/DataResponse} The populated <code>DataResponse</code> instance.
+     * @param {module:model/ArrayOfLogsResponse} obj Optional instance to populate.
+     * @return {module:model/ArrayOfLogsResponse} The populated <code>ArrayOfLogsResponse</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new DataResponse();
+            obj = obj || new ArrayOfLogsResponse();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], OneOfarrayobject);
+                obj['data'] = ApiClient.convertToType(data['data'], [Log]);
             }
         }
         return obj;
@@ -61,14 +62,15 @@ class DataResponse {
 }
 
 /**
- * @member {module:model/OneOfarrayobject} data
+ * A list of Log objects.
+ * @member {Array.<module:model/Log>} data
  */
-DataResponse.prototype['data'] = undefined;
+ArrayOfLogsResponse.prototype['data'] = undefined;
 
 
 
 
 
 
-export default DataResponse;
+export default ArrayOfLogsResponse;
 

@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new AliceBookkeeping.DefaultApi();
+    instance = new AliceBookkeeping.LogResponse();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,27 +47,19 @@
       object[property] = value;
   }
 
-  describe('DefaultApi', function() {
-    describe('getDeployInformation', function() {
-      it('should call getDeployInformation successfully', function(done) {
-        //uncomment below and update the code to test getDeployInformation
-        //instance.getDeployInformation(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+  describe('LogResponse', function() {
+    it('should create an instance of LogResponse', function() {
+      // uncomment below and update the code to test LogResponse
+      //var instane = new AliceBookkeeping.LogResponse();
+      //expect(instance).to.be.a(AliceBookkeeping.LogResponse);
     });
-    describe('getServerInformation', function() {
-      it('should call getServerInformation successfully', function(done) {
-        //uncomment below and update the code to test getServerInformation
-        //instance.getServerInformation(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+
+    it('should have the property data (base name: "data")', function() {
+      // uncomment below and update the code to test the property data
+      //var instane = new AliceBookkeeping.LogResponse();
+      //expect(instance).to.be();
     });
+
   });
 
 }));

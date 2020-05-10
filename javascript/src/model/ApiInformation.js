@@ -21,9 +21,10 @@ import ApiClient from '../ApiClient';
 class ApiInformation {
     /**
      * Constructs a new <code>ApiInformation</code>.
+     * API information
      * @alias module:model/ApiInformation
-     * @param name {String} 
-     * @param version {String} 
+     * @param name {String} Name of the API
+     * @param version {String} Version of the API
      */
     constructor(name, version) { 
         
@@ -65,11 +66,13 @@ class ApiInformation {
 }
 
 /**
+ * Name of the API
  * @member {String} name
  */
 ApiInformation.prototype['name'] = undefined;
 
 /**
+ * Version of the API
  * @member {String} version
  */
 ApiInformation.prototype['version'] = undefined;
