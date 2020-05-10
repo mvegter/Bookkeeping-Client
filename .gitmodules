@@ -1,0 +1,3 @@
+[submodule "Bookkeeping"]
+	path = Bookkeeping
+	url = https://github.com/AliceO2Group/Bookkeeping
