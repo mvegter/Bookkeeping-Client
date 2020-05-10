@@ -69,49 +69,6 @@ void OAIDefaultApi::abortRequests(){
     emit abortRequestsSignal();
 }
 
-void OAIDefaultApi::createLog() {
-    QString fullPath = QString("%1://%2%3%4%5")
-                           .arg(_scheme)
-                           .arg(_host)
-                           .arg(_port ? ":" + QString::number(_port) : "")
-                           .arg(_basePath)
-                           .arg("/logs");
-
-    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    OAIHttpRequestInput input(fullPath, "POST");
-
-    foreach (QString key, this->defaultHeaders.keys()) { input.headers.insert(key, this->defaultHeaders.value(key)); }
-
-    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIDefaultApi::createLogCallback);
-    connect(this, &OAIDefaultApi::abortRequestsSignal, worker, &QObject::deleteLater); 
-    worker->execute(&input);
-}
-
-void OAIDefaultApi::createLogCallback(OAIHttpRequestWorker *worker) {
-    QString msg;
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        msg = QString("Success! %1 bytes").arg(worker->response.length());
-    } else {
-        msg = "Error: " + worker->error_str;
-        error_str = QString("%1, %2").arg(worker->error_str).arg(QString(worker->response));
-    }
-    OAIDataResponse output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        emit createLogSignal(output);
-        emit createLogSignalFull(worker, output);
-    } else {
-        emit createLogSignalE(output, error_type, error_str);
-        emit createLogSignalEFull(worker, error_type, error_str);
-    }
-}
-
 void OAIDefaultApi::getDeployInformation() {
     QString fullPath = QString("%1://%2%3%4%5")
                            .arg(_scheme)
@@ -152,52 +109,6 @@ void OAIDefaultApi::getDeployInformationCallback(OAIHttpRequestWorker *worker) {
     } else {
         emit getDeployInformationSignalE(output, error_type, error_str);
         emit getDeployInformationSignalEFull(worker, error_type, error_str);
-    }
-}
-
-void OAIDefaultApi::getLogById(const qint64 &id) {
-    QString fullPath = QString("%1://%2%3%4%5")
-                           .arg(_scheme)
-                           .arg(_host)
-                           .arg(_port ? ":" + QString::number(_port) : "")
-                           .arg(_basePath)
-                           .arg("/logs/{id}");
-    QString idPathParam("{");
-    idPathParam.append("id").append("}");
-    fullPath.replace(idPathParam, QUrl::toPercentEncoding(::OpenAPI::toStringValue(id)));
-
-    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this);
-    worker->setTimeOut(_timeOut);
-    worker->setWorkingDirectory(_workingDirectory);
-    OAIHttpRequestInput input(fullPath, "GET");
-
-    foreach (QString key, this->defaultHeaders.keys()) { input.headers.insert(key, this->defaultHeaders.value(key)); }
-
-    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIDefaultApi::getLogByIdCallback);
-    connect(this, &OAIDefaultApi::abortRequestsSignal, worker, &QObject::deleteLater); 
-    worker->execute(&input);
-}
-
-void OAIDefaultApi::getLogByIdCallback(OAIHttpRequestWorker *worker) {
-    QString msg;
-    QString error_str = worker->error_str;
-    QNetworkReply::NetworkError error_type = worker->error_type;
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        msg = QString("Success! %1 bytes").arg(worker->response.length());
-    } else {
-        msg = "Error: " + worker->error_str;
-        error_str = QString("%1, %2").arg(worker->error_str).arg(QString(worker->response));
-    }
-    OAIDataResponse output(QString(worker->response));
-    worker->deleteLater();
-
-    if (worker->error_type == QNetworkReply::NoError) {
-        emit getLogByIdSignal(output);
-        emit getLogByIdSignalFull(worker, output);
-    } else {
-        emit getLogByIdSignalE(output, error_type, error_str);
-        emit getLogByIdSignalEFull(worker, error_type, error_str);
     }
 }
 

@@ -10,13 +10,13 @@
  */
 
 /*
- * OAIError.h
+ * OAILog.h
  *
- * An Error object.
+ * Describes an intervention or an event that happened.
  */
 
-#ifndef OAIError_H
-#define OAIError_H
+#ifndef OAILog_H
+#define OAILog_H
 
 #include <QJsonObject>
 
@@ -27,31 +27,21 @@
 
 namespace OpenAPI {
 
-class OAIError : public OAIObject {
+class OAILog : public OAIObject {
 public:
-    OAIError();
-    OAIError(QString json);
-    ~OAIError() override;
+    OAILog();
+    OAILog(QString json);
+    ~OAILog() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QString getStatus() const;
-    void setStatus(const QString &status);
-    bool is_status_Set() const;
-    bool is_status_Valid() const;
-
     QString getTitle() const;
     void setTitle(const QString &title);
     bool is_title_Set() const;
     bool is_title_Valid() const;
-
-    QString getDetail() const;
-    void setDetail(const QString &detail);
-    bool is_detail_Set() const;
-    bool is_detail_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -59,21 +49,13 @@ public:
 private:
     void initializeModel();
 
-    QString status;
-    bool m_status_isSet;
-    bool m_status_isValid;
-
     QString title;
     bool m_title_isSet;
     bool m_title_isValid;
-
-    QString detail;
-    bool m_detail_isSet;
-    bool m_detail_isValid;
 };
 
 } // namespace OpenAPI
 
-Q_DECLARE_METATYPE(OpenAPI::OAIError)
+Q_DECLARE_METATYPE(OpenAPI::OAILog)
 
-#endif // OAIError_H
+#endif // OAILog_H

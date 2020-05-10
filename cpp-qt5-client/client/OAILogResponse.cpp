@@ -9,7 +9,7 @@
  * Do not edit the class manually.
  */
 
-#include "OAIDataResponse.h"
+#include "OAILogResponse.h"
 
 #include <QDebug>
 #include <QJsonArray>
@@ -20,44 +20,44 @@
 
 namespace OpenAPI {
 
-OAIDataResponse::OAIDataResponse(QString json) {
+OAILogResponse::OAILogResponse(QString json) {
     this->initializeModel();
     this->fromJson(json);
 }
 
-OAIDataResponse::OAIDataResponse() {
+OAILogResponse::OAILogResponse() {
     this->initializeModel();
 }
 
-OAIDataResponse::~OAIDataResponse() {}
+OAILogResponse::~OAILogResponse() {}
 
-void OAIDataResponse::initializeModel() {
+void OAILogResponse::initializeModel() {
 
     m_data_isSet = false;
     m_data_isValid = false;
 }
 
-void OAIDataResponse::fromJson(QString jsonString) {
+void OAILogResponse::fromJson(QString jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void OAIDataResponse::fromJsonObject(QJsonObject json) {
+void OAILogResponse::fromJsonObject(QJsonObject json) {
 
     m_data_isValid = ::OpenAPI::fromJsonValue(data, json[QString("data")]);
     m_data_isSet = !json[QString("data")].isNull() && m_data_isValid;
 }
 
-QString OAIDataResponse::asJson() const {
+QString OAILogResponse::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject OAIDataResponse::asJsonObject() const {
+QJsonObject OAILogResponse::asJsonObject() const {
     QJsonObject obj;
     if (data.isSet()) {
         obj.insert(QString("data"), ::OpenAPI::toJsonValue(data));
@@ -65,23 +65,23 @@ QJsonObject OAIDataResponse::asJsonObject() const {
     return obj;
 }
 
-OAIOneOfarrayobject OAIDataResponse::getData() const {
+OAILog OAILogResponse::getData() const {
     return data;
 }
-void OAIDataResponse::setData(const OAIOneOfarrayobject &data) {
+void OAILogResponse::setData(const OAILog &data) {
     this->data = data;
     this->m_data_isSet = true;
 }
 
-bool OAIDataResponse::is_data_Set() const{
+bool OAILogResponse::is_data_Set() const{
     return m_data_isSet;
 }
 
-bool OAIDataResponse::is_data_Valid() const{
+bool OAILogResponse::is_data_Valid() const{
     return m_data_isValid;
 }
 
-bool OAIDataResponse::isSet() const {
+bool OAILogResponse::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (data.isSet()) {
@@ -92,7 +92,7 @@ bool OAIDataResponse::isSet() const {
     return isObjectUpdated;
 }
 
-bool OAIDataResponse::isValid() const {
+bool OAILogResponse::isValid() const {
     // only required properties are required for the object to be considered valid
     return m_data_isValid && true;
 }

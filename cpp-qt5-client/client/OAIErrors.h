@@ -10,38 +10,39 @@
  */
 
 /*
- * OAIDataResponse.h
+ * OAIErrors.h
  *
- * 
+ * A list of Error objects.
  */
 
-#ifndef OAIDataResponse_H
-#define OAIDataResponse_H
+#ifndef OAIErrors_H
+#define OAIErrors_H
 
 #include <QJsonObject>
 
-#include "OAIOneOfarrayobject.h"
+#include "OAIError.h"
+#include <QList>
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIDataResponse : public OAIObject {
+class OAIErrors : public OAIObject {
 public:
-    OAIDataResponse();
-    OAIDataResponse(QString json);
-    ~OAIDataResponse() override;
+    OAIErrors();
+    OAIErrors(QString json);
+    ~OAIErrors() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    OAIOneOfarrayobject getData() const;
-    void setData(const OAIOneOfarrayobject &data);
-    bool is_data_Set() const;
-    bool is_data_Valid() const;
+    QList<OAIError> getErrors() const;
+    void setErrors(const QList<OAIError> &errors);
+    bool is_errors_Set() const;
+    bool is_errors_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -49,13 +50,13 @@ public:
 private:
     void initializeModel();
 
-    OAIOneOfarrayobject data;
-    bool m_data_isSet;
-    bool m_data_isValid;
+    QList<OAIError> errors;
+    bool m_errors_isSet;
+    bool m_errors_isValid;
 };
 
 } // namespace OpenAPI
 
-Q_DECLARE_METATYPE(OpenAPI::OAIDataResponse)
+Q_DECLARE_METATYPE(OpenAPI::OAIErrors)
 
-#endif // OAIDataResponse_H
+#endif // OAIErrors_H

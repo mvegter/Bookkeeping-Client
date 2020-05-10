@@ -12,7 +12,7 @@
 /*
  * OAIApiInformation.h
  *
- * 
+ * API information
  */
 
 #ifndef OAIApiInformation_H

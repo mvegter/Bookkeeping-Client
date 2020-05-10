@@ -15,9 +15,8 @@
 #include "OAIHttpRequest.h"
 
 #include "OAIApiInformation.h"
-#include "OAIDataResponse.h"
 #include "OAIDeployInformation.h"
-#include "OAIErrorResponse.h"
+#include "OAIErrors.h"
 #include <QString>
 
 #include <QObject>
@@ -42,9 +41,7 @@ public:
     void enableResponseCompression();
     void abortRequests();
 
-    void createLog();
     void getDeployInformation();
-    void getLogById(const qint64 &id);
     void getServerInformation();
 
 private:
@@ -57,31 +54,21 @@ private:
     bool isResponseCompressionEnabled;
     bool isRequestCompressionEnabled;
 
-    void createLogCallback(OAIHttpRequestWorker *worker);
     void getDeployInformationCallback(OAIHttpRequestWorker *worker);
-    void getLogByIdCallback(OAIHttpRequestWorker *worker);
     void getServerInformationCallback(OAIHttpRequestWorker *worker);
 
 signals:
 
-    void createLogSignal(OAIDataResponse summary);
     void getDeployInformationSignal(OAIDeployInformation summary);
-    void getLogByIdSignal(OAIDataResponse summary);
     void getServerInformationSignal(OAIApiInformation summary);
 
-    void createLogSignalFull(OAIHttpRequestWorker *worker, OAIDataResponse summary);
     void getDeployInformationSignalFull(OAIHttpRequestWorker *worker, OAIDeployInformation summary);
-    void getLogByIdSignalFull(OAIHttpRequestWorker *worker, OAIDataResponse summary);
     void getServerInformationSignalFull(OAIHttpRequestWorker *worker, OAIApiInformation summary);
 
-    void createLogSignalE(OAIDataResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getDeployInformationSignalE(OAIDeployInformation summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void getLogByIdSignalE(OAIDataResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getServerInformationSignalE(OAIApiInformation summary, QNetworkReply::NetworkError error_type, QString error_str);
 
-    void createLogSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void getDeployInformationSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
-    void getLogByIdSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void getServerInformationSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal(); 

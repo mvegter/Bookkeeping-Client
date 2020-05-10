@@ -10,42 +10,38 @@
  */
 
 /*
- * OAIDeployInformation.h
+ * OAILogResponse.h
  *
- * Deploy information
+ * Response containing a single log.
  */
 
-#ifndef OAIDeployInformation_H
-#define OAIDeployInformation_H
+#ifndef OAILogResponse_H
+#define OAILogResponse_H
 
 #include <QJsonObject>
 
+#include "OAILog.h"
 
 #include "OAIEnum.h"
 #include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIDeployInformation : public OAIObject {
+class OAILogResponse : public OAIObject {
 public:
-    OAIDeployInformation();
-    OAIDeployInformation(QString json);
-    ~OAIDeployInformation() override;
+    OAILogResponse();
+    OAILogResponse(QString json);
+    ~OAILogResponse() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    double getAge() const;
-    void setAge(const double &age);
-    bool is_age_Set() const;
-    bool is_age_Valid() const;
-
-    double getStart() const;
-    void setStart(const double &start);
-    bool is_start_Set() const;
-    bool is_start_Valid() const;
+    OAILog getData() const;
+    void setData(const OAILog &data);
+    bool is_data_Set() const;
+    bool is_data_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -53,17 +49,13 @@ public:
 private:
     void initializeModel();
 
-    double age;
-    bool m_age_isSet;
-    bool m_age_isValid;
-
-    double start;
-    bool m_start_isSet;
-    bool m_start_isValid;
+    OAILog data;
+    bool m_data_isSet;
+    bool m_data_isValid;
 };
 
 } // namespace OpenAPI
 
-Q_DECLARE_METATYPE(OpenAPI::OAIDeployInformation)
+Q_DECLARE_METATYPE(OpenAPI::OAILogResponse)
 
-#endif // OAIDeployInformation_H
+#endif // OAILogResponse_H

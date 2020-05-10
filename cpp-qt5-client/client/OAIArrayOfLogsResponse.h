@@ -10,17 +10,17 @@
  */
 
 /*
- * OAIErrorResponse.h
+ * OAIArrayOfLogsResponse.h
  *
- * 
+ * Response containing multiple logs.
  */
 
-#ifndef OAIErrorResponse_H
-#define OAIErrorResponse_H
+#ifndef OAIArrayOfLogsResponse_H
+#define OAIArrayOfLogsResponse_H
 
 #include <QJsonObject>
 
-#include "OAIError.h"
+#include "OAILog.h"
 #include <QList>
 
 #include "OAIEnum.h"
@@ -28,21 +28,21 @@
 
 namespace OpenAPI {
 
-class OAIErrorResponse : public OAIObject {
+class OAIArrayOfLogsResponse : public OAIObject {
 public:
-    OAIErrorResponse();
-    OAIErrorResponse(QString json);
-    ~OAIErrorResponse() override;
+    OAIArrayOfLogsResponse();
+    OAIArrayOfLogsResponse(QString json);
+    ~OAIArrayOfLogsResponse() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QList<OAIError> getErrors() const;
-    void setErrors(const QList<OAIError> &errors);
-    bool is_errors_Set() const;
-    bool is_errors_Valid() const;
+    QList<OAILog> getData() const;
+    void setData(const QList<OAILog> &data);
+    bool is_data_Set() const;
+    bool is_data_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -50,13 +50,13 @@ public:
 private:
     void initializeModel();
 
-    QList<OAIError> errors;
-    bool m_errors_isSet;
-    bool m_errors_isValid;
+    QList<OAILog> data;
+    bool m_data_isSet;
+    bool m_data_isValid;
 };
 
 } // namespace OpenAPI
 
-Q_DECLARE_METATYPE(OpenAPI::OAIErrorResponse)
+Q_DECLARE_METATYPE(OpenAPI::OAIArrayOfLogsResponse)
 
-#endif // OAIErrorResponse_H
+#endif // OAIArrayOfLogsResponse_H

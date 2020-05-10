@@ -9,7 +9,7 @@
  * Do not edit the class manually.
  */
 
-#include "OAIErrorResponse.h"
+#include "OAILog.h"
 
 #include <QDebug>
 #include <QJsonArray>
@@ -20,71 +20,71 @@
 
 namespace OpenAPI {
 
-OAIErrorResponse::OAIErrorResponse(QString json) {
+OAILog::OAILog(QString json) {
     this->initializeModel();
     this->fromJson(json);
 }
 
-OAIErrorResponse::OAIErrorResponse() {
+OAILog::OAILog() {
     this->initializeModel();
 }
 
-OAIErrorResponse::~OAIErrorResponse() {}
+OAILog::~OAILog() {}
 
-void OAIErrorResponse::initializeModel() {
+void OAILog::initializeModel() {
 
-    m_errors_isSet = false;
-    m_errors_isValid = false;
+    m_title_isSet = false;
+    m_title_isValid = false;
 }
 
-void OAIErrorResponse::fromJson(QString jsonString) {
+void OAILog::fromJson(QString jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void OAIErrorResponse::fromJsonObject(QJsonObject json) {
+void OAILog::fromJsonObject(QJsonObject json) {
 
-    m_errors_isValid = ::OpenAPI::fromJsonValue(errors, json[QString("errors")]);
-    m_errors_isSet = !json[QString("errors")].isNull() && m_errors_isValid;
+    m_title_isValid = ::OpenAPI::fromJsonValue(title, json[QString("title")]);
+    m_title_isSet = !json[QString("title")].isNull() && m_title_isValid;
 }
 
-QString OAIErrorResponse::asJson() const {
+QString OAILog::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject OAIErrorResponse::asJsonObject() const {
+QJsonObject OAILog::asJsonObject() const {
     QJsonObject obj;
-    if (errors.size() > 0) {
-        obj.insert(QString("errors"), ::OpenAPI::toJsonValue(errors));
+    if (m_title_isSet) {
+        obj.insert(QString("title"), ::OpenAPI::toJsonValue(title));
     }
     return obj;
 }
 
-QList<OAIError> OAIErrorResponse::getErrors() const {
-    return errors;
+QString OAILog::getTitle() const {
+    return title;
 }
-void OAIErrorResponse::setErrors(const QList<OAIError> &errors) {
-    this->errors = errors;
-    this->m_errors_isSet = true;
-}
-
-bool OAIErrorResponse::is_errors_Set() const{
-    return m_errors_isSet;
+void OAILog::setTitle(const QString &title) {
+    this->title = title;
+    this->m_title_isSet = true;
 }
 
-bool OAIErrorResponse::is_errors_Valid() const{
-    return m_errors_isValid;
+bool OAILog::is_title_Set() const{
+    return m_title_isSet;
 }
 
-bool OAIErrorResponse::isSet() const {
+bool OAILog::is_title_Valid() const{
+    return m_title_isValid;
+}
+
+bool OAILog::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (errors.size() > 0) {
+        if (m_title_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -92,9 +92,9 @@ bool OAIErrorResponse::isSet() const {
     return isObjectUpdated;
 }
 
-bool OAIErrorResponse::isValid() const {
+bool OAILog::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_errors_isValid && true;
+    return m_title_isValid && true;
 }
 
 } // namespace OpenAPI
