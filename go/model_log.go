@@ -8,7 +8,8 @@
  */
 
 package openapi
-// DataResponse struct for DataResponse
-type DataResponse struct {
-	Data OneOfarrayobject `json:"data"`
+// Log Describes an intervention or an event that happened.
+type Log struct {
+	// Title of the log.
+	Title string `json:"title"`
 }

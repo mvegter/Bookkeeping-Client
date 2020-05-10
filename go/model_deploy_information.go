@@ -8,8 +8,10 @@
  */
 
 package openapi
-// DeployInformation struct for DeployInformation
+// DeployInformation Deploy information
 type DeployInformation struct {
+	// The number of seconds that the server is online.
 	Age float32 `json:"age"`
+	// The unix timestamp of the moment that the the server went online.
 	Start float32 `json:"start"`
 }

@@ -8,9 +8,12 @@
  */
 
 package openapi
-// Error struct for Error
+// Error An Error object.
 type Error struct {
+	// The HTTP status code applicable to this problem.
 	Status string `json:"status"`
+	// A short, human-readable summary of the problem.
 	Title string `json:"title"`
+	// A human-readable explanation specific to this occurrence of the problem.
 	Detail string `json:"detail,omitempty"`
 }

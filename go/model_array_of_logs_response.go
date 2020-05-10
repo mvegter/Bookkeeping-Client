@@ -8,10 +8,8 @@
  */
 
 package openapi
-// ApiInformation API information
-type ApiInformation struct {
-	// Name of the API
-	Name string `json:"name"`
-	// Version of the API
-	Version string `json:"version"`
+// ArrayOfLogsResponse Response containing multiple logs.
+type ArrayOfLogsResponse struct {
+	// A list of Log objects.
+	Data []Log `json:"data"`
 }

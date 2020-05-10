@@ -8,7 +8,8 @@
  */
 
 package openapi
-// ErrorResponse struct for ErrorResponse
-type ErrorResponse struct {
+// Errors A list of Error objects.
+type Errors struct {
+	// A list of Error objects.
 	Errors []Error `json:"errors"`
 }

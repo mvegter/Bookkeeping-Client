@@ -32,19 +32,22 @@ All URIs are relative to *http://localhost/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**CreateLog**](docs/DefaultApi.md#createlog) | **Post** /logs | Adds a new log
 *DefaultApi* | [**GetDeployInformation**](docs/DefaultApi.md#getdeployinformation) | **Get** /status | Get deploy information
-*DefaultApi* | [**GetLogById**](docs/DefaultApi.md#getlogbyid) | **Get** /logs/{id} | Gets a log by Id
 *DefaultApi* | [**GetServerInformation**](docs/DefaultApi.md#getserverinformation) | **Get** / | Get server information
+*LogApi* | [**CreateLog**](docs/LogApi.md#createlog) | **Post** /logs | Adds a new log
+*LogApi* | [**GetLogById**](docs/LogApi.md#getlogbyid) | **Get** /logs/{id} | Gets a log by Id
+*LogApi* | [**ListLogs**](docs/LogApi.md#listlogs) | **Get** /logs | List all logs
 
 
 ## Documentation For Models
 
  - [ApiInformation](docs/ApiInformation.md)
- - [DataResponse](docs/DataResponse.md)
+ - [ArrayOfLogsResponse](docs/ArrayOfLogsResponse.md)
  - [DeployInformation](docs/DeployInformation.md)
  - [Error](docs/Error.md)
- - [ErrorResponse](docs/ErrorResponse.md)
+ - [Errors](docs/Errors.md)
+ - [Log](docs/Log.md)
+ - [LogResponse](docs/LogResponse.md)
 
 
 ## Documentation For Authorization
