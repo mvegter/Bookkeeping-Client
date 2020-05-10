@@ -66,11 +66,11 @@ with openapi_client.ApiClient(configuration) as api_client:
     api_instance = openapi_client.DefaultApi(api_client)
     
     try:
-        # Adds a new log
-        api_response = api_instance.create_log()
+        # Get deploy information
+        api_response = api_instance.get_deploy_information()
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling DefaultApi->create_log: %s\n" % e)
+        print("Exception when calling DefaultApi->get_deploy_information: %s\n" % e)
     
 ```
 
@@ -80,19 +80,22 @@ All URIs are relative to *http://localhost/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**create_log**](docs/DefaultApi.md#create_log) | **POST** /logs | Adds a new log
 *DefaultApi* | [**get_deploy_information**](docs/DefaultApi.md#get_deploy_information) | **GET** /status | Get deploy information
-*DefaultApi* | [**get_log_by_id**](docs/DefaultApi.md#get_log_by_id) | **GET** /logs/{id} | Gets a log by Id
 *DefaultApi* | [**get_server_information**](docs/DefaultApi.md#get_server_information) | **GET** / | Get server information
+*LogApi* | [**create_log**](docs/LogApi.md#create_log) | **POST** /logs | Adds a new log
+*LogApi* | [**get_log_by_id**](docs/LogApi.md#get_log_by_id) | **GET** /logs/{id} | Gets a log by Id
+*LogApi* | [**list_logs**](docs/LogApi.md#list_logs) | **GET** /logs | List all logs
 
 
 ## Documentation For Models
 
  - [ApiInformation](docs/ApiInformation.md)
- - [DataResponse](docs/DataResponse.md)
+ - [ArrayOfLogsResponse](docs/ArrayOfLogsResponse.md)
  - [DeployInformation](docs/DeployInformation.md)
  - [Error](docs/Error.md)
- - [ErrorResponse](docs/ErrorResponse.md)
+ - [Errors](docs/Errors.md)
+ - [Log](docs/Log.md)
+ - [LogResponse](docs/LogResponse.md)
 
 
 ## Documentation For Authorization

@@ -1,11 +1,10 @@
-# DeployInformation
+# LogResponse
 
-Deploy information
+Response containing a single log.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**age** | **float** | The number of seconds that the server is online. | 
-**start** | **float** | The unix timestamp of the moment that the the server went online. | 
+**data** | [**Log**](Log.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

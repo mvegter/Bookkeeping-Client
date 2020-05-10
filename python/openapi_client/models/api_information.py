@@ -59,6 +59,7 @@ class ApiInformation(object):
     def name(self):
         """Gets the name of this ApiInformation.  # noqa: E501
 
+        Name of the API  # noqa: E501
 
         :return: The name of this ApiInformation.  # noqa: E501
         :rtype: str
@@ -69,6 +70,7 @@ class ApiInformation(object):
     def name(self, name):
         """Sets the name of this ApiInformation.
 
+        Name of the API  # noqa: E501
 
         :param name: The name of this ApiInformation.  # noqa: E501
         :type: str
@@ -82,6 +84,7 @@ class ApiInformation(object):
     def version(self):
         """Gets the version of this ApiInformation.  # noqa: E501
 
+        Version of the API  # noqa: E501
 
         :return: The version of this ApiInformation.  # noqa: E501
         :rtype: str
@@ -92,6 +95,7 @@ class ApiInformation(object):
     def version(self, version):
         """Sets the version of this ApiInformation.
 
+        Version of the API  # noqa: E501
 
         :param version: The version of this ApiInformation.  # noqa: E501
         :type: str
