@@ -15,9 +15,8 @@ package org.openapitools.client.api;
 
 import org.openapitools.client.ApiException;
 import org.openapitools.client.model.ApiInformation;
-import org.openapitools.client.model.DataResponse;
 import org.openapitools.client.model.DeployInformation;
-import org.openapitools.client.model.ErrorResponse;
+import org.openapitools.client.model.Errors;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -36,21 +35,6 @@ public class DefaultApiTest {
 
     
     /**
-     * Adds a new log
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void createLogTest() throws ApiException {
-        DataResponse response = api.createLog();
-
-        // TODO: test validations
-    }
-    
-    /**
      * Get deploy information
      *
      * 
@@ -61,22 +45,6 @@ public class DefaultApiTest {
     @Test
     public void getDeployInformationTest() throws ApiException {
         DeployInformation response = api.getDeployInformation();
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Gets a log by Id
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getLogByIdTest() throws ApiException {
-        Long id = null;
-        DataResponse response = api.getLogById(id);
 
         // TODO: test validations
     }

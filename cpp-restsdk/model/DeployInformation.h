@@ -12,7 +12,7 @@
 /*
  * DeployInformation.h
  *
- * 
+ * Deploy information
  */
 
 #ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_DeployInformation_H_
@@ -29,7 +29,7 @@ namespace model {
 
 
 /// <summary>
-/// 
+/// Deploy information
 /// </summary>
 class  DeployInformation
     : public ModelBase
@@ -53,7 +53,7 @@ public:
     /// DeployInformation members
 
     /// <summary>
-    /// 
+    /// The number of seconds that the server is online.
     /// </summary>
     double getAge() const;
     bool ageIsSet() const;
@@ -62,7 +62,7 @@ public:
     void setAge(double value);
 
     /// <summary>
-    /// 
+    /// The unix timestamp of the moment that the the server went online.
     /// </summary>
     double getStart() const;
     bool startIsSet() const;

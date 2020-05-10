@@ -25,9 +25,10 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Error
+ * An Error object.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-10T17:24:55.589+01:00[Europe/London]")
+@ApiModel(description = "An Error object.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-10T22:06:45.373+01:00[Europe/London]")
 public class Error {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -49,10 +50,10 @@ public class Error {
   }
 
    /**
-   * Get status
+   * The HTTP status code applicable to this problem.
    * @return status
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The HTTP status code applicable to this problem.")
 
   public String getStatus() {
     return status;
@@ -71,10 +72,10 @@ public class Error {
   }
 
    /**
-   * Get title
+   * A short, human-readable summary of the problem.
    * @return title
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A short, human-readable summary of the problem.")
 
   public String getTitle() {
     return title;
@@ -93,11 +94,11 @@ public class Error {
   }
 
    /**
-   * Get detail
+   * A human-readable explanation specific to this occurrence of the problem.
    * @return detail
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A human-readable explanation specific to this occurrence of the problem.")
 
   public String getDetail() {
     return detail;

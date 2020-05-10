@@ -1,7 +1,7 @@
 /*
  * ApiInformation.h
  *
- * 
+ * API information
  */
 
 #ifndef _ApiInformation_H_
@@ -20,7 +20,7 @@ namespace Tizen {
 namespace ArtikCloud {
 
 
-/*! \brief 
+/*! \brief API information
  *
  *  \ingroup Models
  *
@@ -45,18 +45,18 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get 
+	/*! \brief Get Name of the API
 	 */
 	std::string getName();
 
-	/*! \brief Set 
+	/*! \brief Set Name of the API
 	 */
 	void setName(std::string  name);
-	/*! \brief Get 
+	/*! \brief Get Version of the API
 	 */
 	std::string getVersion();
 
-	/*! \brief Set 
+	/*! \brief Set Version of the API
 	 */
 	void setVersion(std::string  version);
 

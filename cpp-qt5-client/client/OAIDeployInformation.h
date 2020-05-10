@@ -12,7 +12,7 @@
 /*
  * OAIDeployInformation.h
  *
- * 
+ * Deploy information
  */
 
 #ifndef OAIDeployInformation_H

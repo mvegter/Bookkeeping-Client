@@ -48,30 +48,10 @@
   }
 
   describe('DefaultApi', function() {
-    describe('createLog', function() {
-      it('should call createLog successfully', function(done) {
-        //uncomment below and update the code to test createLog
-        //instance.createLog(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('getDeployInformation', function() {
       it('should call getDeployInformation successfully', function(done) {
         //uncomment below and update the code to test getDeployInformation
         //instance.getDeployInformation(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('getLogById', function() {
-      it('should call getLogById successfully', function(done) {
-        //uncomment below and update the code to test getLogById
-        //instance.getLogById(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

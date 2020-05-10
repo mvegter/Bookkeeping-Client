@@ -3,12 +3,15 @@ QT += network
 HEADERS += \
 # Models
     $${PWD}/OAIApiInformation.h \
-    $${PWD}/OAIDataResponse.h \
+    $${PWD}/OAIArrayOfLogsResponse.h \
     $${PWD}/OAIDeployInformation.h \
     $${PWD}/OAIError.h \
-    $${PWD}/OAIErrorResponse.h \
+    $${PWD}/OAIErrors.h \
+    $${PWD}/OAILog.h \
+    $${PWD}/OAILogResponse.h \
 # APIs
     $${PWD}/OAIDefaultApi.h \
+    $${PWD}/OAILogApi.h \
 # Others
     $${PWD}/OAIHelpers.h \
     $${PWD}/OAIHttpRequest.h \
@@ -19,12 +22,15 @@ HEADERS += \
 SOURCES += \
 # Models
     $${PWD}/OAIApiInformation.cpp \
-    $${PWD}/OAIDataResponse.cpp \
+    $${PWD}/OAIArrayOfLogsResponse.cpp \
     $${PWD}/OAIDeployInformation.cpp \
     $${PWD}/OAIError.cpp \
-    $${PWD}/OAIErrorResponse.cpp \
+    $${PWD}/OAIErrors.cpp \
+    $${PWD}/OAILog.cpp \
+    $${PWD}/OAILogResponse.cpp \
 # APIs
     $${PWD}/OAIDefaultApi.cpp \
+    $${PWD}/OAILogApi.cpp \
 # Others
     $${PWD}/OAIHelpers.cpp \
     $${PWD}/OAIHttpRequest.cpp \

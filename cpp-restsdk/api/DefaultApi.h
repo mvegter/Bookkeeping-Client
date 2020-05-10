@@ -22,9 +22,8 @@
 #include "../ApiClient.h"
 
 #include "ApiInformation.h"
-#include "DataResponse.h"
 #include "DeployInformation.h"
-#include "ErrorResponse.h"
+#include "Errors.h"
 
 
 #include <boost/optional.hpp>
@@ -47,30 +46,12 @@ public:
     virtual ~DefaultApi();
 
     /// <summary>
-    /// Adds a new log
-    /// </summary>
-    /// <remarks>
-    /// 
-    /// </remarks>
-    pplx::task<std::shared_ptr<DataResponse>> createLog(
-    ) const;
-    /// <summary>
     /// Get deploy information
     /// </summary>
     /// <remarks>
     /// 
     /// </remarks>
     pplx::task<std::shared_ptr<DeployInformation>> getDeployInformation(
-    ) const;
-    /// <summary>
-    /// Gets a log by Id
-    /// </summary>
-    /// <remarks>
-    /// 
-    /// </remarks>
-    /// <param name="id">The id of the log to retrieve</param>
-    pplx::task<std::shared_ptr<DataResponse>> getLogById(
-        int64_t id
     ) const;
     /// <summary>
     /// Get server information

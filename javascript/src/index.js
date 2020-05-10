@@ -14,11 +14,14 @@
 
 import ApiClient from './ApiClient';
 import ApiInformation from './model/ApiInformation';
-import DataResponse from './model/DataResponse';
+import ArrayOfLogsResponse from './model/ArrayOfLogsResponse';
 import DeployInformation from './model/DeployInformation';
 import Error from './model/Error';
-import ErrorResponse from './model/ErrorResponse';
+import Errors from './model/Errors';
+import Log from './model/Log';
+import LogResponse from './model/LogResponse';
 import DefaultApi from './api/DefaultApi';
+import LogApi from './api/LogApi';
 
 
 /**
@@ -66,10 +69,10 @@ export {
     ApiInformation,
 
     /**
-     * The DataResponse model constructor.
-     * @property {module:model/DataResponse}
+     * The ArrayOfLogsResponse model constructor.
+     * @property {module:model/ArrayOfLogsResponse}
      */
-    DataResponse,
+    ArrayOfLogsResponse,
 
     /**
      * The DeployInformation model constructor.
@@ -84,14 +87,32 @@ export {
     Error,
 
     /**
-     * The ErrorResponse model constructor.
-     * @property {module:model/ErrorResponse}
+     * The Errors model constructor.
+     * @property {module:model/Errors}
      */
-    ErrorResponse,
+    Errors,
+
+    /**
+     * The Log model constructor.
+     * @property {module:model/Log}
+     */
+    Log,
+
+    /**
+     * The LogResponse model constructor.
+     * @property {module:model/LogResponse}
+     */
+    LogResponse,
 
     /**
     * The DefaultApi service constructor.
     * @property {module:api/DefaultApi}
     */
-    DefaultApi
+    DefaultApi,
+
+    /**
+    * The LogApi service constructor.
+    * @property {module:api/LogApi}
+    */
+    LogApi
 };

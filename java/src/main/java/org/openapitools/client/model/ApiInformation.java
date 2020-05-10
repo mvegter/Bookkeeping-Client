@@ -25,9 +25,10 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * ApiInformation
+ * API information
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-10T17:24:55.589+01:00[Europe/London]")
+@ApiModel(description = "API information")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-10T22:06:45.373+01:00[Europe/London]")
 public class ApiInformation {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -45,10 +46,10 @@ public class ApiInformation {
   }
 
    /**
-   * Get name
+   * Name of the API
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Name of the API")
 
   public String getName() {
     return name;
@@ -67,10 +68,10 @@ public class ApiInformation {
   }
 
    /**
-   * Get version
+   * Version of the API
    * @return version
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Version of the API")
 
   public String getVersion() {
     return version;

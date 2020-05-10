@@ -12,7 +12,7 @@
 /*
  * OAIError.h
  *
- * 
+ * An Error object.
  */
 
 #ifndef OAIError_H

@@ -21,9 +21,10 @@ import ApiClient from '../ApiClient';
 class Error {
     /**
      * Constructs a new <code>Error</code>.
+     * An Error object.
      * @alias module:model/Error
-     * @param status {String} 
-     * @param title {String} 
+     * @param status {String} The HTTP status code applicable to this problem.
+     * @param title {String} A short, human-readable summary of the problem.
      */
     constructor(status, title) { 
         
@@ -68,16 +69,19 @@ class Error {
 }
 
 /**
+ * The HTTP status code applicable to this problem.
  * @member {String} status
  */
 Error.prototype['status'] = undefined;
 
 /**
+ * A short, human-readable summary of the problem.
  * @member {String} title
  */
 Error.prototype['title'] = undefined;
 
 /**
+ * A human-readable explanation specific to this occurrence of the problem.
  * @member {String} detail
  */
 Error.prototype['detail'] = undefined;

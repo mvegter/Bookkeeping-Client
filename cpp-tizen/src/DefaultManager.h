@@ -6,9 +6,8 @@
 #include <list>
 #include <glib.h>
 #include "ApiInformation.h"
-#include "DataResponse.h"
 #include "DeployInformation.h"
-#include "ErrorResponse.h"
+#include "Errors.h"
 #include "Error.h"
 
 /** \defgroup Operations API Endpoints
@@ -26,31 +25,6 @@ class DefaultManager {
 public:
 	DefaultManager();
 	virtual ~DefaultManager();
-
-/*! \brief Adds a new log. *Synchronous*
- *
- * 
- * \param handler The callback function to be invoked on completion. *Required*
- * \param accessToken The Authorization token. *Required*
- * \param userData The user data to be passed to the callback function.
- */
-bool createLogSync(char * accessToken,
-	
-	void(* handler)(DataResponse, Error, void* )
-	, void* userData);
-
-/*! \brief Adds a new log. *Asynchronous*
- *
- * 
- * \param handler The callback function to be invoked on completion. *Required*
- * \param accessToken The Authorization token. *Required*
- * \param userData The user data to be passed to the callback function.
- */
-bool createLogAsync(char * accessToken,
-	
-	void(* handler)(DataResponse, Error, void* )
-	, void* userData);
-
 
 /*! \brief Get deploy information. *Synchronous*
  *
@@ -74,33 +48,6 @@ bool getDeployInformationSync(char * accessToken,
 bool getDeployInformationAsync(char * accessToken,
 	
 	void(* handler)(DeployInformation, Error, void* )
-	, void* userData);
-
-
-/*! \brief Gets a log by Id. *Synchronous*
- *
- * 
- * \param id The id of the log to retrieve *Required*
- * \param handler The callback function to be invoked on completion. *Required*
- * \param accessToken The Authorization token. *Required*
- * \param userData The user data to be passed to the callback function.
- */
-bool getLogByIdSync(char * accessToken,
-	long long id, 
-	void(* handler)(DataResponse, Error, void* )
-	, void* userData);
-
-/*! \brief Gets a log by Id. *Asynchronous*
- *
- * 
- * \param id The id of the log to retrieve *Required*
- * \param handler The callback function to be invoked on completion. *Required*
- * \param accessToken The Authorization token. *Required*
- * \param userData The user data to be passed to the callback function.
- */
-bool getLogByIdAsync(char * accessToken,
-	long long id, 
-	void(* handler)(DataResponse, Error, void* )
 	, void* userData);
 
 

@@ -21,9 +21,10 @@ import ApiClient from '../ApiClient';
 class DeployInformation {
     /**
      * Constructs a new <code>DeployInformation</code>.
+     * Deploy information
      * @alias module:model/DeployInformation
-     * @param age {Number} 
-     * @param start {Number} 
+     * @param age {Number} The number of seconds that the server is online.
+     * @param start {Number} The unix timestamp of the moment that the the server went online.
      */
     constructor(age, start) { 
         
@@ -65,11 +66,13 @@ class DeployInformation {
 }
 
 /**
+ * The number of seconds that the server is online.
  * @member {Number} age
  */
 DeployInformation.prototype['age'] = undefined;
 
 /**
+ * The unix timestamp of the moment that the the server went online.
  * @member {Number} start
  */
 DeployInformation.prototype['start'] = undefined;

@@ -15,7 +15,9 @@ from __future__ import absolute_import
 
 # import models into model package
 from openapi_client.models.api_information import ApiInformation
-from openapi_client.models.data_response import DataResponse
+from openapi_client.models.array_of_logs_response import ArrayOfLogsResponse
 from openapi_client.models.deploy_information import DeployInformation
 from openapi_client.models.error import Error
-from openapi_client.models.error_response import ErrorResponse
+from openapi_client.models.errors import Errors
+from openapi_client.models.log import Log
+from openapi_client.models.log_response import LogResponse

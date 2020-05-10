@@ -1,7 +1,7 @@
 /*
  * DeployInformation.h
  *
- * 
+ * Deploy information
  */
 
 #ifndef _DeployInformation_H_
@@ -20,7 +20,7 @@ namespace Tizen {
 namespace ArtikCloud {
 
 
-/*! \brief 
+/*! \brief Deploy information
  *
  *  \ingroup Models
  *
@@ -45,18 +45,18 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get 
+	/*! \brief Get The number of seconds that the server is online.
 	 */
 	long long getAge();
 
-	/*! \brief Set 
+	/*! \brief Set The number of seconds that the server is online.
 	 */
 	void setAge(long long  age);
-	/*! \brief Get 
+	/*! \brief Get The unix timestamp of the moment that the the server went online.
 	 */
 	long long getStart();
 
-	/*! \brief Set 
+	/*! \brief Set The unix timestamp of the moment that the the server went online.
 	 */
 	void setStart(long long  start);
 

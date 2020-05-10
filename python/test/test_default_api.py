@@ -28,24 +28,10 @@ class TestDefaultApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_create_log(self):
-        """Test case for create_log
-
-        Adds a new log  # noqa: E501
-        """
-        pass
-
     def test_get_deploy_information(self):
         """Test case for get_deploy_information
 
         Get deploy information  # noqa: E501
-        """
-        pass
-
-    def test_get_log_by_id(self):
-        """Test case for get_log_by_id
-
-        Gets a log by Id  # noqa: E501
         """
         pass
 

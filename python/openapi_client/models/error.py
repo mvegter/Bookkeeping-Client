@@ -64,6 +64,7 @@ class Error(object):
     def status(self):
         """Gets the status of this Error.  # noqa: E501
 
+        The HTTP status code applicable to this problem.  # noqa: E501
 
         :return: The status of this Error.  # noqa: E501
         :rtype: str
@@ -74,6 +75,7 @@ class Error(object):
     def status(self, status):
         """Sets the status of this Error.
 
+        The HTTP status code applicable to this problem.  # noqa: E501
 
         :param status: The status of this Error.  # noqa: E501
         :type: str
@@ -87,6 +89,7 @@ class Error(object):
     def title(self):
         """Gets the title of this Error.  # noqa: E501
 
+        A short, human-readable summary of the problem.  # noqa: E501
 
         :return: The title of this Error.  # noqa: E501
         :rtype: str
@@ -97,6 +100,7 @@ class Error(object):
     def title(self, title):
         """Sets the title of this Error.
 
+        A short, human-readable summary of the problem.  # noqa: E501
 
         :param title: The title of this Error.  # noqa: E501
         :type: str
@@ -110,6 +114,7 @@ class Error(object):
     def detail(self):
         """Gets the detail of this Error.  # noqa: E501
 
+        A human-readable explanation specific to this occurrence of the problem.  # noqa: E501
 
         :return: The detail of this Error.  # noqa: E501
         :rtype: str
@@ -120,6 +125,7 @@ class Error(object):
     def detail(self, detail):
         """Sets the detail of this Error.
 
+        A human-readable explanation specific to this occurrence of the problem.  # noqa: E501
 
         :param detail: The detail of this Error.  # noqa: E501
         :type: str

@@ -59,6 +59,7 @@ class DeployInformation(object):
     def age(self):
         """Gets the age of this DeployInformation.  # noqa: E501
 
+        The number of seconds that the server is online.  # noqa: E501
 
         :return: The age of this DeployInformation.  # noqa: E501
         :rtype: float
@@ -69,6 +70,7 @@ class DeployInformation(object):
     def age(self, age):
         """Sets the age of this DeployInformation.
 
+        The number of seconds that the server is online.  # noqa: E501
 
         :param age: The age of this DeployInformation.  # noqa: E501
         :type: float
@@ -82,6 +84,7 @@ class DeployInformation(object):
     def start(self):
         """Gets the start of this DeployInformation.  # noqa: E501
 
+        The unix timestamp of the moment that the the server went online.  # noqa: E501
 
         :return: The start of this DeployInformation.  # noqa: E501
         :rtype: float
@@ -92,6 +95,7 @@ class DeployInformation(object):
     def start(self, start):
         """Sets the start of this DeployInformation.
 
+        The unix timestamp of the moment that the the server went online.  # noqa: E501
 
         :param start: The start of this DeployInformation.  # noqa: E501
         :type: float

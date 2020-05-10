@@ -14,9 +14,8 @@
 
 import ApiClient from "../ApiClient";
 import ApiInformation from '../model/ApiInformation';
-import DataResponse from '../model/DataResponse';
 import DeployInformation from '../model/DeployInformation';
-import ErrorResponse from '../model/ErrorResponse';
+import Errors from '../model/Errors';
 
 /**
 * Default service.
@@ -36,42 +35,6 @@ export default class DefaultApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
-
-    /**
-     * Callback function to receive the result of the createLog operation.
-     * @callback module:api/DefaultApi~createLogCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/DataResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Adds a new log
-     * @param {module:api/DefaultApi~createLogCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/DataResponse}
-     */
-    createLog(callback) {
-      let postBody = null;
-
-      let pathParams = {
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = DataResponse;
-      return this.apiClient.callApi(
-        '/logs', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
 
     /**
      * Callback function to receive the result of the getDeployInformation operation.
@@ -104,48 +67,6 @@ export default class DefaultApi {
       let returnType = DeployInformation;
       return this.apiClient.callApi(
         '/status', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the getLogById operation.
-     * @callback module:api/DefaultApi~getLogByIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/DataResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Gets a log by Id
-     * @param {Number} id The id of the log to retrieve
-     * @param {module:api/DefaultApi~getLogByIdCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/DataResponse}
-     */
-    getLogById(id, callback) {
-      let postBody = null;
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getLogById");
-      }
-
-      let pathParams = {
-        'id': id
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = DataResponse;
-      return this.apiClient.callApi(
-        '/logs/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
