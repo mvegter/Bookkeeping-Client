@@ -12,7 +12,7 @@
 /*
  * Error.h
  *
- * 
+ * An Error object.
  */
 
 #ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_Error_H_
@@ -30,7 +30,7 @@ namespace model {
 
 
 /// <summary>
-/// 
+/// An Error object.
 /// </summary>
 class  Error
     : public ModelBase
@@ -54,7 +54,7 @@ public:
     /// Error members
 
     /// <summary>
-    /// 
+    /// The HTTP status code applicable to this problem.
     /// </summary>
     utility::string_t getStatus() const;
     bool statusIsSet() const;
@@ -63,7 +63,7 @@ public:
     void setStatus(const utility::string_t& value);
 
     /// <summary>
-    /// 
+    /// A short, human-readable summary of the problem.
     /// </summary>
     utility::string_t getTitle() const;
     bool titleIsSet() const;
@@ -72,7 +72,7 @@ public:
     void setTitle(const utility::string_t& value);
 
     /// <summary>
-    /// 
+    /// A human-readable explanation specific to this occurrence of the problem.
     /// </summary>
     utility::string_t getDetail() const;
     bool detailIsSet() const;

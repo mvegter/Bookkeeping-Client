@@ -11,7 +11,7 @@
 
 
 
-#include "ErrorResponse.h"
+#include "Errors.h"
 
 namespace org {
 namespace openapitools {
@@ -21,21 +21,21 @@ namespace model {
 
 
 
-ErrorResponse::ErrorResponse()
+Errors::Errors()
 {
     m_ErrorsIsSet = false;
 }
 
-ErrorResponse::~ErrorResponse()
+Errors::~Errors()
 {
 }
 
-void ErrorResponse::validate()
+void Errors::validate()
 {
     // TODO: implement validation
 }
 
-web::json::value ErrorResponse::toJson() const
+web::json::value Errors::toJson() const
 {
 
     web::json::value val = web::json::value::object();
@@ -48,7 +48,7 @@ web::json::value ErrorResponse::toJson() const
     return val;
 }
 
-bool ErrorResponse::fromJson(const web::json::value& val)
+bool Errors::fromJson(const web::json::value& val)
 {
     bool ok = true;
     
@@ -65,7 +65,7 @@ bool ErrorResponse::fromJson(const web::json::value& val)
     return ok;
 }
 
-void ErrorResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
+void Errors::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
 {
     utility::string_t namePrefix = prefix;
     if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t("."))
@@ -78,7 +78,7 @@ void ErrorResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart, co
     }
 }
 
-bool ErrorResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
+bool Errors::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
 {
     bool ok = true;
     utility::string_t namePrefix = prefix;
@@ -96,23 +96,23 @@ bool ErrorResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, 
     return ok;
 }
 
-std::vector<std::shared_ptr<Error>>& ErrorResponse::getErrors()
+std::vector<std::shared_ptr<Error>>& Errors::getErrors()
 {
     return m_Errors;
 }
 
-void ErrorResponse::setErrors(const std::vector<std::shared_ptr<Error>>& value)
+void Errors::setErrors(const std::vector<std::shared_ptr<Error>>& value)
 {
     m_Errors = value;
     m_ErrorsIsSet = true;
 }
 
-bool ErrorResponse::errorsIsSet() const
+bool Errors::errorsIsSet() const
 {
     return m_ErrorsIsSet;
 }
 
-void ErrorResponse::unsetErrors()
+void Errors::unsetErrors()
 {
     m_ErrorsIsSet = false;
 }

@@ -10,18 +10,18 @@
  */
 
 /*
- * DataResponse.h
+ * Log.h
  *
- * 
+ * Describes an intervention or an event that happened.
  */
 
-#ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_DataResponse_H_
-#define ORG_OPENAPITOOLS_CLIENT_MODEL_DataResponse_H_
+#ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_Log_H_
+#define ORG_OPENAPITOOLS_CLIENT_MODEL_Log_H_
 
 
 #include "../ModelBase.h"
 
-#include "OneOfarrayobject.h"
+#include <cpprest/details/basic_types.h>
 
 namespace org {
 namespace openapitools {
@@ -30,14 +30,14 @@ namespace model {
 
 
 /// <summary>
-/// 
+/// Describes an intervention or an event that happened.
 /// </summary>
-class  DataResponse
+class  Log
     : public ModelBase
 {
 public:
-    DataResponse();
-    virtual ~DataResponse();
+    Log();
+    virtual ~Log();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -51,21 +51,21 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// DataResponse members
+    /// Log members
 
     /// <summary>
-    /// 
+    /// Title of the log.
     /// </summary>
-    std::shared_ptr<OneOfarrayobject> getData() const;
-    bool dataIsSet() const;
-    void unsetData();
+    utility::string_t getTitle() const;
+    bool titleIsSet() const;
+    void unsetTitle();
 
-    void setData(const std::shared_ptr<OneOfarrayobject>& value);
+    void setTitle(const utility::string_t& value);
 
 
 protected:
-    std::shared_ptr<OneOfarrayobject> m_Data;
-    bool m_DataIsSet;
+    utility::string_t m_Title;
+    bool m_TitleIsSet;
 };
 
 
@@ -74,4 +74,4 @@ protected:
 }
 }
 
-#endif /* ORG_OPENAPITOOLS_CLIENT_MODEL_DataResponse_H_ */
+#endif /* ORG_OPENAPITOOLS_CLIENT_MODEL_Log_H_ */

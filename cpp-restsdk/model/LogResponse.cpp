@@ -11,7 +11,7 @@
 
 
 
-#include "DataResponse.h"
+#include "LogResponse.h"
 
 namespace org {
 namespace openapitools {
@@ -21,21 +21,21 @@ namespace model {
 
 
 
-DataResponse::DataResponse()
+LogResponse::LogResponse()
 {
     m_DataIsSet = false;
 }
 
-DataResponse::~DataResponse()
+LogResponse::~LogResponse()
 {
 }
 
-void DataResponse::validate()
+void LogResponse::validate()
 {
     // TODO: implement validation
 }
 
-web::json::value DataResponse::toJson() const
+web::json::value LogResponse::toJson() const
 {
 
     web::json::value val = web::json::value::object();
@@ -48,7 +48,7 @@ web::json::value DataResponse::toJson() const
     return val;
 }
 
-bool DataResponse::fromJson(const web::json::value& val)
+bool LogResponse::fromJson(const web::json::value& val)
 {
     bool ok = true;
     
@@ -57,7 +57,7 @@ bool DataResponse::fromJson(const web::json::value& val)
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("data"));
         if(!fieldValue.is_null())
         {
-            std::shared_ptr<OneOfarrayobject> refVal_data;
+            std::shared_ptr<Log> refVal_data;
             ok &= ModelBase::fromJson(fieldValue, refVal_data);
             setData(refVal_data);
         }
@@ -65,7 +65,7 @@ bool DataResponse::fromJson(const web::json::value& val)
     return ok;
 }
 
-void DataResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
+void LogResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
 {
     utility::string_t namePrefix = prefix;
     if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t("."))
@@ -78,7 +78,7 @@ void DataResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart, con
     }
 }
 
-bool DataResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
+bool LogResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
 {
     bool ok = true;
     utility::string_t namePrefix = prefix;
@@ -89,30 +89,30 @@ bool DataResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, c
 
     if(multipart->hasContent(utility::conversions::to_string_t("data")))
     {
-        std::shared_ptr<OneOfarrayobject> refVal_data;
+        std::shared_ptr<Log> refVal_data;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("data")), refVal_data );
         setData(refVal_data);
     }
     return ok;
 }
 
-std::shared_ptr<OneOfarrayobject> DataResponse::getData() const
+std::shared_ptr<Log> LogResponse::getData() const
 {
     return m_Data;
 }
 
-void DataResponse::setData(const std::shared_ptr<OneOfarrayobject>& value)
+void LogResponse::setData(const std::shared_ptr<Log>& value)
 {
     m_Data = value;
     m_DataIsSet = true;
 }
 
-bool DataResponse::dataIsSet() const
+bool LogResponse::dataIsSet() const
 {
     return m_DataIsSet;
 }
 
-void DataResponse::unsetData()
+void LogResponse::unsetData()
 {
     m_DataIsSet = false;
 }

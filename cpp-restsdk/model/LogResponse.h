@@ -10,17 +10,18 @@
  */
 
 /*
- * DeployInformation.h
+ * LogResponse.h
  *
- * Deploy information
+ * Response containing a single log.
  */
 
-#ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_DeployInformation_H_
-#define ORG_OPENAPITOOLS_CLIENT_MODEL_DeployInformation_H_
+#ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_LogResponse_H_
+#define ORG_OPENAPITOOLS_CLIENT_MODEL_LogResponse_H_
 
 
 #include "../ModelBase.h"
 
+#include "Log.h"
 
 namespace org {
 namespace openapitools {
@@ -29,14 +30,14 @@ namespace model {
 
 
 /// <summary>
-/// Deploy information
+/// Response containing a single log.
 /// </summary>
-class  DeployInformation
+class  LogResponse
     : public ModelBase
 {
 public:
-    DeployInformation();
-    virtual ~DeployInformation();
+    LogResponse();
+    virtual ~LogResponse();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -50,32 +51,21 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// DeployInformation members
+    /// LogResponse members
 
     /// <summary>
-    /// The number of seconds that the server is online.
+    /// 
     /// </summary>
-    double getAge() const;
-    bool ageIsSet() const;
-    void unsetAge();
+    std::shared_ptr<Log> getData() const;
+    bool dataIsSet() const;
+    void unsetData();
 
-    void setAge(double value);
-
-    /// <summary>
-    /// The unix timestamp of the moment that the the server went online.
-    /// </summary>
-    double getStart() const;
-    bool startIsSet() const;
-    void unsetStart();
-
-    void setStart(double value);
+    void setData(const std::shared_ptr<Log>& value);
 
 
 protected:
-    double m_Age;
-    bool m_AgeIsSet;
-    double m_Start;
-    bool m_StartIsSet;
+    std::shared_ptr<Log> m_Data;
+    bool m_DataIsSet;
 };
 
 
@@ -84,4 +74,4 @@ protected:
 }
 }
 
-#endif /* ORG_OPENAPITOOLS_CLIENT_MODEL_DeployInformation_H_ */
+#endif /* ORG_OPENAPITOOLS_CLIENT_MODEL_LogResponse_H_ */

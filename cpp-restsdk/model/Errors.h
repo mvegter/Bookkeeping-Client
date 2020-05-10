@@ -10,13 +10,13 @@
  */
 
 /*
- * ErrorResponse.h
+ * Errors.h
  *
- * 
+ * A list of Error objects.
  */
 
-#ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_ErrorResponse_H_
-#define ORG_OPENAPITOOLS_CLIENT_MODEL_ErrorResponse_H_
+#ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_Errors_H_
+#define ORG_OPENAPITOOLS_CLIENT_MODEL_Errors_H_
 
 
 #include "../ModelBase.h"
@@ -31,14 +31,14 @@ namespace model {
 
 
 /// <summary>
-/// 
+/// A list of Error objects.
 /// </summary>
-class  ErrorResponse
+class  Errors
     : public ModelBase
 {
 public:
-    ErrorResponse();
-    virtual ~ErrorResponse();
+    Errors();
+    virtual ~Errors();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -52,10 +52,10 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// ErrorResponse members
+    /// Errors members
 
     /// <summary>
-    /// 
+    /// A list of Error objects.
     /// </summary>
     std::vector<std::shared_ptr<Error>>& getErrors();
     bool errorsIsSet() const;
@@ -75,4 +75,4 @@ protected:
 }
 }
 
-#endif /* ORG_OPENAPITOOLS_CLIENT_MODEL_ErrorResponse_H_ */
+#endif /* ORG_OPENAPITOOLS_CLIENT_MODEL_Errors_H_ */

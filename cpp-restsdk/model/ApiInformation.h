@@ -12,7 +12,7 @@
 /*
  * ApiInformation.h
  *
- * 
+ * API information
  */
 
 #ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_ApiInformation_H_
@@ -30,7 +30,7 @@ namespace model {
 
 
 /// <summary>
-/// 
+/// API information
 /// </summary>
 class  ApiInformation
     : public ModelBase
@@ -54,7 +54,7 @@ public:
     /// ApiInformation members
 
     /// <summary>
-    /// 
+    /// Name of the API
     /// </summary>
     utility::string_t getName() const;
     bool nameIsSet() const;
@@ -63,7 +63,7 @@ public:
     void setName(const utility::string_t& value);
 
     /// <summary>
-    /// 
+    /// Version of the API
     /// </summary>
     utility::string_t getVersion() const;
     bool versionIsSet() const;

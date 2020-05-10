@@ -10,17 +10,19 @@
  */
 
 /*
- * DeployInformation.h
+ * ArrayOfLogsResponse.h
  *
- * Deploy information
+ * Response containing multiple logs.
  */
 
-#ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_DeployInformation_H_
-#define ORG_OPENAPITOOLS_CLIENT_MODEL_DeployInformation_H_
+#ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_ArrayOfLogsResponse_H_
+#define ORG_OPENAPITOOLS_CLIENT_MODEL_ArrayOfLogsResponse_H_
 
 
 #include "../ModelBase.h"
 
+#include <vector>
+#include "Log.h"
 
 namespace org {
 namespace openapitools {
@@ -29,14 +31,14 @@ namespace model {
 
 
 /// <summary>
-/// Deploy information
+/// Response containing multiple logs.
 /// </summary>
-class  DeployInformation
+class  ArrayOfLogsResponse
     : public ModelBase
 {
 public:
-    DeployInformation();
-    virtual ~DeployInformation();
+    ArrayOfLogsResponse();
+    virtual ~ArrayOfLogsResponse();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -50,32 +52,21 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// DeployInformation members
+    /// ArrayOfLogsResponse members
 
     /// <summary>
-    /// The number of seconds that the server is online.
+    /// A list of Log objects.
     /// </summary>
-    double getAge() const;
-    bool ageIsSet() const;
-    void unsetAge();
+    std::vector<std::shared_ptr<Log>>& getData();
+    bool dataIsSet() const;
+    void unsetData();
 
-    void setAge(double value);
-
-    /// <summary>
-    /// The unix timestamp of the moment that the the server went online.
-    /// </summary>
-    double getStart() const;
-    bool startIsSet() const;
-    void unsetStart();
-
-    void setStart(double value);
+    void setData(const std::vector<std::shared_ptr<Log>>& value);
 
 
 protected:
-    double m_Age;
-    bool m_AgeIsSet;
-    double m_Start;
-    bool m_StartIsSet;
+    std::vector<std::shared_ptr<Log>> m_Data;
+    bool m_DataIsSet;
 };
 
 
@@ -84,4 +75,4 @@ protected:
 }
 }
 
-#endif /* ORG_OPENAPITOOLS_CLIENT_MODEL_DeployInformation_H_ */
+#endif /* ORG_OPENAPITOOLS_CLIENT_MODEL_ArrayOfLogsResponse_H_ */

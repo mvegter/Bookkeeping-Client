@@ -10,20 +10,20 @@
  */
 
 /*
- * DefaultApi.h
+ * LogApi.h
  *
  * 
  */
 
-#ifndef ORG_OPENAPITOOLS_CLIENT_API_DefaultApi_H_
-#define ORG_OPENAPITOOLS_CLIENT_API_DefaultApi_H_
+#ifndef ORG_OPENAPITOOLS_CLIENT_API_LogApi_H_
+#define ORG_OPENAPITOOLS_CLIENT_API_LogApi_H_
 
 
 #include "../ApiClient.h"
 
-#include "ApiInformation.h"
-#include "DeployInformation.h"
+#include "ArrayOfLogsResponse.h"
 #include "Errors.h"
+#include "LogResponse.h"
 
 
 #include <boost/optional.hpp>
@@ -37,29 +37,39 @@ using namespace org::openapitools::client::model;
 
 
 
-class  DefaultApi 
+class  LogApi 
 {
 public:
 
-    explicit DefaultApi( std::shared_ptr<const ApiClient> apiClient );
+    explicit LogApi( std::shared_ptr<const ApiClient> apiClient );
 
-    virtual ~DefaultApi();
+    virtual ~LogApi();
 
     /// <summary>
-    /// Get deploy information
+    /// Adds a new log
     /// </summary>
     /// <remarks>
     /// 
     /// </remarks>
-    pplx::task<std::shared_ptr<DeployInformation>> getDeployInformation(
+    pplx::task<std::shared_ptr<LogResponse>> createLog(
     ) const;
     /// <summary>
-    /// Get server information
+    /// Gets a log by Id
     /// </summary>
     /// <remarks>
     /// 
     /// </remarks>
-    pplx::task<std::shared_ptr<ApiInformation>> getServerInformation(
+    /// <param name="id">The id of the log to retrieve</param>
+    pplx::task<std::shared_ptr<LogResponse>> getLogById(
+        int64_t id
+    ) const;
+    /// <summary>
+    /// List all logs
+    /// </summary>
+    /// <remarks>
+    /// 
+    /// </remarks>
+    pplx::task<std::shared_ptr<ArrayOfLogsResponse>> listLogs(
     ) const;
 
 protected:
@@ -71,5 +81,5 @@ protected:
 }
 }
 
-#endif /* ORG_OPENAPITOOLS_CLIENT_API_DefaultApi_H_ */
+#endif /* ORG_OPENAPITOOLS_CLIENT_API_LogApi_H_ */
 
