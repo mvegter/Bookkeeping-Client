@@ -14,9 +14,9 @@
 package org.openapitools.client.api;
 
 import org.openapitools.client.ApiException;
-import org.openapitools.client.model.ApiInformation;
-import org.openapitools.client.model.DeployInformation;
+import org.openapitools.client.model.ArrayOfLogsResponse;
 import org.openapitools.client.model.Errors;
+import org.openapitools.client.model.LogResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -26,16 +26,16 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * API tests for DefaultApi
+ * API tests for LogApi
  */
 @Ignore
-public class DefaultApiTest {
+public class LogApiTest {
 
-    private final DefaultApi api = new DefaultApi();
+    private final LogApi api = new LogApi();
 
     
     /**
-     * Get deploy information
+     * Adds a new log
      *
      * 
      *
@@ -43,14 +43,14 @@ public class DefaultApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getDeployInformationTest() throws ApiException {
-        DeployInformation response = api.getDeployInformation();
+    public void createLogTest() throws ApiException {
+        LogResponse response = api.createLog();
 
         // TODO: test validations
     }
     
     /**
-     * Get server information
+     * Gets a log by Id
      *
      * 
      *
@@ -58,8 +58,24 @@ public class DefaultApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getServerInformationTest() throws ApiException {
-        ApiInformation response = api.getServerInformation();
+    public void getLogByIdTest() throws ApiException {
+        Long id = null;
+        LogResponse response = api.getLogById(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List all logs
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listLogsTest() throws ApiException {
+        ArrayOfLogsResponse response = api.listLogs();
 
         // TODO: test validations
     }

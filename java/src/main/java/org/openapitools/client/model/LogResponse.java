@@ -23,44 +23,38 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import org.openapitools.client.model.Error;
+import org.openapitools.client.model.Log;
 
 /**
- * ErrorResponse
+ * Response containing a single log.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-10T17:24:55.589+01:00[Europe/London]")
-public class ErrorResponse {
-  public static final String SERIALIZED_NAME_ERRORS = "errors";
-  @SerializedName(SERIALIZED_NAME_ERRORS)
-  private List<Error> errors = new ArrayList<Error>();
+@ApiModel(description = "Response containing a single log.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-10T22:06:45.373+01:00[Europe/London]")
+public class LogResponse {
+  public static final String SERIALIZED_NAME_DATA = "data";
+  @SerializedName(SERIALIZED_NAME_DATA)
+  private Log data;
 
 
-  public ErrorResponse errors(List<Error> errors) {
+  public LogResponse data(Log data) {
     
-    this.errors = errors;
-    return this;
-  }
-
-  public ErrorResponse addErrorsItem(Error errorsItem) {
-    this.errors.add(errorsItem);
+    this.data = data;
     return this;
   }
 
    /**
-   * Get errors
-   * @return errors
+   * Get data
+   * @return data
   **/
   @ApiModelProperty(required = true, value = "")
 
-  public List<Error> getErrors() {
-    return errors;
+  public Log getData() {
+    return data;
   }
 
 
-  public void setErrors(List<Error> errors) {
-    this.errors = errors;
+  public void setData(Log data) {
+    this.data = data;
   }
 
 
@@ -72,21 +66,21 @@ public class ErrorResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ErrorResponse errorResponse = (ErrorResponse) o;
-    return Objects.equals(this.errors, errorResponse.errors);
+    LogResponse logResponse = (LogResponse) o;
+    return Objects.equals(this.data, logResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errors);
+    return Objects.hash(data);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ErrorResponse {\n");
-    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("class LogResponse {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

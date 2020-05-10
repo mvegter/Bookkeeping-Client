@@ -23,63 +23,45 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import org.openapitools.client.model.Error;
 
 /**
- * API information
+ * A list of Error objects.
  */
-@ApiModel(description = "API information")
+@ApiModel(description = "A list of Error objects.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-10T22:06:45.373+01:00[Europe/London]")
-public class ApiInformation {
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
-
-  public static final String SERIALIZED_NAME_VERSION = "version";
-  @SerializedName(SERIALIZED_NAME_VERSION)
-  private String version;
+public class Errors {
+  public static final String SERIALIZED_NAME_ERRORS = "errors";
+  @SerializedName(SERIALIZED_NAME_ERRORS)
+  private List<Error> errors = new ArrayList<Error>();
 
 
-  public ApiInformation name(String name) {
+  public Errors errors(List<Error> errors) {
     
-    this.name = name;
+    this.errors = errors;
+    return this;
+  }
+
+  public Errors addErrorsItem(Error errorsItem) {
+    this.errors.add(errorsItem);
     return this;
   }
 
    /**
-   * Name of the API
-   * @return name
+   * A list of Error objects.
+   * @return errors
   **/
-  @ApiModelProperty(required = true, value = "Name of the API")
+  @ApiModelProperty(required = true, value = "A list of Error objects.")
 
-  public String getName() {
-    return name;
+  public List<Error> getErrors() {
+    return errors;
   }
 
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public ApiInformation version(String version) {
-    
-    this.version = version;
-    return this;
-  }
-
-   /**
-   * Version of the API
-   * @return version
-  **/
-  @ApiModelProperty(required = true, value = "Version of the API")
-
-  public String getVersion() {
-    return version;
-  }
-
-
-  public void setVersion(String version) {
-    this.version = version;
+  public void setErrors(List<Error> errors) {
+    this.errors = errors;
   }
 
 
@@ -91,23 +73,21 @@ public class ApiInformation {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ApiInformation apiInformation = (ApiInformation) o;
-    return Objects.equals(this.name, apiInformation.name) &&
-        Objects.equals(this.version, apiInformation.version);
+    Errors errors = (Errors) o;
+    return Objects.equals(this.errors, errors.errors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, version);
+    return Objects.hash(errors);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ApiInformation {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("class Errors {\n");
+    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");
     return sb.toString();
   }

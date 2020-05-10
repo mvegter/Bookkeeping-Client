@@ -23,63 +23,45 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import org.openapitools.client.model.Log;
 
 /**
- * API information
+ * Response containing multiple logs.
  */
-@ApiModel(description = "API information")
+@ApiModel(description = "Response containing multiple logs.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-10T22:06:45.373+01:00[Europe/London]")
-public class ApiInformation {
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
-
-  public static final String SERIALIZED_NAME_VERSION = "version";
-  @SerializedName(SERIALIZED_NAME_VERSION)
-  private String version;
+public class ArrayOfLogsResponse {
+  public static final String SERIALIZED_NAME_DATA = "data";
+  @SerializedName(SERIALIZED_NAME_DATA)
+  private List<Log> data = new ArrayList<Log>();
 
 
-  public ApiInformation name(String name) {
+  public ArrayOfLogsResponse data(List<Log> data) {
     
-    this.name = name;
+    this.data = data;
+    return this;
+  }
+
+  public ArrayOfLogsResponse addDataItem(Log dataItem) {
+    this.data.add(dataItem);
     return this;
   }
 
    /**
-   * Name of the API
-   * @return name
+   * A list of Log objects.
+   * @return data
   **/
-  @ApiModelProperty(required = true, value = "Name of the API")
+  @ApiModelProperty(required = true, value = "A list of Log objects.")
 
-  public String getName() {
-    return name;
+  public List<Log> getData() {
+    return data;
   }
 
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public ApiInformation version(String version) {
-    
-    this.version = version;
-    return this;
-  }
-
-   /**
-   * Version of the API
-   * @return version
-  **/
-  @ApiModelProperty(required = true, value = "Version of the API")
-
-  public String getVersion() {
-    return version;
-  }
-
-
-  public void setVersion(String version) {
-    this.version = version;
+  public void setData(List<Log> data) {
+    this.data = data;
   }
 
 
@@ -91,23 +73,21 @@ public class ApiInformation {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ApiInformation apiInformation = (ApiInformation) o;
-    return Objects.equals(this.name, apiInformation.name) &&
-        Objects.equals(this.version, apiInformation.version);
+    ArrayOfLogsResponse arrayOfLogsResponse = (ArrayOfLogsResponse) o;
+    return Objects.equals(this.data, arrayOfLogsResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, version);
+    return Objects.hash(data);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ApiInformation {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("class ArrayOfLogsResponse {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

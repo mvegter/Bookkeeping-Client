@@ -26,9 +26,10 @@ import java.io.IOException;
 import java.math.BigDecimal;
 
 /**
- * DeployInformation
+ * Deploy information
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-10T17:24:55.589+01:00[Europe/London]")
+@ApiModel(description = "Deploy information")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-10T22:06:45.373+01:00[Europe/London]")
 public class DeployInformation {
   public static final String SERIALIZED_NAME_AGE = "age";
   @SerializedName(SERIALIZED_NAME_AGE)
@@ -46,10 +47,10 @@ public class DeployInformation {
   }
 
    /**
-   * Get age
+   * The number of seconds that the server is online.
    * @return age
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The number of seconds that the server is online.")
 
   public BigDecimal getAge() {
     return age;
@@ -68,10 +69,10 @@ public class DeployInformation {
   }
 
    /**
-   * Get start
+   * The unix timestamp of the moment that the the server went online.
    * @return start
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The unix timestamp of the moment that the the server went online.")
 
   public BigDecimal getStart() {
     return start;

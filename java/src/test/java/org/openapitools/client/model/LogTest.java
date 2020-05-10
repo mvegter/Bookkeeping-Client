@@ -21,32 +21,31 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.openapitools.client.model.OneOfarrayobject;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for DataResponse
+ * Model tests for Log
  */
-public class DataResponseTest {
-    private final DataResponse model = new DataResponse();
+public class LogTest {
+    private final Log model = new Log();
 
     /**
-     * Model tests for DataResponse
+     * Model tests for Log
      */
     @Test
-    public void testDataResponse() {
-        // TODO: test DataResponse
+    public void testLog() {
+        // TODO: test Log
     }
 
     /**
-     * Test the property 'data'
+     * Test the property 'title'
      */
     @Test
-    public void dataTest() {
-        // TODO: test data
+    public void titleTest() {
+        // TODO: test title
     }
 
 }

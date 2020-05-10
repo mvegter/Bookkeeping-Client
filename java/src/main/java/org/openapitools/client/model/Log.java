@@ -23,37 +23,37 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.openapitools.client.model.OneOfarrayobject;
 
 /**
- * DataResponse
+ * Describes an intervention or an event that happened.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-10T17:24:55.589+01:00[Europe/London]")
-public class DataResponse {
-  public static final String SERIALIZED_NAME_DATA = "data";
-  @SerializedName(SERIALIZED_NAME_DATA)
-  private OneOfarrayobject data = null;
+@ApiModel(description = "Describes an intervention or an event that happened.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-10T22:06:45.373+01:00[Europe/London]")
+public class Log {
+  public static final String SERIALIZED_NAME_TITLE = "title";
+  @SerializedName(SERIALIZED_NAME_TITLE)
+  private String title;
 
 
-  public DataResponse data(OneOfarrayobject data) {
+  public Log title(String title) {
     
-    this.data = data;
+    this.title = title;
     return this;
   }
 
    /**
-   * Get data
-   * @return data
+   * Title of the log.
+   * @return title
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "Title of the log.")
 
-  public OneOfarrayobject getData() {
-    return data;
+  public String getTitle() {
+    return title;
   }
 
 
-  public void setData(OneOfarrayobject data) {
-    this.data = data;
+  public void setTitle(String title) {
+    this.title = title;
   }
 
 
@@ -65,21 +65,21 @@ public class DataResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DataResponse dataResponse = (DataResponse) o;
-    return Objects.equals(this.data, dataResponse.data);
+    Log log = (Log) o;
+    return Objects.equals(this.title, log.title);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(title);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DataResponse {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class Log {\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("}");
     return sb.toString();
   }
