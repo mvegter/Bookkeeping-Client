@@ -1,14 +1,16 @@
 /*
- * ApiInformation.h
+ * ArrayOfLogsResponse.h
  *
- * API information
+ * Response containing multiple logs.
  */
 
-#ifndef _ApiInformation_H_
-#define _ApiInformation_H_
+#ifndef _ArrayOfLogsResponse_H_
+#define _ArrayOfLogsResponse_H_
 
 
 #include <string>
+#include "Log.h"
+#include <list>
 #include "Object.h"
 
 /** \defgroup Models Data Structures for API
@@ -20,22 +22,22 @@ namespace Tizen {
 namespace ArtikCloud {
 
 
-/*! \brief API information
+/*! \brief Response containing multiple logs.
  *
  *  \ingroup Models
  *
  */
 
-class ApiInformation : public Object {
+class ArrayOfLogsResponse : public Object {
 public:
 	/*! \brief Constructor.
 	 */
-	ApiInformation();
-	ApiInformation(char* str);
+	ArrayOfLogsResponse();
+	ArrayOfLogsResponse(char* str);
 
 	/*! \brief Destructor.
 	 */
-	virtual ~ApiInformation();
+	virtual ~ArrayOfLogsResponse();
 
 	/*! \brief Retrieve a string JSON representation of this class.
 	 */
@@ -45,24 +47,16 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get Name of the API
+	/*! \brief Get A list of Log objects.
 	 */
-	std::string getName();
+	std::list<Log> getData();
 
-	/*! \brief Set Name of the API
+	/*! \brief Set A list of Log objects.
 	 */
-	void setName(std::string  name);
-	/*! \brief Get Version of the API
-	 */
-	std::string getVersion();
-
-	/*! \brief Set Version of the API
-	 */
-	void setVersion(std::string  version);
+	void setData(std::list <Log> data);
 
 private:
-	std::string name;
-	std::string version;
+	std::list <Log>data;
 	void __init();
 	void __cleanup();
 
@@ -70,4 +64,4 @@ private:
 }
 }
 
-#endif /* _ApiInformation_H_ */
+#endif /* _ArrayOfLogsResponse_H_ */

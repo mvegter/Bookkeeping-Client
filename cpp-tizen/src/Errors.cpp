@@ -5,29 +5,29 @@
 #include "Helpers.h"
 
 
-#include "ErrorResponse.h"
+#include "Errors.h"
 
 using namespace std;
 using namespace Tizen::ArtikCloud;
 
-ErrorResponse::ErrorResponse()
+Errors::Errors()
 {
 	//__init();
 }
 
-ErrorResponse::~ErrorResponse()
+Errors::~Errors()
 {
 	//__cleanup();
 }
 
 void
-ErrorResponse::__init()
+Errors::__init()
 {
 	//new std::list()std::list> errors;
 }
 
 void
-ErrorResponse::__cleanup()
+Errors::__cleanup()
 {
 	//if(errors != NULL) {
 	//errors.RemoveAll(true);
@@ -38,7 +38,7 @@ ErrorResponse::__cleanup()
 }
 
 void
-ErrorResponse::fromJson(char* jsonStr)
+Errors::fromJson(char* jsonStr)
 {
 	JsonObject *pJsonObject = json_node_get_object(json_from_string(jsonStr,NULL));
 	JsonNode *node;
@@ -68,13 +68,13 @@ ErrorResponse::fromJson(char* jsonStr)
 	}
 }
 
-ErrorResponse::ErrorResponse(char* json)
+Errors::Errors(char* json)
 {
 	this->fromJson(json);
 }
 
 char*
-ErrorResponse::toJson()
+Errors::toJson()
 {
 	JsonObject *pJsonObject = json_object_new();
 	JsonNode *node;
@@ -112,13 +112,13 @@ ErrorResponse::toJson()
 }
 
 std::list<Error>
-ErrorResponse::getErrors()
+Errors::getErrors()
 {
 	return errors;
 }
 
 void
-ErrorResponse::setErrors(std::list <Error> errors)
+Errors::setErrors(std::list <Error> errors)
 {
 	this->errors = errors;
 }

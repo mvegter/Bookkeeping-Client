@@ -41,22 +41,30 @@ All URIs are relative to http://localhosthttp://localhost/api
 ### DefaultManager
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-*createLogSync* | *POST* /logs | Adds a new log.
-*createLogASync* | *POST* /logs | Adds a new log.
 *getDeployInformationSync* | *GET* /status | Get deploy information.
 *getDeployInformationASync* | *GET* /status | Get deploy information.
-*getLogByIdSync* | *GET* /logs/{id} | Gets a log by Id.
-*getLogByIdASync* | *GET* /logs/{id} | Gets a log by Id.
 *getServerInformationSync* | *GET* / | Get server information.
 *getServerInformationASync* | *GET* / | Get server information.
+
+### LogManager
+Method | HTTP request | Description
+------------- | ------------- | -------------
+*createLogSync* | *POST* /logs | Adds a new log.
+*createLogASync* | *POST* /logs | Adds a new log.
+*getLogByIdSync* | *GET* /logs/{id} | Gets a log by Id.
+*getLogByIdASync* | *GET* /logs/{id} | Gets a log by Id.
+*listLogsSync* | *GET* /logs | List all logs.
+*listLogsASync* | *GET* /logs | List all logs.
 
 
 ## What are the Model files for the data structures/objects?
 Class | Description
 ------------- | -------------
- *ApiInformation* | 
- *DataResponse* | 
- *DeployInformation* | 
- *Error* | 
- *ErrorResponse* | 
+ *ApiInformation* | API information
+ *ArrayOfLogsResponse* | Response containing multiple logs.
+ *DeployInformation* | Deploy information
+ *Error* | An Error object.
+ *Errors* | A list of Error objects.
+ *Log* | Describes an intervention or an event that happened.
+ *LogResponse* | Response containing a single log.
 

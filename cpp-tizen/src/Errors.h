@@ -1,14 +1,16 @@
 /*
- * ApiInformation.h
+ * Errors.h
  *
- * API information
+ * A list of Error objects.
  */
 
-#ifndef _ApiInformation_H_
-#define _ApiInformation_H_
+#ifndef _Errors_H_
+#define _Errors_H_
 
 
 #include <string>
+#include "Error.h"
+#include <list>
 #include "Object.h"
 
 /** \defgroup Models Data Structures for API
@@ -20,22 +22,22 @@ namespace Tizen {
 namespace ArtikCloud {
 
 
-/*! \brief API information
+/*! \brief A list of Error objects.
  *
  *  \ingroup Models
  *
  */
 
-class ApiInformation : public Object {
+class Errors : public Object {
 public:
 	/*! \brief Constructor.
 	 */
-	ApiInformation();
-	ApiInformation(char* str);
+	Errors();
+	Errors(char* str);
 
 	/*! \brief Destructor.
 	 */
-	virtual ~ApiInformation();
+	virtual ~Errors();
 
 	/*! \brief Retrieve a string JSON representation of this class.
 	 */
@@ -45,24 +47,16 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get Name of the API
+	/*! \brief Get A list of Error objects.
 	 */
-	std::string getName();
+	std::list<Error> getErrors();
 
-	/*! \brief Set Name of the API
+	/*! \brief Set A list of Error objects.
 	 */
-	void setName(std::string  name);
-	/*! \brief Get Version of the API
-	 */
-	std::string getVersion();
-
-	/*! \brief Set Version of the API
-	 */
-	void setVersion(std::string  version);
+	void setErrors(std::list <Error> errors);
 
 private:
-	std::string name;
-	std::string version;
+	std::list <Error>errors;
 	void __init();
 	void __cleanup();
 
@@ -70,4 +64,4 @@ private:
 }
 }
 
-#endif /* _ApiInformation_H_ */
+#endif /* _Errors_H_ */

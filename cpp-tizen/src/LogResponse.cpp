@@ -5,29 +5,29 @@
 #include "Helpers.h"
 
 
-#include "DataResponse.h"
+#include "LogResponse.h"
 
 using namespace std;
 using namespace Tizen::ArtikCloud;
 
-DataResponse::DataResponse()
+LogResponse::LogResponse()
 {
 	//__init();
 }
 
-DataResponse::~DataResponse()
+LogResponse::~LogResponse()
 {
 	//__cleanup();
 }
 
 void
-DataResponse::__init()
+LogResponse::__init()
 {
-	//data = null;
+	//data = new Log();
 }
 
 void
-DataResponse::__cleanup()
+LogResponse::__cleanup()
 {
 	//if(data != NULL) {
 	//
@@ -38,7 +38,7 @@ DataResponse::__cleanup()
 }
 
 void
-DataResponse::fromJson(char* jsonStr)
+LogResponse::fromJson(char* jsonStr)
 {
 	JsonObject *pJsonObject = json_node_get_object(json_from_string(jsonStr,NULL));
 	JsonNode *node;
@@ -47,34 +47,34 @@ DataResponse::fromJson(char* jsonStr)
 	if (node !=NULL) {
 	
 
-		if (isprimitive("OneOf&lt;array,object&gt;")) {
-			jsonToValue(&data, node, "OneOf&lt;array,object&gt;", "OneOf&lt;array,object&gt;");
+		if (isprimitive("Log")) {
+			jsonToValue(&data, node, "Log", "Log");
 		} else {
 			
-			OneOf&lt;array,object&gt;* obj = static_cast<OneOf&lt;array,object&gt;*> (&data);
+			Log* obj = static_cast<Log*> (&data);
 			obj->fromJson(json_to_string(node, false));
 			
 		}
 	}
 }
 
-DataResponse::DataResponse(char* json)
+LogResponse::LogResponse(char* json)
 {
 	this->fromJson(json);
 }
 
 char*
-DataResponse::toJson()
+LogResponse::toJson()
 {
 	JsonObject *pJsonObject = json_object_new();
 	JsonNode *node;
-	if (isprimitive("OneOf&lt;array,object&gt;")) {
-		OneOf&lt;array,object&gt; obj = getData();
-		node = converttoJson(&obj, "OneOf&lt;array,object&gt;", "");
+	if (isprimitive("Log")) {
+		Log obj = getData();
+		node = converttoJson(&obj, "Log", "");
 	}
 	else {
 		
-		OneOf&lt;array,object&gt; obj = static_cast<OneOf&lt;array,object&gt;> (getData());
+		Log obj = static_cast<Log> (getData());
 		GError *mygerror;
 		mygerror = NULL;
 		node = json_from_string(obj.toJson(), &mygerror);
@@ -90,14 +90,14 @@ DataResponse::toJson()
 	return ret;
 }
 
-OneOf&lt;array,object&gt;
-DataResponse::getData()
+Log
+LogResponse::getData()
 {
 	return data;
 }
 
 void
-DataResponse::setData(OneOf&lt;array,object&gt;  data)
+LogResponse::setData(Log  data)
 {
 	this->data = data;
 }

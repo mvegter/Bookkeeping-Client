@@ -1,15 +1,15 @@
 /*
- * DataResponse.h
+ * LogResponse.h
  *
- * 
+ * Response containing a single log.
  */
 
-#ifndef _DataResponse_H_
-#define _DataResponse_H_
+#ifndef _LogResponse_H_
+#define _LogResponse_H_
 
 
 #include <string>
-#include "OneOf<array,object>.h"
+#include "Log.h"
 #include "Object.h"
 
 /** \defgroup Models Data Structures for API
@@ -21,22 +21,22 @@ namespace Tizen {
 namespace ArtikCloud {
 
 
-/*! \brief 
+/*! \brief Response containing a single log.
  *
  *  \ingroup Models
  *
  */
 
-class DataResponse : public Object {
+class LogResponse : public Object {
 public:
 	/*! \brief Constructor.
 	 */
-	DataResponse();
-	DataResponse(char* str);
+	LogResponse();
+	LogResponse(char* str);
 
 	/*! \brief Destructor.
 	 */
-	virtual ~DataResponse();
+	virtual ~LogResponse();
 
 	/*! \brief Retrieve a string JSON representation of this class.
 	 */
@@ -48,14 +48,14 @@ public:
 
 	/*! \brief Get 
 	 */
-	OneOf&lt;array,object&gt; getData();
+	Log getData();
 
 	/*! \brief Set 
 	 */
-	void setData(OneOf&lt;array,object&gt;  data);
+	void setData(Log  data);
 
 private:
-	OneOf&lt;array,object&gt; data;
+	Log data;
 	void __init();
 	void __cleanup();
 
@@ -63,4 +63,4 @@ private:
 }
 }
 
-#endif /* _DataResponse_H_ */
+#endif /* _LogResponse_H_ */

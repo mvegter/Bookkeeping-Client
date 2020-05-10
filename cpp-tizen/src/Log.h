@@ -1,16 +1,14 @@
 /*
- * ErrorResponse.h
+ * Log.h
  *
- * 
+ * Describes an intervention or an event that happened.
  */
 
-#ifndef _ErrorResponse_H_
-#define _ErrorResponse_H_
+#ifndef _Log_H_
+#define _Log_H_
 
 
 #include <string>
-#include "Error.h"
-#include <list>
 #include "Object.h"
 
 /** \defgroup Models Data Structures for API
@@ -22,22 +20,22 @@ namespace Tizen {
 namespace ArtikCloud {
 
 
-/*! \brief 
+/*! \brief Describes an intervention or an event that happened.
  *
  *  \ingroup Models
  *
  */
 
-class ErrorResponse : public Object {
+class Log : public Object {
 public:
 	/*! \brief Constructor.
 	 */
-	ErrorResponse();
-	ErrorResponse(char* str);
+	Log();
+	Log(char* str);
 
 	/*! \brief Destructor.
 	 */
-	virtual ~ErrorResponse();
+	virtual ~Log();
 
 	/*! \brief Retrieve a string JSON representation of this class.
 	 */
@@ -47,16 +45,16 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get 
+	/*! \brief Get Title of the log.
 	 */
-	std::list<Error> getErrors();
+	std::string getTitle();
 
-	/*! \brief Set 
+	/*! \brief Set Title of the log.
 	 */
-	void setErrors(std::list <Error> errors);
+	void setTitle(std::string  title);
 
 private:
-	std::list <Error>errors;
+	std::string title;
 	void __init();
 	void __cleanup();
 
@@ -64,4 +62,4 @@ private:
 }
 }
 
-#endif /* _ErrorResponse_H_ */
+#endif /* _Log_H_ */
