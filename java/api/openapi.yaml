@@ -1,0 +1,183 @@
+openapi: 3.0.0
+info:
+  title: ALICE Bookkeeping
+  version: 0.0.0
+servers:
+- url: /api
+paths:
+  /:
+    get:
+      operationId: getServerInformation
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiInformation'
+          description: API information
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Service Unavailable
+      summary: Get server information
+      x-accepts: application/json
+  /logs:
+    post:
+      operationId: createLog
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponse'
+          description: Created
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request
+      summary: Adds a new log
+      x-accepts: application/json
+  /logs/{id}:
+    get:
+      operationId: getLogById
+      parameters:
+      - description: The id of the log to retrieve
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad Request
+      summary: Gets a log by Id
+      x-accepts: application/json
+  /status:
+    get:
+      operationId: getDeployInformation
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeployInformation'
+          description: Deploy information
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Service Unavailable
+      summary: Get deploy information
+      x-accepts: application/json
+components:
+  responses:
+    BadRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Bad Request
+    Created:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DataResponse'
+      description: Created
+    OK:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DataResponse'
+      description: OK
+    ServiceUnavailable:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+      description: Service Unavailable
+  schemas:
+    ApiInformation:
+      example:
+        name: name
+        version: version
+      properties:
+        name:
+          type: string
+        version:
+          type: string
+      required:
+      - name
+      - version
+      type: object
+    DataResponse:
+      example:
+        data: ""
+      properties:
+        data:
+          oneOf:
+          - items:
+              type: object
+            type: array
+          - type: object
+      required:
+      - data
+      type: object
+    DeployInformation:
+      example:
+        start: 6.027456183070403
+        age: 0.8008281904610115
+      properties:
+        age:
+          type: number
+        start:
+          type: number
+      required:
+      - age
+      - start
+      type: object
+    Error:
+      properties:
+        status:
+          type: string
+        title:
+          type: string
+        detail:
+          type: string
+      required:
+      - status
+      - title
+      type: object
+    ErrorResponse:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/Error'
+          type: array
+      required:
+      - errors
+      type: object
+
