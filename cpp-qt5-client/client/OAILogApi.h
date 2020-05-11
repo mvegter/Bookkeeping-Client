@@ -43,7 +43,7 @@ public:
 
     void createLog();
     void getLogById(const qint64 &id);
-    void listLogs();
+    void listLogs(const QString &filter_origin, const qint32 &page_offset, const qint32 &page_limit, const QList<QString> &sort);
 
 private:
     QString _scheme, _host;
