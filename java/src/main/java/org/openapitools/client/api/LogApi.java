@@ -282,6 +282,10 @@ public class LogApi {
     }
     /**
      * Build call for listLogs
+     * @param filterOrigin Filter logs by their origin (optional)
+     * @param pageOffset The number of items to skip before starting to collect the result set. (optional, default to 0)
+     * @param pageLimit The numbers of items to return. (optional, default to 100)
+     * @param sort The sort order of the returned items. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -289,9 +293,10 @@ public class LogApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listLogsCall(final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listLogsCall(String filterOrigin, Integer pageOffset, Integer pageLimit, List<String> sort, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -299,6 +304,22 @@ public class LogApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (filterOrigin != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter[origin]", filterOrigin));
+        }
+
+        if (pageOffset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page[offset]", pageOffset));
+        }
+
+        if (pageLimit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page[limit]", pageLimit));
+        }
+
+        if (sort != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "sort", sort));
+        }
+
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
@@ -321,10 +342,10 @@ public class LogApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listLogsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listLogsValidateBeforeCall(String filterOrigin, Integer pageOffset, Integer pageLimit, List<String> sort, final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = listLogsCall(_callback);
+        okhttp3.Call localVarCall = listLogsCall(filterOrigin, pageOffset, pageLimit, sort, _callback);
         return localVarCall;
 
     }
@@ -332,32 +353,42 @@ public class LogApi {
     /**
      * List all logs
      * 
+     * @param filterOrigin Filter logs by their origin (optional)
+     * @param pageOffset The number of items to skip before starting to collect the result set. (optional, default to 0)
+     * @param pageLimit The numbers of items to return. (optional, default to 100)
+     * @param sort The sort order of the returned items. (optional)
      * @return ArrayOfLogsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ArrayOfLogsResponse listLogs() throws ApiException {
-        ApiResponse<ArrayOfLogsResponse> localVarResp = listLogsWithHttpInfo();
+    public ArrayOfLogsResponse listLogs(String filterOrigin, Integer pageOffset, Integer pageLimit, List<String> sort) throws ApiException {
+        ApiResponse<ArrayOfLogsResponse> localVarResp = listLogsWithHttpInfo(filterOrigin, pageOffset, pageLimit, sort);
         return localVarResp.getData();
     }
 
     /**
      * List all logs
      * 
+     * @param filterOrigin Filter logs by their origin (optional)
+     * @param pageOffset The number of items to skip before starting to collect the result set. (optional, default to 0)
+     * @param pageLimit The numbers of items to return. (optional, default to 100)
+     * @param sort The sort order of the returned items. (optional)
      * @return ApiResponse&lt;ArrayOfLogsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ArrayOfLogsResponse> listLogsWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = listLogsValidateBeforeCall(null);
+    public ApiResponse<ArrayOfLogsResponse> listLogsWithHttpInfo(String filterOrigin, Integer pageOffset, Integer pageLimit, List<String> sort) throws ApiException {
+        okhttp3.Call localVarCall = listLogsValidateBeforeCall(filterOrigin, pageOffset, pageLimit, sort, null);
         Type localVarReturnType = new TypeToken<ArrayOfLogsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -365,6 +396,10 @@ public class LogApi {
     /**
      * List all logs (asynchronously)
      * 
+     * @param filterOrigin Filter logs by their origin (optional)
+     * @param pageOffset The number of items to skip before starting to collect the result set. (optional, default to 0)
+     * @param pageLimit The numbers of items to return. (optional, default to 100)
+     * @param sort The sort order of the returned items. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -372,11 +407,12 @@ public class LogApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listLogsAsync(final ApiCallback<ArrayOfLogsResponse> _callback) throws ApiException {
+    public okhttp3.Call listLogsAsync(String filterOrigin, Integer pageOffset, Integer pageLimit, List<String> sort, final ApiCallback<ArrayOfLogsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listLogsValidateBeforeCall(_callback);
+        okhttp3.Call localVarCall = listLogsValidateBeforeCall(filterOrigin, pageOffset, pageLimit, sort, _callback);
         Type localVarReturnType = new TypeToken<ArrayOfLogsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
