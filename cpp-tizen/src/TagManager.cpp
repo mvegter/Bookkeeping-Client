@@ -48,6 +48,176 @@ static gpointer __TagManagerthreadFunc(gpointer data)
 }
 
 
+static bool listTagsProcessor(MemoryStruct_s p_chunk, long code, char* errormsg, void* userData,
+	void(* voidHandler)())
+{
+	void(* handler)(ArrayOfTagsResponse, Error, void* )
+	= reinterpret_cast<void(*)(ArrayOfTagsResponse, Error, void* )> (voidHandler);
+	
+	JsonNode* pJson;
+	char * data = p_chunk.memory;
+
+	
+	ArrayOfTagsResponse out;
+
+	if (code >= 200 && code < 300) {
+		Error error(code, string("No Error"));
+
+
+
+
+		if (isprimitive("ArrayOfTagsResponse")) {
+			pJson = json_from_string(data, NULL);
+			jsonToValue(&out, pJson, "ArrayOfTagsResponse", "ArrayOfTagsResponse");
+			json_node_free(pJson);
+
+			if ("ArrayOfTagsResponse" == "std::string") {
+				string* val = (std::string*)(&out);
+				if (val->empty() && p_chunk.size>4) {
+					*val = string(p_chunk.memory, p_chunk.size);
+				}
+			}
+		} else {
+			
+			out.fromJson(data);
+			char *jsonStr =  out.toJson();
+			printf("\n%s\n", jsonStr);
+			g_free(static_cast<gpointer>(jsonStr));
+			
+			out.fromJson(data);
+			char *jsonStr =  out.toJson();
+			printf("\n%s\n", jsonStr);
+			g_free(static_cast<gpointer>(jsonStr));
+			
+			out.fromJson(data);
+			char *jsonStr =  out.toJson();
+			printf("\n%s\n", jsonStr);
+			g_free(static_cast<gpointer>(jsonStr));
+			
+		}
+		handler(out, error, userData);
+		return true;
+		//TODO: handle case where json parsing has an error
+
+	} else {
+		Error error;
+		if (errormsg != NULL) {
+			error = Error(code, string(errormsg));
+		} else if (p_chunk.memory != NULL) {
+			error = Error(code, string(p_chunk.memory));
+		} else {
+			error = Error(code, string("Unknown Error"));
+		}
+		 handler(out, error, userData);
+		return false;
+			}
+}
+
+static bool listTagsHelper(char * accessToken,
+	int pageLeft_Square_BracketoffsetRight_Square_Bracket, int pageLeft_Square_BracketlimitRight_Square_Bracket, 
+	void(* handler)(ArrayOfTagsResponse, Error, void* )
+	, void* userData, bool isAsync)
+{
+
+	//TODO: maybe delete headerList after its used to free up space?
+	struct curl_slist *headerList = NULL;
+
+	
+	string accessHeader = "Authorization: Bearer ";
+	accessHeader.append(accessToken);
+	headerList = curl_slist_append(headerList, accessHeader.c_str());
+	headerList = curl_slist_append(headerList, "Content-Type: application/json");
+
+	map <string, string> queryParams;
+	string itemAtq;
+	
+
+	itemAtq = stringify(&pageLeft_Square_BracketoffsetRight_Square_Bracket, "int");
+	queryParams.insert(pair<string, string>("page[offset]", itemAtq));
+	if( itemAtq.empty()==true){
+		queryParams.erase("page[offset]");
+	}
+
+
+	itemAtq = stringify(&pageLeft_Square_BracketlimitRight_Square_Bracket, "int");
+	queryParams.insert(pair<string, string>("page[limit]", itemAtq));
+	if( itemAtq.empty()==true){
+		queryParams.erase("page[limit]");
+	}
+
+	string mBody = "";
+	JsonNode* node;
+	JsonArray* json_array;
+
+	string url("/tags");
+	int pos;
+
+
+	//TODO: free memory of errormsg, memorystruct
+	MemoryStruct_s* p_chunk = new MemoryStruct_s();
+	long code;
+	char* errormsg = NULL;
+	string myhttpmethod("GET");
+
+	if(strcmp("PUT", "GET") == 0){
+		if(strcmp("", mBody.c_str()) == 0){
+			mBody.append("{}");
+		}
+	}
+
+	if(!isAsync){
+		NetClient::easycurl(TagManager::getBasePath(), url, myhttpmethod, queryParams,
+			mBody, headerList, p_chunk, &code, errormsg);
+		bool retval = listTagsProcessor(*p_chunk, code, errormsg, userData,reinterpret_cast<void(*)()>(handler));
+
+		curl_slist_free_all(headerList);
+		if (p_chunk) {
+			if(p_chunk->memory) {
+				free(p_chunk->memory);
+			}
+			delete (p_chunk);
+		}
+		if (errormsg) {
+			free(errormsg);
+		}
+		return retval;
+	} else{
+		GThread *thread = NULL;
+		RequestInfo *requestInfo = NULL;
+
+		requestInfo = new(nothrow) RequestInfo (TagManager::getBasePath(), url, myhttpmethod, queryParams,
+			mBody, headerList, p_chunk, &code, errormsg, userData, reinterpret_cast<void(*)()>(handler), listTagsProcessor);;
+		if(requestInfo == NULL)
+			return false;
+
+		thread = g_thread_new(NULL, __TagManagerthreadFunc, static_cast<gpointer>(requestInfo));
+		return true;
+	}
+}
+
+
+
+
+bool TagManager::listTagsAsync(char * accessToken,
+	int pageLeft_Square_BracketoffsetRight_Square_Bracket, int pageLeft_Square_BracketlimitRight_Square_Bracket, 
+	void(* handler)(ArrayOfTagsResponse, Error, void* )
+	, void* userData)
+{
+	return listTagsHelper(accessToken,
+	pageLeft_Square_BracketoffsetRight_Square_Bracket, pageLeft_Square_BracketlimitRight_Square_Bracket, 
+	handler, userData, true);
+}
+
+bool TagManager::listTagsSync(char * accessToken,
+	int pageLeft_Square_BracketoffsetRight_Square_Bracket, int pageLeft_Square_BracketlimitRight_Square_Bracket, 
+	void(* handler)(ArrayOfTagsResponse, Error, void* )
+	, void* userData)
+{
+	return listTagsHelper(accessToken,
+	pageLeft_Square_BracketoffsetRight_Square_Bracket, pageLeft_Square_BracketlimitRight_Square_Bracket, 
+	handler, userData, false);
+}
+
 static bool listTagsByLogIdProcessor(MemoryStruct_s p_chunk, long code, char* errormsg, void* userData,
 	void(* voidHandler)())
 {

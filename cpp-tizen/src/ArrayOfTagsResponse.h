@@ -9,6 +9,7 @@
 
 
 #include <string>
+#include "Tag.h"
 #include <list>
 #include "Object.h"
 
@@ -48,14 +49,14 @@ public:
 
 	/*! \brief Get A list of Tag objects.
 	 */
-	std::list<std::string> getData();
+	std::list<Tag> getData();
 
 	/*! \brief Set A list of Tag objects.
 	 */
-	void setData(std::list <std::string> data);
+	void setData(std::list <Tag> data);
 
 private:
-	std::list <std::string>data;
+	std::list <Tag>data;
 	void __init();
 	void __cleanup();
 

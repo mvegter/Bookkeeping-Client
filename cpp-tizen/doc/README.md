@@ -61,6 +61,8 @@ Method | HTTP request | Description
 ### TagManager
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+*listTagsSync* | *GET* /tags | List all tags.
+*listTagsASync* | *GET* /tags | List all tags.
 *listTagsByLogIdSync* | *GET* /logs/{logId}/tags | Lists all tags associated with a log.
 *listTagsByLogIdASync* | *GET* /logs/{logId}/tags | Lists all tags associated with a log.
 
@@ -76,4 +78,5 @@ Class | Description
  *Errors* | A list of Error objects.
  *Log* | Describes an intervention or an event that happened.
  *LogResponse* | Response containing a single log.
+ *Tag* | A label attached to something for the purpose of identification.
 

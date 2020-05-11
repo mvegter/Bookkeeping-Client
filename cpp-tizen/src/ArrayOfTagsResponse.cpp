@@ -49,13 +49,15 @@ ArrayOfTagsResponse::fromJson(char* jsonStr)
 		{
 			JsonArray* arr = json_node_get_array(node);
 			JsonNode*  temp_json;
-			list<std::string> new_list;
-			std::string inst;
+			list<Tag> new_list;
+			Tag inst;
 			for (guint i=0;i<json_array_get_length(arr);i++) {
 				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("std::string")) {
-					jsonToValue(&inst, temp_json, "std::string", "");
+				if (isprimitive("Tag")) {
+					jsonToValue(&inst, temp_json, "Tag", "");
 				} else {
+					
+					inst.fromJson(json_to_string(temp_json, false));
 					
 				}
 				new_list.push_back(inst);
@@ -76,14 +78,24 @@ ArrayOfTagsResponse::toJson()
 {
 	JsonObject *pJsonObject = json_object_new();
 	JsonNode *node;
-	if (isprimitive("std::string")) {
-		list<std::string> new_list = static_cast<list <std::string> > (getData());
-		node = converttoJson(&new_list, "std::string", "array");
+	if (isprimitive("Tag")) {
+		list<Tag> new_list = static_cast<list <Tag> > (getData());
+		node = converttoJson(&new_list, "Tag", "array");
 	} else {
 		node = json_node_alloc();
-		list<std::string> new_list = static_cast<list <std::string> > (getData());
+		list<Tag> new_list = static_cast<list <Tag> > (getData());
 		JsonArray* json_array = json_array_new();
 		GError *mygerror;
+		
+		for (list<Tag>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+			mygerror = NULL;
+			Tag obj = *it;
+			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
+			json_array_add_element(json_array, node_temp);
+			g_clear_error(&mygerror);
+		}
+		json_node_init_array(node, json_array);
+		json_array_unref(json_array);
 		
 	}
 
@@ -99,14 +111,14 @@ ArrayOfTagsResponse::toJson()
 	return ret;
 }
 
-std::list<std::string>
+std::list<Tag>
 ArrayOfTagsResponse::getData()
 {
 	return data;
 }
 
 void
-ArrayOfTagsResponse::setData(std::list <std::string> data)
+ArrayOfTagsResponse::setData(std::list <Tag> data)
 {
 	this->data = data;
 }
