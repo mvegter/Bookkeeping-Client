@@ -83,14 +83,17 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**get_deploy_information**](docs/DefaultApi.md#get_deploy_information) | **GET** /status | Get deploy information
 *DefaultApi* | [**get_server_information**](docs/DefaultApi.md#get_server_information) | **GET** / | Get server information
 *LogApi* | [**create_log**](docs/LogApi.md#create_log) | **POST** /logs | Adds a new log
-*LogApi* | [**get_log_by_id**](docs/LogApi.md#get_log_by_id) | **GET** /logs/{id} | Gets a log by Id
+*LogApi* | [**get_log_by_id**](docs/LogApi.md#get_log_by_id) | **GET** /logs/{logId} | Gets a log by Id
 *LogApi* | [**list_logs**](docs/LogApi.md#list_logs) | **GET** /logs | List all logs
+*LogApi* | [**list_tags_by_log_id**](docs/LogApi.md#list_tags_by_log_id) | **GET** /logs/{logId}/tags | Lists all tags associated with a log
+*TagApi* | [**list_tags_by_log_id**](docs/TagApi.md#list_tags_by_log_id) | **GET** /logs/{logId}/tags | Lists all tags associated with a log
 
 
 ## Documentation For Models
 
  - [ApiInformation](docs/ApiInformation.md)
  - [ArrayOfLogsResponse](docs/ArrayOfLogsResponse.md)
+ - [ArrayOfTagsResponse](docs/ArrayOfTagsResponse.md)
  - [DeployInformation](docs/DeployInformation.md)
  - [Error](docs/Error.md)
  - [Errors](docs/Errors.md)

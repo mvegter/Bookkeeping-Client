@@ -15,6 +15,7 @@ package org.openapitools.client.api;
 
 import org.openapitools.client.ApiException;
 import org.openapitools.client.model.ArrayOfLogsResponse;
+import org.openapitools.client.model.ArrayOfTagsResponse;
 import org.openapitools.client.model.Errors;
 import org.openapitools.client.model.LogResponse;
 import org.junit.Test;
@@ -59,8 +60,8 @@ public class LogApiTest {
      */
     @Test
     public void getLogByIdTest() throws ApiException {
-        Long id = null;
-        LogResponse response = api.getLogById(id);
+        Long logId = null;
+        LogResponse response = api.getLogById(logId);
 
         // TODO: test validations
     }
@@ -80,6 +81,22 @@ public class LogApiTest {
         Integer pageLimit = null;
         List<String> sort = null;
         ArrayOfLogsResponse response = api.listLogs(filterOrigin, pageOffset, pageLimit, sort);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Lists all tags associated with a log
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listTagsByLogIdTest() throws ApiException {
+        Long logId = null;
+        ArrayOfTagsResponse response = api.listTagsByLogId(logId);
 
         // TODO: test validations
     }

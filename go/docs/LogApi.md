@@ -5,8 +5,9 @@ All URIs are relative to *http://localhost/api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateLog**](LogApi.md#CreateLog) | **Post** /logs | Adds a new log
-[**GetLogById**](LogApi.md#GetLogById) | **Get** /logs/{id} | Gets a log by Id
+[**GetLogById**](LogApi.md#GetLogById) | **Get** /logs/{logId} | Gets a log by Id
 [**ListLogs**](LogApi.md#ListLogs) | **Get** /logs | List all logs
+[**ListTagsByLogId**](LogApi.md#ListTagsByLogId) | **Get** /logs/{logId}/tags | Lists all tags associated with a log
 
 
 
@@ -40,7 +41,7 @@ No authorization required
 
 ## GetLogById
 
-> LogResponse GetLogById(ctx, id)
+> LogResponse GetLogById(ctx, logId)
 
 Gets a log by Id
 
@@ -50,7 +51,7 @@ Gets a log by Id
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int64**| The id of the log to retrieve | 
+**logId** | **int64**| The id of the log to retrieve | 
 
 ### Return type
 
@@ -99,6 +100,38 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ArrayOfLogsResponse**](ArrayOfLogsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListTagsByLogId
+
+> ArrayOfTagsResponse ListTagsByLogId(ctx, logId)
+
+Lists all tags associated with a log
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**logId** | **int64**| The id of the log to retrieve | 
+
+### Return type
+
+[**ArrayOfTagsResponse**](ArrayOfTagsResponse.md)
 
 ### Authorization
 

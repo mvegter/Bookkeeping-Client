@@ -51,10 +51,18 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 *createLogSync* | *POST* /logs | Adds a new log.
 *createLogASync* | *POST* /logs | Adds a new log.
-*getLogByIdSync* | *GET* /logs/{id} | Gets a log by Id.
-*getLogByIdASync* | *GET* /logs/{id} | Gets a log by Id.
+*getLogByIdSync* | *GET* /logs/{logId} | Gets a log by Id.
+*getLogByIdASync* | *GET* /logs/{logId} | Gets a log by Id.
 *listLogsSync* | *GET* /logs | List all logs.
 *listLogsASync* | *GET* /logs | List all logs.
+*listTagsByLogIdSync* | *GET* /logs/{logId}/tags | Lists all tags associated with a log.
+*listTagsByLogIdASync* | *GET* /logs/{logId}/tags | Lists all tags associated with a log.
+
+### TagManager
+Method | HTTP request | Description
+------------- | ------------- | -------------
+*listTagsByLogIdSync* | *GET* /logs/{logId}/tags | Lists all tags associated with a log.
+*listTagsByLogIdASync* | *GET* /logs/{logId}/tags | Lists all tags associated with a log.
 
 
 ## What are the Model files for the data structures/objects?
@@ -62,6 +70,7 @@ Class | Description
 ------------- | -------------
  *ApiInformation* | API information
  *ArrayOfLogsResponse* | Response containing multiple logs.
+ *ArrayOfTagsResponse* | Response containing multiple tags.
  *DeployInformation* | Deploy information
  *Error* | An Error object.
  *Errors* | A list of Error objects.

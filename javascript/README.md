@@ -122,14 +122,17 @@ Class | Method | HTTP request | Description
 *AliceBookkeeping.DefaultApi* | [**getDeployInformation**](docs/DefaultApi.md#getDeployInformation) | **GET** /status | Get deploy information
 *AliceBookkeeping.DefaultApi* | [**getServerInformation**](docs/DefaultApi.md#getServerInformation) | **GET** / | Get server information
 *AliceBookkeeping.LogApi* | [**createLog**](docs/LogApi.md#createLog) | **POST** /logs | Adds a new log
-*AliceBookkeeping.LogApi* | [**getLogById**](docs/LogApi.md#getLogById) | **GET** /logs/{id} | Gets a log by Id
+*AliceBookkeeping.LogApi* | [**getLogById**](docs/LogApi.md#getLogById) | **GET** /logs/{logId} | Gets a log by Id
 *AliceBookkeeping.LogApi* | [**listLogs**](docs/LogApi.md#listLogs) | **GET** /logs | List all logs
+*AliceBookkeeping.LogApi* | [**listTagsByLogId**](docs/LogApi.md#listTagsByLogId) | **GET** /logs/{logId}/tags | Lists all tags associated with a log
+*AliceBookkeeping.TagApi* | [**listTagsByLogId**](docs/TagApi.md#listTagsByLogId) | **GET** /logs/{logId}/tags | Lists all tags associated with a log
 
 
 ## Documentation for Models
 
  - [AliceBookkeeping.ApiInformation](docs/ApiInformation.md)
  - [AliceBookkeeping.ArrayOfLogsResponse](docs/ArrayOfLogsResponse.md)
+ - [AliceBookkeeping.ArrayOfTagsResponse](docs/ArrayOfTagsResponse.md)
  - [AliceBookkeeping.DeployInformation](docs/DeployInformation.md)
  - [AliceBookkeeping.Error](docs/Error.md)
  - [AliceBookkeeping.Errors](docs/Errors.md)

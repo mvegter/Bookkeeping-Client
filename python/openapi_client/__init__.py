@@ -19,6 +19,7 @@ __version__ = "1.0.0"
 # import apis into sdk package
 from openapi_client.api.default_api import DefaultApi
 from openapi_client.api.log_api import LogApi
+from openapi_client.api.tag_api import TagApi
 
 # import ApiClient
 from openapi_client.api_client import ApiClient
@@ -31,6 +32,7 @@ from openapi_client.exceptions import ApiException
 # import models into sdk package
 from openapi_client.models.api_information import ApiInformation
 from openapi_client.models.array_of_logs_response import ArrayOfLogsResponse
+from openapi_client.models.array_of_tags_response import ArrayOfTagsResponse
 from openapi_client.models.deploy_information import DeployInformation
 from openapi_client.models.error import Error
 from openapi_client.models.errors import Errors

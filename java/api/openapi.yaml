@@ -21,6 +21,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
           description: Service Unavailable
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Unexpected Error
       summary: Get server information
       x-accepts: application/json
   /logs:
@@ -85,6 +91,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
           description: Bad Request
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Unexpected Error
       summary: List all logs
       tags:
       - log
@@ -104,18 +116,24 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
           description: Bad Request
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Unexpected Error
       summary: Adds a new log
       tags:
       - log
       x-accepts: application/json
-  /logs/{id}:
+  /logs/{logId}:
     get:
       operationId: getLogById
       parameters:
       - description: The id of the log to retrieve
         explode: false
         in: path
-        name: id
+        name: logId
         required: true
         schema:
           format: int64
@@ -140,9 +158,58 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
           description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Unexpected Error
       summary: Gets a log by Id
       tags:
       - log
+      x-accepts: application/json
+  /logs/{logId}/tags:
+    get:
+      operationId: listTagsByLogId
+      parameters:
+      - description: The id of the log to retrieve
+        explode: false
+        in: path
+        name: logId
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfTagsResponse'
+          description: Expected response to a valid request.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Unexpected Error
+      summary: Lists all tags associated with a log
+      tags:
+      - log
+      - tag
       x-accepts: application/json
   /status:
     get:
@@ -160,11 +227,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
           description: Service Unavailable
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Unexpected Error
       summary: Get deploy information
       x-accepts: application/json
 components:
   parameters:
-    filterOrigin:
+    FilterOrigin:
       description: Filter logs by their origin
       explode: true
       in: query
@@ -176,7 +249,17 @@ components:
         - process
         type: string
       style: form
-    pageLimit:
+    LogId:
+      description: The id of the log to retrieve
+      explode: false
+      in: path
+      name: logId
+      required: true
+      schema:
+        format: int64
+        type: integer
+      style: simple
+    PageLimit:
       description: The numbers of items to return.
       explode: true
       in: query
@@ -188,7 +271,7 @@ components:
         minimum: 1
         type: integer
       style: form
-    pageOffset:
+    PageOffset:
       description: The number of items to skip before starting to collect the result
         set.
       explode: true
@@ -200,7 +283,7 @@ components:
         minimum: 0
         type: integer
       style: form
-    sortLogs:
+    SortLogs:
       description: The sort order of the returned items.
       explode: false
       in: query
@@ -219,6 +302,12 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ArrayOfLogsResponse'
+      description: Expected response to a valid request.
+    ArrayOfTags:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ArrayOfTagsResponse'
       description: Expected response to a valid request.
     BadRequest:
       content:
@@ -244,6 +333,12 @@ components:
           schema:
             $ref: '#/components/schemas/Errors'
       description: Service Unavailable
+    UnexpectedError:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Errors'
+      description: Unexpected Error
   schemas:
     ApiInformation:
       description: API information
@@ -296,6 +391,21 @@ components:
       items:
         $ref: '#/components/schemas/Tag'
       type: array
+    ArrayOfTagsResponse:
+      description: Response containing multiple tags.
+      example:
+        data:
+        - null
+        - null
+      properties:
+        data:
+          description: A list of Tag objects.
+          items:
+            $ref: '#/components/schemas/Tag'
+          type: array
+      required:
+      - data
+      type: object
     DeployInformation:
       description: Deploy information
       example:

@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import org.openapitools.client.model.ArrayOfLogsResponse;
+import org.openapitools.client.model.ArrayOfTagsResponse;
 import org.openapitools.client.model.Errors;
 import org.openapitools.client.model.LogResponse;
 
@@ -66,6 +67,7 @@ public class LogApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createLogCall(final ApiCallback _callback) throws ApiException {
@@ -116,6 +118,7 @@ public class LogApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
     public LogResponse createLog() throws ApiException {
@@ -133,6 +136,7 @@ public class LogApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<LogResponse> createLogWithHttpInfo() throws ApiException {
@@ -152,6 +156,7 @@ public class LogApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createLogAsync(final ApiCallback<LogResponse> _callback) throws ApiException {
@@ -163,7 +168,7 @@ public class LogApi {
     }
     /**
      * Build call for getLogById
-     * @param id The id of the log to retrieve (required)
+     * @param logId The id of the log to retrieve (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -173,14 +178,15 @@ public class LogApi {
         <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLogByIdCall(Long id, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLogByIdCall(Long logId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/logs/{id}"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+        String localVarPath = "/logs/{logId}"
+            .replaceAll("\\{" + "logId" + "\\}", localVarApiClient.escapeString(logId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -206,15 +212,15 @@ public class LogApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLogByIdValidateBeforeCall(Long id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLogByIdValidateBeforeCall(Long logId, final ApiCallback _callback) throws ApiException {
         
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling getLogById(Async)");
+        // verify the required parameter 'logId' is set
+        if (logId == null) {
+            throw new ApiException("Missing the required parameter 'logId' when calling getLogById(Async)");
         }
         
 
-        okhttp3.Call localVarCall = getLogByIdCall(id, _callback);
+        okhttp3.Call localVarCall = getLogByIdCall(logId, _callback);
         return localVarCall;
 
     }
@@ -222,7 +228,7 @@ public class LogApi {
     /**
      * Gets a log by Id
      * 
-     * @param id The id of the log to retrieve (required)
+     * @param logId The id of the log to retrieve (required)
      * @return LogResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -231,17 +237,18 @@ public class LogApi {
         <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
-    public LogResponse getLogById(Long id) throws ApiException {
-        ApiResponse<LogResponse> localVarResp = getLogByIdWithHttpInfo(id);
+    public LogResponse getLogById(Long logId) throws ApiException {
+        ApiResponse<LogResponse> localVarResp = getLogByIdWithHttpInfo(logId);
         return localVarResp.getData();
     }
 
     /**
      * Gets a log by Id
      * 
-     * @param id The id of the log to retrieve (required)
+     * @param logId The id of the log to retrieve (required)
      * @return ApiResponse&lt;LogResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -250,10 +257,11 @@ public class LogApi {
         <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LogResponse> getLogByIdWithHttpInfo(Long id) throws ApiException {
-        okhttp3.Call localVarCall = getLogByIdValidateBeforeCall(id, null);
+    public ApiResponse<LogResponse> getLogByIdWithHttpInfo(Long logId) throws ApiException {
+        okhttp3.Call localVarCall = getLogByIdValidateBeforeCall(logId, null);
         Type localVarReturnType = new TypeToken<LogResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -261,7 +269,7 @@ public class LogApi {
     /**
      * Gets a log by Id (asynchronously)
      * 
-     * @param id The id of the log to retrieve (required)
+     * @param logId The id of the log to retrieve (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -271,11 +279,12 @@ public class LogApi {
         <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLogByIdAsync(Long id, final ApiCallback<LogResponse> _callback) throws ApiException {
+    public okhttp3.Call getLogByIdAsync(Long logId, final ApiCallback<LogResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLogByIdValidateBeforeCall(id, _callback);
+        okhttp3.Call localVarCall = getLogByIdValidateBeforeCall(logId, _callback);
         Type localVarReturnType = new TypeToken<LogResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -294,6 +303,7 @@ public class LogApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listLogsCall(String filterOrigin, Integer pageOffset, Integer pageLimit, List<String> sort, final ApiCallback _callback) throws ApiException {
@@ -364,6 +374,7 @@ public class LogApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
     public ArrayOfLogsResponse listLogs(String filterOrigin, Integer pageOffset, Integer pageLimit, List<String> sort) throws ApiException {
@@ -385,6 +396,7 @@ public class LogApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<ArrayOfLogsResponse> listLogsWithHttpInfo(String filterOrigin, Integer pageOffset, Integer pageLimit, List<String> sort) throws ApiException {
@@ -408,12 +420,136 @@ public class LogApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listLogsAsync(String filterOrigin, Integer pageOffset, Integer pageLimit, List<String> sort, final ApiCallback<ArrayOfLogsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listLogsValidateBeforeCall(filterOrigin, pageOffset, pageLimit, sort, _callback);
         Type localVarReturnType = new TypeToken<ArrayOfLogsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listTagsByLogId
+     * @param logId The id of the log to retrieve (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listTagsByLogIdCall(Long logId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/logs/{logId}/tags"
+            .replaceAll("\\{" + "logId" + "\\}", localVarApiClient.escapeString(logId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listTagsByLogIdValidateBeforeCall(Long logId, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'logId' is set
+        if (logId == null) {
+            throw new ApiException("Missing the required parameter 'logId' when calling listTagsByLogId(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = listTagsByLogIdCall(logId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Lists all tags associated with a log
+     * 
+     * @param logId The id of the log to retrieve (required)
+     * @return ArrayOfTagsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ArrayOfTagsResponse listTagsByLogId(Long logId) throws ApiException {
+        ApiResponse<ArrayOfTagsResponse> localVarResp = listTagsByLogIdWithHttpInfo(logId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Lists all tags associated with a log
+     * 
+     * @param logId The id of the log to retrieve (required)
+     * @return ApiResponse&lt;ArrayOfTagsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ArrayOfTagsResponse> listTagsByLogIdWithHttpInfo(Long logId) throws ApiException {
+        okhttp3.Call localVarCall = listTagsByLogIdValidateBeforeCall(logId, null);
+        Type localVarReturnType = new TypeToken<ArrayOfTagsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Lists all tags associated with a log (asynchronously)
+     * 
+     * @param logId The id of the log to retrieve (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listTagsByLogIdAsync(Long logId, final ApiCallback<ArrayOfTagsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listTagsByLogIdValidateBeforeCall(logId, _callback);
+        Type localVarReturnType = new TypeToken<ArrayOfTagsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

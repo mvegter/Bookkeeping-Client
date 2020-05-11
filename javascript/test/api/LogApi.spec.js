@@ -78,6 +78,16 @@
         done();
       });
     });
+    describe('listTagsByLogId', function() {
+      it('should call listTagsByLogId successfully', function(done) {
+        //uncomment below and update the code to test listTagsByLogId
+        //instance.listTagsByLogId(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
   });
 
 }));

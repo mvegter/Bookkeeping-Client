@@ -66,6 +66,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Deploy information </td><td>  -  </td></tr>
         <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getDeployInformationCall(final ApiCallback _callback) throws ApiException {
@@ -116,6 +117,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Deploy information </td><td>  -  </td></tr>
         <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
     public DeployInformation getDeployInformation() throws ApiException {
@@ -133,6 +135,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Deploy information </td><td>  -  </td></tr>
         <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<DeployInformation> getDeployInformationWithHttpInfo() throws ApiException {
@@ -152,6 +155,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Deploy information </td><td>  -  </td></tr>
         <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getDeployInformationAsync(final ApiCallback<DeployInformation> _callback) throws ApiException {
@@ -171,6 +175,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> API information </td><td>  -  </td></tr>
         <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getServerInformationCall(final ApiCallback _callback) throws ApiException {
@@ -221,6 +226,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> API information </td><td>  -  </td></tr>
         <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
     public ApiInformation getServerInformation() throws ApiException {
@@ -238,6 +244,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> API information </td><td>  -  </td></tr>
         <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<ApiInformation> getServerInformationWithHttpInfo() throws ApiException {
@@ -257,6 +264,7 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> API information </td><td>  -  </td></tr>
         <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getServerInformationAsync(final ApiCallback<ApiInformation> _callback) throws ApiException {

@@ -5,8 +5,9 @@ All URIs are relative to *http://localhost/api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createLog**](LogApi.md#createLog) | **POST** /logs | Adds a new log
-[**getLogById**](LogApi.md#getLogById) | **GET** /logs/{id} | Gets a log by Id
+[**getLogById**](LogApi.md#getLogById) | **GET** /logs/{logId} | Gets a log by Id
 [**listLogs**](LogApi.md#listLogs) | **GET** /logs | List all logs
+[**listTagsByLogId**](LogApi.md#listTagsByLogId) | **GET** /logs/{logId}/tags | Lists all tags associated with a log
 
 
 <a name="createLog"></a>
@@ -65,10 +66,11 @@ No authorization required
 |-------------|-------------|------------------|
 **201** | Expected response to a valid request. |  -  |
 **400** | Bad Request |  -  |
+**0** | Unexpected Error |  -  |
 
 <a name="getLogById"></a>
 # **getLogById**
-> LogResponse getLogById(id)
+> LogResponse getLogById(logId)
 
 Gets a log by Id
 
@@ -87,9 +89,9 @@ public class Example {
     defaultClient.setBasePath("http://localhost/api");
 
     LogApi apiInstance = new LogApi(defaultClient);
-    Long id = 56L; // Long | The id of the log to retrieve
+    Long logId = 56L; // Long | The id of the log to retrieve
     try {
-      LogResponse result = apiInstance.getLogById(id);
+      LogResponse result = apiInstance.getLogById(logId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LogApi#getLogById");
@@ -106,7 +108,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Long**| The id of the log to retrieve |
+ **logId** | **Long**| The id of the log to retrieve |
 
 ### Return type
 
@@ -127,6 +129,7 @@ No authorization required
 **200** | Expected response to a valid request. |  -  |
 **400** | Bad Request |  -  |
 **404** | Not Found |  -  |
+**0** | Unexpected Error |  -  |
 
 <a name="listLogs"></a>
 # **listLogs**
@@ -194,4 +197,68 @@ No authorization required
 |-------------|-------------|------------------|
 **200** | Expected response to a valid request. |  -  |
 **400** | Bad Request |  -  |
+**0** | Unexpected Error |  -  |
+
+<a name="listTagsByLogId"></a>
+# **listTagsByLogId**
+> ArrayOfTagsResponse listTagsByLogId(logId)
+
+Lists all tags associated with a log
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.LogApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost/api");
+
+    LogApi apiInstance = new LogApi(defaultClient);
+    Long logId = 56L; // Long | The id of the log to retrieve
+    try {
+      ArrayOfTagsResponse result = apiInstance.listTagsByLogId(logId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling LogApi#listTagsByLogId");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **logId** | **Long**| The id of the log to retrieve |
+
+### Return type
+
+[**ArrayOfTagsResponse**](ArrayOfTagsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Expected response to a valid request. |  -  |
+**400** | Bad Request |  -  |
+**404** | Not Found |  -  |
+**0** | Unexpected Error |  -  |
 

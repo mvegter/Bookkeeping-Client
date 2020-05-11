@@ -62,6 +62,7 @@ No authorization required
 |-------------|-------------|------------------|
 **200** | Deploy information |  -  |
 **503** | Service Unavailable |  -  |
+**0** | Unexpected Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -119,6 +120,7 @@ No authorization required
 |-------------|-------------|------------------|
 **200** | API information |  -  |
 **503** | Service Unavailable |  -  |
+**0** | Unexpected Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
