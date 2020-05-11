@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new AliceBookkeeping.TagApi();
+    instance = new AliceBookkeeping.Tag();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,27 +47,37 @@
       object[property] = value;
   }
 
-  describe('TagApi', function() {
-    describe('listTags', function() {
-      it('should call listTags successfully', function(done) {
-        //uncomment below and update the code to test listTags
-        //instance.listTags(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+  describe('Tag', function() {
+    it('should create an instance of Tag', function() {
+      // uncomment below and update the code to test Tag
+      //var instane = new AliceBookkeeping.Tag();
+      //expect(instance).to.be.a(AliceBookkeeping.Tag);
     });
-    describe('listTagsByLogId', function() {
-      it('should call listTagsByLogId successfully', function(done) {
-        //uncomment below and update the code to test listTagsByLogId
-        //instance.listTagsByLogId(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+
+    it('should have the property id (base name: "id")', function() {
+      // uncomment below and update the code to test the property id
+      //var instane = new AliceBookkeeping.Tag();
+      //expect(instance).to.be();
     });
+
+    it('should have the property text (base name: "text")', function() {
+      // uncomment below and update the code to test the property text
+      //var instane = new AliceBookkeeping.Tag();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property createdAt (base name: "createdAt")', function() {
+      // uncomment below and update the code to test the property createdAt
+      //var instane = new AliceBookkeeping.Tag();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property updateAt (base name: "updateAt")', function() {
+      // uncomment below and update the code to test the property updateAt
+      //var instane = new AliceBookkeeping.Tag();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

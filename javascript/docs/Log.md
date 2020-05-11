@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **entryId** | **Number** | Id of the log. | 
 **title** | **String** | Title of the log. | 
 **origin** | **String** | Type of creator. | 
-**tags** | **[String]** | A list of Tag objects. | 
+**tags** | [**[Tag]**](Tag.md) | A list of Tag objects. | 
 
 
 
