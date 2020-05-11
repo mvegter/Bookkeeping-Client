@@ -22,6 +22,7 @@
 #include "../ApiClient.h"
 
 #include "ArrayOfLogsResponse.h"
+#include "ArrayOfTagsResponse.h"
 #include "Errors.h"
 #include "LogResponse.h"
 #include <cpprest/details/basic_types.h>
@@ -60,9 +61,9 @@ public:
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="id">The id of the log to retrieve</param>
+    /// <param name="logId">The id of the log to retrieve</param>
     pplx::task<std::shared_ptr<LogResponse>> getLogById(
-        int64_t id
+        int64_t logId
     ) const;
     /// <summary>
     /// List all logs
@@ -79,6 +80,16 @@ public:
         boost::optional<int32_t> pageLeft_Square_BracketoffsetRight_Square_Bracket,
         boost::optional<int32_t> pageLeft_Square_BracketlimitRight_Square_Bracket,
         boost::optional<std::vector<utility::string_t>> sort
+    ) const;
+    /// <summary>
+    /// Lists all tags associated with a log
+    /// </summary>
+    /// <remarks>
+    /// 
+    /// </remarks>
+    /// <param name="logId">The id of the log to retrieve</param>
+    pplx::task<std::shared_ptr<ArrayOfTagsResponse>> listTagsByLogId(
+        int64_t logId
     ) const;
 
 protected:
