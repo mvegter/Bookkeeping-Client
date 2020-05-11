@@ -25,42 +25,41 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.openapitools.client.model.Log;
 
 /**
- * Response containing multiple logs.
+ * Response containing multiple tags.
  */
-@ApiModel(description = "Response containing multiple logs.")
+@ApiModel(description = "Response containing multiple tags.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-11T16:32:29.330+01:00[Europe/London]")
-public class ArrayOfLogsResponse {
+public class ArrayOfTagsResponse {
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
-  private List<Log> data = new ArrayList<Log>();
+  private List<String> data = new ArrayList<String>();
 
 
-  public ArrayOfLogsResponse data(List<Log> data) {
+  public ArrayOfTagsResponse data(List<String> data) {
     
     this.data = data;
     return this;
   }
 
-  public ArrayOfLogsResponse addDataItem(Log dataItem) {
+  public ArrayOfTagsResponse addDataItem(String dataItem) {
     this.data.add(dataItem);
     return this;
   }
 
    /**
-   * A list of Log objects.
+   * A list of Tag objects.
    * @return data
   **/
-  @ApiModelProperty(required = true, value = "A list of Log objects.")
+  @ApiModelProperty(required = true, value = "A list of Tag objects.")
 
-  public List<Log> getData() {
+  public List<String> getData() {
     return data;
   }
 
 
-  public void setData(List<Log> data) {
+  public void setData(List<String> data) {
     this.data = data;
   }
 
@@ -73,8 +72,8 @@ public class ArrayOfLogsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ArrayOfLogsResponse arrayOfLogsResponse = (ArrayOfLogsResponse) o;
-    return Objects.equals(this.data, arrayOfLogsResponse.data);
+    ArrayOfTagsResponse arrayOfTagsResponse = (ArrayOfTagsResponse) o;
+    return Objects.equals(this.data, arrayOfTagsResponse.data);
   }
 
   @Override
@@ -86,7 +85,7 @@ public class ArrayOfLogsResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ArrayOfLogsResponse {\n");
+    sb.append("class ArrayOfTagsResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();

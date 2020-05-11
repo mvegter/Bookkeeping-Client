@@ -64,6 +64,7 @@ No authorization required
 |-------------|-------------|------------------|
 **200** | Deploy information |  -  |
 **503** | Service Unavailable |  -  |
+**0** | Unexpected Error |  -  |
 
 <a name="getServerInformation"></a>
 # **getServerInformation**
@@ -121,4 +122,5 @@ No authorization required
 |-------------|-------------|------------------|
 **200** | API information |  -  |
 **503** | Service Unavailable |  -  |
+**0** | Unexpected Error |  -  |
 

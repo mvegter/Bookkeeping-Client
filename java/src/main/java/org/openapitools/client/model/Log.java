@@ -30,7 +30,7 @@ import java.util.List;
  * Describes an intervention or an event that happened.
  */
 @ApiModel(description = "Describes an intervention or an event that happened.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-11T14:31:40.238+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-11T16:32:29.330+01:00[Europe/London]")
 public class Log {
   public static final String SERIALIZED_NAME_ENTRY_ID = "entryId";
   @SerializedName(SERIALIZED_NAME_ENTRY_ID)
