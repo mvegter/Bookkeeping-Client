@@ -29,7 +29,7 @@ import org.openapitools.client.model.Log;
  * Response containing a single log.
  */
 @ApiModel(description = "Response containing a single log.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-11T14:01:45.131+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-11T14:31:40.238+01:00[Europe/London]")
 public class LogResponse {
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)

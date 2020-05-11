@@ -22,6 +22,7 @@
 #include "../ModelBase.h"
 
 #include <cpprest/details/basic_types.h>
+#include <vector>
 
 namespace org {
 namespace openapitools {
@@ -54,6 +55,15 @@ public:
     /// Log members
 
     /// <summary>
+    /// Id of the log.
+    /// </summary>
+    int64_t getEntryId() const;
+    bool entryIdIsSet() const;
+    void unsetEntryId();
+
+    void setEntryId(int64_t value);
+
+    /// <summary>
     /// Title of the log.
     /// </summary>
     utility::string_t getTitle() const;
@@ -62,10 +72,34 @@ public:
 
     void setTitle(const utility::string_t& value);
 
+    /// <summary>
+    /// Type of creator.
+    /// </summary>
+    utility::string_t getOrigin() const;
+    bool originIsSet() const;
+    void unsetOrigin();
+
+    void setOrigin(const utility::string_t& value);
+
+    /// <summary>
+    /// A list of Tag objects.
+    /// </summary>
+    std::vector<std::shared_ptr<utility::string_t>>& getTags();
+    bool tagsIsSet() const;
+    void unsetTags();
+
+    void setTags(const std::vector<std::shared_ptr<utility::string_t>>& value);
+
 
 protected:
+    int64_t m_EntryId;
+    bool m_EntryIdIsSet;
     utility::string_t m_Title;
     bool m_TitleIsSet;
+    utility::string_t m_Origin;
+    bool m_OriginIsSet;
+    std::vector<std::shared_ptr<utility::string_t>> m_Tags;
+    bool m_TagsIsSet;
 };
 
 

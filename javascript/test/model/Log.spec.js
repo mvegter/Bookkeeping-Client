@@ -54,8 +54,26 @@
       //expect(instance).to.be.a(AliceBookkeeping.Log);
     });
 
+    it('should have the property entryId (base name: "entryId")', function() {
+      // uncomment below and update the code to test the property entryId
+      //var instane = new AliceBookkeeping.Log();
+      //expect(instance).to.be();
+    });
+
     it('should have the property title (base name: "title")', function() {
       // uncomment below and update the code to test the property title
+      //var instane = new AliceBookkeeping.Log();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property origin (base name: "origin")', function() {
+      // uncomment below and update the code to test the property origin
+      //var instane = new AliceBookkeeping.Log();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property tags (base name: "tags")', function() {
+      // uncomment below and update the code to test the property tags
       //var instane = new AliceBookkeeping.Log();
       //expect(instance).to.be();
     });

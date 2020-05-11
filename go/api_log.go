@@ -15,6 +15,7 @@ import (
 	_nethttp "net/http"
 	_neturl "net/url"
 	"strings"
+	"github.com/antihax/optional"
 )
 
 // Linger please
@@ -204,12 +205,25 @@ func (a *LogApiService) GetLogById(ctx _context.Context, id int64) (LogResponse,
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+// ListLogsOpts Optional parameters for the method 'ListLogs'
+type ListLogsOpts struct {
+    FilterOrigin optional.String
+    PageOffset optional.Int32
+    PageLimit optional.Int32
+    Sort optional.Interface
+}
+
 /*
 ListLogs List all logs
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param optional nil or *ListLogsOpts - Optional Parameters:
+ * @param "FilterOrigin" (optional.String) -  Filter logs by their origin
+ * @param "PageOffset" (optional.Int32) -  The number of items to skip before starting to collect the result set.
+ * @param "PageLimit" (optional.Int32) -  The numbers of items to return.
+ * @param "Sort" (optional.Interface of []string) -  The sort order of the returned items.
 @return ArrayOfLogsResponse
 */
-func (a *LogApiService) ListLogs(ctx _context.Context) (ArrayOfLogsResponse, *_nethttp.Response, error) {
+func (a *LogApiService) ListLogs(ctx _context.Context, localVarOptionals *ListLogsOpts) (ArrayOfLogsResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -225,6 +239,18 @@ func (a *LogApiService) ListLogs(ctx _context.Context) (ArrayOfLogsResponse, *_n
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
+	if localVarOptionals != nil && localVarOptionals.FilterOrigin.IsSet() {
+		localVarQueryParams.Add("filter[origin]", parameterToString(localVarOptionals.FilterOrigin.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.PageOffset.IsSet() {
+		localVarQueryParams.Add("page[offset]", parameterToString(localVarOptionals.PageOffset.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.PageLimit.IsSet() {
+		localVarQueryParams.Add("page[limit]", parameterToString(localVarOptionals.PageLimit.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.Sort.IsSet() {
+		localVarQueryParams.Add("sort", parameterToString(localVarOptionals.Sort.Value(), "csv"))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -262,6 +288,15 @@ func (a *LogApiService) ListLogs(ctx _context.Context) (ArrayOfLogsResponse, *_n
 		newErr := GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v Errors
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

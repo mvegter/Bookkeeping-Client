@@ -75,7 +75,11 @@ public class LogApiTest {
      */
     @Test
     public void listLogsTest() throws ApiException {
-        ArrayOfLogsResponse response = api.listLogs();
+        String filterOrigin = null;
+        Integer pageOffset = null;
+        Integer pageLimit = null;
+        List<String> sort = null;
+        ArrayOfLogsResponse response = api.listLogs(filterOrigin, pageOffset, pageLimit, sort);
 
         // TODO: test validations
     }

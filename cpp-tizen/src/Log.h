@@ -9,6 +9,7 @@
 
 
 #include <string>
+#include <list>
 #include "Object.h"
 
 /** \defgroup Models Data Structures for API
@@ -45,6 +46,13 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
+	/*! \brief Get Id of the log.
+	 */
+	long long getEntryId();
+
+	/*! \brief Set Id of the log.
+	 */
+	void setEntryId(long long  entryId);
 	/*! \brief Get Title of the log.
 	 */
 	std::string getTitle();
@@ -52,9 +60,26 @@ public:
 	/*! \brief Set Title of the log.
 	 */
 	void setTitle(std::string  title);
+	/*! \brief Get Type of creator.
+	 */
+	std::string getOrigin();
+
+	/*! \brief Set Type of creator.
+	 */
+	void setOrigin(std::string  origin);
+	/*! \brief Get A list of Tag objects.
+	 */
+	std::list<std::string> getTags();
+
+	/*! \brief Set A list of Tag objects.
+	 */
+	void setTags(std::list <std::string> tags);
 
 private:
+	long long entryId;
 	std::string title;
+	std::string origin;
+	std::list <std::string>tags;
 	void __init();
 	void __cleanup();
 

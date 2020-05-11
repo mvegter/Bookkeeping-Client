@@ -20,6 +20,7 @@
 
 #include <QJsonObject>
 
+#include <QList>
 #include <QString>
 
 #include "OAIEnum.h"
@@ -38,10 +39,25 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
+    qint64 getEntryId() const;
+    void setEntryId(const qint64 &entry_id);
+    bool is_entry_id_Set() const;
+    bool is_entry_id_Valid() const;
+
     QString getTitle() const;
     void setTitle(const QString &title);
     bool is_title_Set() const;
     bool is_title_Valid() const;
+
+    QString getOrigin() const;
+    void setOrigin(const QString &origin);
+    bool is_origin_Set() const;
+    bool is_origin_Valid() const;
+
+    QList<QString> getTags() const;
+    void setTags(const QList<QString> &tags);
+    bool is_tags_Set() const;
+    bool is_tags_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -49,9 +65,21 @@ public:
 private:
     void initializeModel();
 
+    qint64 entry_id;
+    bool m_entry_id_isSet;
+    bool m_entry_id_isValid;
+
     QString title;
     bool m_title_isSet;
     bool m_title_isValid;
+
+    QString origin;
+    bool m_origin_isSet;
+    bool m_origin_isValid;
+
+    QList<QString> tags;
+    bool m_tags_isSet;
+    bool m_tags_isValid;
 };
 
 } // namespace OpenAPI

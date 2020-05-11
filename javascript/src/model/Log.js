@@ -23,11 +23,14 @@ class Log {
      * Constructs a new <code>Log</code>.
      * Describes an intervention or an event that happened.
      * @alias module:model/Log
+     * @param entryId {Number} Id of the log.
      * @param title {String} Title of the log.
+     * @param origin {module:model/Log.OriginEnum} Type of creator.
+     * @param tags {Array.<String>} A list of Tag objects.
      */
-    constructor(title) { 
+    constructor(entryId, title, origin, tags) { 
         
-        Log.initialize(this, title);
+        Log.initialize(this, entryId, title, origin, tags);
     }
 
     /**
@@ -35,8 +38,11 @@ class Log {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, title) { 
+    static initialize(obj, entryId, title, origin, tags) { 
+        obj['entryId'] = entryId;
         obj['title'] = title;
+        obj['origin'] = origin;
+        obj['tags'] = tags;
     }
 
     /**
@@ -50,8 +56,17 @@ class Log {
         if (data) {
             obj = obj || new Log();
 
+            if (data.hasOwnProperty('entryId')) {
+                obj['entryId'] = ApiClient.convertToType(data['entryId'], 'Number');
+            }
             if (data.hasOwnProperty('title')) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
+            }
+            if (data.hasOwnProperty('origin')) {
+                obj['origin'] = ApiClient.convertToType(data['origin'], 'String');
+            }
+            if (data.hasOwnProperty('tags')) {
+                obj['tags'] = ApiClient.convertToType(data['tags'], ['String']);
             }
         }
         return obj;
@@ -61,13 +76,52 @@ class Log {
 }
 
 /**
+ * Id of the log.
+ * @member {Number} entryId
+ */
+Log.prototype['entryId'] = undefined;
+
+/**
  * Title of the log.
  * @member {String} title
  */
 Log.prototype['title'] = undefined;
 
+/**
+ * Type of creator.
+ * @member {module:model/Log.OriginEnum} origin
+ */
+Log.prototype['origin'] = undefined;
+
+/**
+ * A list of Tag objects.
+ * @member {Array.<String>} tags
+ */
+Log.prototype['tags'] = undefined;
 
 
+
+
+
+/**
+ * Allowed values for the <code>origin</code> property.
+ * @enum {String}
+ * @readonly
+ */
+Log['OriginEnum'] = {
+
+    /**
+     * value: "human"
+     * @const
+     */
+    "human": "human",
+
+    /**
+     * value: "process"
+     * @const
+     */
+    "process": "process"
+};
 
 
 

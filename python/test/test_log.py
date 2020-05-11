@@ -36,11 +36,21 @@ class TestLog(unittest.TestCase):
         # model = openapi_client.models.log.Log()  # noqa: E501
         if include_optional :
             return Log(
-                title = '0'
+                entry_id = 56, 
+                title = '0', 
+                origin = 'human', 
+                tags = [
+                    '0'
+                    ]
             )
         else :
             return Log(
+                entry_id = 56,
                 title = '0',
+                origin = 'human',
+                tags = [
+                    '0'
+                    ],
         )
 
     def testLog(self):

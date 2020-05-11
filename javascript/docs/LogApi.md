@@ -94,7 +94,7 @@ No authorization required
 
 ## listLogs
 
-> ArrayOfLogsResponse listLogs()
+> ArrayOfLogsResponse listLogs(opts)
 
 List all logs
 
@@ -104,7 +104,13 @@ List all logs
 import AliceBookkeeping from 'alice_bookkeeping';
 
 let apiInstance = new AliceBookkeeping.LogApi();
-apiInstance.listLogs((error, data, response) => {
+let opts = {
+  'filterOrigin': "filterOrigin_example", // String | Filter logs by their origin
+  'pageOffset': 0, // Number | The number of items to skip before starting to collect the result set.
+  'pageLimit': 100, // Number | The numbers of items to return.
+  'sort': ["null"] // [String] | The sort order of the returned items.
+};
+apiInstance.listLogs(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -115,7 +121,13 @@ apiInstance.listLogs((error, data, response) => {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filterOrigin** | **String**| Filter logs by their origin | [optional] 
+ **pageOffset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
+ **pageLimit** | **Number**| The numbers of items to return. | [optional] [default to 100]
+ **sort** | [**[String]**](String.md)| The sort order of the returned items. | [optional] 
 
 ### Return type
 

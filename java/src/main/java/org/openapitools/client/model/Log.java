@@ -23,16 +23,99 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Describes an intervention or an event that happened.
  */
 @ApiModel(description = "Describes an intervention or an event that happened.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-11T14:01:45.131+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-11T14:31:40.238+01:00[Europe/London]")
 public class Log {
+  public static final String SERIALIZED_NAME_ENTRY_ID = "entryId";
+  @SerializedName(SERIALIZED_NAME_ENTRY_ID)
+  private Long entryId;
+
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
   private String title;
+
+  /**
+   * Type of creator.
+   */
+  @JsonAdapter(OriginEnum.Adapter.class)
+  public enum OriginEnum {
+    HUMAN("human"),
+    
+    PROCESS("process");
+
+    private String value;
+
+    OriginEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static OriginEnum fromValue(String value) {
+      for (OriginEnum b : OriginEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<OriginEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final OriginEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public OriginEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return OriginEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_ORIGIN = "origin";
+  @SerializedName(SERIALIZED_NAME_ORIGIN)
+  private OriginEnum origin;
+
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  private List<String> tags = new ArrayList<String>();
+
+
+  public Log entryId(Long entryId) {
+    
+    this.entryId = entryId;
+    return this;
+  }
+
+   /**
+   * Id of the log.
+   * @return entryId
+  **/
+  @ApiModelProperty(required = true, value = "Id of the log.")
+
+  public Long getEntryId() {
+    return entryId;
+  }
+
+
+  public void setEntryId(Long entryId) {
+    this.entryId = entryId;
+  }
 
 
   public Log title(String title) {
@@ -57,6 +140,55 @@ public class Log {
   }
 
 
+  public Log origin(OriginEnum origin) {
+    
+    this.origin = origin;
+    return this;
+  }
+
+   /**
+   * Type of creator.
+   * @return origin
+  **/
+  @ApiModelProperty(required = true, value = "Type of creator.")
+
+  public OriginEnum getOrigin() {
+    return origin;
+  }
+
+
+  public void setOrigin(OriginEnum origin) {
+    this.origin = origin;
+  }
+
+
+  public Log tags(List<String> tags) {
+    
+    this.tags = tags;
+    return this;
+  }
+
+  public Log addTagsItem(String tagsItem) {
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * A list of Tag objects.
+   * @return tags
+  **/
+  @ApiModelProperty(required = true, value = "A list of Tag objects.")
+
+  public List<String> getTags() {
+    return tags;
+  }
+
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -66,12 +198,15 @@ public class Log {
       return false;
     }
     Log log = (Log) o;
-    return Objects.equals(this.title, log.title);
+    return Objects.equals(this.entryId, log.entryId) &&
+        Objects.equals(this.title, log.title) &&
+        Objects.equals(this.origin, log.origin) &&
+        Objects.equals(this.tags, log.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(title);
+    return Objects.hash(entryId, title, origin, tags);
   }
 
 
@@ -79,7 +214,10 @@ public class Log {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Log {\n");
+    sb.append("    entryId: ").append(toIndentedString(entryId)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    origin: ").append(toIndentedString(origin)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }
