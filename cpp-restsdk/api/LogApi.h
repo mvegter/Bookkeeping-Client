@@ -24,6 +24,7 @@
 #include "ArrayOfLogsResponse.h"
 #include "Errors.h"
 #include "LogResponse.h"
+#include <cpprest/details/basic_types.h>
 
 
 #include <boost/optional.hpp>
@@ -69,7 +70,15 @@ public:
     /// <remarks>
     /// 
     /// </remarks>
+    /// <param name="filterLeft_Square_BracketoriginRight_Square_Bracket">Filter logs by their origin (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
+    /// <param name="pageLeft_Square_BracketoffsetRight_Square_Bracket">The number of items to skip before starting to collect the result set. (optional, default to 0)</param>
+    /// <param name="pageLeft_Square_BracketlimitRight_Square_Bracket">The numbers of items to return. (optional, default to 0)</param>
+    /// <param name="sort">The sort order of the returned items. (optional, default to std::vector&lt;std::shared_ptr&lt;utility::string_t&gt;&gt;())</param>
     pplx::task<std::shared_ptr<ArrayOfLogsResponse>> listLogs(
+        boost::optional<utility::string_t> filterLeft_Square_BracketoriginRight_Square_Bracket,
+        boost::optional<int32_t> pageLeft_Square_BracketoffsetRight_Square_Bracket,
+        boost::optional<int32_t> pageLeft_Square_BracketlimitRight_Square_Bracket,
+        boost::optional<std::vector<utility::string_t>> sort
     ) const;
 
 protected:

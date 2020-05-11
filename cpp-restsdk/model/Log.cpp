@@ -23,8 +23,13 @@ namespace model {
 
 Log::Log()
 {
+    m_EntryId = 0L;
+    m_EntryIdIsSet = false;
     m_Title = utility::conversions::to_string_t("");
     m_TitleIsSet = false;
+    m_Origin = utility::conversions::to_string_t("");
+    m_OriginIsSet = false;
+    m_TagsIsSet = false;
 }
 
 Log::~Log()
@@ -41,9 +46,21 @@ web::json::value Log::toJson() const
 
     web::json::value val = web::json::value::object();
     
+    if(m_EntryIdIsSet)
+    {
+        val[utility::conversions::to_string_t("entryId")] = ModelBase::toJson(m_EntryId);
+    }
     if(m_TitleIsSet)
     {
         val[utility::conversions::to_string_t("title")] = ModelBase::toJson(m_Title);
+    }
+    if(m_OriginIsSet)
+    {
+        val[utility::conversions::to_string_t("origin")] = ModelBase::toJson(m_Origin);
+    }
+    if(m_TagsIsSet)
+    {
+        val[utility::conversions::to_string_t("tags")] = ModelBase::toJson(m_Tags);
     }
 
     return val;
@@ -53,6 +70,16 @@ bool Log::fromJson(const web::json::value& val)
 {
     bool ok = true;
     
+    if(val.has_field(utility::conversions::to_string_t("entryId")))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("entryId"));
+        if(!fieldValue.is_null())
+        {
+            int64_t refVal_entryId;
+            ok &= ModelBase::fromJson(fieldValue, refVal_entryId);
+            setEntryId(refVal_entryId);
+        }
+    }
     if(val.has_field(utility::conversions::to_string_t("title")))
     {
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("title"));
@@ -61,6 +88,26 @@ bool Log::fromJson(const web::json::value& val)
             utility::string_t refVal_title;
             ok &= ModelBase::fromJson(fieldValue, refVal_title);
             setTitle(refVal_title);
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("origin")))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("origin"));
+        if(!fieldValue.is_null())
+        {
+            utility::string_t refVal_origin;
+            ok &= ModelBase::fromJson(fieldValue, refVal_origin);
+            setOrigin(refVal_origin);
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("tags")))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("tags"));
+        if(!fieldValue.is_null())
+        {
+            std::vector<std::shared_ptr<utility::string_t>> refVal_tags;
+            ok &= ModelBase::fromJson(fieldValue, refVal_tags);
+            setTags(refVal_tags);
         }
     }
     return ok;
@@ -73,9 +120,21 @@ void Log::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utilit
     {
         namePrefix += utility::conversions::to_string_t(".");
     }
+    if(m_EntryIdIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("entryId"), m_EntryId));
+    }
     if(m_TitleIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("title"), m_Title));
+    }
+    if(m_OriginIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("origin"), m_Origin));
+    }
+    if(m_TagsIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("tags"), m_Tags));
     }
 }
 
@@ -88,15 +147,53 @@ bool Log::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const util
         namePrefix += utility::conversions::to_string_t(".");
     }
 
+    if(multipart->hasContent(utility::conversions::to_string_t("entryId")))
+    {
+        int64_t refVal_entryId;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("entryId")), refVal_entryId );
+        setEntryId(refVal_entryId);
+    }
     if(multipart->hasContent(utility::conversions::to_string_t("title")))
     {
         utility::string_t refVal_title;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("title")), refVal_title );
         setTitle(refVal_title);
     }
+    if(multipart->hasContent(utility::conversions::to_string_t("origin")))
+    {
+        utility::string_t refVal_origin;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("origin")), refVal_origin );
+        setOrigin(refVal_origin);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("tags")))
+    {
+        std::vector<std::shared_ptr<utility::string_t>> refVal_tags;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("tags")), refVal_tags );
+        setTags(refVal_tags);
+    }
     return ok;
 }
 
+int64_t Log::getEntryId() const
+{
+    return m_EntryId;
+}
+
+void Log::setEntryId(int64_t value)
+{
+    m_EntryId = value;
+    m_EntryIdIsSet = true;
+}
+
+bool Log::entryIdIsSet() const
+{
+    return m_EntryIdIsSet;
+}
+
+void Log::unsetEntryId()
+{
+    m_EntryIdIsSet = false;
+}
 utility::string_t Log::getTitle() const
 {
     return m_Title;
@@ -116,6 +213,46 @@ bool Log::titleIsSet() const
 void Log::unsetTitle()
 {
     m_TitleIsSet = false;
+}
+utility::string_t Log::getOrigin() const
+{
+    return m_Origin;
+}
+
+void Log::setOrigin(const utility::string_t& value)
+{
+    m_Origin = value;
+    m_OriginIsSet = true;
+}
+
+bool Log::originIsSet() const
+{
+    return m_OriginIsSet;
+}
+
+void Log::unsetOrigin()
+{
+    m_OriginIsSet = false;
+}
+std::vector<std::shared_ptr<utility::string_t>>& Log::getTags()
+{
+    return m_Tags;
+}
+
+void Log::setTags(const std::vector<std::shared_ptr<utility::string_t>>& value)
+{
+    m_Tags = value;
+    m_TagsIsSet = true;
+}
+
+bool Log::tagsIsSet() const
+{
+    return m_TagsIsSet;
+}
+
+void Log::unsetTags()
+{
+    m_TagsIsSet = false;
 }
 }
 }
