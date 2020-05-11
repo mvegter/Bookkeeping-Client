@@ -397,6 +397,11 @@ static bool listLogsProcessor(MemoryStruct_s p_chunk, long code, char* errormsg,
 			printf("\n%s\n", jsonStr);
 			g_free(static_cast<gpointer>(jsonStr));
 			
+			out.fromJson(data);
+			char *jsonStr =  out.toJson();
+			printf("\n%s\n", jsonStr);
+			g_free(static_cast<gpointer>(jsonStr));
+			
 		}
 		handler(out, error, userData);
 		return true;
@@ -417,7 +422,7 @@ static bool listLogsProcessor(MemoryStruct_s p_chunk, long code, char* errormsg,
 }
 
 static bool listLogsHelper(char * accessToken,
-	
+	std::string filterLeft_Square_BracketoriginRight_Square_Bracket, int pageLeft_Square_BracketoffsetRight_Square_Bracket, int pageLeft_Square_BracketlimitRight_Square_Bracket, std::list<std::string> sort, 
 	void(* handler)(ArrayOfLogsResponse, Error, void* )
 	, void* userData, bool isAsync)
 {
@@ -433,6 +438,36 @@ static bool listLogsHelper(char * accessToken,
 
 	map <string, string> queryParams;
 	string itemAtq;
+	
+
+	itemAtq = stringify(&filterLeft_Square_BracketoriginRight_Square_Bracket, "std::string");
+	queryParams.insert(pair<string, string>("filter[origin]", itemAtq));
+	if( itemAtq.empty()==true){
+		queryParams.erase("filter[origin]");
+	}
+
+
+	itemAtq = stringify(&pageLeft_Square_BracketoffsetRight_Square_Bracket, "int");
+	queryParams.insert(pair<string, string>("page[offset]", itemAtq));
+	if( itemAtq.empty()==true){
+		queryParams.erase("page[offset]");
+	}
+
+
+	itemAtq = stringify(&pageLeft_Square_BracketlimitRight_Square_Bracket, "int");
+	queryParams.insert(pair<string, string>("page[limit]", itemAtq));
+	if( itemAtq.empty()==true){
+		queryParams.erase("page[limit]");
+	}
+
+	for (std::list
+	<std::string>::iterator queryIter = sort.begin(); queryIter != sort.end(); ++queryIter) {
+		string itemAt = stringify(&(*queryIter), "std::string");
+		if( itemAt.empty()){
+			continue;
+		}
+		queryParams.insert(pair<string, string>("sort", itemAt));
+	}
 	
 	string mBody = "";
 	JsonNode* node;
@@ -488,22 +523,22 @@ static bool listLogsHelper(char * accessToken,
 
 
 bool LogManager::listLogsAsync(char * accessToken,
-	
+	std::string filterLeft_Square_BracketoriginRight_Square_Bracket, int pageLeft_Square_BracketoffsetRight_Square_Bracket, int pageLeft_Square_BracketlimitRight_Square_Bracket, std::list<std::string> sort, 
 	void(* handler)(ArrayOfLogsResponse, Error, void* )
 	, void* userData)
 {
 	return listLogsHelper(accessToken,
-	
+	filterLeft_Square_BracketoriginRight_Square_Bracket, pageLeft_Square_BracketoffsetRight_Square_Bracket, pageLeft_Square_BracketlimitRight_Square_Bracket, sort, 
 	handler, userData, true);
 }
 
 bool LogManager::listLogsSync(char * accessToken,
-	
+	std::string filterLeft_Square_BracketoriginRight_Square_Bracket, int pageLeft_Square_BracketoffsetRight_Square_Bracket, int pageLeft_Square_BracketlimitRight_Square_Bracket, std::list<std::string> sort, 
 	void(* handler)(ArrayOfLogsResponse, Error, void* )
 	, void* userData)
 {
 	return listLogsHelper(accessToken,
-	
+	filterLeft_Square_BracketoriginRight_Square_Bracket, pageLeft_Square_BracketoffsetRight_Square_Bracket, pageLeft_Square_BracketlimitRight_Square_Bracket, sort, 
 	handler, userData, false);
 }
 
