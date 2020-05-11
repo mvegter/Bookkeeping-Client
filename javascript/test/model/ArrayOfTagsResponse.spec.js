@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new AliceBookkeeping.LogApi();
+    instance = new AliceBookkeeping.ArrayOfTagsResponse();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,47 +47,19 @@
       object[property] = value;
   }
 
-  describe('LogApi', function() {
-    describe('createLog', function() {
-      it('should call createLog successfully', function(done) {
-        //uncomment below and update the code to test createLog
-        //instance.createLog(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+  describe('ArrayOfTagsResponse', function() {
+    it('should create an instance of ArrayOfTagsResponse', function() {
+      // uncomment below and update the code to test ArrayOfTagsResponse
+      //var instane = new AliceBookkeeping.ArrayOfTagsResponse();
+      //expect(instance).to.be.a(AliceBookkeeping.ArrayOfTagsResponse);
     });
-    describe('getLogById', function() {
-      it('should call getLogById successfully', function(done) {
-        //uncomment below and update the code to test getLogById
-        //instance.getLogById(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+
+    it('should have the property data (base name: "data")', function() {
+      // uncomment below and update the code to test the property data
+      //var instane = new AliceBookkeeping.ArrayOfTagsResponse();
+      //expect(instance).to.be();
     });
-    describe('listLogs', function() {
-      it('should call listLogs successfully', function(done) {
-        //uncomment below and update the code to test listLogs
-        //instance.listLogs(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('listTagsByLogId', function() {
-      it('should call listTagsByLogId successfully', function(done) {
-        //uncomment below and update the code to test listTagsByLogId
-        //instance.listTagsByLogId(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
+
   });
 
 }));

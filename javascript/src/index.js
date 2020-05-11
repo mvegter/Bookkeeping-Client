@@ -15,6 +15,7 @@
 import ApiClient from './ApiClient';
 import ApiInformation from './model/ApiInformation';
 import ArrayOfLogsResponse from './model/ArrayOfLogsResponse';
+import ArrayOfTagsResponse from './model/ArrayOfTagsResponse';
 import DeployInformation from './model/DeployInformation';
 import Error from './model/Error';
 import Errors from './model/Errors';
@@ -22,6 +23,7 @@ import Log from './model/Log';
 import LogResponse from './model/LogResponse';
 import DefaultApi from './api/DefaultApi';
 import LogApi from './api/LogApi';
+import TagApi from './api/TagApi';
 
 
 /**
@@ -75,6 +77,12 @@ export {
     ArrayOfLogsResponse,
 
     /**
+     * The ArrayOfTagsResponse model constructor.
+     * @property {module:model/ArrayOfTagsResponse}
+     */
+    ArrayOfTagsResponse,
+
+    /**
      * The DeployInformation model constructor.
      * @property {module:model/DeployInformation}
      */
@@ -114,5 +122,11 @@ export {
     * The LogApi service constructor.
     * @property {module:api/LogApi}
     */
-    LogApi
+    LogApi,
+
+    /**
+    * The TagApi service constructor.
+    * @property {module:api/TagApi}
+    */
+    TagApi
 };

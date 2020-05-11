@@ -5,8 +5,9 @@ All URIs are relative to *http://localhost/api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createLog**](LogApi.md#createLog) | **POST** /logs | Adds a new log
-[**getLogById**](LogApi.md#getLogById) | **GET** /logs/{id} | Gets a log by Id
+[**getLogById**](LogApi.md#getLogById) | **GET** /logs/{logId} | Gets a log by Id
 [**listLogs**](LogApi.md#listLogs) | **GET** /logs | List all logs
+[**listTagsByLogId**](LogApi.md#listTagsByLogId) | **GET** /logs/{logId}/tags | Lists all tags associated with a log
 
 
 
@@ -51,7 +52,7 @@ No authorization required
 
 ## getLogById
 
-> LogResponse getLogById(id)
+> LogResponse getLogById(logId)
 
 Gets a log by Id
 
@@ -61,8 +62,8 @@ Gets a log by Id
 import AliceBookkeeping from 'alice_bookkeeping';
 
 let apiInstance = new AliceBookkeeping.LogApi();
-let id = 789; // Number | The id of the log to retrieve
-apiInstance.getLogById(id, (error, data, response) => {
+let logId = 789; // Number | The id of the log to retrieve
+apiInstance.getLogById(logId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -76,7 +77,7 @@ apiInstance.getLogById(id, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **Number**| The id of the log to retrieve | 
+ **logId** | **Number**| The id of the log to retrieve | 
 
 ### Return type
 
@@ -132,6 +133,49 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ArrayOfLogsResponse**](ArrayOfLogsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## listTagsByLogId
+
+> ArrayOfTagsResponse listTagsByLogId(logId)
+
+Lists all tags associated with a log
+
+### Example
+
+```javascript
+import AliceBookkeeping from 'alice_bookkeeping';
+
+let apiInstance = new AliceBookkeeping.LogApi();
+let logId = 789; // Number | The id of the log to retrieve
+apiInstance.listTagsByLogId(logId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **logId** | **Number**| The id of the log to retrieve | 
+
+### Return type
+
+[**ArrayOfTagsResponse**](ArrayOfTagsResponse.md)
 
 ### Authorization
 
