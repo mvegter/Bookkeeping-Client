@@ -33,23 +33,60 @@ class Log(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'title': 'str'
+        'entry_id': 'int',
+        'title': 'str',
+        'origin': 'str',
+        'tags': 'list[str]'
     }
 
     attribute_map = {
-        'title': 'title'
+        'entry_id': 'entryId',
+        'title': 'title',
+        'origin': 'origin',
+        'tags': 'tags'
     }
 
-    def __init__(self, title=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, entry_id=None, title=None, origin=None, tags=None, local_vars_configuration=None):  # noqa: E501
         """Log - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._entry_id = None
         self._title = None
+        self._origin = None
+        self._tags = None
         self.discriminator = None
 
+        self.entry_id = entry_id
         self.title = title
+        self.origin = origin
+        self.tags = tags
+
+    @property
+    def entry_id(self):
+        """Gets the entry_id of this Log.  # noqa: E501
+
+        Id of the log.  # noqa: E501
+
+        :return: The entry_id of this Log.  # noqa: E501
+        :rtype: int
+        """
+        return self._entry_id
+
+    @entry_id.setter
+    def entry_id(self, entry_id):
+        """Sets the entry_id of this Log.
+
+        Id of the log.  # noqa: E501
+
+        :param entry_id: The entry_id of this Log.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and entry_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `entry_id`, must not be `None`")  # noqa: E501
+
+        self._entry_id = entry_id
 
     @property
     def title(self):
@@ -75,6 +112,62 @@ class Log(object):
             raise ValueError("Invalid value for `title`, must not be `None`")  # noqa: E501
 
         self._title = title
+
+    @property
+    def origin(self):
+        """Gets the origin of this Log.  # noqa: E501
+
+        Type of creator.  # noqa: E501
+
+        :return: The origin of this Log.  # noqa: E501
+        :rtype: str
+        """
+        return self._origin
+
+    @origin.setter
+    def origin(self, origin):
+        """Sets the origin of this Log.
+
+        Type of creator.  # noqa: E501
+
+        :param origin: The origin of this Log.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and origin is None:  # noqa: E501
+            raise ValueError("Invalid value for `origin`, must not be `None`")  # noqa: E501
+        allowed_values = ["human", "process"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and origin not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `origin` ({0}), must be one of {1}"  # noqa: E501
+                .format(origin, allowed_values)
+            )
+
+        self._origin = origin
+
+    @property
+    def tags(self):
+        """Gets the tags of this Log.  # noqa: E501
+
+        A list of Tag objects.  # noqa: E501
+
+        :return: The tags of this Log.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this Log.
+
+        A list of Tag objects.  # noqa: E501
+
+        :param tags: The tags of this Log.  # noqa: E501
+        :type: list[str]
+        """
+        if self.local_vars_configuration.client_side_validation and tags is None:  # noqa: E501
+            raise ValueError("Invalid value for `tags`, must not be `None`")  # noqa: E501
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

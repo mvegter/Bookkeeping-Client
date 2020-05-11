@@ -38,14 +38,24 @@ class TestArrayOfLogsResponse(unittest.TestCase):
             return ArrayOfLogsResponse(
                 data = [
                     openapi_client.models.log.Log(
-                        title = '0', )
+                        entry_id = 56, 
+                        title = '0', 
+                        origin = 'human', 
+                        tags = [
+                            '0'
+                            ], )
                     ]
             )
         else :
             return ArrayOfLogsResponse(
                 data = [
                     openapi_client.models.log.Log(
-                        title = '0', )
+                        entry_id = 56, 
+                        title = '0', 
+                        origin = 'human', 
+                        tags = [
+                            '0'
+                            ], )
                     ],
         )
 

@@ -129,7 +129,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_logs**
-> ArrayOfLogsResponse list_logs()
+> ArrayOfLogsResponse list_logs(filter_origin=filter_origin, page_offset=page_offset, page_limit=page_limit, sort=sort)
 
 List all logs
 
@@ -152,17 +152,27 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.LogApi(api_client)
-    
+    filter_origin = 'filter_origin_example' # str | Filter logs by their origin (optional)
+page_offset = 0 # int | The number of items to skip before starting to collect the result set. (optional) (default to 0)
+page_limit = 100 # int | The numbers of items to return. (optional) (default to 100)
+sort = ["-id"] # list[str] | The sort order of the returned items. (optional) (default to ["-id"])
+
     try:
         # List all logs
-        api_response = api_instance.list_logs()
+        api_response = api_instance.list_logs(filter_origin=filter_origin, page_offset=page_offset, page_limit=page_limit, sort=sort)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling LogApi->list_logs: %s\n" % e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filter_origin** | **str**| Filter logs by their origin | [optional] 
+ **page_offset** | **int**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
+ **page_limit** | **int**| The numbers of items to return. | [optional] [default to 100]
+ **sort** | [**list[str]**](str.md)| The sort order of the returned items. | [optional] [default to [&quot;-id&quot;]]
 
 ### Return type
 
@@ -181,6 +191,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Expected response to a valid request. |  -  |
+**400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
