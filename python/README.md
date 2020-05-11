@@ -86,6 +86,7 @@ Class | Method | HTTP request | Description
 *LogApi* | [**get_log_by_id**](docs/LogApi.md#get_log_by_id) | **GET** /logs/{logId} | Gets a log by Id
 *LogApi* | [**list_logs**](docs/LogApi.md#list_logs) | **GET** /logs | List all logs
 *LogApi* | [**list_tags_by_log_id**](docs/LogApi.md#list_tags_by_log_id) | **GET** /logs/{logId}/tags | Lists all tags associated with a log
+*TagApi* | [**list_tags**](docs/TagApi.md#list_tags) | **GET** /tags | List all tags
 *TagApi* | [**list_tags_by_log_id**](docs/TagApi.md#list_tags_by_log_id) | **GET** /logs/{logId}/tags | Lists all tags associated with a log
 
 
@@ -99,6 +100,7 @@ Class | Method | HTTP request | Description
  - [Errors](docs/Errors.md)
  - [Log](docs/Log.md)
  - [LogResponse](docs/LogResponse.md)
+ - [Tag](docs/Tag.md)
 
 
 ## Documentation For Authorization

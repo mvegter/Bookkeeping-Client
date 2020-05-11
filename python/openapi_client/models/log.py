@@ -36,7 +36,7 @@ class Log(object):
         'entry_id': 'int',
         'title': 'str',
         'origin': 'str',
-        'tags': 'list[str]'
+        'tags': 'list[Tag]'
     }
 
     attribute_map = {
@@ -151,7 +151,7 @@ class Log(object):
         A list of Tag objects.  # noqa: E501
 
         :return: The tags of this Log.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[Tag]
         """
         return self._tags
 
@@ -162,7 +162,7 @@ class Log(object):
         A list of Tag objects.  # noqa: E501
 
         :param tags: The tags of this Log.  # noqa: E501
-        :type: list[str]
+        :type: list[Tag]
         """
         if self.local_vars_configuration.client_side_validation and tags is None:  # noqa: E501
             raise ValueError("Invalid value for `tags`, must not be `None`")  # noqa: E501

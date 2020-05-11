@@ -28,6 +28,13 @@ class TestTagApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_list_tags(self):
+        """Test case for list_tags
+
+        List all tags  # noqa: E501
+        """
+        pass
+
     def test_list_tags_by_log_id(self):
         """Test case for list_tags_by_log_id
 

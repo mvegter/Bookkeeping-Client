@@ -41,7 +41,11 @@ class TestLogResponse(unittest.TestCase):
                     title = '0', 
                     origin = 'human', 
                     tags = [
-                        '0'
+                        openapi_client.models.tag.Tag(
+                            id = 56, 
+                            text = '0', 
+                            created_at = '0', 
+                            update_at = '0', )
                         ], )
             )
         else :
@@ -51,7 +55,11 @@ class TestLogResponse(unittest.TestCase):
                     title = '0', 
                     origin = 'human', 
                     tags = [
-                        '0'
+                        openapi_client.models.tag.Tag(
+                            id = 56, 
+                            text = '0', 
+                            created_at = '0', 
+                            update_at = '0', )
                         ], ),
         )
 
