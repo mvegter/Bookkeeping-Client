@@ -112,16 +112,16 @@ void OAILogApi::createLogCallback(OAIHttpRequestWorker *worker) {
     }
 }
 
-void OAILogApi::getLogById(const qint64 &id) {
+void OAILogApi::getLogById(const qint64 &log_id) {
     QString fullPath = QString("%1://%2%3%4%5")
                            .arg(_scheme)
                            .arg(_host)
                            .arg(_port ? ":" + QString::number(_port) : "")
                            .arg(_basePath)
-                           .arg("/logs/{id}");
-    QString idPathParam("{");
-    idPathParam.append("id").append("}");
-    fullPath.replace(idPathParam, QUrl::toPercentEncoding(::OpenAPI::toStringValue(id)));
+                           .arg("/logs/{logId}");
+    QString log_idPathParam("{");
+    log_idPathParam.append("logId").append("}");
+    fullPath.replace(log_idPathParam, QUrl::toPercentEncoding(::OpenAPI::toStringValue(log_id)));
 
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this);
     worker->setTimeOut(_timeOut);
@@ -254,6 +254,52 @@ void OAILogApi::listLogsCallback(OAIHttpRequestWorker *worker) {
     } else {
         emit listLogsSignalE(output, error_type, error_str);
         emit listLogsSignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAILogApi::listTagsByLogId(const qint64 &log_id) {
+    QString fullPath = QString("%1://%2%3%4%5")
+                           .arg(_scheme)
+                           .arg(_host)
+                           .arg(_port ? ":" + QString::number(_port) : "")
+                           .arg(_basePath)
+                           .arg("/logs/{logId}/tags");
+    QString log_idPathParam("{");
+    log_idPathParam.append("logId").append("}");
+    fullPath.replace(log_idPathParam, QUrl::toPercentEncoding(::OpenAPI::toStringValue(log_id)));
+
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "GET");
+
+    foreach (QString key, this->defaultHeaders.keys()) { input.headers.insert(key, this->defaultHeaders.value(key)); }
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAILogApi::listTagsByLogIdCallback);
+    connect(this, &OAILogApi::abortRequestsSignal, worker, &QObject::deleteLater); 
+    worker->execute(&input);
+}
+
+void OAILogApi::listTagsByLogIdCallback(OAIHttpRequestWorker *worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    } else {
+        msg = "Error: " + worker->error_str;
+        error_str = QString("%1, %2").arg(worker->error_str).arg(QString(worker->response));
+    }
+    OAIArrayOfTagsResponse output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit listTagsByLogIdSignal(output);
+        emit listTagsByLogIdSignalFull(worker, output);
+    } else {
+        emit listTagsByLogIdSignalE(output, error_type, error_str);
+        emit listTagsByLogIdSignalEFull(worker, error_type, error_str);
     }
 }
 

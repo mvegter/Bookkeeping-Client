@@ -4,6 +4,7 @@ HEADERS += \
 # Models
     $${PWD}/OAIApiInformation.h \
     $${PWD}/OAIArrayOfLogsResponse.h \
+    $${PWD}/OAIArrayOfTagsResponse.h \
     $${PWD}/OAIDeployInformation.h \
     $${PWD}/OAIError.h \
     $${PWD}/OAIErrors.h \
@@ -12,6 +13,7 @@ HEADERS += \
 # APIs
     $${PWD}/OAIDefaultApi.h \
     $${PWD}/OAILogApi.h \
+    $${PWD}/OAITagApi.h \
 # Others
     $${PWD}/OAIHelpers.h \
     $${PWD}/OAIHttpRequest.h \
@@ -23,6 +25,7 @@ SOURCES += \
 # Models
     $${PWD}/OAIApiInformation.cpp \
     $${PWD}/OAIArrayOfLogsResponse.cpp \
+    $${PWD}/OAIArrayOfTagsResponse.cpp \
     $${PWD}/OAIDeployInformation.cpp \
     $${PWD}/OAIError.cpp \
     $${PWD}/OAIErrors.cpp \
@@ -31,6 +34,7 @@ SOURCES += \
 # APIs
     $${PWD}/OAIDefaultApi.cpp \
     $${PWD}/OAILogApi.cpp \
+    $${PWD}/OAITagApi.cpp \
 # Others
     $${PWD}/OAIHelpers.cpp \
     $${PWD}/OAIHttpRequest.cpp \
