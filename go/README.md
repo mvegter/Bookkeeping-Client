@@ -35,14 +35,17 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**GetDeployInformation**](docs/DefaultApi.md#getdeployinformation) | **Get** /status | Get deploy information
 *DefaultApi* | [**GetServerInformation**](docs/DefaultApi.md#getserverinformation) | **Get** / | Get server information
 *LogApi* | [**CreateLog**](docs/LogApi.md#createlog) | **Post** /logs | Adds a new log
-*LogApi* | [**GetLogById**](docs/LogApi.md#getlogbyid) | **Get** /logs/{id} | Gets a log by Id
+*LogApi* | [**GetLogById**](docs/LogApi.md#getlogbyid) | **Get** /logs/{logId} | Gets a log by Id
 *LogApi* | [**ListLogs**](docs/LogApi.md#listlogs) | **Get** /logs | List all logs
+*LogApi* | [**ListTagsByLogId**](docs/LogApi.md#listtagsbylogid) | **Get** /logs/{logId}/tags | Lists all tags associated with a log
+*TagApi* | [**ListTagsByLogId**](docs/TagApi.md#listtagsbylogid) | **Get** /logs/{logId}/tags | Lists all tags associated with a log
 
 
 ## Documentation For Models
 
  - [ApiInformation](docs/ApiInformation.md)
  - [ArrayOfLogsResponse](docs/ArrayOfLogsResponse.md)
+ - [ArrayOfTagsResponse](docs/ArrayOfTagsResponse.md)
  - [DeployInformation](docs/DeployInformation.md)
  - [Error](docs/Error.md)
  - [Errors](docs/Errors.md)
