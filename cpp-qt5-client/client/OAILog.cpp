@@ -140,10 +140,10 @@ bool OAILog::is_origin_Valid() const{
     return m_origin_isValid;
 }
 
-QList<QString> OAILog::getTags() const {
+QList<OAITag> OAILog::getTags() const {
     return tags;
 }
-void OAILog::setTags(const QList<QString> &tags) {
+void OAILog::setTags(const QList<OAITag> &tags) {
     this->tags = tags;
     this->m_tags_isSet = true;
 }

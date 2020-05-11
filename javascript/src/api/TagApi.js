@@ -36,6 +36,48 @@ export default class TagApi {
 
 
     /**
+     * Callback function to receive the result of the listTags operation.
+     * @callback module:api/TagApi~listTagsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/ArrayOfTagsResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * List all tags
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.pageOffset The number of items to skip before starting to collect the result set. (default to 0)
+     * @param {Number} opts.pageLimit The numbers of items to return. (default to 100)
+     * @param {module:api/TagApi~listTagsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/ArrayOfTagsResponse}
+     */
+    listTags(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'page[offset]': opts['pageOffset'],
+        'page[limit]': opts['pageLimit']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ArrayOfTagsResponse;
+      return this.apiClient.callApi(
+        '/tags', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the listTagsByLogId operation.
      * @callback module:api/TagApi~listTagsByLogIdCallback
      * @param {String} error Error message, if any.

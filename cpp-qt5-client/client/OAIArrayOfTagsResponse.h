@@ -20,6 +20,7 @@
 
 #include <QJsonObject>
 
+#include "OAITag.h"
 #include <QList>
 
 #include "OAIEnum.h"
@@ -38,8 +39,8 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QList<QString> getData() const;
-    void setData(const QList<QString> &data);
+    QList<OAITag> getData() const;
+    void setData(const QList<OAITag> &data);
     bool is_data_Set() const;
     bool is_data_Valid() const;
 
@@ -49,7 +50,7 @@ public:
 private:
     void initializeModel();
 
-    QList<QString> data;
+    QList<OAITag> data;
     bool m_data_isSet;
     bool m_data_isValid;
 };

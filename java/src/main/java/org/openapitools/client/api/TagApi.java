@@ -56,6 +56,131 @@ public class TagApi {
     }
 
     /**
+     * Build call for listTags
+     * @param pageOffset The number of items to skip before starting to collect the result set. (optional, default to 0)
+     * @param pageLimit The numbers of items to return. (optional, default to 100)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listTagsCall(Integer pageOffset, Integer pageLimit, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/tags";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (pageOffset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page[offset]", pageOffset));
+        }
+
+        if (pageLimit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page[limit]", pageLimit));
+        }
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listTagsValidateBeforeCall(Integer pageOffset, Integer pageLimit, final ApiCallback _callback) throws ApiException {
+        
+
+        okhttp3.Call localVarCall = listTagsCall(pageOffset, pageLimit, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * List all tags
+     * 
+     * @param pageOffset The number of items to skip before starting to collect the result set. (optional, default to 0)
+     * @param pageLimit The numbers of items to return. (optional, default to 100)
+     * @return ArrayOfTagsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ArrayOfTagsResponse listTags(Integer pageOffset, Integer pageLimit) throws ApiException {
+        ApiResponse<ArrayOfTagsResponse> localVarResp = listTagsWithHttpInfo(pageOffset, pageLimit);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List all tags
+     * 
+     * @param pageOffset The number of items to skip before starting to collect the result set. (optional, default to 0)
+     * @param pageLimit The numbers of items to return. (optional, default to 100)
+     * @return ApiResponse&lt;ArrayOfTagsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ArrayOfTagsResponse> listTagsWithHttpInfo(Integer pageOffset, Integer pageLimit) throws ApiException {
+        okhttp3.Call localVarCall = listTagsValidateBeforeCall(pageOffset, pageLimit, null);
+        Type localVarReturnType = new TypeToken<ArrayOfTagsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List all tags (asynchronously)
+     * 
+     * @param pageOffset The number of items to skip before starting to collect the result set. (optional, default to 0)
+     * @param pageLimit The numbers of items to return. (optional, default to 100)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listTagsAsync(Integer pageOffset, Integer pageLimit, final ApiCallback<ArrayOfTagsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listTagsValidateBeforeCall(pageOffset, pageLimit, _callback);
+        Type localVarReturnType = new TypeToken<ArrayOfTagsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for listTagsByLogId
      * @param logId The id of the log to retrieve (required)
      * @param _callback Callback for upload/download progress

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **entryId** | **Long** | Id of the log. | 
 **title** | **String** | Title of the log. | 
 **origin** | [**OriginEnum**](#OriginEnum) | Type of creator. | 
-**tags** | **List&lt;String&gt;** | A list of Tag objects. | 
+**tags** | [**List&lt;Tag&gt;**](Tag.md) | A list of Tag objects. | 
 
 
 

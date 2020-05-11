@@ -229,6 +229,54 @@ paths:
                 $ref: '#/components/schemas/Errors'
           description: Unexpected Error
       summary: Get deploy information
+  /tags:
+    get:
+      operationId: listTags
+      parameters:
+      - description: The number of items to skip before starting to collect the result
+          set.
+        explode: true
+        in: query
+        name: page[offset]
+        required: false
+        schema:
+          default: 0
+          minimum: 0
+          type: integer
+        style: form
+      - description: The numbers of items to return.
+        explode: true
+        in: query
+        name: page[limit]
+        required: false
+        schema:
+          default: 100
+          maximum: 100
+          minimum: 1
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfTagsResponse'
+          description: Expected response to a valid request.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Bad Request
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Unexpected Error
+      summary: List all tags
+      tags:
+      - tag
 components:
   parameters:
     FilterOrigin:
@@ -363,14 +411,26 @@ components:
           title: title
           entryId: 0
           tags:
-          - null
-          - null
+          - createdAt: createdAt
+            updateAt: updateAt
+            id: 6
+            text: text
+          - createdAt: createdAt
+            updateAt: updateAt
+            id: 6
+            text: text
         - origin: human
           title: title
           entryId: 0
           tags:
-          - null
-          - null
+          - createdAt: createdAt
+            updateAt: updateAt
+            id: 6
+            text: text
+          - createdAt: createdAt
+            updateAt: updateAt
+            id: 6
+            text: text
       properties:
         data:
           description: A list of Log objects.
@@ -389,8 +449,14 @@ components:
       description: Response containing multiple tags.
       example:
         data:
-        - null
-        - null
+        - createdAt: createdAt
+          updateAt: updateAt
+          id: 6
+          text: text
+        - createdAt: createdAt
+          updateAt: updateAt
+          id: 6
+          text: text
       properties:
         data:
           description: A list of Tag objects.
@@ -452,8 +518,14 @@ components:
         title: title
         entryId: 0
         tags:
-        - null
-        - null
+        - createdAt: createdAt
+          updateAt: updateAt
+          id: 6
+          text: text
+        - createdAt: createdAt
+          updateAt: updateAt
+          id: 6
+          text: text
       properties:
         entryId:
           description: Id of the log.
@@ -487,8 +559,14 @@ components:
           title: title
           entryId: 0
           tags:
-          - null
-          - null
+          - createdAt: createdAt
+            updateAt: updateAt
+            id: 6
+            text: text
+          - createdAt: createdAt
+            updateAt: updateAt
+            id: 6
+            text: text
       properties:
         data:
           $ref: '#/components/schemas/Log'
@@ -496,5 +574,28 @@ components:
       - data
       type: object
     Tag:
+      additionalProperties: false
       description: A label attached to something for the purpose of identification.
-      type: string
+      example:
+        createdAt: createdAt
+        updateAt: updateAt
+        id: 6
+        text: text
+      properties:
+        id:
+          description: Id of the tag.
+          format: int64
+          type: integer
+        text:
+          description: The label value of the tag.
+          type: string
+        createdAt:
+          description: Date when the tag was created.
+          type: string
+        updateAt:
+          description: Date when the tag was last updated.
+          type: string
+      required:
+      - id
+      - text
+      type: object

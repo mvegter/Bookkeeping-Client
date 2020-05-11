@@ -9,6 +9,7 @@
 
 
 #include <string>
+#include "Tag.h"
 #include <list>
 #include "Object.h"
 
@@ -69,17 +70,17 @@ public:
 	void setOrigin(std::string  origin);
 	/*! \brief Get A list of Tag objects.
 	 */
-	std::list<std::string> getTags();
+	std::list<Tag> getTags();
 
 	/*! \brief Set A list of Tag objects.
 	 */
-	void setTags(std::list <std::string> tags);
+	void setTags(std::list <Tag> tags);
 
 private:
 	long long entryId;
 	std::string title;
 	std::string origin;
-	std::list <std::string>tags;
+	std::list <Tag>tags;
 	void __init();
 	void __cleanup();
 

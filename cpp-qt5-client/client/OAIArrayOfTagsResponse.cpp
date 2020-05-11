@@ -65,10 +65,10 @@ QJsonObject OAIArrayOfTagsResponse::asJsonObject() const {
     return obj;
 }
 
-QList<QString> OAIArrayOfTagsResponse::getData() const {
+QList<OAITag> OAIArrayOfTagsResponse::getData() const {
     return data;
 }
-void OAIArrayOfTagsResponse::setData(const QList<QString> &data) {
+void OAIArrayOfTagsResponse::setData(const QList<OAITag> &data) {
     this->data = data;
     this->m_data_isSet = true;
 }

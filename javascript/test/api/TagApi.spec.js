@@ -48,6 +48,16 @@
   }
 
   describe('TagApi', function() {
+    describe('listTags', function() {
+      it('should call listTags successfully', function(done) {
+        //uncomment below and update the code to test listTags
+        //instance.listTags(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('listTagsByLogId', function() {
       it('should call listTagsByLogId successfully', function(done) {
         //uncomment below and update the code to test listTagsByLogId

@@ -20,6 +20,7 @@
 
 #include <QJsonObject>
 
+#include "OAITag.h"
 #include <QList>
 #include <QString>
 
@@ -54,8 +55,8 @@ public:
     bool is_origin_Set() const;
     bool is_origin_Valid() const;
 
-    QList<QString> getTags() const;
-    void setTags(const QList<QString> &tags);
+    QList<OAITag> getTags() const;
+    void setTags(const QList<OAITag> &tags);
     bool is_tags_Set() const;
     bool is_tags_Valid() const;
 
@@ -77,7 +78,7 @@ private:
     bool m_origin_isSet;
     bool m_origin_isValid;
 
-    QList<QString> tags;
+    QList<OAITag> tags;
     bool m_tags_isSet;
     bool m_tags_isValid;
 };

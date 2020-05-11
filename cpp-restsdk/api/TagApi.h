@@ -45,6 +45,18 @@ public:
     virtual ~TagApi();
 
     /// <summary>
+    /// List all tags
+    /// </summary>
+    /// <remarks>
+    /// 
+    /// </remarks>
+    /// <param name="pageLeft_Square_BracketoffsetRight_Square_Bracket">The number of items to skip before starting to collect the result set. (optional, default to 0)</param>
+    /// <param name="pageLeft_Square_BracketlimitRight_Square_Bracket">The numbers of items to return. (optional, default to 0)</param>
+    pplx::task<std::shared_ptr<ArrayOfTagsResponse>> listTags(
+        boost::optional<int32_t> pageLeft_Square_BracketoffsetRight_Square_Bracket,
+        boost::optional<int32_t> pageLeft_Square_BracketlimitRight_Square_Bracket
+    ) const;
+    /// <summary>
     /// Lists all tags associated with a log
     /// </summary>
     /// <remarks>

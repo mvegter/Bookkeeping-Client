@@ -17,5 +17,5 @@ type Log struct {
 	// Type of creator.
 	Origin string `json:"origin"`
 	// A list of Tag objects.
-	Tags []string `json:"tags"`
+	Tags []Tag `json:"tags"`
 }

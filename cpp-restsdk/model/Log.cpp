@@ -105,7 +105,7 @@ bool Log::fromJson(const web::json::value& val)
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("tags"));
         if(!fieldValue.is_null())
         {
-            std::vector<std::shared_ptr<utility::string_t>> refVal_tags;
+            std::vector<std::shared_ptr<Tag>> refVal_tags;
             ok &= ModelBase::fromJson(fieldValue, refVal_tags);
             setTags(refVal_tags);
         }
@@ -167,7 +167,7 @@ bool Log::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const util
     }
     if(multipart->hasContent(utility::conversions::to_string_t("tags")))
     {
-        std::vector<std::shared_ptr<utility::string_t>> refVal_tags;
+        std::vector<std::shared_ptr<Tag>> refVal_tags;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("tags")), refVal_tags );
         setTags(refVal_tags);
     }
@@ -234,12 +234,12 @@ void Log::unsetOrigin()
 {
     m_OriginIsSet = false;
 }
-std::vector<std::shared_ptr<utility::string_t>>& Log::getTags()
+std::vector<std::shared_ptr<Tag>>& Log::getTags()
 {
     return m_Tags;
 }
 
-void Log::setTags(const std::vector<std::shared_ptr<utility::string_t>>& value)
+void Log::setTags(const std::vector<std::shared_ptr<Tag>>& value)
 {
     m_Tags = value;
     m_TagsIsSet = true;

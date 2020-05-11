@@ -125,6 +125,7 @@ Class | Method | HTTP request | Description
 *AliceBookkeeping.LogApi* | [**getLogById**](docs/LogApi.md#getLogById) | **GET** /logs/{logId} | Gets a log by Id
 *AliceBookkeeping.LogApi* | [**listLogs**](docs/LogApi.md#listLogs) | **GET** /logs | List all logs
 *AliceBookkeeping.LogApi* | [**listTagsByLogId**](docs/LogApi.md#listTagsByLogId) | **GET** /logs/{logId}/tags | Lists all tags associated with a log
+*AliceBookkeeping.TagApi* | [**listTags**](docs/TagApi.md#listTags) | **GET** /tags | List all tags
 *AliceBookkeeping.TagApi* | [**listTagsByLogId**](docs/TagApi.md#listTagsByLogId) | **GET** /logs/{logId}/tags | Lists all tags associated with a log
 
 
@@ -138,6 +139,7 @@ Class | Method | HTTP request | Description
  - [AliceBookkeeping.Errors](docs/Errors.md)
  - [AliceBookkeeping.Log](docs/Log.md)
  - [AliceBookkeeping.LogResponse](docs/LogResponse.md)
+ - [AliceBookkeeping.Tag](docs/Tag.md)
 
 
 ## Documentation for Authorization

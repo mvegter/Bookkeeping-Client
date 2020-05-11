@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import Tag from './Tag';
 
 /**
  * The ArrayOfTagsResponse model module.
@@ -23,7 +24,7 @@ class ArrayOfTagsResponse {
      * Constructs a new <code>ArrayOfTagsResponse</code>.
      * Response containing multiple tags.
      * @alias module:model/ArrayOfTagsResponse
-     * @param data {Array.<String>} A list of Tag objects.
+     * @param data {Array.<module:model/Tag>} A list of Tag objects.
      */
     constructor(data) { 
         
@@ -51,7 +52,7 @@ class ArrayOfTagsResponse {
             obj = obj || new ArrayOfTagsResponse();
 
             if (data.hasOwnProperty('data')) {
-                obj['data'] = ApiClient.convertToType(data['data'], ['String']);
+                obj['data'] = ApiClient.convertToType(data['data'], [Tag]);
             }
         }
         return obj;
@@ -62,7 +63,7 @@ class ArrayOfTagsResponse {
 
 /**
  * A list of Tag objects.
- * @member {Array.<String>} data
+ * @member {Array.<module:model/Tag>} data
  */
 ArrayOfTagsResponse.prototype['data'] = undefined;
 

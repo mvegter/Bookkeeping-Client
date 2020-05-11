@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import Tag from './Tag';
 
 /**
  * The Log model module.
@@ -26,7 +27,7 @@ class Log {
      * @param entryId {Number} Id of the log.
      * @param title {String} Title of the log.
      * @param origin {module:model/Log.OriginEnum} Type of creator.
-     * @param tags {Array.<String>} A list of Tag objects.
+     * @param tags {Array.<module:model/Tag>} A list of Tag objects.
      */
     constructor(entryId, title, origin, tags) { 
         
@@ -66,7 +67,7 @@ class Log {
                 obj['origin'] = ApiClient.convertToType(data['origin'], 'String');
             }
             if (data.hasOwnProperty('tags')) {
-                obj['tags'] = ApiClient.convertToType(data['tags'], ['String']);
+                obj['tags'] = ApiClient.convertToType(data['tags'], [Tag]);
             }
         }
         return obj;
@@ -95,7 +96,7 @@ Log.prototype['origin'] = undefined;
 
 /**
  * A list of Tag objects.
- * @member {Array.<String>} tags
+ * @member {Array.<module:model/Tag>} tags
  */
 Log.prototype['tags'] = undefined;
 

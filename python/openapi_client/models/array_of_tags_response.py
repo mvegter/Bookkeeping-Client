@@ -33,7 +33,7 @@ class ArrayOfTagsResponse(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'data': 'list[str]'
+        'data': 'list[Tag]'
     }
 
     attribute_map = {
@@ -58,7 +58,7 @@ class ArrayOfTagsResponse(object):
         A list of Tag objects.  # noqa: E501
 
         :return: The data of this ArrayOfTagsResponse.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[Tag]
         """
         return self._data
 
@@ -69,7 +69,7 @@ class ArrayOfTagsResponse(object):
         A list of Tag objects.  # noqa: E501
 
         :param data: The data of this ArrayOfTagsResponse.  # noqa: E501
-        :type: list[str]
+        :type: list[Tag]
         """
         if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
             raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501

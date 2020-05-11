@@ -38,4 +38,5 @@ from openapi_client.models.error import Error
 from openapi_client.models.errors import Errors
 from openapi_client.models.log import Log
 from openapi_client.models.log_response import LogResponse
+from openapi_client.models.tag import Tag
 
