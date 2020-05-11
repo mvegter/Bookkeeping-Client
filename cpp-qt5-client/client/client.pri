@@ -10,6 +10,7 @@ HEADERS += \
     $${PWD}/OAIErrors.h \
     $${PWD}/OAILog.h \
     $${PWD}/OAILogResponse.h \
+    $${PWD}/OAITag.h \
 # APIs
     $${PWD}/OAIDefaultApi.h \
     $${PWD}/OAILogApi.h \
@@ -31,6 +32,7 @@ SOURCES += \
     $${PWD}/OAIErrors.cpp \
     $${PWD}/OAILog.cpp \
     $${PWD}/OAILogResponse.cpp \
+    $${PWD}/OAITag.cpp \
 # APIs
     $${PWD}/OAIDefaultApi.cpp \
     $${PWD}/OAILogApi.cpp \

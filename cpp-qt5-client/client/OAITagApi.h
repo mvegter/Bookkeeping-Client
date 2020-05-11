@@ -40,6 +40,7 @@ public:
     void enableResponseCompression();
     void abortRequests();
 
+    void listTags(const qint32 &page_offset, const qint32 &page_limit);
     void listTagsByLogId(const qint64 &log_id);
 
 private:
@@ -52,16 +53,21 @@ private:
     bool isResponseCompressionEnabled;
     bool isRequestCompressionEnabled;
 
+    void listTagsCallback(OAIHttpRequestWorker *worker);
     void listTagsByLogIdCallback(OAIHttpRequestWorker *worker);
 
 signals:
 
+    void listTagsSignal(OAIArrayOfTagsResponse summary);
     void listTagsByLogIdSignal(OAIArrayOfTagsResponse summary);
 
+    void listTagsSignalFull(OAIHttpRequestWorker *worker, OAIArrayOfTagsResponse summary);
     void listTagsByLogIdSignalFull(OAIHttpRequestWorker *worker, OAIArrayOfTagsResponse summary);
 
+    void listTagsSignalE(OAIArrayOfTagsResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
     void listTagsByLogIdSignalE(OAIArrayOfTagsResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
 
+    void listTagsSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void listTagsByLogIdSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
 
     void abortRequestsSignal(); 
