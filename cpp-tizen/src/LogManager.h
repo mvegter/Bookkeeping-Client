@@ -6,6 +6,7 @@
 #include <list>
 #include <glib.h>
 #include "ArrayOfLogsResponse.h"
+#include "ArrayOfTagsResponse.h"
 #include "Errors.h"
 #include "LogResponse.h"
 #include "Error.h"
@@ -54,26 +55,26 @@ bool createLogAsync(char * accessToken,
 /*! \brief Gets a log by Id. *Synchronous*
  *
  * 
- * \param id The id of the log to retrieve *Required*
+ * \param logId The id of the log to retrieve *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool getLogByIdSync(char * accessToken,
-	long long id, 
+	long long logId, 
 	void(* handler)(LogResponse, Error, void* )
 	, void* userData);
 
 /*! \brief Gets a log by Id. *Asynchronous*
  *
  * 
- * \param id The id of the log to retrieve *Required*
+ * \param logId The id of the log to retrieve *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool getLogByIdAsync(char * accessToken,
-	long long id, 
+	long long logId, 
 	void(* handler)(LogResponse, Error, void* )
 	, void* userData);
 
@@ -108,6 +109,33 @@ bool listLogsSync(char * accessToken,
 bool listLogsAsync(char * accessToken,
 	std::string filterLeft_Square_BracketoriginRight_Square_Bracket, int pageLeft_Square_BracketoffsetRight_Square_Bracket, int pageLeft_Square_BracketlimitRight_Square_Bracket, std::list<std::string> sort, 
 	void(* handler)(ArrayOfLogsResponse, Error, void* )
+	, void* userData);
+
+
+/*! \brief Lists all tags associated with a log. *Synchronous*
+ *
+ * 
+ * \param logId The id of the log to retrieve *Required*
+ * \param handler The callback function to be invoked on completion. *Required*
+ * \param accessToken The Authorization token. *Required*
+ * \param userData The user data to be passed to the callback function.
+ */
+bool listTagsByLogIdSync(char * accessToken,
+	long long logId, 
+	void(* handler)(ArrayOfTagsResponse, Error, void* )
+	, void* userData);
+
+/*! \brief Lists all tags associated with a log. *Asynchronous*
+ *
+ * 
+ * \param logId The id of the log to retrieve *Required*
+ * \param handler The callback function to be invoked on completion. *Required*
+ * \param accessToken The Authorization token. *Required*
+ * \param userData The user data to be passed to the callback function.
+ */
+bool listTagsByLogIdAsync(char * accessToken,
+	long long logId, 
+	void(* handler)(ArrayOfTagsResponse, Error, void* )
 	, void* userData);
 
 
