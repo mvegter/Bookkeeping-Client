@@ -25,12 +25,13 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.openapitools.client.model.Tag;
 
 /**
  * Describes an intervention or an event that happened.
  */
 @ApiModel(description = "Describes an intervention or an event that happened.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-11T16:32:29.330+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-11T17:01:35.936+01:00[Europe/London]")
 public class Log {
   public static final String SERIALIZED_NAME_ENTRY_ID = "entryId";
   @SerializedName(SERIALIZED_NAME_ENTRY_ID)
@@ -93,7 +94,7 @@ public class Log {
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private List<String> tags = new ArrayList<String>();
+  private List<Tag> tags = new ArrayList<Tag>();
 
 
   public Log entryId(Long entryId) {
@@ -162,13 +163,13 @@ public class Log {
   }
 
 
-  public Log tags(List<String> tags) {
+  public Log tags(List<Tag> tags) {
     
     this.tags = tags;
     return this;
   }
 
-  public Log addTagsItem(String tagsItem) {
+  public Log addTagsItem(Tag tagsItem) {
     this.tags.add(tagsItem);
     return this;
   }
@@ -179,12 +180,12 @@ public class Log {
   **/
   @ApiModelProperty(required = true, value = "A list of Tag objects.")
 
-  public List<String> getTags() {
+  public List<Tag> getTags() {
     return tags;
   }
 
 
-  public void setTags(List<String> tags) {
+  public void setTags(List<Tag> tags) {
     this.tags = tags;
   }
 

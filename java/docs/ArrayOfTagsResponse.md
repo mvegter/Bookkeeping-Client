@@ -7,7 +7,7 @@ Response containing multiple tags.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | **List&lt;String&gt;** | A list of Tag objects. | 
+**data** | [**List&lt;Tag&gt;**](Tag.md) | A list of Tag objects. | 
 
 
 

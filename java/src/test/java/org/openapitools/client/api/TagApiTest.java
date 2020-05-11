@@ -34,6 +34,23 @@ public class TagApiTest {
 
     
     /**
+     * List all tags
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listTagsTest() throws ApiException {
+        Integer pageOffset = null;
+        Integer pageLimit = null;
+        ArrayOfTagsResponse response = api.listTags(pageOffset, pageLimit);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Lists all tags associated with a log
      *
      * 

@@ -25,25 +25,26 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.openapitools.client.model.Tag;
 
 /**
  * Response containing multiple tags.
  */
 @ApiModel(description = "Response containing multiple tags.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-11T16:32:29.330+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-11T17:01:35.936+01:00[Europe/London]")
 public class ArrayOfTagsResponse {
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
-  private List<String> data = new ArrayList<String>();
+  private List<Tag> data = new ArrayList<Tag>();
 
 
-  public ArrayOfTagsResponse data(List<String> data) {
+  public ArrayOfTagsResponse data(List<Tag> data) {
     
     this.data = data;
     return this;
   }
 
-  public ArrayOfTagsResponse addDataItem(String dataItem) {
+  public ArrayOfTagsResponse addDataItem(Tag dataItem) {
     this.data.add(dataItem);
     return this;
   }
@@ -54,12 +55,12 @@ public class ArrayOfTagsResponse {
   **/
   @ApiModelProperty(required = true, value = "A list of Tag objects.")
 
-  public List<String> getData() {
+  public List<Tag> getData() {
     return data;
   }
 
 
-  public void setData(List<String> data) {
+  public void setData(List<Tag> data) {
     this.data = data;
   }
 

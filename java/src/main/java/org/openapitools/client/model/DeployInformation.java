@@ -29,7 +29,7 @@ import java.math.BigDecimal;
  * Deploy information
  */
 @ApiModel(description = "Deploy information")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-11T16:32:29.330+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-11T17:01:35.936+01:00[Europe/London]")
 public class DeployInformation {
   public static final String SERIALIZED_NAME_AGE = "age";
   @SerializedName(SERIALIZED_NAME_AGE)

@@ -21,58 +21,55 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import org.openapitools.client.model.Tag;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for Log
+ * Model tests for Tag
  */
-public class LogTest {
-    private final Log model = new Log();
+public class TagTest {
+    private final Tag model = new Tag();
 
     /**
-     * Model tests for Log
+     * Model tests for Tag
      */
     @Test
-    public void testLog() {
-        // TODO: test Log
+    public void testTag() {
+        // TODO: test Tag
     }
 
     /**
-     * Test the property 'entryId'
+     * Test the property 'id'
      */
     @Test
-    public void entryIdTest() {
-        // TODO: test entryId
+    public void idTest() {
+        // TODO: test id
     }
 
     /**
-     * Test the property 'title'
+     * Test the property 'text'
      */
     @Test
-    public void titleTest() {
-        // TODO: test title
+    public void textTest() {
+        // TODO: test text
     }
 
     /**
-     * Test the property 'origin'
+     * Test the property 'createdAt'
      */
     @Test
-    public void originTest() {
-        // TODO: test origin
+    public void createdAtTest() {
+        // TODO: test createdAt
     }
 
     /**
-     * Test the property 'tags'
+     * Test the property 'updateAt'
      */
     @Test
-    public void tagsTest() {
-        // TODO: test tags
+    public void updateAtTest() {
+        // TODO: test updateAt
     }
 
 }
