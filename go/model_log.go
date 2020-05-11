@@ -10,6 +10,12 @@
 package openapi
 // Log Describes an intervention or an event that happened.
 type Log struct {
+	// Id of the log.
+	EntryId int64 `json:"entryId"`
 	// Title of the log.
 	Title string `json:"title"`
+	// Type of creator.
+	Origin string `json:"origin"`
+	// A list of Tag objects.
+	Tags []string `json:"tags"`
 }
