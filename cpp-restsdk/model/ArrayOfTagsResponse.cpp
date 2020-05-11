@@ -57,7 +57,7 @@ bool ArrayOfTagsResponse::fromJson(const web::json::value& val)
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("data"));
         if(!fieldValue.is_null())
         {
-            std::vector<std::shared_ptr<utility::string_t>> refVal_data;
+            std::vector<std::shared_ptr<Tag>> refVal_data;
             ok &= ModelBase::fromJson(fieldValue, refVal_data);
             setData(refVal_data);
         }
@@ -89,19 +89,19 @@ bool ArrayOfTagsResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multi
 
     if(multipart->hasContent(utility::conversions::to_string_t("data")))
     {
-        std::vector<std::shared_ptr<utility::string_t>> refVal_data;
+        std::vector<std::shared_ptr<Tag>> refVal_data;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("data")), refVal_data );
         setData(refVal_data);
     }
     return ok;
 }
 
-std::vector<std::shared_ptr<utility::string_t>>& ArrayOfTagsResponse::getData()
+std::vector<std::shared_ptr<Tag>>& ArrayOfTagsResponse::getData()
 {
     return m_Data;
 }
 
-void ArrayOfTagsResponse::setData(const std::vector<std::shared_ptr<utility::string_t>>& value)
+void ArrayOfTagsResponse::setData(const std::vector<std::shared_ptr<Tag>>& value)
 {
     m_Data = value;
     m_DataIsSet = true;

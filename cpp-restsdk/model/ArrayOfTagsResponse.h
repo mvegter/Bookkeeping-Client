@@ -21,7 +21,7 @@
 
 #include "../ModelBase.h"
 
-#include <cpprest/details/basic_types.h>
+#include "Tag.h"
 #include <vector>
 
 namespace org {
@@ -57,15 +57,15 @@ public:
     /// <summary>
     /// A list of Tag objects.
     /// </summary>
-    std::vector<std::shared_ptr<utility::string_t>>& getData();
+    std::vector<std::shared_ptr<Tag>>& getData();
     bool dataIsSet() const;
     void unsetData();
 
-    void setData(const std::vector<std::shared_ptr<utility::string_t>>& value);
+    void setData(const std::vector<std::shared_ptr<Tag>>& value);
 
 
 protected:
-    std::vector<std::shared_ptr<utility::string_t>> m_Data;
+    std::vector<std::shared_ptr<Tag>> m_Data;
     bool m_DataIsSet;
 };
 
