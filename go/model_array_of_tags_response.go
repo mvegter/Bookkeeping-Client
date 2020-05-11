@@ -11,5 +11,5 @@ package openapi
 // ArrayOfTagsResponse Response containing multiple tags.
 type ArrayOfTagsResponse struct {
 	// A list of Tag objects.
-	Data []string `json:"data"`
+	Data []Tag `json:"data"`
 }
