@@ -48,6 +48,36 @@
   }
 
   describe('TagApi', function() {
+    describe('createTag', function() {
+      it('should call createTag successfully', function(done) {
+        //uncomment below and update the code to test createTag
+        //instance.createTag(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getLogsByTagId', function() {
+      it('should call getLogsByTagId successfully', function(done) {
+        //uncomment below and update the code to test getLogsByTagId
+        //instance.getLogsByTagId(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getTagById', function() {
+      it('should call getTagById successfully', function(done) {
+        //uncomment below and update the code to test getTagById
+        //instance.getTagById(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('listTags', function() {
       it('should call listTags successfully', function(done) {
         //uncomment below and update the code to test listTags

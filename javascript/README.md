@@ -125,6 +125,9 @@ Class | Method | HTTP request | Description
 *AliceBookkeeping.LogApi* | [**getLogById**](docs/LogApi.md#getLogById) | **GET** /logs/{logId} | Gets a log by Id
 *AliceBookkeeping.LogApi* | [**listLogs**](docs/LogApi.md#listLogs) | **GET** /logs | List all logs
 *AliceBookkeeping.LogApi* | [**listTagsByLogId**](docs/LogApi.md#listTagsByLogId) | **GET** /logs/{logId}/tags | Lists all tags associated with a log
+*AliceBookkeeping.TagApi* | [**createTag**](docs/TagApi.md#createTag) | **POST** /tags | Adds a new tag
+*AliceBookkeeping.TagApi* | [**getLogsByTagId**](docs/TagApi.md#getLogsByTagId) | **GET** /tags/{tagId}/logs | Gets all logs with this tag id
+*AliceBookkeeping.TagApi* | [**getTagById**](docs/TagApi.md#getTagById) | **GET** /tags/{tagId} | Gets a tag by Id
 *AliceBookkeeping.TagApi* | [**listTags**](docs/TagApi.md#listTags) | **GET** /tags | List all tags
 *AliceBookkeeping.TagApi* | [**listTagsByLogId**](docs/TagApi.md#listTagsByLogId) | **GET** /logs/{logId}/tags | Lists all tags associated with a log
 
@@ -140,6 +143,7 @@ Class | Method | HTTP request | Description
  - [AliceBookkeeping.Log](docs/Log.md)
  - [AliceBookkeeping.LogResponse](docs/LogResponse.md)
  - [AliceBookkeeping.Tag](docs/Tag.md)
+ - [AliceBookkeeping.TagResponse](docs/TagResponse.md)
 
 
 ## Documentation for Authorization

@@ -22,6 +22,7 @@ import Errors from './model/Errors';
 import Log from './model/Log';
 import LogResponse from './model/LogResponse';
 import Tag from './model/Tag';
+import TagResponse from './model/TagResponse';
 import DefaultApi from './api/DefaultApi';
 import LogApi from './api/LogApi';
 import TagApi from './api/TagApi';
@@ -118,6 +119,12 @@ export {
      * @property {module:model/Tag}
      */
     Tag,
+
+    /**
+     * The TagResponse model constructor.
+     * @property {module:model/TagResponse}
+     */
+    TagResponse,
 
     /**
     * The DefaultApi service constructor.
