@@ -69,7 +69,7 @@ void OAITagApi::abortRequests(){
     emit abortRequestsSignal();
 }
 
-void OAITagApi::createTag() {
+void OAITagApi::createTag(const UNKNOWN_BASE_TYPE &unknown_base_type) {
     QString fullPath = QString("%1://%2%3%4%5")
                            .arg(_scheme)
                            .arg(_host)
@@ -81,6 +81,9 @@ void OAITagApi::createTag() {
     worker->setTimeOut(_timeOut);
     worker->setWorkingDirectory(_workingDirectory);
     OAIHttpRequestInput input(fullPath, "POST");
+
+    QString output = unknown_base_type.asJson();
+    input.request_body.append(output);
 
     foreach (QString key, this->defaultHeaders.keys()) { input.headers.insert(key, this->defaultHeaders.value(key)); }
 

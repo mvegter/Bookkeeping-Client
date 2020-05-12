@@ -18,7 +18,9 @@
 #include "OAIArrayOfTagsResponse.h"
 #include "OAIErrors.h"
 #include "OAILogResponse.h"
+#include "OAIObject.h"
 #include <QString>
+#include "UNKNOWN_BASE_TYPE.h"
 
 #include <QObject>
 
@@ -42,7 +44,7 @@ public:
     void enableResponseCompression();
     void abortRequests();
 
-    void createLog();
+    void createLog(const UNKNOWN_BASE_TYPE &unknown_base_type);
     void getLogById(const qint64 &log_id);
     void listLogs(const QString &filter_origin, const qint32 &page_offset, const qint32 &page_limit, const QList<QString> &sort);
     void listTagsByLogId(const qint64 &log_id);
