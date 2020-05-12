@@ -28,7 +28,7 @@ import java.io.IOException;
  * An Error object.
  */
 @ApiModel(description = "An Error object.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-11T17:01:35.936+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-12T17:46:38.011+01:00[Europe/London]")
 public class Error {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
