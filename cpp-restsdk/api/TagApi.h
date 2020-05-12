@@ -21,8 +21,10 @@
 
 #include "../ApiClient.h"
 
+#include "ArrayOfLogsResponse.h"
 #include "ArrayOfTagsResponse.h"
 #include "Errors.h"
+#include "TagResponse.h"
 
 
 #include <boost/optional.hpp>
@@ -44,6 +46,34 @@ public:
 
     virtual ~TagApi();
 
+    /// <summary>
+    /// Adds a new tag
+    /// </summary>
+    /// <remarks>
+    /// 
+    /// </remarks>
+    pplx::task<std::shared_ptr<TagResponse>> createTag(
+    ) const;
+    /// <summary>
+    /// Gets all logs with this tag id
+    /// </summary>
+    /// <remarks>
+    /// 
+    /// </remarks>
+    /// <param name="tagId">The id of the tag to retrieve</param>
+    pplx::task<std::shared_ptr<ArrayOfLogsResponse>> getLogsByTagId(
+        int64_t tagId
+    ) const;
+    /// <summary>
+    /// Gets a tag by Id
+    /// </summary>
+    /// <remarks>
+    /// 
+    /// </remarks>
+    /// <param name="tagId">The id of the tag to retrieve</param>
+    pplx::task<std::shared_ptr<TagResponse>> getTagById(
+        int64_t tagId
+    ) const;
     /// <summary>
     /// List all tags
     /// </summary>
