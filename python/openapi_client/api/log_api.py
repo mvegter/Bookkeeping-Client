@@ -36,15 +36,16 @@ class LogApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_log(self, **kwargs):  # noqa: E501
+    def create_log(self, unknown_base_type, **kwargs):  # noqa: E501
         """Adds a new log  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_log(async_req=True)
+        >>> thread = api.create_log(unknown_base_type, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param UNKNOWN_BASE_TYPE unknown_base_type: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -57,17 +58,18 @@ class LogApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_log_with_http_info(**kwargs)  # noqa: E501
+        return self.create_log_with_http_info(unknown_base_type, **kwargs)  # noqa: E501
 
-    def create_log_with_http_info(self, **kwargs):  # noqa: E501
+    def create_log_with_http_info(self, unknown_base_type, **kwargs):  # noqa: E501
         """Adds a new log  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_log_with_http_info(async_req=True)
+        >>> thread = api.create_log_with_http_info(unknown_base_type, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param UNKNOWN_BASE_TYPE unknown_base_type: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -85,6 +87,7 @@ class LogApi(object):
         local_var_params = locals()
 
         all_params = [
+            'unknown_base_type'
         ]
         all_params.extend(
             [
@@ -103,6 +106,10 @@ class LogApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'unknown_base_type' is set
+        if self.api_client.client_side_validation and ('unknown_base_type' not in local_var_params or  # noqa: E501
+                                                        local_var_params['unknown_base_type'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `unknown_base_type` when calling `create_log`")  # noqa: E501
 
         collection_formats = {}
 
@@ -116,8 +123,14 @@ class LogApi(object):
         local_var_files = {}
 
         body_params = None
+        if 'unknown_base_type' in local_var_params:
+            body_params = local_var_params['unknown_base_type']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
 
         # Authentication setting

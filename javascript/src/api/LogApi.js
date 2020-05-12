@@ -17,6 +17,7 @@ import ArrayOfLogsResponse from '../model/ArrayOfLogsResponse';
 import ArrayOfTagsResponse from '../model/ArrayOfTagsResponse';
 import Errors from '../model/Errors';
 import LogResponse from '../model/LogResponse';
+import UNKNOWN_BASE_TYPE from '../model/UNKNOWN_BASE_TYPE';
 
 /**
 * Log service.
@@ -47,11 +48,16 @@ export default class LogApi {
 
     /**
      * Adds a new log
+     * @param {module:model/UNKNOWN_BASE_TYPE} UNKNOWN_BASE_TYPE 
      * @param {module:api/LogApi~createLogCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/LogResponse}
      */
-    createLog(callback) {
-      let postBody = null;
+    createLog(UNKNOWN_BASE_TYPE, callback) {
+      let postBody = UNKNOWN_BASE_TYPE;
+      // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
+      if (UNKNOWN_BASE_TYPE === undefined || UNKNOWN_BASE_TYPE === null) {
+        throw new Error("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling createLog");
+      }
 
       let pathParams = {
       };
@@ -63,7 +69,7 @@ export default class LogApi {
       };
 
       let authNames = [];
-      let contentTypes = [];
+      let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = LogResponse;
       return this.apiClient.callApi(

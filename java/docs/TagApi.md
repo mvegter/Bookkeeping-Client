@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="createTag"></a>
 # **createTag**
-> TagResponse createTag()
+> TagResponse createTag(UNKNOWN_BASE_TYPE)
 
 Adds a new tag
 
@@ -32,8 +32,9 @@ public class Example {
     defaultClient.setBasePath("http://localhost/api");
 
     TagApi apiInstance = new TagApi(defaultClient);
+    UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
     try {
-      TagResponse result = apiInstance.createTag();
+      TagResponse result = apiInstance.createTag(UNKNOWN_BASE_TYPE);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TagApi#createTag");
@@ -47,7 +48,10 @@ public class Example {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
 
 ### Return type
 
@@ -59,7 +63,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

@@ -119,7 +119,7 @@ static bool createTagProcessor(MemoryStruct_s p_chunk, long code, char* errormsg
 }
 
 static bool createTagHelper(char * accessToken,
-	
+	UNKNOWN_BASE_TYPE uNKNOWNBASETYPE, 
 	void(* handler)(TagResponse, Error, void* )
 	, void* userData, bool isAsync)
 {
@@ -139,6 +139,19 @@ static bool createTagHelper(char * accessToken,
 	string mBody = "";
 	JsonNode* node;
 	JsonArray* json_array;
+
+	if (isprimitive("UNKNOWN_BASE_TYPE")) {
+		node = converttoJson(&uNKNOWNBASETYPE, "UNKNOWN_BASE_TYPE", "");
+	}
+	
+	char *jsonStr =  uNKNOWNBASETYPE.toJson();
+	node = json_from_string(jsonStr, NULL);
+	g_free(static_cast<gpointer>(jsonStr));
+	
+
+	char *jsonStr1 =  json_to_string(node, false);
+	mBody.append(jsonStr1);
+	g_free(static_cast<gpointer>(jsonStr1));
 
 	string url("/tags");
 	int pos;
@@ -190,22 +203,22 @@ static bool createTagHelper(char * accessToken,
 
 
 bool TagManager::createTagAsync(char * accessToken,
-	
+	UNKNOWN_BASE_TYPE uNKNOWNBASETYPE, 
 	void(* handler)(TagResponse, Error, void* )
 	, void* userData)
 {
 	return createTagHelper(accessToken,
-	
+	uNKNOWNBASETYPE, 
 	handler, userData, true);
 }
 
 bool TagManager::createTagSync(char * accessToken,
-	
+	UNKNOWN_BASE_TYPE uNKNOWNBASETYPE, 
 	void(* handler)(TagResponse, Error, void* )
 	, void* userData)
 {
 	return createTagHelper(accessToken,
-	
+	uNKNOWNBASETYPE, 
 	handler, userData, false);
 }
 

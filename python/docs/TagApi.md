@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **create_tag**
-> TagResponse create_tag()
+> TagResponse create_tag(unknown_base_type)
 
 Adds a new tag
 
@@ -35,17 +35,21 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.TagApi(api_client)
-    
+    unknown_base_type = openapi_client.UNKNOWN_BASE_TYPE() # UNKNOWN_BASE_TYPE | 
+
     try:
         # Adds a new tag
-        api_response = api_instance.create_tag()
+        api_response = api_instance.create_tag(unknown_base_type)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling TagApi->create_tag: %s\n" % e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
 
 ### Return type
 
@@ -57,7 +61,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

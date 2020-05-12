@@ -31,6 +31,7 @@ import org.openapitools.client.model.ArrayOfLogsResponse;
 import org.openapitools.client.model.ArrayOfTagsResponse;
 import org.openapitools.client.model.Errors;
 import org.openapitools.client.model.LogResponse;
+import org.openapitools.client.model.UNKNOWN_BASE_TYPE;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -59,6 +60,7 @@ public class LogApi {
 
     /**
      * Build call for createLog
+     * @param UNKNOWN_BASE_TYPE  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -70,8 +72,8 @@ public class LogApi {
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createLogCall(final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = null;
+    public okhttp3.Call createLogCall(UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = UNKNOWN_BASE_TYPE;
 
         // create path and map variables
         String localVarPath = "/logs";
@@ -90,7 +92,7 @@ public class LogApi {
         }
 
         final String[] localVarContentTypes = {
-            
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -100,10 +102,15 @@ public class LogApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createLogValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createLogValidateBeforeCall(UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
+        if (UNKNOWN_BASE_TYPE == null) {
+            throw new ApiException("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling createLog(Async)");
+        }
         
 
-        okhttp3.Call localVarCall = createLogCall(_callback);
+        okhttp3.Call localVarCall = createLogCall(UNKNOWN_BASE_TYPE, _callback);
         return localVarCall;
 
     }
@@ -111,6 +118,7 @@ public class LogApi {
     /**
      * Adds a new log
      * 
+     * @param UNKNOWN_BASE_TYPE  (required)
      * @return LogResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -121,14 +129,15 @@ public class LogApi {
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
-    public LogResponse createLog() throws ApiException {
-        ApiResponse<LogResponse> localVarResp = createLogWithHttpInfo();
+    public LogResponse createLog(UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE) throws ApiException {
+        ApiResponse<LogResponse> localVarResp = createLogWithHttpInfo(UNKNOWN_BASE_TYPE);
         return localVarResp.getData();
     }
 
     /**
      * Adds a new log
      * 
+     * @param UNKNOWN_BASE_TYPE  (required)
      * @return ApiResponse&lt;LogResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -139,8 +148,8 @@ public class LogApi {
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LogResponse> createLogWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = createLogValidateBeforeCall(null);
+    public ApiResponse<LogResponse> createLogWithHttpInfo(UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE) throws ApiException {
+        okhttp3.Call localVarCall = createLogValidateBeforeCall(UNKNOWN_BASE_TYPE, null);
         Type localVarReturnType = new TypeToken<LogResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -148,6 +157,7 @@ public class LogApi {
     /**
      * Adds a new log (asynchronously)
      * 
+     * @param UNKNOWN_BASE_TYPE  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -159,9 +169,9 @@ public class LogApi {
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createLogAsync(final ApiCallback<LogResponse> _callback) throws ApiException {
+    public okhttp3.Call createLogAsync(UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE, final ApiCallback<LogResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createLogValidateBeforeCall(_callback);
+        okhttp3.Call localVarCall = createLogValidateBeforeCall(UNKNOWN_BASE_TYPE, _callback);
         Type localVarReturnType = new TypeToken<LogResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

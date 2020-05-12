@@ -35,8 +35,14 @@ LogApi::~LogApi()
 {
 }
 
-pplx::task<std::shared_ptr<LogResponse>> LogApi::createLog() const
+pplx::task<std::shared_ptr<LogResponse>> LogApi::createLog(std::shared_ptr<UNKNOWN_BASE_TYPE> uNKNOWNBASETYPE) const
 {
+
+    // verify the required parameter 'uNKNOWNBASETYPE' is set
+    if (uNKNOWNBASETYPE == nullptr)
+    {
+        throw ApiException(400, utility::conversions::to_string_t("Missing required parameter 'uNKNOWNBASETYPE' when calling LogApi->createLog"));
+    }
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
@@ -75,6 +81,7 @@ pplx::task<std::shared_ptr<LogResponse>> LogApi::createLog() const
     localVarHeaderParams[utility::conversions::to_string_t("Accept")] = localVarResponseHttpContentType;
 
     std::unordered_set<utility::string_t> localVarConsumeHttpContentTypes;
+    localVarConsumeHttpContentTypes.insert( utility::conversions::to_string_t("application/json") );
 
 
     std::shared_ptr<IHttpBody> localVarHttpBody;
@@ -84,11 +91,27 @@ pplx::task<std::shared_ptr<LogResponse>> LogApi::createLog() const
     if ( localVarConsumeHttpContentTypes.size() == 0 || localVarConsumeHttpContentTypes.find(utility::conversions::to_string_t("application/json")) != localVarConsumeHttpContentTypes.end() )
     {
         localVarRequestHttpContentType = utility::conversions::to_string_t("application/json");
+        web::json::value localVarJson;
+
+        localVarJson = ModelBase::toJson(uNKNOWNBASETYPE);
+        
+
+        localVarHttpBody = std::shared_ptr<IHttpBody>( new JsonBody( localVarJson ) );
     }
     // multipart formdata
     else if( localVarConsumeHttpContentTypes.find(utility::conversions::to_string_t("multipart/form-data")) != localVarConsumeHttpContentTypes.end() )
     {
         localVarRequestHttpContentType = utility::conversions::to_string_t("multipart/form-data");
+        std::shared_ptr<MultipartFormData> localVarMultipart(new MultipartFormData);
+
+        if(uNKNOWNBASETYPE.get())
+        {
+            uNKNOWNBASETYPE->toMultipart(localVarMultipart, utility::conversions::to_string_t("uNKNOWNBASETYPE"));
+        }
+        
+
+        localVarHttpBody = localVarMultipart;
+        localVarRequestHttpContentType += utility::conversions::to_string_t("; boundary=") + localVarMultipart->getBoundary();
     }
     else
     {

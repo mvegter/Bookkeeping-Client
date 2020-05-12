@@ -29,9 +29,10 @@ type LogApiService service
 /*
 CreateLog Adds a new log
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param uNKNOWNBASETYPE
 @return LogResponse
 */
-func (a *LogApiService) CreateLog(ctx _context.Context) (LogResponse, *_nethttp.Response, error) {
+func (a *LogApiService) CreateLog(ctx _context.Context, uNKNOWNBASETYPE UNKNOWN_BASE_TYPE) (LogResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -48,7 +49,7 @@ func (a *LogApiService) CreateLog(ctx _context.Context) (LogResponse, *_nethttp.
 	localVarFormParams := _neturl.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -64,6 +65,8 @@ func (a *LogApiService) CreateLog(ctx _context.Context) (LogResponse, *_nethttp.
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = &uNKNOWNBASETYPE
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err

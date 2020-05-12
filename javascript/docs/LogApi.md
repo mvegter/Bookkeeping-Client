@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## createLog
 
-> LogResponse createLog()
+> LogResponse createLog(UNKNOWN_BASE_TYPE)
 
 Adds a new log
 
@@ -23,7 +23,8 @@ Adds a new log
 import AliceBookkeeping from 'alice_bookkeeping';
 
 let apiInstance = new AliceBookkeeping.LogApi();
-apiInstance.createLog((error, data, response) => {
+let UNKNOWN_BASE_TYPE = new AliceBookkeeping.UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+apiInstance.createLog(UNKNOWN_BASE_TYPE, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -34,7 +35,10 @@ apiInstance.createLog((error, data, response) => {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
 
 ### Return type
 
@@ -46,7 +50,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
