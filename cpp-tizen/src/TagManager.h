@@ -9,6 +9,7 @@
 #include "ArrayOfTagsResponse.h"
 #include "Errors.h"
 #include "TagResponse.h"
+#include "UNKNOWN_BASE_TYPE.h"
 #include "Error.h"
 
 /** \defgroup Operations API Endpoints
@@ -30,24 +31,26 @@ public:
 /*! \brief Adds a new tag. *Synchronous*
  *
  * 
+ * \param uNKNOWNBASETYPE  *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool createTagSync(char * accessToken,
-	
+	UNKNOWN_BASE_TYPE uNKNOWNBASETYPE, 
 	void(* handler)(TagResponse, Error, void* )
 	, void* userData);
 
 /*! \brief Adds a new tag. *Asynchronous*
  *
  * 
+ * \param uNKNOWNBASETYPE  *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool createTagAsync(char * accessToken,
-	
+	UNKNOWN_BASE_TYPE uNKNOWNBASETYPE, 
 	void(* handler)(TagResponse, Error, void* )
 	, void* userData);
 
