@@ -23,10 +23,9 @@
 
 #include "ArrayOfLogsResponse.h"
 #include "ArrayOfTagsResponse.h"
+#include "CreateLog.h"
 #include "Errors.h"
 #include "LogResponse.h"
-#include "Object.h"
-#include "UNKNOWN_BASE_TYPE.h"
 #include <cpprest/details/basic_types.h>
 
 
@@ -55,9 +54,9 @@ public:
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="uNKNOWNBASETYPE"></param>
+    /// <param name="createLog"></param>
     pplx::task<std::shared_ptr<LogResponse>> createLog(
-        std::shared_ptr<UNKNOWN_BASE_TYPE> uNKNOWNBASETYPE
+        std::shared_ptr<CreateLog> createLog
     ) const;
     /// <summary>
     /// Gets a log by Id
