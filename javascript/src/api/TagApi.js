@@ -13,8 +13,10 @@
 
 
 import ApiClient from "../ApiClient";
+import ArrayOfLogsResponse from '../model/ArrayOfLogsResponse';
 import ArrayOfTagsResponse from '../model/ArrayOfTagsResponse';
 import Errors from '../model/Errors';
+import TagResponse from '../model/TagResponse';
 
 /**
 * Tag service.
@@ -34,6 +36,126 @@ export default class TagApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+    /**
+     * Callback function to receive the result of the createTag operation.
+     * @callback module:api/TagApi~createTagCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/TagResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Adds a new tag
+     * @param {module:api/TagApi~createTagCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/TagResponse}
+     */
+    createTag(callback) {
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = TagResponse;
+      return this.apiClient.callApi(
+        '/tags', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getLogsByTagId operation.
+     * @callback module:api/TagApi~getLogsByTagIdCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/ArrayOfLogsResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Gets all logs with this tag id
+     * @param {Number} tagId The id of the tag to retrieve
+     * @param {module:api/TagApi~getLogsByTagIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/ArrayOfLogsResponse}
+     */
+    getLogsByTagId(tagId, callback) {
+      let postBody = null;
+      // verify the required parameter 'tagId' is set
+      if (tagId === undefined || tagId === null) {
+        throw new Error("Missing the required parameter 'tagId' when calling getLogsByTagId");
+      }
+
+      let pathParams = {
+        'tagId': tagId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ArrayOfLogsResponse;
+      return this.apiClient.callApi(
+        '/tags/{tagId}/logs', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getTagById operation.
+     * @callback module:api/TagApi~getTagByIdCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/TagResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Gets a tag by Id
+     * @param {Number} tagId The id of the tag to retrieve
+     * @param {module:api/TagApi~getTagByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/TagResponse}
+     */
+    getTagById(tagId, callback) {
+      let postBody = null;
+      // verify the required parameter 'tagId' is set
+      if (tagId === undefined || tagId === null) {
+        throw new Error("Missing the required parameter 'tagId' when calling getTagById");
+      }
+
+      let pathParams = {
+        'tagId': tagId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = TagResponse;
+      return this.apiClient.callApi(
+        '/tags/{tagId}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
 
     /**
      * Callback function to receive the result of the listTags operation.

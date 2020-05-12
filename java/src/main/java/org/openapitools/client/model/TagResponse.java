@@ -23,63 +23,38 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.openapitools.client.model.Tag;
 
 /**
- * API information
+ * Response containing a single tag.
  */
-@ApiModel(description = "API information")
+@ApiModel(description = "Response containing a single tag.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-12T17:46:38.011+01:00[Europe/London]")
-public class ApiInformation {
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
-
-  public static final String SERIALIZED_NAME_VERSION = "version";
-  @SerializedName(SERIALIZED_NAME_VERSION)
-  private String version;
+public class TagResponse {
+  public static final String SERIALIZED_NAME_DATA = "data";
+  @SerializedName(SERIALIZED_NAME_DATA)
+  private Tag data;
 
 
-  public ApiInformation name(String name) {
+  public TagResponse data(Tag data) {
     
-    this.name = name;
+    this.data = data;
     return this;
   }
 
    /**
-   * Name of the API
-   * @return name
+   * Get data
+   * @return data
   **/
-  @ApiModelProperty(required = true, value = "Name of the API")
+  @ApiModelProperty(required = true, value = "")
 
-  public String getName() {
-    return name;
+  public Tag getData() {
+    return data;
   }
 
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public ApiInformation version(String version) {
-    
-    this.version = version;
-    return this;
-  }
-
-   /**
-   * Version of the API
-   * @return version
-  **/
-  @ApiModelProperty(required = true, value = "Version of the API")
-
-  public String getVersion() {
-    return version;
-  }
-
-
-  public void setVersion(String version) {
-    this.version = version;
+  public void setData(Tag data) {
+    this.data = data;
   }
 
 
@@ -91,23 +66,21 @@ public class ApiInformation {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ApiInformation apiInformation = (ApiInformation) o;
-    return Objects.equals(this.name, apiInformation.name) &&
-        Objects.equals(this.version, apiInformation.version);
+    TagResponse tagResponse = (TagResponse) o;
+    return Objects.equals(this.data, tagResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, version);
+    return Objects.hash(data);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ApiInformation {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("class TagResponse {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

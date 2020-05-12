@@ -61,6 +61,12 @@ Method | HTTP request | Description
 ### TagManager
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+*createTagSync* | *POST* /tags | Adds a new tag.
+*createTagASync* | *POST* /tags | Adds a new tag.
+*getLogsByTagIdSync* | *GET* /tags/{tagId}/logs | Gets all logs with this tag id.
+*getLogsByTagIdASync* | *GET* /tags/{tagId}/logs | Gets all logs with this tag id.
+*getTagByIdSync* | *GET* /tags/{tagId} | Gets a tag by Id.
+*getTagByIdASync* | *GET* /tags/{tagId} | Gets a tag by Id.
 *listTagsSync* | *GET* /tags | List all tags.
 *listTagsASync* | *GET* /tags | List all tags.
 *listTagsByLogIdSync* | *GET* /logs/{logId}/tags | Lists all tags associated with a log.
@@ -79,4 +85,5 @@ Class | Description
  *Log* | Describes an intervention or an event that happened.
  *LogResponse* | Response containing a single log.
  *Tag* | A label attached to something for the purpose of identification.
+ *TagResponse* | Response containing a single tag.
 

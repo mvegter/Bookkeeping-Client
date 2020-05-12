@@ -277,6 +277,118 @@ paths:
       summary: List all tags
       tags:
       - tag
+    post:
+      operationId: createTag
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TagResponse'
+          description: Expected response to a valid request.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Bad Request
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Conflict
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Unexpected Error
+      summary: Adds a new tag
+      tags:
+      - tag
+  /tags/{tagId}:
+    get:
+      operationId: getTagById
+      parameters:
+      - description: The id of the tag to retrieve
+        explode: false
+        in: path
+        name: tagId
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TagResponse'
+          description: Expected response to a valid request.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Unexpected Error
+      summary: Gets a tag by Id
+      tags:
+      - tag
+  /tags/{tagId}/logs:
+    get:
+      operationId: getLogsByTagId
+      parameters:
+      - description: The id of the tag to retrieve
+        explode: false
+        in: path
+        name: tagId
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfLogsResponse'
+          description: Expected response to a valid request.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Unexpected Error
+      summary: Gets all logs with this tag id
+      tags:
+      - tag
 components:
   parameters:
     FilterOrigin:
@@ -338,6 +450,16 @@ components:
           type: string
         type: array
       style: form
+    TagId:
+      description: The id of the tag to retrieve
+      explode: false
+      in: path
+      name: tagId
+      required: true
+      schema:
+        format: int64
+        type: integer
+      style: simple
   responses:
     ArrayOfLogs:
       content:
@@ -357,6 +479,12 @@ components:
           schema:
             $ref: '#/components/schemas/Errors'
       description: Bad Request
+    Conflict:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Errors'
+      description: Conflict
     Log:
       content:
         application/json:
@@ -375,6 +503,12 @@ components:
           schema:
             $ref: '#/components/schemas/Errors'
       description: Service Unavailable
+    Tag:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/TagResponse'
+      description: Expected response to a valid request.
     UnexpectedError:
       content:
         application/json:
@@ -598,4 +732,18 @@ components:
       required:
       - id
       - text
+      type: object
+    TagResponse:
+      description: Response containing a single tag.
+      example:
+        data:
+          createdAt: createdAt
+          updateAt: updateAt
+          id: 6
+          text: text
+      properties:
+        data:
+          $ref: '#/components/schemas/Tag'
+      required:
+      - data
       type: object

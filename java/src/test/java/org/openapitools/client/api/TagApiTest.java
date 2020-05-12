@@ -14,8 +14,10 @@
 package org.openapitools.client.api;
 
 import org.openapitools.client.ApiException;
+import org.openapitools.client.model.ArrayOfLogsResponse;
 import org.openapitools.client.model.ArrayOfTagsResponse;
 import org.openapitools.client.model.Errors;
+import org.openapitools.client.model.TagResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -32,6 +34,53 @@ public class TagApiTest {
 
     private final TagApi api = new TagApi();
 
+    
+    /**
+     * Adds a new tag
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createTagTest() throws ApiException {
+        TagResponse response = api.createTag();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Gets all logs with this tag id
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getLogsByTagIdTest() throws ApiException {
+        Long tagId = null;
+        ArrayOfLogsResponse response = api.getLogsByTagId(tagId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Gets a tag by Id
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getTagByIdTest() throws ApiException {
+        Long tagId = null;
+        TagResponse response = api.getTagById(tagId);
+
+        // TODO: test validations
+    }
     
     /**
      * List all tags
