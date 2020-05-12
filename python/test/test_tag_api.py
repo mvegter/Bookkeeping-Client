@@ -28,6 +28,27 @@ class TestTagApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_create_tag(self):
+        """Test case for create_tag
+
+        Adds a new tag  # noqa: E501
+        """
+        pass
+
+    def test_get_logs_by_tag_id(self):
+        """Test case for get_logs_by_tag_id
+
+        Gets all logs with this tag id  # noqa: E501
+        """
+        pass
+
+    def test_get_tag_by_id(self):
+        """Test case for get_tag_by_id
+
+        Gets a tag by Id  # noqa: E501
+        """
+        pass
+
     def test_list_tags(self):
         """Test case for list_tags
 
