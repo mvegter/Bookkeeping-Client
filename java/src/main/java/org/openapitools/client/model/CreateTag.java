@@ -23,45 +23,37 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import org.openapitools.client.model.Error;
 
 /**
- * A list of Error objects.
+ * A label attached to something for the purpose of identification.
  */
-@ApiModel(description = "A list of Error objects.")
+@ApiModel(description = "A label attached to something for the purpose of identification.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-12T18:31:46.533+01:00[Europe/London]")
-public class Errors {
-  public static final String SERIALIZED_NAME_ERRORS = "errors";
-  @SerializedName(SERIALIZED_NAME_ERRORS)
-  private List<Error> errors = new ArrayList<Error>();
+public class CreateTag {
+  public static final String SERIALIZED_NAME_TEXT = "text";
+  @SerializedName(SERIALIZED_NAME_TEXT)
+  private String text;
 
 
-  public Errors errors(List<Error> errors) {
+  public CreateTag text(String text) {
     
-    this.errors = errors;
-    return this;
-  }
-
-  public Errors addErrorsItem(Error errorsItem) {
-    this.errors.add(errorsItem);
+    this.text = text;
     return this;
   }
 
    /**
-   * A list of Error objects.
-   * @return errors
+   * The label value of the tag.
+   * @return text
   **/
-  @ApiModelProperty(required = true, value = "A list of Error objects.")
+  @ApiModelProperty(required = true, value = "The label value of the tag.")
 
-  public List<Error> getErrors() {
-    return errors;
+  public String getText() {
+    return text;
   }
 
 
-  public void setErrors(List<Error> errors) {
-    this.errors = errors;
+  public void setText(String text) {
+    this.text = text;
   }
 
 
@@ -73,21 +65,21 @@ public class Errors {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Errors errors = (Errors) o;
-    return Objects.equals(this.errors, errors.errors);
+    CreateTag createTag = (CreateTag) o;
+    return Objects.equals(this.text, createTag.text);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errors);
+    return Objects.hash(text);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Errors {\n");
-    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("class CreateTag {\n");
+    sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("}");
     return sb.toString();
   }

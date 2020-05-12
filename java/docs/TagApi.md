@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="createTag"></a>
 # **createTag**
-> TagResponse createTag(UNKNOWN_BASE_TYPE)
+> TagResponse createTag(createTag)
 
 Adds a new tag
 
@@ -32,9 +32,9 @@ public class Example {
     defaultClient.setBasePath("http://localhost/api");
 
     TagApi apiInstance = new TagApi(defaultClient);
-    UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+    CreateTag createTag = new CreateTag(); // CreateTag | 
     try {
-      TagResponse result = apiInstance.createTag(UNKNOWN_BASE_TYPE);
+      TagResponse result = apiInstance.createTag(createTag);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TagApi#createTag");
@@ -51,7 +51,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
+ **createTag** | [**CreateTag**](CreateTag.md)|  |
 
 ### Return type
 

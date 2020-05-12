@@ -16,9 +16,9 @@ package org.openapitools.client.api;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.model.ArrayOfLogsResponse;
 import org.openapitools.client.model.ArrayOfTagsResponse;
+import org.openapitools.client.model.CreateTag;
 import org.openapitools.client.model.Errors;
 import org.openapitools.client.model.TagResponse;
-import org.openapitools.client.model.UNKNOWN_BASE_TYPE;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -46,8 +46,8 @@ public class TagApiTest {
      */
     @Test
     public void createTagTest() throws ApiException {
-        UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE = null;
-        TagResponse response = api.createTag(UNKNOWN_BASE_TYPE);
+        CreateTag createTag = null;
+        TagResponse response = api.createTag(createTag);
 
         // TODO: test validations
     }
