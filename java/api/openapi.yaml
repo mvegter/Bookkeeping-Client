@@ -103,6 +103,8 @@ paths:
       x-accepts: application/json
     post:
       operationId: createLog
+      requestBody:
+        $ref: '#/components/requestBodies/CreateLog'
       responses:
         "201":
           content:
@@ -125,6 +127,7 @@ paths:
       summary: Adds a new log
       tags:
       - log
+      x-contentType: application/json
       x-accepts: application/json
   /logs/{logId}:
     get:
@@ -286,6 +289,8 @@ paths:
       x-accepts: application/json
     post:
       operationId: createTag
+      requestBody:
+        $ref: '#/components/requestBodies/CreateTag'
       responses:
         "201":
           content:
@@ -314,6 +319,7 @@ paths:
       summary: Adds a new tag
       tags:
       - tag
+      x-contentType: application/json
       x-accepts: application/json
   /tags/{tagId}:
     get:
@@ -470,6 +476,35 @@ components:
         format: int64
         type: integer
       style: simple
+  requestBodies:
+    CreateLog:
+      content:
+        application/json:
+          schema:
+            additionalProperties: false
+            description: Describes an intervention or an event that happened.
+            properties:
+              title:
+                description: Title of the log.
+                type: string
+            required:
+            - title
+            type: object
+      required: true
+    CreateTag:
+      content:
+        application/json:
+          schema:
+            additionalProperties: false
+            description: A label attached to something for the purpose of identification.
+            properties:
+              text:
+                description: The label value of the tag.
+                type: string
+            required:
+            - text
+            type: object
+      required: true
   responses:
     ArrayOfLogs:
       content:
