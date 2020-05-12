@@ -469,29 +469,13 @@ components:
       content:
         application/json:
           schema:
-            additionalProperties: false
-            description: Describes an intervention or an event that happened.
-            properties:
-              title:
-                description: Title of the log.
-                type: string
-            required:
-            - title
-            type: object
+            $ref: '#/components/schemas/CreateLog'
       required: true
     CreateTag:
       content:
         application/json:
           schema:
-            additionalProperties: false
-            description: A label attached to something for the purpose of identification.
-            properties:
-              text:
-                description: The label value of the tag.
-                type: string
-            required:
-            - text
-            type: object
+            $ref: '#/components/schemas/CreateTag'
       required: true
   responses:
     ArrayOfLogs:
@@ -632,6 +616,30 @@ components:
           type: array
       required:
       - data
+      type: object
+    CreateLog:
+      additionalProperties: false
+      description: Describes an intervention or an event that happened.
+      example:
+        title: title
+      properties:
+        title:
+          description: Title of the log.
+          type: string
+      required:
+      - title
+      type: object
+    CreateTag:
+      additionalProperties: false
+      description: A label attached to something for the purpose of identification.
+      example:
+        text: text
+      properties:
+        text:
+          description: The label value of the tag.
+          type: string
+      required:
+      - text
       type: object
     DeployInformation:
       description: Deploy information

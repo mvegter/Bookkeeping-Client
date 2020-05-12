@@ -29,10 +29,10 @@ type TagApiService service
 /*
 CreateTag Adds a new tag
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param uNKNOWNBASETYPE
+ * @param createTag
 @return TagResponse
 */
-func (a *TagApiService) CreateTag(ctx _context.Context, uNKNOWNBASETYPE UNKNOWN_BASE_TYPE) (TagResponse, *_nethttp.Response, error) {
+func (a *TagApiService) CreateTag(ctx _context.Context, createTag CreateTag) (TagResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -66,7 +66,7 @@ func (a *TagApiService) CreateTag(ctx _context.Context, uNKNOWNBASETYPE UNKNOWN_
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = &uNKNOWNBASETYPE
+	localVarPostBody = &createTag
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err

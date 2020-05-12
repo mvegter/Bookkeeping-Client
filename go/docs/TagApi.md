@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## CreateTag
 
-> TagResponse CreateTag(ctx, uNKNOWNBASETYPE)
+> TagResponse CreateTag(ctx, createTag)
 
 Adds a new tag
 
@@ -24,7 +24,7 @@ Adds a new tag
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**uNKNOWNBASETYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+**createTag** | [**CreateTag**](CreateTag.md)|  | 
 
 ### Return type
 
