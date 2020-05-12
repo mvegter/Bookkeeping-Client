@@ -137,6 +137,8 @@ Class | Method | HTTP request | Description
  - [AliceBookkeeping.ApiInformation](docs/ApiInformation.md)
  - [AliceBookkeeping.ArrayOfLogsResponse](docs/ArrayOfLogsResponse.md)
  - [AliceBookkeeping.ArrayOfTagsResponse](docs/ArrayOfTagsResponse.md)
+ - [AliceBookkeeping.CreateLog](docs/CreateLog.md)
+ - [AliceBookkeeping.CreateTag](docs/CreateTag.md)
  - [AliceBookkeeping.DeployInformation](docs/DeployInformation.md)
  - [AliceBookkeeping.Error](docs/Error.md)
  - [AliceBookkeeping.Errors](docs/Errors.md)

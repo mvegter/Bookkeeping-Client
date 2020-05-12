@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## createTag
 
-> TagResponse createTag(UNKNOWN_BASE_TYPE)
+> TagResponse createTag(createTag)
 
 Adds a new tag
 
@@ -24,8 +24,8 @@ Adds a new tag
 import AliceBookkeeping from 'alice_bookkeeping';
 
 let apiInstance = new AliceBookkeeping.TagApi();
-let UNKNOWN_BASE_TYPE = new AliceBookkeeping.UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
-apiInstance.createTag(UNKNOWN_BASE_TYPE, (error, data, response) => {
+let createTag = new AliceBookkeeping.CreateTag(); // CreateTag | 
+apiInstance.createTag(createTag, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -39,7 +39,7 @@ apiInstance.createTag(UNKNOWN_BASE_TYPE, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **createTag** | [**CreateTag**](CreateTag.md)|  | 
 
 ### Return type
 
