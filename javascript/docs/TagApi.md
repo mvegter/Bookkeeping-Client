@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## createTag
 
-> TagResponse createTag()
+> TagResponse createTag(UNKNOWN_BASE_TYPE)
 
 Adds a new tag
 
@@ -24,7 +24,8 @@ Adds a new tag
 import AliceBookkeeping from 'alice_bookkeeping';
 
 let apiInstance = new AliceBookkeeping.TagApi();
-apiInstance.createTag((error, data, response) => {
+let UNKNOWN_BASE_TYPE = new AliceBookkeeping.UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+apiInstance.createTag(UNKNOWN_BASE_TYPE, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -35,7 +36,10 @@ apiInstance.createTag((error, data, response) => {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
 
 ### Return type
 
@@ -47,7 +51,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
