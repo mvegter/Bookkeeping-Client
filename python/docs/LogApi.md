@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **create_log**
-> LogResponse create_log(unknown_base_type)
+> LogResponse create_log(create_log)
 
 Adds a new log
 
@@ -34,11 +34,11 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.LogApi(api_client)
-    unknown_base_type = openapi_client.UNKNOWN_BASE_TYPE() # UNKNOWN_BASE_TYPE | 
+    create_log = openapi_client.CreateLog() # CreateLog | 
 
     try:
         # Adds a new log
-        api_response = api_instance.create_log(unknown_base_type)
+        api_response = api_instance.create_log(create_log)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling LogApi->create_log: %s\n" % e)
@@ -48,7 +48,7 @@ with openapi_client.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **create_log** | [**CreateLog**](CreateLog.md)|  | 
 
 ### Return type
 
