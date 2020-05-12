@@ -29,9 +29,9 @@ import java.io.IOException;
 
 import org.openapitools.client.model.ArrayOfLogsResponse;
 import org.openapitools.client.model.ArrayOfTagsResponse;
+import org.openapitools.client.model.CreateTag;
 import org.openapitools.client.model.Errors;
 import org.openapitools.client.model.TagResponse;
-import org.openapitools.client.model.UNKNOWN_BASE_TYPE;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -60,7 +60,7 @@ public class TagApi {
 
     /**
      * Build call for createTag
-     * @param UNKNOWN_BASE_TYPE  (required)
+     * @param createTag  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -73,8 +73,8 @@ public class TagApi {
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createTagCall(UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = UNKNOWN_BASE_TYPE;
+    public okhttp3.Call createTagCall(CreateTag createTag, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = createTag;
 
         // create path and map variables
         String localVarPath = "/tags";
@@ -103,15 +103,15 @@ public class TagApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createTagValidateBeforeCall(UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createTagValidateBeforeCall(CreateTag createTag, final ApiCallback _callback) throws ApiException {
         
-        // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-        if (UNKNOWN_BASE_TYPE == null) {
-            throw new ApiException("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling createTag(Async)");
+        // verify the required parameter 'createTag' is set
+        if (createTag == null) {
+            throw new ApiException("Missing the required parameter 'createTag' when calling createTag(Async)");
         }
         
 
-        okhttp3.Call localVarCall = createTagCall(UNKNOWN_BASE_TYPE, _callback);
+        okhttp3.Call localVarCall = createTagCall(createTag, _callback);
         return localVarCall;
 
     }
@@ -119,7 +119,7 @@ public class TagApi {
     /**
      * Adds a new tag
      * 
-     * @param UNKNOWN_BASE_TYPE  (required)
+     * @param createTag  (required)
      * @return TagResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -131,15 +131,15 @@ public class TagApi {
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
-    public TagResponse createTag(UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE) throws ApiException {
-        ApiResponse<TagResponse> localVarResp = createTagWithHttpInfo(UNKNOWN_BASE_TYPE);
+    public TagResponse createTag(CreateTag createTag) throws ApiException {
+        ApiResponse<TagResponse> localVarResp = createTagWithHttpInfo(createTag);
         return localVarResp.getData();
     }
 
     /**
      * Adds a new tag
      * 
-     * @param UNKNOWN_BASE_TYPE  (required)
+     * @param createTag  (required)
      * @return ApiResponse&lt;TagResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -151,8 +151,8 @@ public class TagApi {
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TagResponse> createTagWithHttpInfo(UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE) throws ApiException {
-        okhttp3.Call localVarCall = createTagValidateBeforeCall(UNKNOWN_BASE_TYPE, null);
+    public ApiResponse<TagResponse> createTagWithHttpInfo(CreateTag createTag) throws ApiException {
+        okhttp3.Call localVarCall = createTagValidateBeforeCall(createTag, null);
         Type localVarReturnType = new TypeToken<TagResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -160,7 +160,7 @@ public class TagApi {
     /**
      * Adds a new tag (asynchronously)
      * 
-     * @param UNKNOWN_BASE_TYPE  (required)
+     * @param createTag  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -173,9 +173,9 @@ public class TagApi {
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createTagAsync(UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE, final ApiCallback<TagResponse> _callback) throws ApiException {
+    public okhttp3.Call createTagAsync(CreateTag createTag, final ApiCallback<TagResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createTagValidateBeforeCall(UNKNOWN_BASE_TYPE, _callback);
+        okhttp3.Call localVarCall = createTagValidateBeforeCall(createTag, _callback);
         Type localVarReturnType = new TypeToken<TagResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

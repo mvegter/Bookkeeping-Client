@@ -114,7 +114,7 @@ static bool createLogProcessor(MemoryStruct_s p_chunk, long code, char* errormsg
 }
 
 static bool createLogHelper(char * accessToken,
-	UNKNOWN_BASE_TYPE uNKNOWNBASETYPE, 
+	CreateLog createLog, 
 	void(* handler)(LogResponse, Error, void* )
 	, void* userData, bool isAsync)
 {
@@ -135,11 +135,11 @@ static bool createLogHelper(char * accessToken,
 	JsonNode* node;
 	JsonArray* json_array;
 
-	if (isprimitive("UNKNOWN_BASE_TYPE")) {
-		node = converttoJson(&uNKNOWNBASETYPE, "UNKNOWN_BASE_TYPE", "");
+	if (isprimitive("CreateLog")) {
+		node = converttoJson(&createLog, "CreateLog", "");
 	}
 	
-	char *jsonStr =  uNKNOWNBASETYPE.toJson();
+	char *jsonStr =  createLog.toJson();
 	node = json_from_string(jsonStr, NULL);
 	g_free(static_cast<gpointer>(jsonStr));
 	
@@ -198,22 +198,22 @@ static bool createLogHelper(char * accessToken,
 
 
 bool LogManager::createLogAsync(char * accessToken,
-	UNKNOWN_BASE_TYPE uNKNOWNBASETYPE, 
+	CreateLog createLog, 
 	void(* handler)(LogResponse, Error, void* )
 	, void* userData)
 {
 	return createLogHelper(accessToken,
-	uNKNOWNBASETYPE, 
+	createLog, 
 	handler, userData, true);
 }
 
 bool LogManager::createLogSync(char * accessToken,
-	UNKNOWN_BASE_TYPE uNKNOWNBASETYPE, 
+	CreateLog createLog, 
 	void(* handler)(LogResponse, Error, void* )
 	, void* userData)
 {
 	return createLogHelper(accessToken,
-	uNKNOWNBASETYPE, 
+	createLog, 
 	handler, userData, false);
 }
 

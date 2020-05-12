@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## CreateLog
 
-> LogResponse CreateLog(ctx, uNKNOWNBASETYPE)
+> LogResponse CreateLog(ctx, createLog)
 
 Adds a new log
 
@@ -23,7 +23,7 @@ Adds a new log
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**uNKNOWNBASETYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+**createLog** | [**CreateLog**](CreateLog.md)|  | 
 
 ### Return type
 

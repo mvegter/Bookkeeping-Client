@@ -23,10 +23,9 @@
 
 #include "ArrayOfLogsResponse.h"
 #include "ArrayOfTagsResponse.h"
+#include "CreateTag.h"
 #include "Errors.h"
-#include "Object.h"
 #include "TagResponse.h"
-#include "UNKNOWN_BASE_TYPE.h"
 
 
 #include <boost/optional.hpp>
@@ -54,9 +53,9 @@ public:
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="uNKNOWNBASETYPE"></param>
+    /// <param name="createTag"></param>
     pplx::task<std::shared_ptr<TagResponse>> createTag(
-        std::shared_ptr<UNKNOWN_BASE_TYPE> uNKNOWNBASETYPE
+        std::shared_ptr<CreateTag> createTag
     ) const;
     /// <summary>
     /// Gets all logs with this tag id

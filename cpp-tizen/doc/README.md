@@ -79,6 +79,8 @@ Class | Description
  *ApiInformation* | API information
  *ArrayOfLogsResponse* | Response containing multiple logs.
  *ArrayOfTagsResponse* | Response containing multiple tags.
+ *CreateLog* | Describes an intervention or an event that happened.
+ *CreateTag* | A label attached to something for the purpose of identification.
  *DeployInformation* | Deploy information
  *Error* | An Error object.
  *Errors* | A list of Error objects.

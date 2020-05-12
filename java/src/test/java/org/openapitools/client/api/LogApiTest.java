@@ -16,9 +16,9 @@ package org.openapitools.client.api;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.model.ArrayOfLogsResponse;
 import org.openapitools.client.model.ArrayOfTagsResponse;
+import org.openapitools.client.model.CreateLog;
 import org.openapitools.client.model.Errors;
 import org.openapitools.client.model.LogResponse;
-import org.openapitools.client.model.UNKNOWN_BASE_TYPE;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -46,8 +46,8 @@ public class LogApiTest {
      */
     @Test
     public void createLogTest() throws ApiException {
-        UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE = null;
-        LogResponse response = api.createLog(UNKNOWN_BASE_TYPE);
+        CreateLog createLog = null;
+        LogResponse response = api.createLog(createLog);
 
         // TODO: test validations
     }

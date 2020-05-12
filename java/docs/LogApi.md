@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="createLog"></a>
 # **createLog**
-> LogResponse createLog(UNKNOWN_BASE_TYPE)
+> LogResponse createLog(createLog)
 
 Adds a new log
 
@@ -31,9 +31,9 @@ public class Example {
     defaultClient.setBasePath("http://localhost/api");
 
     LogApi apiInstance = new LogApi(defaultClient);
-    UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
+    CreateLog createLog = new CreateLog(); // CreateLog | 
     try {
-      LogResponse result = apiInstance.createLog(UNKNOWN_BASE_TYPE);
+      LogResponse result = apiInstance.createLog(createLog);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LogApi#createLog");
@@ -50,7 +50,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  |
+ **createLog** | [**CreateLog**](CreateLog.md)|  |
 
 ### Return type
 

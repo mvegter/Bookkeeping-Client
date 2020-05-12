@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **create_tag**
-> TagResponse create_tag(unknown_base_type)
+> TagResponse create_tag(create_tag)
 
 Adds a new tag
 
@@ -35,11 +35,11 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.TagApi(api_client)
-    unknown_base_type = openapi_client.UNKNOWN_BASE_TYPE() # UNKNOWN_BASE_TYPE | 
+    create_tag = openapi_client.CreateTag() # CreateTag | 
 
     try:
         # Adds a new tag
-        api_response = api_instance.create_tag(unknown_base_type)
+        api_response = api_instance.create_tag(create_tag)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling TagApi->create_tag: %s\n" % e)
@@ -49,7 +49,7 @@ with openapi_client.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **unknown_base_type** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | 
+ **create_tag** | [**CreateTag**](CreateTag.md)|  | 
 
 ### Return type
 

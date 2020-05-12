@@ -35,13 +35,13 @@ LogApi::~LogApi()
 {
 }
 
-pplx::task<std::shared_ptr<LogResponse>> LogApi::createLog(std::shared_ptr<UNKNOWN_BASE_TYPE> uNKNOWNBASETYPE) const
+pplx::task<std::shared_ptr<LogResponse>> LogApi::createLog(std::shared_ptr<CreateLog> createLog) const
 {
 
-    // verify the required parameter 'uNKNOWNBASETYPE' is set
-    if (uNKNOWNBASETYPE == nullptr)
+    // verify the required parameter 'createLog' is set
+    if (createLog == nullptr)
     {
-        throw ApiException(400, utility::conversions::to_string_t("Missing required parameter 'uNKNOWNBASETYPE' when calling LogApi->createLog"));
+        throw ApiException(400, utility::conversions::to_string_t("Missing required parameter 'createLog' when calling LogApi->createLog"));
     }
 
 
@@ -93,7 +93,7 @@ pplx::task<std::shared_ptr<LogResponse>> LogApi::createLog(std::shared_ptr<UNKNO
         localVarRequestHttpContentType = utility::conversions::to_string_t("application/json");
         web::json::value localVarJson;
 
-        localVarJson = ModelBase::toJson(uNKNOWNBASETYPE);
+        localVarJson = ModelBase::toJson(createLog);
         
 
         localVarHttpBody = std::shared_ptr<IHttpBody>( new JsonBody( localVarJson ) );
@@ -104,9 +104,9 @@ pplx::task<std::shared_ptr<LogResponse>> LogApi::createLog(std::shared_ptr<UNKNO
         localVarRequestHttpContentType = utility::conversions::to_string_t("multipart/form-data");
         std::shared_ptr<MultipartFormData> localVarMultipart(new MultipartFormData);
 
-        if(uNKNOWNBASETYPE.get())
+        if(createLog.get())
         {
-            uNKNOWNBASETYPE->toMultipart(localVarMultipart, utility::conversions::to_string_t("uNKNOWNBASETYPE"));
+            createLog->toMultipart(localVarMultipart, utility::conversions::to_string_t("createLog"));
         }
         
 

@@ -5,6 +5,8 @@ HEADERS += \
     $${PWD}/OAIApiInformation.h \
     $${PWD}/OAIArrayOfLogsResponse.h \
     $${PWD}/OAIArrayOfTagsResponse.h \
+    $${PWD}/OAICreateLog.h \
+    $${PWD}/OAICreateTag.h \
     $${PWD}/OAIDeployInformation.h \
     $${PWD}/OAIError.h \
     $${PWD}/OAIErrors.h \
@@ -28,6 +30,8 @@ SOURCES += \
     $${PWD}/OAIApiInformation.cpp \
     $${PWD}/OAIArrayOfLogsResponse.cpp \
     $${PWD}/OAIArrayOfTagsResponse.cpp \
+    $${PWD}/OAICreateLog.cpp \
+    $${PWD}/OAICreateTag.cpp \
     $${PWD}/OAIDeployInformation.cpp \
     $${PWD}/OAIError.cpp \
     $${PWD}/OAIErrors.cpp \

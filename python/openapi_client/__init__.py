@@ -33,6 +33,8 @@ from openapi_client.exceptions import ApiException
 from openapi_client.models.api_information import ApiInformation
 from openapi_client.models.array_of_logs_response import ArrayOfLogsResponse
 from openapi_client.models.array_of_tags_response import ArrayOfTagsResponse
+from openapi_client.models.create_log import CreateLog
+from openapi_client.models.create_tag import CreateTag
 from openapi_client.models.deploy_information import DeployInformation
 from openapi_client.models.error import Error
 from openapi_client.models.errors import Errors

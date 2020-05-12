@@ -15,9 +15,9 @@
 import ApiClient from "../ApiClient";
 import ArrayOfLogsResponse from '../model/ArrayOfLogsResponse';
 import ArrayOfTagsResponse from '../model/ArrayOfTagsResponse';
+import CreateTag from '../model/CreateTag';
 import Errors from '../model/Errors';
 import TagResponse from '../model/TagResponse';
-import UNKNOWN_BASE_TYPE from '../model/UNKNOWN_BASE_TYPE';
 
 /**
 * Tag service.
@@ -48,15 +48,15 @@ export default class TagApi {
 
     /**
      * Adds a new tag
-     * @param {module:model/UNKNOWN_BASE_TYPE} UNKNOWN_BASE_TYPE 
+     * @param {module:model/CreateTag} createTag 
      * @param {module:api/TagApi~createTagCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TagResponse}
      */
-    createTag(UNKNOWN_BASE_TYPE, callback) {
-      let postBody = UNKNOWN_BASE_TYPE;
-      // verify the required parameter 'UNKNOWN_BASE_TYPE' is set
-      if (UNKNOWN_BASE_TYPE === undefined || UNKNOWN_BASE_TYPE === null) {
-        throw new Error("Missing the required parameter 'UNKNOWN_BASE_TYPE' when calling createTag");
+    createTag(createTag, callback) {
+      let postBody = createTag;
+      // verify the required parameter 'createTag' is set
+      if (createTag === undefined || createTag === null) {
+        throw new Error("Missing the required parameter 'createTag' when calling createTag");
       }
 
       let pathParams = {

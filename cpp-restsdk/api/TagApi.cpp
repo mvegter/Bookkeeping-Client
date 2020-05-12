@@ -35,13 +35,13 @@ TagApi::~TagApi()
 {
 }
 
-pplx::task<std::shared_ptr<TagResponse>> TagApi::createTag(std::shared_ptr<UNKNOWN_BASE_TYPE> uNKNOWNBASETYPE) const
+pplx::task<std::shared_ptr<TagResponse>> TagApi::createTag(std::shared_ptr<CreateTag> createTag) const
 {
 
-    // verify the required parameter 'uNKNOWNBASETYPE' is set
-    if (uNKNOWNBASETYPE == nullptr)
+    // verify the required parameter 'createTag' is set
+    if (createTag == nullptr)
     {
-        throw ApiException(400, utility::conversions::to_string_t("Missing required parameter 'uNKNOWNBASETYPE' when calling TagApi->createTag"));
+        throw ApiException(400, utility::conversions::to_string_t("Missing required parameter 'createTag' when calling TagApi->createTag"));
     }
 
 
@@ -93,7 +93,7 @@ pplx::task<std::shared_ptr<TagResponse>> TagApi::createTag(std::shared_ptr<UNKNO
         localVarRequestHttpContentType = utility::conversions::to_string_t("application/json");
         web::json::value localVarJson;
 
-        localVarJson = ModelBase::toJson(uNKNOWNBASETYPE);
+        localVarJson = ModelBase::toJson(createTag);
         
 
         localVarHttpBody = std::shared_ptr<IHttpBody>( new JsonBody( localVarJson ) );
@@ -104,9 +104,9 @@ pplx::task<std::shared_ptr<TagResponse>> TagApi::createTag(std::shared_ptr<UNKNO
         localVarRequestHttpContentType = utility::conversions::to_string_t("multipart/form-data");
         std::shared_ptr<MultipartFormData> localVarMultipart(new MultipartFormData);
 
-        if(uNKNOWNBASETYPE.get())
+        if(createTag.get())
         {
-            uNKNOWNBASETYPE->toMultipart(localVarMultipart, utility::conversions::to_string_t("uNKNOWNBASETYPE"));
+            createTag->toMultipart(localVarMultipart, utility::conversions::to_string_t("createTag"));
         }
         
 

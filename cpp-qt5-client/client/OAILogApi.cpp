@@ -69,7 +69,7 @@ void OAILogApi::abortRequests(){
     emit abortRequestsSignal();
 }
 
-void OAILogApi::createLog(const UNKNOWN_BASE_TYPE &unknown_base_type) {
+void OAILogApi::createLog(const OAICreateLog &oai_create_log) {
     QString fullPath = QString("%1://%2%3%4%5")
                            .arg(_scheme)
                            .arg(_host)
@@ -82,7 +82,7 @@ void OAILogApi::createLog(const UNKNOWN_BASE_TYPE &unknown_base_type) {
     worker->setWorkingDirectory(_workingDirectory);
     OAIHttpRequestInput input(fullPath, "POST");
 
-    QString output = unknown_base_type.asJson();
+    QString output = oai_create_log.asJson();
     input.request_body.append(output);
 
     foreach (QString key, this->defaultHeaders.keys()) { input.headers.insert(key, this->defaultHeaders.value(key)); }

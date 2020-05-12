@@ -50,6 +50,8 @@ Class | Method | HTTP request | Description
  - [ApiInformation](docs/ApiInformation.md)
  - [ArrayOfLogsResponse](docs/ArrayOfLogsResponse.md)
  - [ArrayOfTagsResponse](docs/ArrayOfTagsResponse.md)
+ - [CreateLog](docs/CreateLog.md)
+ - [CreateTag](docs/CreateTag.md)
  - [DeployInformation](docs/DeployInformation.md)
  - [Error](docs/Error.md)
  - [Errors](docs/Errors.md)

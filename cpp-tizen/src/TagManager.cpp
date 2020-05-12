@@ -119,7 +119,7 @@ static bool createTagProcessor(MemoryStruct_s p_chunk, long code, char* errormsg
 }
 
 static bool createTagHelper(char * accessToken,
-	UNKNOWN_BASE_TYPE uNKNOWNBASETYPE, 
+	CreateTag createTag, 
 	void(* handler)(TagResponse, Error, void* )
 	, void* userData, bool isAsync)
 {
@@ -140,11 +140,11 @@ static bool createTagHelper(char * accessToken,
 	JsonNode* node;
 	JsonArray* json_array;
 
-	if (isprimitive("UNKNOWN_BASE_TYPE")) {
-		node = converttoJson(&uNKNOWNBASETYPE, "UNKNOWN_BASE_TYPE", "");
+	if (isprimitive("CreateTag")) {
+		node = converttoJson(&createTag, "CreateTag", "");
 	}
 	
-	char *jsonStr =  uNKNOWNBASETYPE.toJson();
+	char *jsonStr =  createTag.toJson();
 	node = json_from_string(jsonStr, NULL);
 	g_free(static_cast<gpointer>(jsonStr));
 	
@@ -203,22 +203,22 @@ static bool createTagHelper(char * accessToken,
 
 
 bool TagManager::createTagAsync(char * accessToken,
-	UNKNOWN_BASE_TYPE uNKNOWNBASETYPE, 
+	CreateTag createTag, 
 	void(* handler)(TagResponse, Error, void* )
 	, void* userData)
 {
 	return createTagHelper(accessToken,
-	uNKNOWNBASETYPE, 
+	createTag, 
 	handler, userData, true);
 }
 
 bool TagManager::createTagSync(char * accessToken,
-	UNKNOWN_BASE_TYPE uNKNOWNBASETYPE, 
+	CreateTag createTag, 
 	void(* handler)(TagResponse, Error, void* )
 	, void* userData)
 {
 	return createTagHelper(accessToken,
-	uNKNOWNBASETYPE, 
+	createTag, 
 	handler, userData, false);
 }
 

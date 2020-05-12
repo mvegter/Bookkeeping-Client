@@ -36,16 +36,16 @@ class TagApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_tag(self, unknown_base_type, **kwargs):  # noqa: E501
+    def create_tag(self, create_tag, **kwargs):  # noqa: E501
         """Adds a new tag  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_tag(unknown_base_type, async_req=True)
+        >>> thread = api.create_tag(create_tag, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param UNKNOWN_BASE_TYPE unknown_base_type: (required)
+        :param CreateTag create_tag: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -58,18 +58,18 @@ class TagApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_tag_with_http_info(unknown_base_type, **kwargs)  # noqa: E501
+        return self.create_tag_with_http_info(create_tag, **kwargs)  # noqa: E501
 
-    def create_tag_with_http_info(self, unknown_base_type, **kwargs):  # noqa: E501
+    def create_tag_with_http_info(self, create_tag, **kwargs):  # noqa: E501
         """Adds a new tag  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_tag_with_http_info(unknown_base_type, async_req=True)
+        >>> thread = api.create_tag_with_http_info(create_tag, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param UNKNOWN_BASE_TYPE unknown_base_type: (required)
+        :param CreateTag create_tag: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -87,7 +87,7 @@ class TagApi(object):
         local_var_params = locals()
 
         all_params = [
-            'unknown_base_type'
+            'create_tag'
         ]
         all_params.extend(
             [
@@ -106,10 +106,10 @@ class TagApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'unknown_base_type' is set
-        if self.api_client.client_side_validation and ('unknown_base_type' not in local_var_params or  # noqa: E501
-                                                        local_var_params['unknown_base_type'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `unknown_base_type` when calling `create_tag`")  # noqa: E501
+        # verify the required parameter 'create_tag' is set
+        if self.api_client.client_side_validation and ('create_tag' not in local_var_params or  # noqa: E501
+                                                        local_var_params['create_tag'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `create_tag` when calling `create_tag`")  # noqa: E501
 
         collection_formats = {}
 
@@ -123,8 +123,8 @@ class TagApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'unknown_base_type' in local_var_params:
-            body_params = local_var_params['unknown_base_type']
+        if 'create_tag' in local_var_params:
+            body_params = local_var_params['create_tag']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501

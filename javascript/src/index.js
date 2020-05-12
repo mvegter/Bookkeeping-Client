@@ -16,6 +16,8 @@ import ApiClient from './ApiClient';
 import ApiInformation from './model/ApiInformation';
 import ArrayOfLogsResponse from './model/ArrayOfLogsResponse';
 import ArrayOfTagsResponse from './model/ArrayOfTagsResponse';
+import CreateLog from './model/CreateLog';
+import CreateTag from './model/CreateTag';
 import DeployInformation from './model/DeployInformation';
 import Error from './model/Error';
 import Errors from './model/Errors';
@@ -83,6 +85,18 @@ export {
      * @property {module:model/ArrayOfTagsResponse}
      */
     ArrayOfTagsResponse,
+
+    /**
+     * The CreateLog model constructor.
+     * @property {module:model/CreateLog}
+     */
+    CreateLog,
+
+    /**
+     * The CreateTag model constructor.
+     * @property {module:model/CreateTag}
+     */
+    CreateTag,
 
     /**
      * The DeployInformation model constructor.

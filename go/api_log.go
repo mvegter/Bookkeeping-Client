@@ -29,10 +29,10 @@ type LogApiService service
 /*
 CreateLog Adds a new log
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param uNKNOWNBASETYPE
+ * @param createLog
 @return LogResponse
 */
-func (a *LogApiService) CreateLog(ctx _context.Context, uNKNOWNBASETYPE UNKNOWN_BASE_TYPE) (LogResponse, *_nethttp.Response, error) {
+func (a *LogApiService) CreateLog(ctx _context.Context, createLog CreateLog) (LogResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -66,7 +66,7 @@ func (a *LogApiService) CreateLog(ctx _context.Context, uNKNOWNBASETYPE UNKNOWN_
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = &uNKNOWNBASETYPE
+	localVarPostBody = &createLog
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
