@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-LANGUAGES="cpp-qt5-client cpp-restsdk cpp-tizen go java javascript python"
+LANGUAGES="cpp-qt5-client cpp-restsdk cpp-tizen csharp go java javascript python ruby rust"
 
 echo "git checkout -b update/$1" | sh
 echo "git add ." | sh
