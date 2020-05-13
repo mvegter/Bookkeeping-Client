@@ -17,8 +17,10 @@ import ArrayOfLogsResponse from '../model/ArrayOfLogsResponse';
 import ArrayOfTagsResponse from '../model/ArrayOfTagsResponse';
 import CreateLog from '../model/CreateLog';
 import Errors from '../model/Errors';
-import LogOrigin from '../model/LogOrigin';
+import FilterLogsOptions from '../model/FilterLogsOptions';
 import LogResponse from '../model/LogResponse';
+import PaginationOptions from '../model/PaginationOptions';
+import SortLogsOptions from '../model/SortLogsOptions';
 
 /**
 * Log service.
@@ -133,10 +135,9 @@ export default class LogApi {
     /**
      * List all logs
      * @param {Object} opts Optional parameters
-     * @param {module:model/LogOrigin} opts.filterOrigin Filter logs by their origin
-     * @param {Number} opts.pageOffset The number of items to skip before starting to collect the result set. (default to 0)
-     * @param {Number} opts.pageLimit The numbers of items to return. (default to 100)
-     * @param {Array.<String>} opts.sort The sort order of the returned items.
+     * @param {module:model/PaginationOptions} opts.page Specifies the pagination requirements.
+     * @param {module:model/FilterLogsOptions} opts.filter Specifies the filter requirements.
+     * @param {module:model/SortLogsOptions} opts.sort Specifies the sorting requirements.
      * @param {module:api/LogApi~listLogsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ArrayOfLogsResponse}
      */
@@ -147,10 +148,9 @@ export default class LogApi {
       let pathParams = {
       };
       let queryParams = {
-        'filter[origin]': opts['filterOrigin'],
-        'page[offset]': opts['pageOffset'],
-        'page[limit]': opts['pageLimit'],
-        'sort': this.apiClient.buildCollectionParam(opts['sort'], 'csv')
+        'page': opts['page'],
+        'filter': opts['filter'],
+        'sort': opts['sort']
       };
       let headerParams = {
       };

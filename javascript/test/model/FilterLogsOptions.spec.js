@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new AliceBookkeeping.Error();
+    instance = new AliceBookkeeping.FilterLogsOptions();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,34 +47,16 @@
       object[property] = value;
   }
 
-  describe('Error', function() {
-    it('should create an instance of Error', function() {
-      // uncomment below and update the code to test Error
-      //var instane = new AliceBookkeeping.Error();
-      //expect(instance).to.be.a(AliceBookkeeping.Error);
+  describe('FilterLogsOptions', function() {
+    it('should create an instance of FilterLogsOptions', function() {
+      // uncomment below and update the code to test FilterLogsOptions
+      //var instane = new AliceBookkeeping.FilterLogsOptions();
+      //expect(instance).to.be.a(AliceBookkeeping.FilterLogsOptions);
     });
 
-    it('should have the property status (base name: "status")', function() {
-      // uncomment below and update the code to test the property status
-      //var instane = new AliceBookkeeping.Error();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property title (base name: "title")', function() {
-      // uncomment below and update the code to test the property title
-      //var instane = new AliceBookkeeping.Error();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property detail (base name: "detail")', function() {
-      // uncomment below and update the code to test the property detail
-      //var instane = new AliceBookkeeping.Error();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property source (base name: "source")', function() {
-      // uncomment below and update the code to test the property source
-      //var instane = new AliceBookkeeping.Error();
+    it('should have the property origin (base name: "origin")', function() {
+      // uncomment below and update the code to test the property origin
+      //var instane = new AliceBookkeeping.FilterLogsOptions();
       //expect(instance).to.be();
     });
 

@@ -28,7 +28,6 @@
   var instance;
 
   beforeEach(function() {
-    instance = new AliceBookkeeping.Error();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,35 +46,11 @@
       object[property] = value;
   }
 
-  describe('Error', function() {
-    it('should create an instance of Error', function() {
-      // uncomment below and update the code to test Error
-      //var instane = new AliceBookkeeping.Error();
-      //expect(instance).to.be.a(AliceBookkeeping.Error);
-    });
-
-    it('should have the property status (base name: "status")', function() {
-      // uncomment below and update the code to test the property status
-      //var instane = new AliceBookkeeping.Error();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property title (base name: "title")', function() {
-      // uncomment below and update the code to test the property title
-      //var instane = new AliceBookkeeping.Error();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property detail (base name: "detail")', function() {
-      // uncomment below and update the code to test the property detail
-      //var instane = new AliceBookkeeping.Error();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property source (base name: "source")', function() {
-      // uncomment below and update the code to test the property source
-      //var instane = new AliceBookkeeping.Error();
-      //expect(instance).to.be();
+  describe('SortOrder', function() {
+    it('should create an instance of SortOrder', function() {
+      // uncomment below and update the code to test SortOrder
+      //var instane = new AliceBookkeeping.SortOrder();
+      //expect(instance).to.be.a(AliceBookkeeping.SortOrder);
     });
 
   });

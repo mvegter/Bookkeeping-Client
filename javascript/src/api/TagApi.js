@@ -17,6 +17,7 @@ import ArrayOfLogsResponse from '../model/ArrayOfLogsResponse';
 import ArrayOfTagsResponse from '../model/ArrayOfTagsResponse';
 import CreateTag from '../model/CreateTag';
 import Errors from '../model/Errors';
+import PaginationOptions from '../model/PaginationOptions';
 import TagResponse from '../model/TagResponse';
 
 /**
@@ -174,8 +175,7 @@ export default class TagApi {
     /**
      * List all tags
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.pageOffset The number of items to skip before starting to collect the result set. (default to 0)
-     * @param {Number} opts.pageLimit The numbers of items to return. (default to 100)
+     * @param {module:model/PaginationOptions} opts.page Specifies the pagination requirements.
      * @param {module:api/TagApi~listTagsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ArrayOfTagsResponse}
      */
@@ -186,8 +186,7 @@ export default class TagApi {
       let pathParams = {
       };
       let queryParams = {
-        'page[offset]': opts['pageOffset'],
-        'page[limit]': opts['pageLimit']
+        'page': opts['page']
       };
       let headerParams = {
       };
