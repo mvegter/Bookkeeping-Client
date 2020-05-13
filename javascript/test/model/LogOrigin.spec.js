@@ -28,7 +28,6 @@
   var instance;
 
   beforeEach(function() {
-    instance = new AliceBookkeeping.TagApi();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,47 +46,13 @@
       object[property] = value;
   }
 
-  describe('TagApi', function() {
-    describe('createTag', function() {
-      it('should call createTag successfully', function(done) {
-        //uncomment below and update the code to test createTag
-        //instance.createTag(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+  describe('LogOrigin', function() {
+    it('should create an instance of LogOrigin', function() {
+      // uncomment below and update the code to test LogOrigin
+      //var instane = new AliceBookkeeping.LogOrigin();
+      //expect(instance).to.be.a(AliceBookkeeping.LogOrigin);
     });
-    describe('getLogsByTagId', function() {
-      it('should call getLogsByTagId successfully', function(done) {
-        //uncomment below and update the code to test getLogsByTagId
-        //instance.getLogsByTagId(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('getTagById', function() {
-      it('should call getTagById successfully', function(done) {
-        //uncomment below and update the code to test getTagById
-        //instance.getTagById(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('listTags', function() {
-      it('should call listTags successfully', function(done) {
-        //uncomment below and update the code to test listTags
-        //instance.listTags(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
+
   });
 
 }));

@@ -23,7 +23,7 @@ class Tag {
      * Constructs a new <code>Tag</code>.
      * A label attached to something for the purpose of identification.
      * @alias module:model/Tag
-     * @param id {Number} Id of the tag.
+     * @param id {Number} The unique identifier of this entity.
      * @param text {String} The label value of the tag.
      */
     constructor(id, text) { 
@@ -72,7 +72,7 @@ class Tag {
 }
 
 /**
- * Id of the tag.
+ * The unique identifier of this entity.
  * @member {Number} id
  */
 Tag.prototype['id'] = undefined;

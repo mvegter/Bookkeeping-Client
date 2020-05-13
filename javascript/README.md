@@ -129,7 +129,6 @@ Class | Method | HTTP request | Description
 *AliceBookkeeping.TagApi* | [**getLogsByTagId**](docs/TagApi.md#getLogsByTagId) | **GET** /tags/{tagId}/logs | Gets all logs with this tag id
 *AliceBookkeeping.TagApi* | [**getTagById**](docs/TagApi.md#getTagById) | **GET** /tags/{tagId} | Gets a tag by Id
 *AliceBookkeeping.TagApi* | [**listTags**](docs/TagApi.md#listTags) | **GET** /tags | List all tags
-*AliceBookkeeping.TagApi* | [**listTagsByLogId**](docs/TagApi.md#listTagsByLogId) | **GET** /logs/{logId}/tags | Lists all tags associated with a log
 
 
 ## Documentation for Models
@@ -143,6 +142,7 @@ Class | Method | HTTP request | Description
  - [AliceBookkeeping.Error](docs/Error.md)
  - [AliceBookkeeping.Errors](docs/Errors.md)
  - [AliceBookkeeping.Log](docs/Log.md)
+ - [AliceBookkeeping.LogOrigin](docs/LogOrigin.md)
  - [AliceBookkeeping.LogResponse](docs/LogResponse.md)
  - [AliceBookkeeping.Tag](docs/Tag.md)
  - [AliceBookkeeping.TagResponse](docs/TagResponse.md)

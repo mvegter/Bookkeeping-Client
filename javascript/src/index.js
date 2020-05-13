@@ -22,6 +22,7 @@ import DeployInformation from './model/DeployInformation';
 import Error from './model/Error';
 import Errors from './model/Errors';
 import Log from './model/Log';
+import LogOrigin from './model/LogOrigin';
 import LogResponse from './model/LogResponse';
 import Tag from './model/Tag';
 import TagResponse from './model/TagResponse';
@@ -121,6 +122,12 @@ export {
      * @property {module:model/Log}
      */
     Log,
+
+    /**
+     * The LogOrigin model constructor.
+     * @property {module:model/LogOrigin}
+     */
+    LogOrigin,
 
     /**
      * The LogResponse model constructor.
