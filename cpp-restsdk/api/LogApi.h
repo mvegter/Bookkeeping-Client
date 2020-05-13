@@ -25,9 +25,10 @@
 #include "ArrayOfTagsResponse.h"
 #include "CreateLog.h"
 #include "Errors.h"
-#include "LogOrigin.h"
+#include "FilterLogsOptions.h"
 #include "LogResponse.h"
-#include <cpprest/details/basic_types.h>
+#include "PaginationOptions.h"
+#include "SortLogsOptions.h"
 
 
 #include <boost/optional.hpp>
@@ -75,15 +76,13 @@ public:
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="filterLeft_Square_BracketoriginRight_Square_Bracket">Filter logs by their origin (optional, default to new LogOrigin())</param>
-    /// <param name="pageLeft_Square_BracketoffsetRight_Square_Bracket">The number of items to skip before starting to collect the result set. (optional, default to 0)</param>
-    /// <param name="pageLeft_Square_BracketlimitRight_Square_Bracket">The numbers of items to return. (optional, default to 0)</param>
-    /// <param name="sort">The sort order of the returned items. (optional, default to std::vector&lt;std::shared_ptr&lt;utility::string_t&gt;&gt;())</param>
+    /// <param name="page">Specifies the pagination requirements. (optional, default to new PaginationOptions())</param>
+    /// <param name="filter">Specifies the filter requirements. (optional, default to new FilterLogsOptions())</param>
+    /// <param name="sort">Specifies the sorting requirements. (optional, default to new SortLogsOptions())</param>
     pplx::task<std::shared_ptr<ArrayOfLogsResponse>> listLogs(
-        boost::optional<std::shared_ptr<LogOrigin>> filterLeft_Square_BracketoriginRight_Square_Bracket,
-        boost::optional<int32_t> pageLeft_Square_BracketoffsetRight_Square_Bracket,
-        boost::optional<int32_t> pageLeft_Square_BracketlimitRight_Square_Bracket,
-        boost::optional<std::vector<utility::string_t>> sort
+        boost::optional<std::shared_ptr<PaginationOptions>> page,
+        boost::optional<std::shared_ptr<FilterLogsOptions>> filter,
+        boost::optional<std::shared_ptr<SortLogsOptions>> sort
     ) const;
     /// <summary>
     /// Lists all tags associated with a log

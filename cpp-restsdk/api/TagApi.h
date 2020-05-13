@@ -25,6 +25,7 @@
 #include "ArrayOfTagsResponse.h"
 #include "CreateTag.h"
 #include "Errors.h"
+#include "PaginationOptions.h"
 #include "TagResponse.h"
 
 
@@ -83,11 +84,9 @@ public:
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="pageLeft_Square_BracketoffsetRight_Square_Bracket">The number of items to skip before starting to collect the result set. (optional, default to 0)</param>
-    /// <param name="pageLeft_Square_BracketlimitRight_Square_Bracket">The numbers of items to return. (optional, default to 0)</param>
+    /// <param name="page">Specifies the pagination requirements. (optional, default to new PaginationOptions())</param>
     pplx::task<std::shared_ptr<ArrayOfTagsResponse>> listTags(
-        boost::optional<int32_t> pageLeft_Square_BracketoffsetRight_Square_Bracket,
-        boost::optional<int32_t> pageLeft_Square_BracketlimitRight_Square_Bracket
+        boost::optional<std::shared_ptr<PaginationOptions>> page
     ) const;
 
 protected:

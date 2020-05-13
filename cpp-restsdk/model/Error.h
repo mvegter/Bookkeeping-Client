@@ -22,6 +22,7 @@
 #include "../ModelBase.h"
 
 #include <cpprest/details/basic_types.h>
+#include "ErrorSource.h"
 
 namespace org {
 namespace openapitools {
@@ -80,6 +81,15 @@ public:
 
     void setDetail(const utility::string_t& value);
 
+    /// <summary>
+    /// 
+    /// </summary>
+    std::shared_ptr<ErrorSource> getSource() const;
+    bool sourceIsSet() const;
+    void unsetSource();
+
+    void setSource(const std::shared_ptr<ErrorSource>& value);
+
 
 protected:
     utility::string_t m_Status;
@@ -88,6 +98,8 @@ protected:
     bool m_TitleIsSet;
     utility::string_t m_Detail;
     bool m_DetailIsSet;
+    std::shared_ptr<ErrorSource> m_Source;
+    bool m_SourceIsSet;
 };
 
 
