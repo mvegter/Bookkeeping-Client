@@ -9,10 +9,15 @@ HEADERS += \
     $${PWD}/OAICreateTag.h \
     $${PWD}/OAIDeployInformation.h \
     $${PWD}/OAIError.h \
+    $${PWD}/OAIErrorSource.h \
     $${PWD}/OAIErrors.h \
+    $${PWD}/OAIFilterLogsOptions.h \
     $${PWD}/OAILog.h \
     $${PWD}/OAILogOrigin.h \
     $${PWD}/OAILogResponse.h \
+    $${PWD}/OAIPaginationOptions.h \
+    $${PWD}/OAISortLogsOptions.h \
+    $${PWD}/OAISortOrder.h \
     $${PWD}/OAITag.h \
     $${PWD}/OAITagResponse.h \
 # APIs
@@ -35,10 +40,15 @@ SOURCES += \
     $${PWD}/OAICreateTag.cpp \
     $${PWD}/OAIDeployInformation.cpp \
     $${PWD}/OAIError.cpp \
+    $${PWD}/OAIErrorSource.cpp \
     $${PWD}/OAIErrors.cpp \
+    $${PWD}/OAIFilterLogsOptions.cpp \
     $${PWD}/OAILog.cpp \
     $${PWD}/OAILogOrigin.cpp \
     $${PWD}/OAILogResponse.cpp \
+    $${PWD}/OAIPaginationOptions.cpp \
+    $${PWD}/OAISortLogsOptions.cpp \
+    $${PWD}/OAISortOrder.cpp \
     $${PWD}/OAITag.cpp \
     $${PWD}/OAITagResponse.cpp \
 # APIs

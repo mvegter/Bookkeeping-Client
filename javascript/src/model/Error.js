@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import ErrorSource from './ErrorSource';
 
 /**
  * The Error model module.
@@ -61,6 +62,9 @@ class Error {
             if (data.hasOwnProperty('detail')) {
                 obj['detail'] = ApiClient.convertToType(data['detail'], 'String');
             }
+            if (data.hasOwnProperty('source')) {
+                obj['source'] = ErrorSource.constructFromObject(data['source']);
+            }
         }
         return obj;
     }
@@ -85,6 +89,11 @@ Error.prototype['title'] = undefined;
  * @member {String} detail
  */
 Error.prototype['detail'] = undefined;
+
+/**
+ * @member {module:model/ErrorSource} source
+ */
+Error.prototype['source'] = undefined;
 
 
 

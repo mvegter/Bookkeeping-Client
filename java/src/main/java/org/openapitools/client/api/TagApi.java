@@ -31,6 +31,7 @@ import org.openapitools.client.model.ArrayOfLogsResponse;
 import org.openapitools.client.model.ArrayOfTagsResponse;
 import org.openapitools.client.model.CreateTag;
 import org.openapitools.client.model.Errors;
+import org.openapitools.client.model.PaginationOptions;
 import org.openapitools.client.model.TagResponse;
 
 import java.lang.reflect.Type;
@@ -428,8 +429,7 @@ public class TagApi {
     }
     /**
      * Build call for listTags
-     * @param pageOffset The number of items to skip before starting to collect the result set. (optional, default to 0)
-     * @param pageLimit The numbers of items to return. (optional, default to 100)
+     * @param page Specifies the pagination requirements. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -441,7 +441,7 @@ public class TagApi {
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listTagsCall(Integer pageOffset, Integer pageLimit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listTagsCall(PaginationOptions page, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -449,12 +449,8 @@ public class TagApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (pageOffset != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page[offset]", pageOffset));
-        }
-
-        if (pageLimit != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page[limit]", pageLimit));
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -479,10 +475,10 @@ public class TagApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listTagsValidateBeforeCall(Integer pageOffset, Integer pageLimit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listTagsValidateBeforeCall(PaginationOptions page, final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = listTagsCall(pageOffset, pageLimit, _callback);
+        okhttp3.Call localVarCall = listTagsCall(page, _callback);
         return localVarCall;
 
     }
@@ -490,8 +486,7 @@ public class TagApi {
     /**
      * List all tags
      * 
-     * @param pageOffset The number of items to skip before starting to collect the result set. (optional, default to 0)
-     * @param pageLimit The numbers of items to return. (optional, default to 100)
+     * @param page Specifies the pagination requirements. (optional)
      * @return ArrayOfTagsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -502,16 +497,15 @@ public class TagApi {
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
-    public ArrayOfTagsResponse listTags(Integer pageOffset, Integer pageLimit) throws ApiException {
-        ApiResponse<ArrayOfTagsResponse> localVarResp = listTagsWithHttpInfo(pageOffset, pageLimit);
+    public ArrayOfTagsResponse listTags(PaginationOptions page) throws ApiException {
+        ApiResponse<ArrayOfTagsResponse> localVarResp = listTagsWithHttpInfo(page);
         return localVarResp.getData();
     }
 
     /**
      * List all tags
      * 
-     * @param pageOffset The number of items to skip before starting to collect the result set. (optional, default to 0)
-     * @param pageLimit The numbers of items to return. (optional, default to 100)
+     * @param page Specifies the pagination requirements. (optional)
      * @return ApiResponse&lt;ArrayOfTagsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -522,8 +516,8 @@ public class TagApi {
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ArrayOfTagsResponse> listTagsWithHttpInfo(Integer pageOffset, Integer pageLimit) throws ApiException {
-        okhttp3.Call localVarCall = listTagsValidateBeforeCall(pageOffset, pageLimit, null);
+    public ApiResponse<ArrayOfTagsResponse> listTagsWithHttpInfo(PaginationOptions page) throws ApiException {
+        okhttp3.Call localVarCall = listTagsValidateBeforeCall(page, null);
         Type localVarReturnType = new TypeToken<ArrayOfTagsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -531,8 +525,7 @@ public class TagApi {
     /**
      * List all tags (asynchronously)
      * 
-     * @param pageOffset The number of items to skip before starting to collect the result set. (optional, default to 0)
-     * @param pageLimit The numbers of items to return. (optional, default to 100)
+     * @param page Specifies the pagination requirements. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -544,9 +537,9 @@ public class TagApi {
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listTagsAsync(Integer pageOffset, Integer pageLimit, final ApiCallback<ArrayOfTagsResponse> _callback) throws ApiException {
+    public okhttp3.Call listTagsAsync(PaginationOptions page, final ApiCallback<ArrayOfTagsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listTagsValidateBeforeCall(pageOffset, pageLimit, _callback);
+        okhttp3.Call localVarCall = listTagsValidateBeforeCall(page, _callback);
         Type localVarReturnType = new TypeToken<ArrayOfTagsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

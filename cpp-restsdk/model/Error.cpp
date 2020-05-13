@@ -29,6 +29,7 @@ Error::Error()
     m_TitleIsSet = false;
     m_Detail = utility::conversions::to_string_t("");
     m_DetailIsSet = false;
+    m_SourceIsSet = false;
 }
 
 Error::~Error()
@@ -56,6 +57,10 @@ web::json::value Error::toJson() const
     if(m_DetailIsSet)
     {
         val[utility::conversions::to_string_t("detail")] = ModelBase::toJson(m_Detail);
+    }
+    if(m_SourceIsSet)
+    {
+        val[utility::conversions::to_string_t("source")] = ModelBase::toJson(m_Source);
     }
 
     return val;
@@ -95,6 +100,16 @@ bool Error::fromJson(const web::json::value& val)
             setDetail(refVal_detail);
         }
     }
+    if(val.has_field(utility::conversions::to_string_t("source")))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("source"));
+        if(!fieldValue.is_null())
+        {
+            std::shared_ptr<ErrorSource> refVal_source;
+            ok &= ModelBase::fromJson(fieldValue, refVal_source);
+            setSource(refVal_source);
+        }
+    }
     return ok;
 }
 
@@ -116,6 +131,10 @@ void Error::toMultipart(std::shared_ptr<MultipartFormData> multipart, const util
     if(m_DetailIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("detail"), m_Detail));
+    }
+    if(m_SourceIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("source"), m_Source));
     }
 }
 
@@ -145,6 +164,12 @@ bool Error::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const ut
         utility::string_t refVal_detail;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("detail")), refVal_detail );
         setDetail(refVal_detail);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("source")))
+    {
+        std::shared_ptr<ErrorSource> refVal_source;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("source")), refVal_source );
+        setSource(refVal_source);
     }
     return ok;
 }
@@ -208,6 +233,26 @@ bool Error::detailIsSet() const
 void Error::unsetDetail()
 {
     m_DetailIsSet = false;
+}
+std::shared_ptr<ErrorSource> Error::getSource() const
+{
+    return m_Source;
+}
+
+void Error::setSource(const std::shared_ptr<ErrorSource>& value)
+{
+    m_Source = value;
+    m_SourceIsSet = true;
+}
+
+bool Error::sourceIsSet() const
+{
+    return m_SourceIsSet;
+}
+
+void Error::unsetSource()
+{
+    m_SourceIsSet = false;
 }
 }
 }

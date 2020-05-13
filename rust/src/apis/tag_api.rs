@@ -36,7 +36,7 @@ pub trait TagApi {
     fn create_tag(&self, create_tag: crate::models::CreateTag) -> Box<dyn Future<Item = crate::models::TagResponse, Error = Error<serde_json::Value>>>;
     fn get_logs_by_tag_id(&self, tag_id: i64) -> Box<dyn Future<Item = crate::models::ArrayOfLogsResponse, Error = Error<serde_json::Value>>>;
     fn get_tag_by_id(&self, tag_id: i64) -> Box<dyn Future<Item = crate::models::TagResponse, Error = Error<serde_json::Value>>>;
-    fn list_tags(&self, page_offset: Option<i32>, page_limit: Option<i32>) -> Box<dyn Future<Item = crate::models::ArrayOfTagsResponse, Error = Error<serde_json::Value>>>;
+    fn list_tags(&self, page: Option<crate::models::crate::models::PaginationOptions>) -> Box<dyn Future<Item = crate::models::ArrayOfTagsResponse, Error = Error<serde_json::Value>>>;
 }
 
 impl<C: hyper::client::Connect>TagApi for TagApiClient<C> {
@@ -64,14 +64,11 @@ impl<C: hyper::client::Connect>TagApi for TagApiClient<C> {
         req.execute(self.configuration.borrow())
     }
 
-    fn list_tags(&self, page_offset: Option<i32>, page_limit: Option<i32>) -> Box<dyn Future<Item = crate::models::ArrayOfTagsResponse, Error = Error<serde_json::Value>>> {
+    fn list_tags(&self, page: Option<crate::models::crate::models::PaginationOptions>) -> Box<dyn Future<Item = crate::models::ArrayOfTagsResponse, Error = Error<serde_json::Value>>> {
         let mut req = __internal_request::Request::new(hyper::Method::Get, "/tags".to_string())
         ;
-        if let Some(ref s) = page_offset {
-            req = req.with_query_param("page[offset]".to_string(), s.to_string());
-        }
-        if let Some(ref s) = page_limit {
-            req = req.with_query_param("page[limit]".to_string(), s.to_string());
+        if let Some(ref s) = page {
+            req = req.with_query_param("page".to_string(), s.to_string());
         }
 
         req.execute(self.configuration.borrow())

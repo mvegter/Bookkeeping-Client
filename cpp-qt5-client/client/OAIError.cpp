@@ -41,6 +41,9 @@ void OAIError::initializeModel() {
 
     m_detail_isSet = false;
     m_detail_isValid = false;
+
+    m_source_isSet = false;
+    m_source_isValid = false;
 }
 
 void OAIError::fromJson(QString jsonString) {
@@ -60,6 +63,9 @@ void OAIError::fromJsonObject(QJsonObject json) {
 
     m_detail_isValid = ::OpenAPI::fromJsonValue(detail, json[QString("detail")]);
     m_detail_isSet = !json[QString("detail")].isNull() && m_detail_isValid;
+
+    m_source_isValid = ::OpenAPI::fromJsonValue(source, json[QString("source")]);
+    m_source_isSet = !json[QString("source")].isNull() && m_source_isValid;
 }
 
 QString OAIError::asJson() const {
@@ -79,6 +85,9 @@ QJsonObject OAIError::asJsonObject() const {
     }
     if (m_detail_isSet) {
         obj.insert(QString("detail"), ::OpenAPI::toJsonValue(detail));
+    }
+    if (source.isSet()) {
+        obj.insert(QString("source"), ::OpenAPI::toJsonValue(source));
     }
     return obj;
 }
@@ -131,6 +140,22 @@ bool OAIError::is_detail_Valid() const{
     return m_detail_isValid;
 }
 
+OAIErrorSource OAIError::getSource() const {
+    return source;
+}
+void OAIError::setSource(const OAIErrorSource &source) {
+    this->source = source;
+    this->m_source_isSet = true;
+}
+
+bool OAIError::is_source_Set() const{
+    return m_source_isSet;
+}
+
+bool OAIError::is_source_Valid() const{
+    return m_source_isValid;
+}
+
 bool OAIError::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -145,6 +170,11 @@ bool OAIError::isSet() const {
         }
 
         if (m_detail_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (source.isSet()) {
             isObjectUpdated = true;
             break;
         }

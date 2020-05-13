@@ -23,6 +23,8 @@ pub struct Error {
     /// A human-readable explanation specific to this occurrence of the problem.
     #[serde(rename = "detail", skip_serializing_if = "Option::is_none")]
     pub detail: Option<String>,
+    #[serde(rename = "source", skip_serializing_if = "Option::is_none")]
+    pub source: Option<crate::models::ErrorSource>,
 }
 
 impl Error {
@@ -32,6 +34,7 @@ impl Error {
             status,
             title,
             detail: None,
+            source: None,
         }
     }
 }

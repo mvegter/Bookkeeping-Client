@@ -106,9 +106,8 @@ namespace Org.OpenAPITools.Test
         public void ListTagsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //int? pageOffset = null;
-            //int? pageLimit = null;
-            //var response = instance.ListTags(pageOffset, pageLimit);
+            //PaginationOptions page = null;
+            //var response = instance.ListTags(page);
             //Assert.IsInstanceOf(typeof(ArrayOfTagsResponse), response, "response is ArrayOfTagsResponse");
         }
         

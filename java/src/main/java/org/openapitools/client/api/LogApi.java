@@ -31,8 +31,10 @@ import org.openapitools.client.model.ArrayOfLogsResponse;
 import org.openapitools.client.model.ArrayOfTagsResponse;
 import org.openapitools.client.model.CreateLog;
 import org.openapitools.client.model.Errors;
-import org.openapitools.client.model.LogOrigin;
+import org.openapitools.client.model.FilterLogsOptions;
 import org.openapitools.client.model.LogResponse;
+import org.openapitools.client.model.PaginationOptions;
+import org.openapitools.client.model.SortLogsOptions;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -302,10 +304,9 @@ public class LogApi {
     }
     /**
      * Build call for listLogs
-     * @param filterOrigin Filter logs by their origin (optional)
-     * @param pageOffset The number of items to skip before starting to collect the result set. (optional, default to 0)
-     * @param pageLimit The numbers of items to return. (optional, default to 100)
-     * @param sort The sort order of the returned items. (optional)
+     * @param page Specifies the pagination requirements. (optional)
+     * @param filter Specifies the filter requirements. (optional)
+     * @param sort Specifies the sorting requirements. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -317,7 +318,7 @@ public class LogApi {
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listLogsCall(LogOrigin filterOrigin, Integer pageOffset, Integer pageLimit, List<String> sort, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listLogsCall(PaginationOptions page, FilterLogsOptions filter, SortLogsOptions sort, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -325,20 +326,16 @@ public class LogApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (filterOrigin != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter[origin]", filterOrigin));
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
         }
 
-        if (pageOffset != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page[offset]", pageOffset));
-        }
-
-        if (pageLimit != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page[limit]", pageLimit));
+        if (filter != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter", filter));
         }
 
         if (sort != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "sort", sort));
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sort", sort));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -363,10 +360,10 @@ public class LogApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listLogsValidateBeforeCall(LogOrigin filterOrigin, Integer pageOffset, Integer pageLimit, List<String> sort, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listLogsValidateBeforeCall(PaginationOptions page, FilterLogsOptions filter, SortLogsOptions sort, final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = listLogsCall(filterOrigin, pageOffset, pageLimit, sort, _callback);
+        okhttp3.Call localVarCall = listLogsCall(page, filter, sort, _callback);
         return localVarCall;
 
     }
@@ -374,10 +371,9 @@ public class LogApi {
     /**
      * List all logs
      * 
-     * @param filterOrigin Filter logs by their origin (optional)
-     * @param pageOffset The number of items to skip before starting to collect the result set. (optional, default to 0)
-     * @param pageLimit The numbers of items to return. (optional, default to 100)
-     * @param sort The sort order of the returned items. (optional)
+     * @param page Specifies the pagination requirements. (optional)
+     * @param filter Specifies the filter requirements. (optional)
+     * @param sort Specifies the sorting requirements. (optional)
      * @return ArrayOfLogsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -388,18 +384,17 @@ public class LogApi {
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
-    public ArrayOfLogsResponse listLogs(LogOrigin filterOrigin, Integer pageOffset, Integer pageLimit, List<String> sort) throws ApiException {
-        ApiResponse<ArrayOfLogsResponse> localVarResp = listLogsWithHttpInfo(filterOrigin, pageOffset, pageLimit, sort);
+    public ArrayOfLogsResponse listLogs(PaginationOptions page, FilterLogsOptions filter, SortLogsOptions sort) throws ApiException {
+        ApiResponse<ArrayOfLogsResponse> localVarResp = listLogsWithHttpInfo(page, filter, sort);
         return localVarResp.getData();
     }
 
     /**
      * List all logs
      * 
-     * @param filterOrigin Filter logs by their origin (optional)
-     * @param pageOffset The number of items to skip before starting to collect the result set. (optional, default to 0)
-     * @param pageLimit The numbers of items to return. (optional, default to 100)
-     * @param sort The sort order of the returned items. (optional)
+     * @param page Specifies the pagination requirements. (optional)
+     * @param filter Specifies the filter requirements. (optional)
+     * @param sort Specifies the sorting requirements. (optional)
      * @return ApiResponse&lt;ArrayOfLogsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -410,8 +405,8 @@ public class LogApi {
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ArrayOfLogsResponse> listLogsWithHttpInfo(LogOrigin filterOrigin, Integer pageOffset, Integer pageLimit, List<String> sort) throws ApiException {
-        okhttp3.Call localVarCall = listLogsValidateBeforeCall(filterOrigin, pageOffset, pageLimit, sort, null);
+    public ApiResponse<ArrayOfLogsResponse> listLogsWithHttpInfo(PaginationOptions page, FilterLogsOptions filter, SortLogsOptions sort) throws ApiException {
+        okhttp3.Call localVarCall = listLogsValidateBeforeCall(page, filter, sort, null);
         Type localVarReturnType = new TypeToken<ArrayOfLogsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -419,10 +414,9 @@ public class LogApi {
     /**
      * List all logs (asynchronously)
      * 
-     * @param filterOrigin Filter logs by their origin (optional)
-     * @param pageOffset The number of items to skip before starting to collect the result set. (optional, default to 0)
-     * @param pageLimit The numbers of items to return. (optional, default to 100)
-     * @param sort The sort order of the returned items. (optional)
+     * @param page Specifies the pagination requirements. (optional)
+     * @param filter Specifies the filter requirements. (optional)
+     * @param sort Specifies the sorting requirements. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -434,9 +428,9 @@ public class LogApi {
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listLogsAsync(LogOrigin filterOrigin, Integer pageOffset, Integer pageLimit, List<String> sort, final ApiCallback<ArrayOfLogsResponse> _callback) throws ApiException {
+    public okhttp3.Call listLogsAsync(PaginationOptions page, FilterLogsOptions filter, SortLogsOptions sort, final ApiCallback<ArrayOfLogsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listLogsValidateBeforeCall(filterOrigin, pageOffset, pageLimit, sort, _callback);
+        okhttp3.Call localVarCall = listLogsValidateBeforeCall(page, filter, sort, _callback);
         Type localVarReturnType = new TypeToken<ArrayOfLogsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -160,8 +160,7 @@ require 'openapi_client'
 
 api_instance = OpenapiClient::TagApi.new
 opts = {
-  page_offset: 0, # Integer | The number of items to skip before starting to collect the result set.
-  page_limit: 100 # Integer | The numbers of items to return.
+  page: OpenapiClient::PaginationOptions.new # PaginationOptions | Specifies the pagination requirements.
 }
 
 begin
@@ -178,8 +177,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_offset** | **Integer**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
- **page_limit** | **Integer**| The numbers of items to return. | [optional] [default to 100]
+ **page** | [**PaginationOptions**](.md)| Specifies the pagination requirements. | [optional] 
 
 ### Return type
 

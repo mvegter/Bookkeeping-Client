@@ -153,8 +153,7 @@ import AliceBookkeeping from 'alice_bookkeeping';
 
 let apiInstance = new AliceBookkeeping.TagApi();
 let opts = {
-  'pageOffset': 0, // Number | The number of items to skip before starting to collect the result set.
-  'pageLimit': 100 // Number | The numbers of items to return.
+  'page': new AliceBookkeeping.PaginationOptions() // PaginationOptions | Specifies the pagination requirements.
 };
 apiInstance.listTags(opts, (error, data, response) => {
   if (error) {
@@ -170,8 +169,7 @@ apiInstance.listTags(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageOffset** | **Number**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
- **pageLimit** | **Number**| The numbers of items to return. | [optional] [default to 100]
+ **page** | [**PaginationOptions**](.md)| Specifies the pagination requirements. | [optional] 
 
 ### Return type
 

@@ -203,8 +203,7 @@ module OpenapiClient
 
     # List all tags
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :page_offset The number of items to skip before starting to collect the result set. (default to 0)
-    # @option opts [Integer] :page_limit The numbers of items to return. (default to 100)
+    # @option opts [PaginationOptions] :page Specifies the pagination requirements.
     # @return [ArrayOfTagsResponse]
     def list_tags(opts = {})
       data, _status_code, _headers = list_tags_with_http_info(opts)
@@ -213,32 +212,18 @@ module OpenapiClient
 
     # List all tags
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :page_offset The number of items to skip before starting to collect the result set.
-    # @option opts [Integer] :page_limit The numbers of items to return.
+    # @option opts [PaginationOptions] :page Specifies the pagination requirements.
     # @return [Array<(ArrayOfTagsResponse, Integer, Hash)>] ArrayOfTagsResponse data, response status code and response headers
     def list_tags_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TagApi.list_tags ...'
       end
-      if @api_client.config.client_side_validation && !opts[:'page_offset'].nil? && opts[:'page_offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"page_offset"]" when calling TagApi.list_tags, must be greater than or equal to 0.'
-      end
-
-      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling TagApi.list_tags, must be smaller than or equal to 100.'
-      end
-
-      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling TagApi.list_tags, must be greater than or equal to 1.'
-      end
-
       # resource path
       local_var_path = '/tags'
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'page[offset]'] = opts[:'page_offset'] if !opts[:'page_offset'].nil?
-      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

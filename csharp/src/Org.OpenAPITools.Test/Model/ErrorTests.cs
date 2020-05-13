@@ -89,6 +89,14 @@ namespace Org.OpenAPITools.Test
         {
             // TODO unit test for the property 'Detail'
         }
+        /// <summary>
+        /// Test the property 'Source'
+        /// </summary>
+        [Test]
+        public void SourceTest()
+        {
+            // TODO unit test for the property 'Source'
+        }
 
     }
 

@@ -226,9 +226,8 @@ func (a *LogApiService) GetLogById(ctx _context.Context, logId int64) (LogRespon
 
 // ListLogsOpts Optional parameters for the method 'ListLogs'
 type ListLogsOpts struct {
-    FilterOrigin optional.Interface
-    PageOffset optional.Int32
-    PageLimit optional.Int32
+    Page optional.Interface
+    Filter optional.Interface
     Sort optional.Interface
 }
 
@@ -236,10 +235,9 @@ type ListLogsOpts struct {
 ListLogs List all logs
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ListLogsOpts - Optional Parameters:
- * @param "FilterOrigin" (optional.Interface of LogOrigin) -  Filter logs by their origin
- * @param "PageOffset" (optional.Int32) -  The number of items to skip before starting to collect the result set.
- * @param "PageLimit" (optional.Int32) -  The numbers of items to return.
- * @param "Sort" (optional.Interface of []string) -  The sort order of the returned items.
+ * @param "Page" (optional.Interface of PaginationOptions) -  Specifies the pagination requirements.
+ * @param "Filter" (optional.Interface of FilterLogsOptions) -  Specifies the filter requirements.
+ * @param "Sort" (optional.Interface of SortLogsOptions) -  Specifies the sorting requirements.
 @return ArrayOfLogsResponse
 */
 func (a *LogApiService) ListLogs(ctx _context.Context, localVarOptionals *ListLogsOpts) (ArrayOfLogsResponse, *_nethttp.Response, error) {
@@ -258,17 +256,14 @@ func (a *LogApiService) ListLogs(ctx _context.Context, localVarOptionals *ListLo
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
-	if localVarOptionals != nil && localVarOptionals.FilterOrigin.IsSet() {
-		localVarQueryParams.Add("filter[origin]", parameterToString(localVarOptionals.FilterOrigin.Value(), ""))
+	if localVarOptionals != nil && localVarOptionals.Page.IsSet() {
+		localVarQueryParams.Add("page", parameterToString(localVarOptionals.Page.Value(), ""))
 	}
-	if localVarOptionals != nil && localVarOptionals.PageOffset.IsSet() {
-		localVarQueryParams.Add("page[offset]", parameterToString(localVarOptionals.PageOffset.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.PageLimit.IsSet() {
-		localVarQueryParams.Add("page[limit]", parameterToString(localVarOptionals.PageLimit.Value(), ""))
+	if localVarOptionals != nil && localVarOptionals.Filter.IsSet() {
+		localVarQueryParams.Add("filter", parameterToString(localVarOptionals.Filter.Value(), ""))
 	}
 	if localVarOptionals != nil && localVarOptionals.Sort.IsSet() {
-		localVarQueryParams.Add("sort", parameterToString(localVarOptionals.Sort.Value(), "csv"))
+		localVarQueryParams.Add("sort", parameterToString(localVarOptionals.Sort.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

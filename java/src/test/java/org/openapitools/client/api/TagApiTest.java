@@ -18,6 +18,7 @@ import org.openapitools.client.model.ArrayOfLogsResponse;
 import org.openapitools.client.model.ArrayOfTagsResponse;
 import org.openapitools.client.model.CreateTag;
 import org.openapitools.client.model.Errors;
+import org.openapitools.client.model.PaginationOptions;
 import org.openapitools.client.model.TagResponse;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -94,9 +95,8 @@ public class TagApiTest {
      */
     @Test
     public void listTagsTest() throws ApiException {
-        Integer pageOffset = null;
-        Integer pageLimit = null;
-        ArrayOfTagsResponse response = api.listTags(pageOffset, pageLimit);
+        PaginationOptions page = null;
+        ArrayOfTagsResponse response = api.listTags(page);
 
         // TODO: test validations
     }

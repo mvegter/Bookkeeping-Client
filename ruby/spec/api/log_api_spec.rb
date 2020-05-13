@@ -57,10 +57,9 @@ describe 'LogApi' do
   # unit tests for list_logs
   # List all logs
   # @param [Hash] opts the optional parameters
-  # @option opts [LogOrigin] :filter_origin Filter logs by their origin
-  # @option opts [Integer] :page_offset The number of items to skip before starting to collect the result set.
-  # @option opts [Integer] :page_limit The numbers of items to return.
-  # @option opts [Array<String>] :sort The sort order of the returned items.
+  # @option opts [PaginationOptions] :page Specifies the pagination requirements.
+  # @option opts [FilterLogsOptions] :filter Specifies the filter requirements.
+  # @option opts [SortLogsOptions] :sort Specifies the sorting requirements.
   # @return [ArrayOfLogsResponse]
   describe 'list_logs test' do
     it 'should work' do

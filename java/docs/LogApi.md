@@ -137,7 +137,7 @@ No authorization required
 
 <a name="listLogs"></a>
 # **listLogs**
-> ArrayOfLogsResponse listLogs(filterOrigin, pageOffset, pageLimit, sort)
+> ArrayOfLogsResponse listLogs(page, filter, sort)
 
 List all logs
 
@@ -156,12 +156,11 @@ public class Example {
     defaultClient.setBasePath("http://localhost/api");
 
     LogApi apiInstance = new LogApi(defaultClient);
-    LogOrigin filterOrigin = new LogOrigin(); // LogOrigin | Filter logs by their origin
-    Integer pageOffset = 0; // Integer | The number of items to skip before starting to collect the result set.
-    Integer pageLimit = 100; // Integer | The numbers of items to return.
-    List<String> sort = Arrays.asList(); // List<String> | The sort order of the returned items.
+    PaginationOptions page = new PaginationOptions(); // PaginationOptions | Specifies the pagination requirements.
+    FilterLogsOptions filter = new FilterLogsOptions(); // FilterLogsOptions | Specifies the filter requirements.
+    SortLogsOptions sort = new SortLogsOptions(); // SortLogsOptions | Specifies the sorting requirements.
     try {
-      ArrayOfLogsResponse result = apiInstance.listLogs(filterOrigin, pageOffset, pageLimit, sort);
+      ArrayOfLogsResponse result = apiInstance.listLogs(page, filter, sort);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LogApi#listLogs");
@@ -178,10 +177,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterOrigin** | [**LogOrigin**](.md)| Filter logs by their origin | [optional] [enum: human, process]
- **pageOffset** | **Integer**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
- **pageLimit** | **Integer**| The numbers of items to return. | [optional] [default to 100]
- **sort** | [**List&lt;String&gt;**](String.md)| The sort order of the returned items. | [optional]
+ **page** | [**PaginationOptions**](.md)| Specifies the pagination requirements. | [optional]
+ **filter** | [**FilterLogsOptions**](.md)| Specifies the filter requirements. | [optional]
+ **sort** | [**SortLogsOptions**](.md)| Specifies the sorting requirements. | [optional]
 
 ### Return type
 

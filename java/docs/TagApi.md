@@ -201,7 +201,7 @@ No authorization required
 
 <a name="listTags"></a>
 # **listTags**
-> ArrayOfTagsResponse listTags(pageOffset, pageLimit)
+> ArrayOfTagsResponse listTags(page)
 
 List all tags
 
@@ -220,10 +220,9 @@ public class Example {
     defaultClient.setBasePath("http://localhost/api");
 
     TagApi apiInstance = new TagApi(defaultClient);
-    Integer pageOffset = 0; // Integer | The number of items to skip before starting to collect the result set.
-    Integer pageLimit = 100; // Integer | The numbers of items to return.
+    PaginationOptions page = new PaginationOptions(); // PaginationOptions | Specifies the pagination requirements.
     try {
-      ArrayOfTagsResponse result = apiInstance.listTags(pageOffset, pageLimit);
+      ArrayOfTagsResponse result = apiInstance.listTags(page);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TagApi#listTags");
@@ -240,8 +239,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageOffset** | **Integer**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
- **pageLimit** | **Integer**| The numbers of items to return. | [optional] [default to 100]
+ **page** | [**PaginationOptions**](.md)| Specifies the pagination requirements. | [optional]
 
 ### Return type
 

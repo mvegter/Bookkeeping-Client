@@ -16,4 +16,5 @@ type Error struct {
 	Title string `json:"title"`
 	// A human-readable explanation specific to this occurrence of the problem.
 	Detail string `json:"detail,omitempty"`
+	Source ErrorSource `json:"source,omitempty"`
 }

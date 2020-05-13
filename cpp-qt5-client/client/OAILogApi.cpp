@@ -161,7 +161,7 @@ void OAILogApi::getLogByIdCallback(OAIHttpRequestWorker *worker) {
     }
 }
 
-void OAILogApi::listLogs(const OAILogOrigin &filter_origin, const qint32 &page_offset, const qint32 &page_limit, const QList<QString> &sort) {
+void OAILogApi::listLogs(const OAIPaginationOptions &page, const OAIFilterLogsOptions &filter, const OAISortLogsOptions &sort) {
     QString fullPath = QString("%1://%2%3%4%5")
                            .arg(_scheme)
                            .arg(_host)
@@ -173,57 +173,19 @@ void OAILogApi::listLogs(const OAILogOrigin &filter_origin, const qint32 &page_o
         fullPath.append("&");
     else
         fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("filter[origin]")).append("=").append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(filter_origin)));
+    fullPath.append(QUrl::toPercentEncoding("page")).append("=").append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(page)));
 
     if (fullPath.indexOf("?") > 0)
         fullPath.append("&");
     else
         fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("page[offset]")).append("=").append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(page_offset)));
+    fullPath.append(QUrl::toPercentEncoding("filter")).append("=").append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(filter)));
 
     if (fullPath.indexOf("?") > 0)
         fullPath.append("&");
     else
         fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("page[limit]")).append("=").append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(page_limit)));
-
-    if (sort.size() > 0) {
-        if (QString("csv").indexOf("multi") == 0) {
-            foreach (QString t, sort) {
-                if (fullPath.indexOf("?") > 0)
-                    fullPath.append("&");
-                else
-                    fullPath.append("?");
-                fullPath.append("sort=").append(::OpenAPI::toStringValue(t));
-            }
-        } else if (QString("csv").indexOf("ssv") == 0) {
-            if (fullPath.indexOf("?") > 0)
-                fullPath.append("&");
-            else
-                fullPath.append("?");
-            fullPath.append("sort=");
-            qint32 count = 0;
-            foreach (QString t, sort) {
-                if (count > 0) {
-                    fullPath.append(" ");
-                }
-                fullPath.append(::OpenAPI::toStringValue(t));
-            }
-        } else if (QString("csv").indexOf("tsv") == 0) {
-            if (fullPath.indexOf("?") > 0)
-                fullPath.append("&");
-            else
-                fullPath.append("?");
-            fullPath.append("sort=");
-            qint32 count = 0;
-            foreach (QString t, sort) {
-                if (count > 0) {
-                    fullPath.append("\t");
-                }
-                fullPath.append(::OpenAPI::toStringValue(t));
-            }
-        }
-    }
+    fullPath.append(QUrl::toPercentEncoding("sort")).append("=").append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(sort)));
 
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this);
     worker->setTimeOut(_timeOut);

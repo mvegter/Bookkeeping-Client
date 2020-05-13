@@ -136,7 +136,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_logs**
-> ArrayOfLogsResponse list_logs(filter_origin=filter_origin, page_offset=page_offset, page_limit=page_limit, sort=sort)
+> ArrayOfLogsResponse list_logs(page=page, filter=filter, sort=sort)
 
 List all logs
 
@@ -159,14 +159,13 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.LogApi(api_client)
-    filter_origin = openapi_client.LogOrigin() # LogOrigin | Filter logs by their origin (optional)
-page_offset = 0 # int | The number of items to skip before starting to collect the result set. (optional) (default to 0)
-page_limit = 100 # int | The numbers of items to return. (optional) (default to 100)
-sort = ["-id"] # list[str] | The sort order of the returned items. (optional) (default to ["-id"])
+    page = openapi_client.PaginationOptions() # PaginationOptions | Specifies the pagination requirements. (optional)
+filter = openapi_client.FilterLogsOptions() # FilterLogsOptions | Specifies the filter requirements. (optional)
+sort = openapi_client.SortLogsOptions() # SortLogsOptions | Specifies the sorting requirements. (optional)
 
     try:
         # List all logs
-        api_response = api_instance.list_logs(filter_origin=filter_origin, page_offset=page_offset, page_limit=page_limit, sort=sort)
+        api_response = api_instance.list_logs(page=page, filter=filter, sort=sort)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling LogApi->list_logs: %s\n" % e)
@@ -176,10 +175,9 @@ sort = ["-id"] # list[str] | The sort order of the returned items. (optional) (d
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filter_origin** | [**LogOrigin**](.md)| Filter logs by their origin | [optional] 
- **page_offset** | **int**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
- **page_limit** | **int**| The numbers of items to return. | [optional] [default to 100]
- **sort** | [**list[str]**](str.md)| The sort order of the returned items. | [optional] [default to [&quot;-id&quot;]]
+ **page** | [**PaginationOptions**](.md)| Specifies the pagination requirements. | [optional] 
+ **filter** | [**FilterLogsOptions**](.md)| Specifies the filter requirements. | [optional] 
+ **sort** | [**SortLogsOptions**](.md)| Specifies the sorting requirements. | [optional] 
 
 ### Return type
 

@@ -143,10 +143,9 @@ module OpenapiClient
 
     # List all logs
     # @param [Hash] opts the optional parameters
-    # @option opts [LogOrigin] :filter_origin Filter logs by their origin
-    # @option opts [Integer] :page_offset The number of items to skip before starting to collect the result set. (default to 0)
-    # @option opts [Integer] :page_limit The numbers of items to return. (default to 100)
-    # @option opts [Array<String>] :sort The sort order of the returned items.
+    # @option opts [PaginationOptions] :page Specifies the pagination requirements.
+    # @option opts [FilterLogsOptions] :filter Specifies the filter requirements.
+    # @option opts [SortLogsOptions] :sort Specifies the sorting requirements.
     # @return [ArrayOfLogsResponse]
     def list_logs(opts = {})
       data, _status_code, _headers = list_logs_with_http_info(opts)
@@ -155,36 +154,22 @@ module OpenapiClient
 
     # List all logs
     # @param [Hash] opts the optional parameters
-    # @option opts [LogOrigin] :filter_origin Filter logs by their origin
-    # @option opts [Integer] :page_offset The number of items to skip before starting to collect the result set.
-    # @option opts [Integer] :page_limit The numbers of items to return.
-    # @option opts [Array<String>] :sort The sort order of the returned items.
+    # @option opts [PaginationOptions] :page Specifies the pagination requirements.
+    # @option opts [FilterLogsOptions] :filter Specifies the filter requirements.
+    # @option opts [SortLogsOptions] :sort Specifies the sorting requirements.
     # @return [Array<(ArrayOfLogsResponse, Integer, Hash)>] ArrayOfLogsResponse data, response status code and response headers
     def list_logs_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogApi.list_logs ...'
       end
-      if @api_client.config.client_side_validation && !opts[:'page_offset'].nil? && opts[:'page_offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"page_offset"]" when calling LogApi.list_logs, must be greater than or equal to 0.'
-      end
-
-      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling LogApi.list_logs, must be smaller than or equal to 100.'
-      end
-
-      if @api_client.config.client_side_validation && !opts[:'page_limit'].nil? && opts[:'page_limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"page_limit"]" when calling LogApi.list_logs, must be greater than or equal to 1.'
-      end
-
       # resource path
       local_var_path = '/logs'
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'filter[origin]'] = opts[:'filter_origin'] if !opts[:'filter_origin'].nil?
-      query_params[:'page[offset]'] = opts[:'page_offset'] if !opts[:'page_offset'].nil?
-      query_params[:'page[limit]'] = opts[:'page_limit'] if !opts[:'page_limit'].nil?
-      query_params[:'sort'] = @api_client.build_collection_param(opts[:'sort'], :csv) if !opts[:'sort'].nil?
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

@@ -20,6 +20,7 @@
 
 #include <QJsonObject>
 
+#include "OAIErrorSource.h"
 #include <QString>
 
 #include "OAIEnum.h"
@@ -53,6 +54,11 @@ public:
     bool is_detail_Set() const;
     bool is_detail_Valid() const;
 
+    OAIErrorSource getSource() const;
+    void setSource(const OAIErrorSource &source);
+    bool is_source_Set() const;
+    bool is_source_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -70,6 +76,10 @@ private:
     QString detail;
     bool m_detail_isSet;
     bool m_detail_isValid;
+
+    OAIErrorSource source;
+    bool m_source_isSet;
+    bool m_source_isValid;
 };
 
 } // namespace OpenAPI

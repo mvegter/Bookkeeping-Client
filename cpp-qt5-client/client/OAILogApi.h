@@ -18,8 +18,10 @@
 #include "OAIArrayOfTagsResponse.h"
 #include "OAICreateLog.h"
 #include "OAIErrors.h"
-#include "OAILogOrigin.h"
+#include "OAIFilterLogsOptions.h"
 #include "OAILogResponse.h"
+#include "OAIPaginationOptions.h"
+#include "OAISortLogsOptions.h"
 #include <QString>
 
 #include <QObject>
@@ -46,7 +48,7 @@ public:
 
     void createLog(const OAICreateLog &oai_create_log);
     void getLogById(const qint64 &log_id);
-    void listLogs(const OAILogOrigin &filter_origin, const qint32 &page_offset, const qint32 &page_limit, const QList<QString> &sort);
+    void listLogs(const OAIPaginationOptions &page, const OAIFilterLogsOptions &filter, const OAISortLogsOptions &sort);
     void listTagsByLogId(const qint64 &log_id);
 
 private:

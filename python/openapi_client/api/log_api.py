@@ -273,10 +273,9 @@ class LogApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param LogOrigin filter_origin: Filter logs by their origin
-        :param int page_offset: The number of items to skip before starting to collect the result set.
-        :param int page_limit: The numbers of items to return.
-        :param list[str] sort: The sort order of the returned items.
+        :param PaginationOptions page: Specifies the pagination requirements.
+        :param FilterLogsOptions filter: Specifies the filter requirements.
+        :param SortLogsOptions sort: Specifies the sorting requirements.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -300,10 +299,9 @@ class LogApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param LogOrigin filter_origin: Filter logs by their origin
-        :param int page_offset: The number of items to skip before starting to collect the result set.
-        :param int page_limit: The numbers of items to return.
-        :param list[str] sort: The sort order of the returned items.
+        :param PaginationOptions page: Specifies the pagination requirements.
+        :param FilterLogsOptions filter: Specifies the filter requirements.
+        :param SortLogsOptions sort: Specifies the sorting requirements.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -321,9 +319,8 @@ class LogApi(object):
         local_var_params = locals()
 
         all_params = [
-            'filter_origin',
-            'page_offset',
-            'page_limit',
+            'page',
+            'filter',
             'sort'
         ]
         all_params.extend(
@@ -344,26 +341,17 @@ class LogApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
-        if self.api_client.client_side_validation and 'page_offset' in local_var_params and local_var_params['page_offset'] < 0:  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `page_offset` when calling `list_logs`, must be a value greater than or equal to `0`")  # noqa: E501
-        if self.api_client.client_side_validation and 'page_limit' in local_var_params and local_var_params['page_limit'] > 100:  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `page_limit` when calling `list_logs`, must be a value less than or equal to `100`")  # noqa: E501
-        if self.api_client.client_side_validation and 'page_limit' in local_var_params and local_var_params['page_limit'] < 1:  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `page_limit` when calling `list_logs`, must be a value greater than or equal to `1`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
-        if 'filter_origin' in local_var_params and local_var_params['filter_origin'] is not None:  # noqa: E501
-            query_params.append(('filter[origin]', local_var_params['filter_origin']))  # noqa: E501
-        if 'page_offset' in local_var_params and local_var_params['page_offset'] is not None:  # noqa: E501
-            query_params.append(('page[offset]', local_var_params['page_offset']))  # noqa: E501
-        if 'page_limit' in local_var_params and local_var_params['page_limit'] is not None:  # noqa: E501
-            query_params.append(('page[limit]', local_var_params['page_limit']))  # noqa: E501
+        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
+            query_params.append(('page', local_var_params['page']))  # noqa: E501
+        if 'filter' in local_var_params and local_var_params['filter'] is not None:  # noqa: E501
+            query_params.append(('filter', local_var_params['filter']))  # noqa: E501
         if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
             query_params.append(('sort', local_var_params['sort']))  # noqa: E501
-            collection_formats['sort'] = 'csv'  # noqa: E501
 
         header_params = {}
 

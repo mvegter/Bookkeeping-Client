@@ -20,10 +20,15 @@ import CreateLog from './model/CreateLog';
 import CreateTag from './model/CreateTag';
 import DeployInformation from './model/DeployInformation';
 import Error from './model/Error';
+import ErrorSource from './model/ErrorSource';
 import Errors from './model/Errors';
+import FilterLogsOptions from './model/FilterLogsOptions';
 import Log from './model/Log';
 import LogOrigin from './model/LogOrigin';
 import LogResponse from './model/LogResponse';
+import PaginationOptions from './model/PaginationOptions';
+import SortLogsOptions from './model/SortLogsOptions';
+import SortOrder from './model/SortOrder';
 import Tag from './model/Tag';
 import TagResponse from './model/TagResponse';
 import DefaultApi from './api/DefaultApi';
@@ -112,10 +117,22 @@ export {
     Error,
 
     /**
+     * The ErrorSource model constructor.
+     * @property {module:model/ErrorSource}
+     */
+    ErrorSource,
+
+    /**
      * The Errors model constructor.
      * @property {module:model/Errors}
      */
     Errors,
+
+    /**
+     * The FilterLogsOptions model constructor.
+     * @property {module:model/FilterLogsOptions}
+     */
+    FilterLogsOptions,
 
     /**
      * The Log model constructor.
@@ -134,6 +151,24 @@ export {
      * @property {module:model/LogResponse}
      */
     LogResponse,
+
+    /**
+     * The PaginationOptions model constructor.
+     * @property {module:model/PaginationOptions}
+     */
+    PaginationOptions,
+
+    /**
+     * The SortLogsOptions model constructor.
+     * @property {module:model/SortLogsOptions}
+     */
+    SortLogsOptions,
+
+    /**
+     * The SortOrder model constructor.
+     * @property {module:model/SortOrder}
+     */
+    SortOrder,
 
     /**
      * The Tag model constructor.

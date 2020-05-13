@@ -207,7 +207,7 @@ void OAITagApi::getTagByIdCallback(OAIHttpRequestWorker *worker) {
     }
 }
 
-void OAITagApi::listTags(const qint32 &page_offset, const qint32 &page_limit) {
+void OAITagApi::listTags(const OAIPaginationOptions &page) {
     QString fullPath = QString("%1://%2%3%4%5")
                            .arg(_scheme)
                            .arg(_host)
@@ -219,13 +219,7 @@ void OAITagApi::listTags(const qint32 &page_offset, const qint32 &page_limit) {
         fullPath.append("&");
     else
         fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("page[offset]")).append("=").append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(page_offset)));
-
-    if (fullPath.indexOf("?") > 0)
-        fullPath.append("&");
-    else
-        fullPath.append("?");
-    fullPath.append(QUrl::toPercentEncoding("page[limit]")).append("=").append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(page_limit)));
+    fullPath.append(QUrl::toPercentEncoding("page")).append("=").append(QUrl::toPercentEncoding(::OpenAPI::toStringValue(page)));
 
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this);
     worker->setTimeOut(_timeOut);

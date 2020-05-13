@@ -38,7 +38,9 @@ class TestError(unittest.TestCase):
             return Error(
                 status = '0', 
                 title = '0', 
-                detail = '0'
+                detail = '0', 
+                source = openapi_client.models.error_source.ErrorSource(
+                    pointer = '0', )
             )
         else :
             return Error(

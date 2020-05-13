@@ -128,8 +128,7 @@ Optional parameters are passed through a pointer to a ListTagsOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageOffset** | **optional.Int32**| The number of items to skip before starting to collect the result set. | [default to 0]
- **pageLimit** | **optional.Int32**| The numbers of items to return. | [default to 100]
+ **page** | [**optional.Interface of PaginationOptions**](.md)| Specifies the pagination requirements. | 
 
 ### Return type
 

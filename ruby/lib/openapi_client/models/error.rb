@@ -24,12 +24,15 @@ module OpenapiClient
     # A human-readable explanation specific to this occurrence of the problem.
     attr_accessor :detail
 
+    attr_accessor :source
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'status' => :'status',
         :'title' => :'title',
-        :'detail' => :'detail'
+        :'detail' => :'detail',
+        :'source' => :'source'
       }
     end
 
@@ -38,7 +41,8 @@ module OpenapiClient
       {
         :'status' => :'String',
         :'title' => :'String',
-        :'detail' => :'String'
+        :'detail' => :'String',
+        :'source' => :'ErrorSource'
       }
     end
 
@@ -74,6 +78,10 @@ module OpenapiClient
       if attributes.key?(:'detail')
         self.detail = attributes[:'detail']
       end
+
+      if attributes.key?(:'source')
+        self.source = attributes[:'source']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -106,7 +114,8 @@ module OpenapiClient
       self.class == o.class &&
           status == o.status &&
           title == o.title &&
-          detail == o.detail
+          detail == o.detail &&
+          source == o.source
     end
 
     # @see the `==` method
@@ -118,7 +127,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [status, title, detail].hash
+      [status, title, detail, source].hash
     end
 
     # Builds the object from hash
