@@ -161,7 +161,7 @@ void OAILogApi::getLogByIdCallback(OAIHttpRequestWorker *worker) {
     }
 }
 
-void OAILogApi::listLogs(const QString &filter_origin, const qint32 &page_offset, const qint32 &page_limit, const QList<QString> &sort) {
+void OAILogApi::listLogs(const OAILogOrigin &filter_origin, const qint32 &page_offset, const qint32 &page_limit, const QList<QString> &sort) {
     QString fullPath = QString("%1://%2%3%4%5")
                            .arg(_scheme)
                            .arg(_host)

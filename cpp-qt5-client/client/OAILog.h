@@ -20,6 +20,7 @@
 
 #include <QJsonObject>
 
+#include "OAILogOrigin.h"
 #include "OAITag.h"
 #include <QList>
 #include <QString>
@@ -50,8 +51,8 @@ public:
     bool is_title_Set() const;
     bool is_title_Valid() const;
 
-    QString getOrigin() const;
-    void setOrigin(const QString &origin);
+    OAILogOrigin getOrigin() const;
+    void setOrigin(const OAILogOrigin &origin);
     bool is_origin_Set() const;
     bool is_origin_Valid() const;
 
@@ -74,7 +75,7 @@ private:
     bool m_title_isSet;
     bool m_title_isValid;
 
-    QString origin;
+    OAILogOrigin origin;
     bool m_origin_isSet;
     bool m_origin_isValid;
 

@@ -11,6 +11,7 @@ HEADERS += \
     $${PWD}/OAIError.h \
     $${PWD}/OAIErrors.h \
     $${PWD}/OAILog.h \
+    $${PWD}/OAILogOrigin.h \
     $${PWD}/OAILogResponse.h \
     $${PWD}/OAITag.h \
     $${PWD}/OAITagResponse.h \
@@ -36,6 +37,7 @@ SOURCES += \
     $${PWD}/OAIError.cpp \
     $${PWD}/OAIErrors.cpp \
     $${PWD}/OAILog.cpp \
+    $${PWD}/OAILogOrigin.cpp \
     $${PWD}/OAILogResponse.cpp \
     $${PWD}/OAITag.cpp \
     $${PWD}/OAITagResponse.cpp \
