@@ -10,7 +10,7 @@
 package openapi
 // Tag A label attached to something for the purpose of identification.
 type Tag struct {
-	// Id of the tag.
+	// The unique identifier of this entity.
 	Id int64 `json:"id"`
 	// The label value of the tag.
 	Text string `json:"text"`

@@ -226,7 +226,7 @@ func (a *LogApiService) GetLogById(ctx _context.Context, logId int64) (LogRespon
 
 // ListLogsOpts Optional parameters for the method 'ListLogs'
 type ListLogsOpts struct {
-    FilterOrigin optional.String
+    FilterOrigin optional.Interface
     PageOffset optional.Int32
     PageLimit optional.Int32
     Sort optional.Interface
@@ -236,7 +236,7 @@ type ListLogsOpts struct {
 ListLogs List all logs
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ListLogsOpts - Optional Parameters:
- * @param "FilterOrigin" (optional.String) -  Filter logs by their origin
+ * @param "FilterOrigin" (optional.Interface of LogOrigin) -  Filter logs by their origin
  * @param "PageOffset" (optional.Int32) -  The number of items to skip before starting to collect the result set.
  * @param "PageLimit" (optional.Int32) -  The numbers of items to return.
  * @param "Sort" (optional.Interface of []string) -  The sort order of the returned items.

@@ -8,7 +8,6 @@ Method | HTTP request | Description
 [**GetLogsByTagId**](TagApi.md#GetLogsByTagId) | **Get** /tags/{tagId}/logs | Gets all logs with this tag id
 [**GetTagById**](TagApi.md#GetTagById) | **Get** /tags/{tagId} | Gets a tag by Id
 [**ListTags**](TagApi.md#ListTags) | **Get** /tags | List all tags
-[**ListTagsByLogId**](TagApi.md#ListTagsByLogId) | **Get** /logs/{logId}/tags | Lists all tags associated with a log
 
 
 
@@ -131,38 +130,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageOffset** | **optional.Int32**| The number of items to skip before starting to collect the result set. | [default to 0]
  **pageLimit** | **optional.Int32**| The numbers of items to return. | [default to 100]
-
-### Return type
-
-[**ArrayOfTagsResponse**](ArrayOfTagsResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ListTagsByLogId
-
-> ArrayOfTagsResponse ListTagsByLogId(ctx, logId)
-
-Lists all tags associated with a log
-
-### Required Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**logId** | **int64**| The id of the log to retrieve | 
 
 ### Return type
 
