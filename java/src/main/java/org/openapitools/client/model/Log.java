@@ -25,13 +25,14 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.openapitools.client.model.LogOrigin;
 import org.openapitools.client.model.Tag;
 
 /**
  * Describes an intervention or an event that happened.
  */
 @ApiModel(description = "Describes an intervention or an event that happened.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-12T18:31:46.533+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-13T10:31:59.854+01:00[Europe/London]")
 public class Log {
   public static final String SERIALIZED_NAME_ENTRY_ID = "entryId";
   @SerializedName(SERIALIZED_NAME_ENTRY_ID)
@@ -41,56 +42,9 @@ public class Log {
   @SerializedName(SERIALIZED_NAME_TITLE)
   private String title;
 
-  /**
-   * Type of creator.
-   */
-  @JsonAdapter(OriginEnum.Adapter.class)
-  public enum OriginEnum {
-    HUMAN("human"),
-    
-    PROCESS("process");
-
-    private String value;
-
-    OriginEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static OriginEnum fromValue(String value) {
-      for (OriginEnum b : OriginEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<OriginEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final OriginEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public OriginEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return OriginEnum.fromValue(value);
-      }
-    }
-  }
-
   public static final String SERIALIZED_NAME_ORIGIN = "origin";
   @SerializedName(SERIALIZED_NAME_ORIGIN)
-  private OriginEnum origin;
+  private LogOrigin origin;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -104,10 +58,10 @@ public class Log {
   }
 
    /**
-   * Id of the log.
+   * The unique identifier of this entity.
    * @return entryId
   **/
-  @ApiModelProperty(required = true, value = "Id of the log.")
+  @ApiModelProperty(required = true, value = "The unique identifier of this entity.")
 
   public Long getEntryId() {
     return entryId;
@@ -141,24 +95,24 @@ public class Log {
   }
 
 
-  public Log origin(OriginEnum origin) {
+  public Log origin(LogOrigin origin) {
     
     this.origin = origin;
     return this;
   }
 
    /**
-   * Type of creator.
+   * Get origin
    * @return origin
   **/
-  @ApiModelProperty(required = true, value = "Type of creator.")
+  @ApiModelProperty(required = true, value = "")
 
-  public OriginEnum getOrigin() {
+  public LogOrigin getOrigin() {
     return origin;
   }
 
 
-  public void setOrigin(OriginEnum origin) {
+  public void setOrigin(LogOrigin origin) {
     this.origin = origin;
   }
 

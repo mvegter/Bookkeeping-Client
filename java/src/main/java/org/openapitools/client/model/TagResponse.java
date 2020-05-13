@@ -29,7 +29,7 @@ import org.openapitools.client.model.Tag;
  * Response containing a single tag.
  */
 @ApiModel(description = "Response containing a single tag.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-12T18:31:46.533+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-13T10:31:59.854+01:00[Europe/London]")
 public class TagResponse {
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
