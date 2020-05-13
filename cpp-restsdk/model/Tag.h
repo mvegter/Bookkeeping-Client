@@ -54,7 +54,7 @@ public:
     /// Tag members
 
     /// <summary>
-    /// Id of the tag.
+    /// The unique identifier of this entity.
     /// </summary>
     int64_t getId() const;
     bool idIsSet() const;

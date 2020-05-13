@@ -23,6 +23,7 @@
 
 #include "Tag.h"
 #include <cpprest/details/basic_types.h>
+#include "LogOrigin.h"
 #include <vector>
 
 namespace org {
@@ -56,7 +57,7 @@ public:
     /// Log members
 
     /// <summary>
-    /// Id of the log.
+    /// The unique identifier of this entity.
     /// </summary>
     int64_t getEntryId() const;
     bool entryIdIsSet() const;
@@ -74,13 +75,13 @@ public:
     void setTitle(const utility::string_t& value);
 
     /// <summary>
-    /// Type of creator.
+    /// 
     /// </summary>
-    utility::string_t getOrigin() const;
+    std::shared_ptr<LogOrigin> getOrigin() const;
     bool originIsSet() const;
     void unsetOrigin();
 
-    void setOrigin(const utility::string_t& value);
+    void setOrigin(const std::shared_ptr<LogOrigin>& value);
 
     /// <summary>
     /// A list of Tag objects.
@@ -97,7 +98,7 @@ protected:
     bool m_EntryIdIsSet;
     utility::string_t m_Title;
     bool m_TitleIsSet;
-    utility::string_t m_Origin;
+    std::shared_ptr<LogOrigin> m_Origin;
     bool m_OriginIsSet;
     std::vector<std::shared_ptr<Tag>> m_Tags;
     bool m_TagsIsSet;
