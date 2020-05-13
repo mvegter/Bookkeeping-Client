@@ -9,6 +9,7 @@
 #include "ArrayOfTagsResponse.h"
 #include "CreateTag.h"
 #include "Errors.h"
+#include "PaginationOptions.h"
 #include "TagResponse.h"
 #include "Error.h"
 
@@ -112,28 +113,26 @@ bool getTagByIdAsync(char * accessToken,
 /*! \brief List all tags. *Synchronous*
  *
  * 
- * \param pageLeft_Square_BracketoffsetRight_Square_Bracket The number of items to skip before starting to collect the result set.
- * \param pageLeft_Square_BracketlimitRight_Square_Bracket The numbers of items to return.
+ * \param page Specifies the pagination requirements.
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool listTagsSync(char * accessToken,
-	int pageLeft_Square_BracketoffsetRight_Square_Bracket, int pageLeft_Square_BracketlimitRight_Square_Bracket, 
+	PaginationOptions page, 
 	void(* handler)(ArrayOfTagsResponse, Error, void* )
 	, void* userData);
 
 /*! \brief List all tags. *Asynchronous*
  *
  * 
- * \param pageLeft_Square_BracketoffsetRight_Square_Bracket The number of items to skip before starting to collect the result set.
- * \param pageLeft_Square_BracketlimitRight_Square_Bracket The numbers of items to return.
+ * \param page Specifies the pagination requirements.
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool listTagsAsync(char * accessToken,
-	int pageLeft_Square_BracketoffsetRight_Square_Bracket, int pageLeft_Square_BracketlimitRight_Square_Bracket, 
+	PaginationOptions page, 
 	void(* handler)(ArrayOfTagsResponse, Error, void* )
 	, void* userData);
 

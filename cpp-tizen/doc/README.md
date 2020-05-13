@@ -81,10 +81,15 @@ Class | Description
  *CreateTag* | A label attached to something for the purpose of identification.
  *DeployInformation* | Deploy information
  *Error* | An Error object.
+ *ErrorSource* | An object containing references to the source of the error.
  *Errors* | A list of Error objects.
+ *FilterLogsOptions* | Specifies the log related filter requirements for a request.
  *Log* | Describes an intervention or an event that happened.
  *LogOrigin* | Type of creator.
  *LogResponse* | Response containing a single log.
+ *PaginationOptions* | Specifies the pagination requirements of a request.
+ *SortLogsOptions* | Specifies the sorting requirements of a request.
+ *SortOrder* | Specifies the sorting direction of a sorting option.
  *Tag* | A label attached to something for the purpose of identification.
  *TagResponse* | Response containing a single tag.
 

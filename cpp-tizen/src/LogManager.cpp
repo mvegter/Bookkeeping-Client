@@ -450,7 +450,7 @@ static bool listLogsProcessor(MemoryStruct_s p_chunk, long code, char* errormsg,
 }
 
 static bool listLogsHelper(char * accessToken,
-	LogOrigin filterLeft_Square_BracketoriginRight_Square_Bracket, int pageLeft_Square_BracketoffsetRight_Square_Bracket, int pageLeft_Square_BracketlimitRight_Square_Bracket, std::list<std::string> sort, 
+	PaginationOptions page, FilterLogsOptions filter, SortLogsOptions sort, 
 	void(* handler)(ArrayOfLogsResponse, Error, void* )
 	, void* userData, bool isAsync)
 {
@@ -468,35 +468,26 @@ static bool listLogsHelper(char * accessToken,
 	string itemAtq;
 	
 
-	itemAtq = stringify(&filterLeft_Square_BracketoriginRight_Square_Bracket, "LogOrigin");
-	queryParams.insert(pair<string, string>("filter[origin]", itemAtq));
+	itemAtq = stringify(&page, "PaginationOptions");
+	queryParams.insert(pair<string, string>("page", itemAtq));
 	if( itemAtq.empty()==true){
-		queryParams.erase("filter[origin]");
+		queryParams.erase("page");
 	}
 
 
-	itemAtq = stringify(&pageLeft_Square_BracketoffsetRight_Square_Bracket, "int");
-	queryParams.insert(pair<string, string>("page[offset]", itemAtq));
+	itemAtq = stringify(&filter, "FilterLogsOptions");
+	queryParams.insert(pair<string, string>("filter", itemAtq));
 	if( itemAtq.empty()==true){
-		queryParams.erase("page[offset]");
+		queryParams.erase("filter");
 	}
 
 
-	itemAtq = stringify(&pageLeft_Square_BracketlimitRight_Square_Bracket, "int");
-	queryParams.insert(pair<string, string>("page[limit]", itemAtq));
+	itemAtq = stringify(&sort, "SortLogsOptions");
+	queryParams.insert(pair<string, string>("sort", itemAtq));
 	if( itemAtq.empty()==true){
-		queryParams.erase("page[limit]");
+		queryParams.erase("sort");
 	}
 
-	for (std::list
-	<std::string>::iterator queryIter = sort.begin(); queryIter != sort.end(); ++queryIter) {
-		string itemAt = stringify(&(*queryIter), "std::string");
-		if( itemAt.empty()){
-			continue;
-		}
-		queryParams.insert(pair<string, string>("sort", itemAt));
-	}
-	
 	string mBody = "";
 	JsonNode* node;
 	JsonArray* json_array;
@@ -551,22 +542,22 @@ static bool listLogsHelper(char * accessToken,
 
 
 bool LogManager::listLogsAsync(char * accessToken,
-	LogOrigin filterLeft_Square_BracketoriginRight_Square_Bracket, int pageLeft_Square_BracketoffsetRight_Square_Bracket, int pageLeft_Square_BracketlimitRight_Square_Bracket, std::list<std::string> sort, 
+	PaginationOptions page, FilterLogsOptions filter, SortLogsOptions sort, 
 	void(* handler)(ArrayOfLogsResponse, Error, void* )
 	, void* userData)
 {
 	return listLogsHelper(accessToken,
-	filterLeft_Square_BracketoriginRight_Square_Bracket, pageLeft_Square_BracketoffsetRight_Square_Bracket, pageLeft_Square_BracketlimitRight_Square_Bracket, sort, 
+	page, filter, sort, 
 	handler, userData, true);
 }
 
 bool LogManager::listLogsSync(char * accessToken,
-	LogOrigin filterLeft_Square_BracketoriginRight_Square_Bracket, int pageLeft_Square_BracketoffsetRight_Square_Bracket, int pageLeft_Square_BracketlimitRight_Square_Bracket, std::list<std::string> sort, 
+	PaginationOptions page, FilterLogsOptions filter, SortLogsOptions sort, 
 	void(* handler)(ArrayOfLogsResponse, Error, void* )
 	, void* userData)
 {
 	return listLogsHelper(accessToken,
-	filterLeft_Square_BracketoriginRight_Square_Bracket, pageLeft_Square_BracketoffsetRight_Square_Bracket, pageLeft_Square_BracketlimitRight_Square_Bracket, sort, 
+	page, filter, sort, 
 	handler, userData, false);
 }
 

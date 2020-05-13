@@ -9,8 +9,10 @@
 #include "ArrayOfTagsResponse.h"
 #include "CreateLog.h"
 #include "Errors.h"
-#include "LogOrigin.h"
+#include "FilterLogsOptions.h"
 #include "LogResponse.h"
+#include "PaginationOptions.h"
+#include "SortLogsOptions.h"
 #include "Error.h"
 
 /** \defgroup Operations API Endpoints
@@ -86,32 +88,30 @@ bool getLogByIdAsync(char * accessToken,
 /*! \brief List all logs. *Synchronous*
  *
  * 
- * \param filterLeft_Square_BracketoriginRight_Square_Bracket Filter logs by their origin
- * \param pageLeft_Square_BracketoffsetRight_Square_Bracket The number of items to skip before starting to collect the result set.
- * \param pageLeft_Square_BracketlimitRight_Square_Bracket The numbers of items to return.
- * \param sort The sort order of the returned items.
+ * \param page Specifies the pagination requirements.
+ * \param filter Specifies the filter requirements.
+ * \param sort Specifies the sorting requirements.
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool listLogsSync(char * accessToken,
-	LogOrigin filterLeft_Square_BracketoriginRight_Square_Bracket, int pageLeft_Square_BracketoffsetRight_Square_Bracket, int pageLeft_Square_BracketlimitRight_Square_Bracket, std::list<std::string> sort, 
+	PaginationOptions page, FilterLogsOptions filter, SortLogsOptions sort, 
 	void(* handler)(ArrayOfLogsResponse, Error, void* )
 	, void* userData);
 
 /*! \brief List all logs. *Asynchronous*
  *
  * 
- * \param filterLeft_Square_BracketoriginRight_Square_Bracket Filter logs by their origin
- * \param pageLeft_Square_BracketoffsetRight_Square_Bracket The number of items to skip before starting to collect the result set.
- * \param pageLeft_Square_BracketlimitRight_Square_Bracket The numbers of items to return.
- * \param sort The sort order of the returned items.
+ * \param page Specifies the pagination requirements.
+ * \param filter Specifies the filter requirements.
+ * \param sort Specifies the sorting requirements.
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool listLogsAsync(char * accessToken,
-	LogOrigin filterLeft_Square_BracketoriginRight_Square_Bracket, int pageLeft_Square_BracketoffsetRight_Square_Bracket, int pageLeft_Square_BracketlimitRight_Square_Bracket, std::list<std::string> sort, 
+	PaginationOptions page, FilterLogsOptions filter, SortLogsOptions sort, 
 	void(* handler)(ArrayOfLogsResponse, Error, void* )
 	, void* userData);
 

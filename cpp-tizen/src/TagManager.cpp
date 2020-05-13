@@ -622,7 +622,7 @@ static bool listTagsProcessor(MemoryStruct_s p_chunk, long code, char* errormsg,
 }
 
 static bool listTagsHelper(char * accessToken,
-	int pageLeft_Square_BracketoffsetRight_Square_Bracket, int pageLeft_Square_BracketlimitRight_Square_Bracket, 
+	PaginationOptions page, 
 	void(* handler)(ArrayOfTagsResponse, Error, void* )
 	, void* userData, bool isAsync)
 {
@@ -640,17 +640,10 @@ static bool listTagsHelper(char * accessToken,
 	string itemAtq;
 	
 
-	itemAtq = stringify(&pageLeft_Square_BracketoffsetRight_Square_Bracket, "int");
-	queryParams.insert(pair<string, string>("page[offset]", itemAtq));
+	itemAtq = stringify(&page, "PaginationOptions");
+	queryParams.insert(pair<string, string>("page", itemAtq));
 	if( itemAtq.empty()==true){
-		queryParams.erase("page[offset]");
-	}
-
-
-	itemAtq = stringify(&pageLeft_Square_BracketlimitRight_Square_Bracket, "int");
-	queryParams.insert(pair<string, string>("page[limit]", itemAtq));
-	if( itemAtq.empty()==true){
-		queryParams.erase("page[limit]");
+		queryParams.erase("page");
 	}
 
 	string mBody = "";
@@ -707,22 +700,22 @@ static bool listTagsHelper(char * accessToken,
 
 
 bool TagManager::listTagsAsync(char * accessToken,
-	int pageLeft_Square_BracketoffsetRight_Square_Bracket, int pageLeft_Square_BracketlimitRight_Square_Bracket, 
+	PaginationOptions page, 
 	void(* handler)(ArrayOfTagsResponse, Error, void* )
 	, void* userData)
 {
 	return listTagsHelper(accessToken,
-	pageLeft_Square_BracketoffsetRight_Square_Bracket, pageLeft_Square_BracketlimitRight_Square_Bracket, 
+	page, 
 	handler, userData, true);
 }
 
 bool TagManager::listTagsSync(char * accessToken,
-	int pageLeft_Square_BracketoffsetRight_Square_Bracket, int pageLeft_Square_BracketlimitRight_Square_Bracket, 
+	PaginationOptions page, 
 	void(* handler)(ArrayOfTagsResponse, Error, void* )
 	, void* userData)
 {
 	return listTagsHelper(accessToken,
-	pageLeft_Square_BracketoffsetRight_Square_Bracket, pageLeft_Square_BracketlimitRight_Square_Bracket, 
+	page, 
 	handler, userData, false);
 }
 
