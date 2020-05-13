@@ -94,11 +94,10 @@ namespace Org.OpenAPITools.Test
         public void ListLogsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //LogOrigin? filterOrigin = null;
-            //int? pageOffset = null;
-            //int? pageLimit = null;
-            //List<string> sort = null;
-            //var response = instance.ListLogs(filterOrigin, pageOffset, pageLimit, sort);
+            //PaginationOptions page = null;
+            //FilterLogsOptions filter = null;
+            //SortLogsOptions sort = null;
+            //var response = instance.ListLogs(page, filter, sort);
             //Assert.IsInstanceOf(typeof(ArrayOfLogsResponse), response, "response is ArrayOfLogsResponse");
         }
         

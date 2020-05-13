@@ -73,12 +73,11 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filterOrigin">Filter logs by their origin (optional)</param>
-        /// <param name="pageOffset">The number of items to skip before starting to collect the result set. (optional, default to 0)</param>
-        /// <param name="pageLimit">The numbers of items to return. (optional, default to 100)</param>
-        /// <param name="sort">The sort order of the returned items. (optional)</param>
+        /// <param name="page">Specifies the pagination requirements. (optional)</param>
+        /// <param name="filter">Specifies the filter requirements. (optional)</param>
+        /// <param name="sort">Specifies the sorting requirements. (optional)</param>
         /// <returns>ArrayOfLogsResponse</returns>
-        ArrayOfLogsResponse ListLogs (LogOrigin? filterOrigin = default(LogOrigin?), int? pageOffset = default(int?), int? pageLimit = default(int?), List<string> sort = default(List<string>));
+        ArrayOfLogsResponse ListLogs (PaginationOptions page = default(PaginationOptions), FilterLogsOptions filter = default(FilterLogsOptions), SortLogsOptions sort = default(SortLogsOptions));
 
         /// <summary>
         /// List all logs
@@ -87,12 +86,11 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filterOrigin">Filter logs by their origin (optional)</param>
-        /// <param name="pageOffset">The number of items to skip before starting to collect the result set. (optional, default to 0)</param>
-        /// <param name="pageLimit">The numbers of items to return. (optional, default to 100)</param>
-        /// <param name="sort">The sort order of the returned items. (optional)</param>
+        /// <param name="page">Specifies the pagination requirements. (optional)</param>
+        /// <param name="filter">Specifies the filter requirements. (optional)</param>
+        /// <param name="sort">Specifies the sorting requirements. (optional)</param>
         /// <returns>ApiResponse of ArrayOfLogsResponse</returns>
-        ApiResponse<ArrayOfLogsResponse> ListLogsWithHttpInfo (LogOrigin? filterOrigin = default(LogOrigin?), int? pageOffset = default(int?), int? pageLimit = default(int?), List<string> sort = default(List<string>));
+        ApiResponse<ArrayOfLogsResponse> ListLogsWithHttpInfo (PaginationOptions page = default(PaginationOptions), FilterLogsOptions filter = default(FilterLogsOptions), SortLogsOptions sort = default(SortLogsOptions));
         /// <summary>
         /// Lists all tags associated with a log
         /// </summary>
@@ -165,12 +163,11 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filterOrigin">Filter logs by their origin (optional)</param>
-        /// <param name="pageOffset">The number of items to skip before starting to collect the result set. (optional, default to 0)</param>
-        /// <param name="pageLimit">The numbers of items to return. (optional, default to 100)</param>
-        /// <param name="sort">The sort order of the returned items. (optional)</param>
+        /// <param name="page">Specifies the pagination requirements. (optional)</param>
+        /// <param name="filter">Specifies the filter requirements. (optional)</param>
+        /// <param name="sort">Specifies the sorting requirements. (optional)</param>
         /// <returns>Task of ArrayOfLogsResponse</returns>
-        System.Threading.Tasks.Task<ArrayOfLogsResponse> ListLogsAsync (LogOrigin? filterOrigin = default(LogOrigin?), int? pageOffset = default(int?), int? pageLimit = default(int?), List<string> sort = default(List<string>));
+        System.Threading.Tasks.Task<ArrayOfLogsResponse> ListLogsAsync (PaginationOptions page = default(PaginationOptions), FilterLogsOptions filter = default(FilterLogsOptions), SortLogsOptions sort = default(SortLogsOptions));
 
         /// <summary>
         /// List all logs
@@ -179,12 +176,11 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filterOrigin">Filter logs by their origin (optional)</param>
-        /// <param name="pageOffset">The number of items to skip before starting to collect the result set. (optional, default to 0)</param>
-        /// <param name="pageLimit">The numbers of items to return. (optional, default to 100)</param>
-        /// <param name="sort">The sort order of the returned items. (optional)</param>
+        /// <param name="page">Specifies the pagination requirements. (optional)</param>
+        /// <param name="filter">Specifies the filter requirements. (optional)</param>
+        /// <param name="sort">Specifies the sorting requirements. (optional)</param>
         /// <returns>Task of ApiResponse (ArrayOfLogsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ArrayOfLogsResponse>> ListLogsAsyncWithHttpInfo (LogOrigin? filterOrigin = default(LogOrigin?), int? pageOffset = default(int?), int? pageLimit = default(int?), List<string> sort = default(List<string>));
+        System.Threading.Tasks.Task<ApiResponse<ArrayOfLogsResponse>> ListLogsAsyncWithHttpInfo (PaginationOptions page = default(PaginationOptions), FilterLogsOptions filter = default(FilterLogsOptions), SortLogsOptions sort = default(SortLogsOptions));
         /// <summary>
         /// Lists all tags associated with a log
         /// </summary>
@@ -603,14 +599,13 @@ namespace Org.OpenAPITools.Api
         /// List all logs 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filterOrigin">Filter logs by their origin (optional)</param>
-        /// <param name="pageOffset">The number of items to skip before starting to collect the result set. (optional, default to 0)</param>
-        /// <param name="pageLimit">The numbers of items to return. (optional, default to 100)</param>
-        /// <param name="sort">The sort order of the returned items. (optional)</param>
+        /// <param name="page">Specifies the pagination requirements. (optional)</param>
+        /// <param name="filter">Specifies the filter requirements. (optional)</param>
+        /// <param name="sort">Specifies the sorting requirements. (optional)</param>
         /// <returns>ArrayOfLogsResponse</returns>
-        public ArrayOfLogsResponse ListLogs (LogOrigin? filterOrigin = default(LogOrigin?), int? pageOffset = default(int?), int? pageLimit = default(int?), List<string> sort = default(List<string>))
+        public ArrayOfLogsResponse ListLogs (PaginationOptions page = default(PaginationOptions), FilterLogsOptions filter = default(FilterLogsOptions), SortLogsOptions sort = default(SortLogsOptions))
         {
-             ApiResponse<ArrayOfLogsResponse> localVarResponse = ListLogsWithHttpInfo(filterOrigin, pageOffset, pageLimit, sort);
+             ApiResponse<ArrayOfLogsResponse> localVarResponse = ListLogsWithHttpInfo(page, filter, sort);
              return localVarResponse.Data;
         }
 
@@ -618,12 +613,11 @@ namespace Org.OpenAPITools.Api
         /// List all logs 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filterOrigin">Filter logs by their origin (optional)</param>
-        /// <param name="pageOffset">The number of items to skip before starting to collect the result set. (optional, default to 0)</param>
-        /// <param name="pageLimit">The numbers of items to return. (optional, default to 100)</param>
-        /// <param name="sort">The sort order of the returned items. (optional)</param>
+        /// <param name="page">Specifies the pagination requirements. (optional)</param>
+        /// <param name="filter">Specifies the filter requirements. (optional)</param>
+        /// <param name="sort">Specifies the sorting requirements. (optional)</param>
         /// <returns>ApiResponse of ArrayOfLogsResponse</returns>
-        public ApiResponse<ArrayOfLogsResponse> ListLogsWithHttpInfo (LogOrigin? filterOrigin = default(LogOrigin?), int? pageOffset = default(int?), int? pageLimit = default(int?), List<string> sort = default(List<string>))
+        public ApiResponse<ArrayOfLogsResponse> ListLogsWithHttpInfo (PaginationOptions page = default(PaginationOptions), FilterLogsOptions filter = default(FilterLogsOptions), SortLogsOptions sort = default(SortLogsOptions))
         {
 
             var localVarPath = "/logs";
@@ -647,10 +641,9 @@ namespace Org.OpenAPITools.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (filterOrigin != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter[origin]", filterOrigin)); // query parameter
-            if (pageOffset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page[offset]", pageOffset)); // query parameter
-            if (pageLimit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page[limit]", pageLimit)); // query parameter
-            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "sort", sort)); // query parameter
+            if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
 
             // make the HTTP request
@@ -675,14 +668,13 @@ namespace Org.OpenAPITools.Api
         /// List all logs 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filterOrigin">Filter logs by their origin (optional)</param>
-        /// <param name="pageOffset">The number of items to skip before starting to collect the result set. (optional, default to 0)</param>
-        /// <param name="pageLimit">The numbers of items to return. (optional, default to 100)</param>
-        /// <param name="sort">The sort order of the returned items. (optional)</param>
+        /// <param name="page">Specifies the pagination requirements. (optional)</param>
+        /// <param name="filter">Specifies the filter requirements. (optional)</param>
+        /// <param name="sort">Specifies the sorting requirements. (optional)</param>
         /// <returns>Task of ArrayOfLogsResponse</returns>
-        public async System.Threading.Tasks.Task<ArrayOfLogsResponse> ListLogsAsync (LogOrigin? filterOrigin = default(LogOrigin?), int? pageOffset = default(int?), int? pageLimit = default(int?), List<string> sort = default(List<string>))
+        public async System.Threading.Tasks.Task<ArrayOfLogsResponse> ListLogsAsync (PaginationOptions page = default(PaginationOptions), FilterLogsOptions filter = default(FilterLogsOptions), SortLogsOptions sort = default(SortLogsOptions))
         {
-             ApiResponse<ArrayOfLogsResponse> localVarResponse = await ListLogsAsyncWithHttpInfo(filterOrigin, pageOffset, pageLimit, sort);
+             ApiResponse<ArrayOfLogsResponse> localVarResponse = await ListLogsAsyncWithHttpInfo(page, filter, sort);
              return localVarResponse.Data;
 
         }
@@ -691,12 +683,11 @@ namespace Org.OpenAPITools.Api
         /// List all logs 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filterOrigin">Filter logs by their origin (optional)</param>
-        /// <param name="pageOffset">The number of items to skip before starting to collect the result set. (optional, default to 0)</param>
-        /// <param name="pageLimit">The numbers of items to return. (optional, default to 100)</param>
-        /// <param name="sort">The sort order of the returned items. (optional)</param>
+        /// <param name="page">Specifies the pagination requirements. (optional)</param>
+        /// <param name="filter">Specifies the filter requirements. (optional)</param>
+        /// <param name="sort">Specifies the sorting requirements. (optional)</param>
         /// <returns>Task of ApiResponse (ArrayOfLogsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ArrayOfLogsResponse>> ListLogsAsyncWithHttpInfo (LogOrigin? filterOrigin = default(LogOrigin?), int? pageOffset = default(int?), int? pageLimit = default(int?), List<string> sort = default(List<string>))
+        public async System.Threading.Tasks.Task<ApiResponse<ArrayOfLogsResponse>> ListLogsAsyncWithHttpInfo (PaginationOptions page = default(PaginationOptions), FilterLogsOptions filter = default(FilterLogsOptions), SortLogsOptions sort = default(SortLogsOptions))
         {
 
             var localVarPath = "/logs";
@@ -720,10 +711,9 @@ namespace Org.OpenAPITools.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (filterOrigin != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter[origin]", filterOrigin)); // query parameter
-            if (pageOffset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page[offset]", pageOffset)); // query parameter
-            if (pageLimit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page[limit]", pageLimit)); // query parameter
-            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("csv", "sort", sort)); // query parameter
+            if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
 
 
             // make the HTTP request

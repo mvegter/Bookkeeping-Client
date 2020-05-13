@@ -94,10 +94,9 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageOffset">The number of items to skip before starting to collect the result set. (optional, default to 0)</param>
-        /// <param name="pageLimit">The numbers of items to return. (optional, default to 100)</param>
+        /// <param name="page">Specifies the pagination requirements. (optional)</param>
         /// <returns>ArrayOfTagsResponse</returns>
-        ArrayOfTagsResponse ListTags (int? pageOffset = default(int?), int? pageLimit = default(int?));
+        ArrayOfTagsResponse ListTags (PaginationOptions page = default(PaginationOptions));
 
         /// <summary>
         /// List all tags
@@ -106,10 +105,9 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageOffset">The number of items to skip before starting to collect the result set. (optional, default to 0)</param>
-        /// <param name="pageLimit">The numbers of items to return. (optional, default to 100)</param>
+        /// <param name="page">Specifies the pagination requirements. (optional)</param>
         /// <returns>ApiResponse of ArrayOfTagsResponse</returns>
-        ApiResponse<ArrayOfTagsResponse> ListTagsWithHttpInfo (int? pageOffset = default(int?), int? pageLimit = default(int?));
+        ApiResponse<ArrayOfTagsResponse> ListTagsWithHttpInfo (PaginationOptions page = default(PaginationOptions));
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -182,10 +180,9 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageOffset">The number of items to skip before starting to collect the result set. (optional, default to 0)</param>
-        /// <param name="pageLimit">The numbers of items to return. (optional, default to 100)</param>
+        /// <param name="page">Specifies the pagination requirements. (optional)</param>
         /// <returns>Task of ArrayOfTagsResponse</returns>
-        System.Threading.Tasks.Task<ArrayOfTagsResponse> ListTagsAsync (int? pageOffset = default(int?), int? pageLimit = default(int?));
+        System.Threading.Tasks.Task<ArrayOfTagsResponse> ListTagsAsync (PaginationOptions page = default(PaginationOptions));
 
         /// <summary>
         /// List all tags
@@ -194,10 +191,9 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageOffset">The number of items to skip before starting to collect the result set. (optional, default to 0)</param>
-        /// <param name="pageLimit">The numbers of items to return. (optional, default to 100)</param>
+        /// <param name="page">Specifies the pagination requirements. (optional)</param>
         /// <returns>Task of ApiResponse (ArrayOfTagsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ArrayOfTagsResponse>> ListTagsAsyncWithHttpInfo (int? pageOffset = default(int?), int? pageLimit = default(int?));
+        System.Threading.Tasks.Task<ApiResponse<ArrayOfTagsResponse>> ListTagsAsyncWithHttpInfo (PaginationOptions page = default(PaginationOptions));
         #endregion Asynchronous Operations
     }
 
@@ -728,12 +724,11 @@ namespace Org.OpenAPITools.Api
         /// List all tags 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageOffset">The number of items to skip before starting to collect the result set. (optional, default to 0)</param>
-        /// <param name="pageLimit">The numbers of items to return. (optional, default to 100)</param>
+        /// <param name="page">Specifies the pagination requirements. (optional)</param>
         /// <returns>ArrayOfTagsResponse</returns>
-        public ArrayOfTagsResponse ListTags (int? pageOffset = default(int?), int? pageLimit = default(int?))
+        public ArrayOfTagsResponse ListTags (PaginationOptions page = default(PaginationOptions))
         {
-             ApiResponse<ArrayOfTagsResponse> localVarResponse = ListTagsWithHttpInfo(pageOffset, pageLimit);
+             ApiResponse<ArrayOfTagsResponse> localVarResponse = ListTagsWithHttpInfo(page);
              return localVarResponse.Data;
         }
 
@@ -741,10 +736,9 @@ namespace Org.OpenAPITools.Api
         /// List all tags 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageOffset">The number of items to skip before starting to collect the result set. (optional, default to 0)</param>
-        /// <param name="pageLimit">The numbers of items to return. (optional, default to 100)</param>
+        /// <param name="page">Specifies the pagination requirements. (optional)</param>
         /// <returns>ApiResponse of ArrayOfTagsResponse</returns>
-        public ApiResponse<ArrayOfTagsResponse> ListTagsWithHttpInfo (int? pageOffset = default(int?), int? pageLimit = default(int?))
+        public ApiResponse<ArrayOfTagsResponse> ListTagsWithHttpInfo (PaginationOptions page = default(PaginationOptions))
         {
 
             var localVarPath = "/tags";
@@ -768,8 +762,7 @@ namespace Org.OpenAPITools.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (pageOffset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page[offset]", pageOffset)); // query parameter
-            if (pageLimit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page[limit]", pageLimit)); // query parameter
+            if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
 
 
             // make the HTTP request
@@ -794,12 +787,11 @@ namespace Org.OpenAPITools.Api
         /// List all tags 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageOffset">The number of items to skip before starting to collect the result set. (optional, default to 0)</param>
-        /// <param name="pageLimit">The numbers of items to return. (optional, default to 100)</param>
+        /// <param name="page">Specifies the pagination requirements. (optional)</param>
         /// <returns>Task of ArrayOfTagsResponse</returns>
-        public async System.Threading.Tasks.Task<ArrayOfTagsResponse> ListTagsAsync (int? pageOffset = default(int?), int? pageLimit = default(int?))
+        public async System.Threading.Tasks.Task<ArrayOfTagsResponse> ListTagsAsync (PaginationOptions page = default(PaginationOptions))
         {
-             ApiResponse<ArrayOfTagsResponse> localVarResponse = await ListTagsAsyncWithHttpInfo(pageOffset, pageLimit);
+             ApiResponse<ArrayOfTagsResponse> localVarResponse = await ListTagsAsyncWithHttpInfo(page);
              return localVarResponse.Data;
 
         }
@@ -808,10 +800,9 @@ namespace Org.OpenAPITools.Api
         /// List all tags 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageOffset">The number of items to skip before starting to collect the result set. (optional, default to 0)</param>
-        /// <param name="pageLimit">The numbers of items to return. (optional, default to 100)</param>
+        /// <param name="page">Specifies the pagination requirements. (optional)</param>
         /// <returns>Task of ApiResponse (ArrayOfTagsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ArrayOfTagsResponse>> ListTagsAsyncWithHttpInfo (int? pageOffset = default(int?), int? pageLimit = default(int?))
+        public async System.Threading.Tasks.Task<ApiResponse<ArrayOfTagsResponse>> ListTagsAsyncWithHttpInfo (PaginationOptions page = default(PaginationOptions))
         {
 
             var localVarPath = "/tags";
@@ -835,8 +826,7 @@ namespace Org.OpenAPITools.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (pageOffset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page[offset]", pageOffset)); // query parameter
-            if (pageLimit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page[limit]", pageLimit)); // query parameter
+            if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
 
 
             // make the HTTP request

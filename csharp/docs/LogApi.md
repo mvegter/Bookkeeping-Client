@@ -164,7 +164,7 @@ No authorization required
 
 ## ListLogs
 
-> ArrayOfLogsResponse ListLogs (LogOrigin? filterOrigin = null, int? pageOffset = null, int? pageLimit = null, List<string> sort = null)
+> ArrayOfLogsResponse ListLogs (PaginationOptions page = null, FilterLogsOptions filter = null, SortLogsOptions sort = null)
 
 List all logs
 
@@ -185,15 +185,14 @@ namespace Example
         {
             Configuration.Default.BasePath = "http://localhost/api";
             var apiInstance = new LogApi(Configuration.Default);
-            var filterOrigin = ;  // LogOrigin? | Filter logs by their origin (optional) 
-            var pageOffset = 56;  // int? | The number of items to skip before starting to collect the result set. (optional)  (default to 0)
-            var pageLimit = 56;  // int? | The numbers of items to return. (optional)  (default to 100)
-            var sort = new List<string>(); // List<string> | The sort order of the returned items. (optional) 
+            var page = new PaginationOptions(); // PaginationOptions | Specifies the pagination requirements. (optional) 
+            var filter = new FilterLogsOptions(); // FilterLogsOptions | Specifies the filter requirements. (optional) 
+            var sort = new SortLogsOptions(); // SortLogsOptions | Specifies the sorting requirements. (optional) 
 
             try
             {
                 // List all logs
-                ArrayOfLogsResponse result = apiInstance.ListLogs(filterOrigin, pageOffset, pageLimit, sort);
+                ArrayOfLogsResponse result = apiInstance.ListLogs(page, filter, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -212,10 +211,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterOrigin** | **LogOrigin?**| Filter logs by their origin | [optional] 
- **pageOffset** | **int?**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
- **pageLimit** | **int?**| The numbers of items to return. | [optional] [default to 100]
- **sort** | [**List&lt;string&gt;**](string.md)| The sort order of the returned items. | [optional] 
+ **page** | [**PaginationOptions**](PaginationOptions.md)| Specifies the pagination requirements. | [optional] 
+ **filter** | [**FilterLogsOptions**](FilterLogsOptions.md)| Specifies the filter requirements. | [optional] 
+ **sort** | [**SortLogsOptions**](SortLogsOptions.md)| Specifies the sorting requirements. | [optional] 
 
 ### Return type
 

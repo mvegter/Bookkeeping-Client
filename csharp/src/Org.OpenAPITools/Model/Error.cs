@@ -41,7 +41,8 @@ namespace Org.OpenAPITools.Model
         /// <param name="status">The HTTP status code applicable to this problem. (required).</param>
         /// <param name="title">A short, human-readable summary of the problem. (required).</param>
         /// <param name="detail">A human-readable explanation specific to this occurrence of the problem..</param>
-        public Error(string status = default(string), string title = default(string), string detail = default(string))
+        /// <param name="source">source.</param>
+        public Error(string status = default(string), string title = default(string), string detail = default(string), ErrorSource source = default(ErrorSource))
         {
             // to ensure "status" is required (not null)
             if (status == null)
@@ -64,6 +65,7 @@ namespace Org.OpenAPITools.Model
             }
             
             this.Detail = detail;
+            this.Source = source;
         }
         
         /// <summary>
@@ -88,6 +90,12 @@ namespace Org.OpenAPITools.Model
         public string Detail { get; set; }
 
         /// <summary>
+        /// Gets or Sets Source
+        /// </summary>
+        [DataMember(Name="source", EmitDefaultValue=false)]
+        public ErrorSource Source { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -98,6 +106,7 @@ namespace Org.OpenAPITools.Model
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Detail: ").Append(Detail).Append("\n");
+            sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -146,6 +155,11 @@ namespace Org.OpenAPITools.Model
                     this.Detail == input.Detail ||
                     (this.Detail != null &&
                     this.Detail.Equals(input.Detail))
+                ) && 
+                (
+                    this.Source == input.Source ||
+                    (this.Source != null &&
+                    this.Source.Equals(input.Source))
                 );
         }
 
@@ -164,6 +178,8 @@ namespace Org.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.Title.GetHashCode();
                 if (this.Detail != null)
                     hashCode = hashCode * 59 + this.Detail.GetHashCode();
+                if (this.Source != null)
+                    hashCode = hashCode * 59 + this.Source.GetHashCode();
                 return hashCode;
             }
         }
