@@ -115,10 +115,9 @@ require 'openapi_client'
 
 api_instance = OpenapiClient::LogApi.new
 opts = {
-  filter_origin: OpenapiClient::LogOrigin.new, # LogOrigin | Filter logs by their origin
-  page_offset: 0, # Integer | The number of items to skip before starting to collect the result set.
-  page_limit: 100, # Integer | The numbers of items to return.
-  sort: ['sort_example'] # Array<String> | The sort order of the returned items.
+  page: OpenapiClient::PaginationOptions.new, # PaginationOptions | Specifies the pagination requirements.
+  filter: OpenapiClient::FilterLogsOptions.new, # FilterLogsOptions | Specifies the filter requirements.
+  sort: OpenapiClient::SortLogsOptions.new # SortLogsOptions | Specifies the sorting requirements.
 }
 
 begin
@@ -135,10 +134,9 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filter_origin** | [**LogOrigin**](.md)| Filter logs by their origin | [optional] 
- **page_offset** | **Integer**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
- **page_limit** | **Integer**| The numbers of items to return. | [optional] [default to 100]
- **sort** | [**Array&lt;String&gt;**](String.md)| The sort order of the returned items. | [optional] 
+ **page** | [**PaginationOptions**](.md)| Specifies the pagination requirements. | [optional] 
+ **filter** | [**FilterLogsOptions**](.md)| Specifies the filter requirements. | [optional] 
+ **sort** | [**SortLogsOptions**](.md)| Specifies the sorting requirements. | [optional] 
 
 ### Return type
 

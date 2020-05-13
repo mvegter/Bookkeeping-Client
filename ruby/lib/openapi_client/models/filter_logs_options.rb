@@ -13,36 +13,21 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module OpenapiClient
-  # An Error object.
-  class Error
-    # The HTTP status code applicable to this problem.
-    attr_accessor :status
-
-    # A short, human-readable summary of the problem.
-    attr_accessor :title
-
-    # A human-readable explanation specific to this occurrence of the problem.
-    attr_accessor :detail
-
-    attr_accessor :source
+  # Specifies the log related filter requirements for a request.
+  class FilterLogsOptions
+    attr_accessor :origin
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'status' => :'status',
-        :'title' => :'title',
-        :'detail' => :'detail',
-        :'source' => :'source'
+        :'origin' => :'origin'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'status' => :'String',
-        :'title' => :'String',
-        :'detail' => :'String',
-        :'source' => :'ErrorSource'
+        :'origin' => :'LogOrigin'
       }
     end
 
@@ -56,31 +41,19 @@ module OpenapiClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `OpenapiClient::Error` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `OpenapiClient::FilterLogsOptions` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `OpenapiClient::Error`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `OpenapiClient::FilterLogsOptions`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
-      end
-
-      if attributes.key?(:'title')
-        self.title = attributes[:'title']
-      end
-
-      if attributes.key?(:'detail')
-        self.detail = attributes[:'detail']
-      end
-
-      if attributes.key?(:'source')
-        self.source = attributes[:'source']
+      if attributes.key?(:'origin')
+        self.origin = attributes[:'origin']
       end
     end
 
@@ -88,22 +61,12 @@ module OpenapiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @status.nil?
-        invalid_properties.push('invalid value for "status", status cannot be nil.')
-      end
-
-      if @title.nil?
-        invalid_properties.push('invalid value for "title", title cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @status.nil?
-      return false if @title.nil?
       true
     end
 
@@ -112,10 +75,7 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          status == o.status &&
-          title == o.title &&
-          detail == o.detail &&
-          source == o.source
+          origin == o.origin
     end
 
     # @see the `==` method
@@ -127,7 +87,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [status, title, detail, source].hash
+      [origin].hash
     end
 
     # Builds the object from hash

@@ -68,8 +68,7 @@ describe 'TagApi' do
   # unit tests for list_tags
   # List all tags
   # @param [Hash] opts the optional parameters
-  # @option opts [Integer] :page_offset The number of items to skip before starting to collect the result set.
-  # @option opts [Integer] :page_limit The numbers of items to return.
+  # @option opts [PaginationOptions] :page Specifies the pagination requirements.
   # @return [ArrayOfTagsResponse]
   describe 'list_tags test' do
     it 'should work' do

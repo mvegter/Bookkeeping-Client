@@ -13,36 +13,27 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module OpenapiClient
-  # An Error object.
-  class Error
-    # The HTTP status code applicable to this problem.
-    attr_accessor :status
+  # Specifies the pagination requirements of a request.
+  class PaginationOptions
+    # The numbers of items to return.
+    attr_accessor :limit
 
-    # A short, human-readable summary of the problem.
-    attr_accessor :title
-
-    # A human-readable explanation specific to this occurrence of the problem.
-    attr_accessor :detail
-
-    attr_accessor :source
+    # The number of items to skip before starting to collect the result set.
+    attr_accessor :offset
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'status' => :'status',
-        :'title' => :'title',
-        :'detail' => :'detail',
-        :'source' => :'source'
+        :'limit' => :'limit',
+        :'offset' => :'offset'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'status' => :'String',
-        :'title' => :'String',
-        :'detail' => :'String',
-        :'source' => :'ErrorSource'
+        :'limit' => :'Integer',
+        :'offset' => :'Integer'
       }
     end
 
@@ -56,31 +47,27 @@ module OpenapiClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `OpenapiClient::Error` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `OpenapiClient::PaginationOptions` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `OpenapiClient::Error`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `OpenapiClient::PaginationOptions`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
+      if attributes.key?(:'limit')
+        self.limit = attributes[:'limit']
+      else
+        self.limit = 100
       end
 
-      if attributes.key?(:'title')
-        self.title = attributes[:'title']
-      end
-
-      if attributes.key?(:'detail')
-        self.detail = attributes[:'detail']
-      end
-
-      if attributes.key?(:'source')
-        self.source = attributes[:'source']
+      if attributes.key?(:'offset')
+        self.offset = attributes[:'offset']
+      else
+        self.offset = 0
       end
     end
 
@@ -88,12 +75,16 @@ module OpenapiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @status.nil?
-        invalid_properties.push('invalid value for "status", status cannot be nil.')
+      if !@limit.nil? && @limit > 100
+        invalid_properties.push('invalid value for "limit", must be smaller than or equal to 100.')
       end
 
-      if @title.nil?
-        invalid_properties.push('invalid value for "title", title cannot be nil.')
+      if !@limit.nil? && @limit < 1
+        invalid_properties.push('invalid value for "limit", must be greater than or equal to 1.')
+      end
+
+      if !@offset.nil? && @offset < 0
+        invalid_properties.push('invalid value for "offset", must be greater than or equal to 0.')
       end
 
       invalid_properties
@@ -102,9 +93,34 @@ module OpenapiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @status.nil?
-      return false if @title.nil?
+      return false if !@limit.nil? && @limit > 100
+      return false if !@limit.nil? && @limit < 1
+      return false if !@offset.nil? && @offset < 0
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] limit Value to be assigned
+    def limit=(limit)
+      if !limit.nil? && limit > 100
+        fail ArgumentError, 'invalid value for "limit", must be smaller than or equal to 100.'
+      end
+
+      if !limit.nil? && limit < 1
+        fail ArgumentError, 'invalid value for "limit", must be greater than or equal to 1.'
+      end
+
+      @limit = limit
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] offset Value to be assigned
+    def offset=(offset)
+      if !offset.nil? && offset < 0
+        fail ArgumentError, 'invalid value for "offset", must be greater than or equal to 0.'
+      end
+
+      @offset = offset
     end
 
     # Checks equality by comparing each attribute.
@@ -112,10 +128,8 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          status == o.status &&
-          title == o.title &&
-          detail == o.detail &&
-          source == o.source
+          limit == o.limit &&
+          offset == o.offset
     end
 
     # @see the `==` method
@@ -127,7 +141,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [status, title, detail, source].hash
+      [limit, offset].hash
     end
 
     # Builds the object from hash
