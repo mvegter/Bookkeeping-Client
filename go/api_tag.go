@@ -340,16 +340,14 @@ func (a *TagApiService) GetTagById(ctx _context.Context, tagId int64) (TagRespon
 
 // ListTagsOpts Optional parameters for the method 'ListTags'
 type ListTagsOpts struct {
-    PageOffset optional.Int32
-    PageLimit optional.Int32
+    Page optional.Interface
 }
 
 /*
 ListTags List all tags
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ListTagsOpts - Optional Parameters:
- * @param "PageOffset" (optional.Int32) -  The number of items to skip before starting to collect the result set.
- * @param "PageLimit" (optional.Int32) -  The numbers of items to return.
+ * @param "Page" (optional.Interface of PaginationOptions) -  Specifies the pagination requirements.
 @return ArrayOfTagsResponse
 */
 func (a *TagApiService) ListTags(ctx _context.Context, localVarOptionals *ListTagsOpts) (ArrayOfTagsResponse, *_nethttp.Response, error) {
@@ -368,11 +366,8 @@ func (a *TagApiService) ListTags(ctx _context.Context, localVarOptionals *ListTa
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
-	if localVarOptionals != nil && localVarOptionals.PageOffset.IsSet() {
-		localVarQueryParams.Add("page[offset]", parameterToString(localVarOptionals.PageOffset.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.PageLimit.IsSet() {
-		localVarQueryParams.Add("page[limit]", parameterToString(localVarOptionals.PageLimit.Value(), ""))
+	if localVarOptionals != nil && localVarOptionals.Page.IsSet() {
+		localVarQueryParams.Add("page", parameterToString(localVarOptionals.Page.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
