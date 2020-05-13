@@ -97,7 +97,7 @@ No authorization required
 
 ## list_tags
 
-> crate::models::ArrayOfTagsResponse list_tags(page_offset, page_limit)
+> crate::models::ArrayOfTagsResponse list_tags(page)
 List all tags
 
 ### Parameters
@@ -105,8 +105,7 @@ List all tags
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**page_offset** | Option<**i32**> | The number of items to skip before starting to collect the result set. |  |[default to 0]
-**page_limit** | Option<**i32**> | The numbers of items to return. |  |[default to 100]
+**page** | Option<[**crate::models::PaginationOptions**](.md)> | Specifies the pagination requirements. |  |
 
 ### Return type
 

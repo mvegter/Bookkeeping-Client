@@ -35,7 +35,7 @@ impl<C: hyper::client::Connect> LogApiClient<C> {
 pub trait LogApi {
     fn create_log(&self, create_log: crate::models::CreateLog) -> Box<dyn Future<Item = crate::models::LogResponse, Error = Error<serde_json::Value>>>;
     fn get_log_by_id(&self, log_id: i64) -> Box<dyn Future<Item = crate::models::LogResponse, Error = Error<serde_json::Value>>>;
-    fn list_logs(&self, filter_origin: Option<crate::models::crate::models::LogOrigin>, page_offset: Option<i32>, page_limit: Option<i32>, sort: Option<Vec<String>>) -> Box<dyn Future<Item = crate::models::ArrayOfLogsResponse, Error = Error<serde_json::Value>>>;
+    fn list_logs(&self, page: Option<crate::models::crate::models::PaginationOptions>, filter: Option<crate::models::crate::models::FilterLogsOptions>, sort: Option<crate::models::crate::models::SortLogsOptions>) -> Box<dyn Future<Item = crate::models::ArrayOfLogsResponse, Error = Error<serde_json::Value>>>;
     fn list_tags_by_log_id(&self, log_id: i64) -> Box<dyn Future<Item = crate::models::ArrayOfTagsResponse, Error = Error<serde_json::Value>>>;
 }
 
@@ -56,20 +56,17 @@ impl<C: hyper::client::Connect>LogApi for LogApiClient<C> {
         req.execute(self.configuration.borrow())
     }
 
-    fn list_logs(&self, filter_origin: Option<crate::models::crate::models::LogOrigin>, page_offset: Option<i32>, page_limit: Option<i32>, sort: Option<Vec<String>>) -> Box<dyn Future<Item = crate::models::ArrayOfLogsResponse, Error = Error<serde_json::Value>>> {
+    fn list_logs(&self, page: Option<crate::models::crate::models::PaginationOptions>, filter: Option<crate::models::crate::models::FilterLogsOptions>, sort: Option<crate::models::crate::models::SortLogsOptions>) -> Box<dyn Future<Item = crate::models::ArrayOfLogsResponse, Error = Error<serde_json::Value>>> {
         let mut req = __internal_request::Request::new(hyper::Method::Get, "/logs".to_string())
         ;
-        if let Some(ref s) = filter_origin {
-            req = req.with_query_param("filter[origin]".to_string(), s.to_string());
+        if let Some(ref s) = page {
+            req = req.with_query_param("page".to_string(), s.to_string());
         }
-        if let Some(ref s) = page_offset {
-            req = req.with_query_param("page[offset]".to_string(), s.to_string());
-        }
-        if let Some(ref s) = page_limit {
-            req = req.with_query_param("page[limit]".to_string(), s.to_string());
+        if let Some(ref s) = filter {
+            req = req.with_query_param("filter".to_string(), s.to_string());
         }
         if let Some(ref s) = sort {
-            req = req.with_query_param("sort".to_string(), s.join(",").to_string());
+            req = req.with_query_param("sort".to_string(), s.to_string());
         }
 
         req.execute(self.configuration.borrow())

@@ -69,7 +69,7 @@ No authorization required
 
 ## list_logs
 
-> crate::models::ArrayOfLogsResponse list_logs(filter_origin, page_offset, page_limit, sort)
+> crate::models::ArrayOfLogsResponse list_logs(page, filter, sort)
 List all logs
 
 ### Parameters
@@ -77,10 +77,9 @@ List all logs
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**filter_origin** | Option<[**crate::models::LogOrigin**](.md)> | Filter logs by their origin |  |
-**page_offset** | Option<**i32**> | The number of items to skip before starting to collect the result set. |  |[default to 0]
-**page_limit** | Option<**i32**> | The numbers of items to return. |  |[default to 100]
-**sort** | Option<[**Vec<String>**](String.md)> | The sort order of the returned items. |  |[default to ["-id"]]
+**page** | Option<[**crate::models::PaginationOptions**](.md)> | Specifies the pagination requirements. |  |
+**filter** | Option<[**crate::models::FilterLogsOptions**](.md)> | Specifies the filter requirements. |  |
+**sort** | Option<[**crate::models::SortLogsOptions**](.md)> | Specifies the sorting requirements. |  |
 
 ### Return type
 
