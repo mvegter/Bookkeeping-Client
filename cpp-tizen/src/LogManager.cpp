@@ -450,7 +450,7 @@ static bool listLogsProcessor(MemoryStruct_s p_chunk, long code, char* errormsg,
 }
 
 static bool listLogsHelper(char * accessToken,
-	std::string filterLeft_Square_BracketoriginRight_Square_Bracket, int pageLeft_Square_BracketoffsetRight_Square_Bracket, int pageLeft_Square_BracketlimitRight_Square_Bracket, std::list<std::string> sort, 
+	LogOrigin filterLeft_Square_BracketoriginRight_Square_Bracket, int pageLeft_Square_BracketoffsetRight_Square_Bracket, int pageLeft_Square_BracketlimitRight_Square_Bracket, std::list<std::string> sort, 
 	void(* handler)(ArrayOfLogsResponse, Error, void* )
 	, void* userData, bool isAsync)
 {
@@ -468,7 +468,7 @@ static bool listLogsHelper(char * accessToken,
 	string itemAtq;
 	
 
-	itemAtq = stringify(&filterLeft_Square_BracketoriginRight_Square_Bracket, "std::string");
+	itemAtq = stringify(&filterLeft_Square_BracketoriginRight_Square_Bracket, "LogOrigin");
 	queryParams.insert(pair<string, string>("filter[origin]", itemAtq));
 	if( itemAtq.empty()==true){
 		queryParams.erase("filter[origin]");
@@ -551,7 +551,7 @@ static bool listLogsHelper(char * accessToken,
 
 
 bool LogManager::listLogsAsync(char * accessToken,
-	std::string filterLeft_Square_BracketoriginRight_Square_Bracket, int pageLeft_Square_BracketoffsetRight_Square_Bracket, int pageLeft_Square_BracketlimitRight_Square_Bracket, std::list<std::string> sort, 
+	LogOrigin filterLeft_Square_BracketoriginRight_Square_Bracket, int pageLeft_Square_BracketoffsetRight_Square_Bracket, int pageLeft_Square_BracketlimitRight_Square_Bracket, std::list<std::string> sort, 
 	void(* handler)(ArrayOfLogsResponse, Error, void* )
 	, void* userData)
 {
@@ -561,7 +561,7 @@ bool LogManager::listLogsAsync(char * accessToken,
 }
 
 bool LogManager::listLogsSync(char * accessToken,
-	std::string filterLeft_Square_BracketoriginRight_Square_Bracket, int pageLeft_Square_BracketoffsetRight_Square_Bracket, int pageLeft_Square_BracketlimitRight_Square_Bracket, std::list<std::string> sort, 
+	LogOrigin filterLeft_Square_BracketoriginRight_Square_Bracket, int pageLeft_Square_BracketoffsetRight_Square_Bracket, int pageLeft_Square_BracketlimitRight_Square_Bracket, std::list<std::string> sort, 
 	void(* handler)(ArrayOfLogsResponse, Error, void* )
 	, void* userData)
 {

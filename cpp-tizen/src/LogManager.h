@@ -9,6 +9,7 @@
 #include "ArrayOfTagsResponse.h"
 #include "CreateLog.h"
 #include "Errors.h"
+#include "LogOrigin.h"
 #include "LogResponse.h"
 #include "Error.h"
 
@@ -94,7 +95,7 @@ bool getLogByIdAsync(char * accessToken,
  * \param userData The user data to be passed to the callback function.
  */
 bool listLogsSync(char * accessToken,
-	std::string filterLeft_Square_BracketoriginRight_Square_Bracket, int pageLeft_Square_BracketoffsetRight_Square_Bracket, int pageLeft_Square_BracketlimitRight_Square_Bracket, std::list<std::string> sort, 
+	LogOrigin filterLeft_Square_BracketoriginRight_Square_Bracket, int pageLeft_Square_BracketoffsetRight_Square_Bracket, int pageLeft_Square_BracketlimitRight_Square_Bracket, std::list<std::string> sort, 
 	void(* handler)(ArrayOfLogsResponse, Error, void* )
 	, void* userData);
 
@@ -110,7 +111,7 @@ bool listLogsSync(char * accessToken,
  * \param userData The user data to be passed to the callback function.
  */
 bool listLogsAsync(char * accessToken,
-	std::string filterLeft_Square_BracketoriginRight_Square_Bracket, int pageLeft_Square_BracketoffsetRight_Square_Bracket, int pageLeft_Square_BracketlimitRight_Square_Bracket, std::list<std::string> sort, 
+	LogOrigin filterLeft_Square_BracketoriginRight_Square_Bracket, int pageLeft_Square_BracketoffsetRight_Square_Bracket, int pageLeft_Square_BracketlimitRight_Square_Bracket, std::list<std::string> sort, 
 	void(* handler)(ArrayOfLogsResponse, Error, void* )
 	, void* userData);
 

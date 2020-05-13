@@ -69,8 +69,6 @@ Method | HTTP request | Description
 *getTagByIdASync* | *GET* /tags/{tagId} | Gets a tag by Id.
 *listTagsSync* | *GET* /tags | List all tags.
 *listTagsASync* | *GET* /tags | List all tags.
-*listTagsByLogIdSync* | *GET* /logs/{logId}/tags | Lists all tags associated with a log.
-*listTagsByLogIdASync* | *GET* /logs/{logId}/tags | Lists all tags associated with a log.
 
 
 ## What are the Model files for the data structures/objects?
@@ -85,6 +83,7 @@ Class | Description
  *Error* | An Error object.
  *Errors* | A list of Error objects.
  *Log* | Describes an intervention or an event that happened.
+ *LogOrigin* | Type of creator.
  *LogResponse* | Response containing a single log.
  *Tag* | A label attached to something for the purpose of identification.
  *TagResponse* | Response containing a single tag.
