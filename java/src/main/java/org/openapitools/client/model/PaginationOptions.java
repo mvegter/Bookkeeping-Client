@@ -25,61 +25,66 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * API information
+ * Specifies the pagination requirements of a request.
  */
-@ApiModel(description = "API information")
+@ApiModel(description = "Specifies the pagination requirements of a request.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-13T12:46:49.577+01:00[Europe/London]")
-public class ApiInformation {
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+public class PaginationOptions {
+  public static final String SERIALIZED_NAME_LIMIT = "limit";
+  @SerializedName(SERIALIZED_NAME_LIMIT)
+  private Integer limit = 100;
 
-  public static final String SERIALIZED_NAME_VERSION = "version";
-  @SerializedName(SERIALIZED_NAME_VERSION)
-  private String version;
+  public static final String SERIALIZED_NAME_OFFSET = "offset";
+  @SerializedName(SERIALIZED_NAME_OFFSET)
+  private Integer offset = 0;
 
 
-  public ApiInformation name(String name) {
+  public PaginationOptions limit(Integer limit) {
     
-    this.name = name;
+    this.limit = limit;
     return this;
   }
 
    /**
-   * Name of the API
-   * @return name
+   * The numbers of items to return.
+   * minimum: 1
+   * maximum: 100
+   * @return limit
   **/
-  @ApiModelProperty(required = true, value = "Name of the API")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The numbers of items to return.")
 
-  public String getName() {
-    return name;
+  public Integer getLimit() {
+    return limit;
   }
 
 
-  public void setName(String name) {
-    this.name = name;
+  public void setLimit(Integer limit) {
+    this.limit = limit;
   }
 
 
-  public ApiInformation version(String version) {
+  public PaginationOptions offset(Integer offset) {
     
-    this.version = version;
+    this.offset = offset;
     return this;
   }
 
    /**
-   * Version of the API
-   * @return version
+   * The number of items to skip before starting to collect the result set.
+   * minimum: 0
+   * @return offset
   **/
-  @ApiModelProperty(required = true, value = "Version of the API")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The number of items to skip before starting to collect the result set.")
 
-  public String getVersion() {
-    return version;
+  public Integer getOffset() {
+    return offset;
   }
 
 
-  public void setVersion(String version) {
-    this.version = version;
+  public void setOffset(Integer offset) {
+    this.offset = offset;
   }
 
 
@@ -91,23 +96,23 @@ public class ApiInformation {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ApiInformation apiInformation = (ApiInformation) o;
-    return Objects.equals(this.name, apiInformation.name) &&
-        Objects.equals(this.version, apiInformation.version);
+    PaginationOptions paginationOptions = (PaginationOptions) o;
+    return Objects.equals(this.limit, paginationOptions.limit) &&
+        Objects.equals(this.offset, paginationOptions.offset);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, version);
+    return Objects.hash(limit, offset);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ApiInformation {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("class PaginationOptions {\n");
+    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
+    sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("}");
     return sb.toString();
   }

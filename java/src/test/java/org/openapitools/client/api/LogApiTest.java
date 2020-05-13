@@ -18,8 +18,10 @@ import org.openapitools.client.model.ArrayOfLogsResponse;
 import org.openapitools.client.model.ArrayOfTagsResponse;
 import org.openapitools.client.model.CreateLog;
 import org.openapitools.client.model.Errors;
-import org.openapitools.client.model.LogOrigin;
+import org.openapitools.client.model.FilterLogsOptions;
 import org.openapitools.client.model.LogResponse;
+import org.openapitools.client.model.PaginationOptions;
+import org.openapitools.client.model.SortLogsOptions;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -79,11 +81,10 @@ public class LogApiTest {
      */
     @Test
     public void listLogsTest() throws ApiException {
-        LogOrigin filterOrigin = null;
-        Integer pageOffset = null;
-        Integer pageLimit = null;
-        List<String> sort = null;
-        ArrayOfLogsResponse response = api.listLogs(filterOrigin, pageOffset, pageLimit, sort);
+        PaginationOptions page = null;
+        FilterLogsOptions filter = null;
+        SortLogsOptions sort = null;
+        ArrayOfLogsResponse response = api.listLogs(page, filter, sort);
 
         // TODO: test validations
     }

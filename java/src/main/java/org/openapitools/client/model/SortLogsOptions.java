@@ -23,38 +23,66 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.openapitools.client.model.Tag;
+import org.openapitools.client.model.SortOrder;
 
 /**
- * Response containing a single tag.
+ * Specifies the sorting requirements of a request.
  */
-@ApiModel(description = "Response containing a single tag.")
+@ApiModel(description = "Specifies the sorting requirements of a request.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-13T12:46:49.577+01:00[Europe/London]")
-public class TagResponse {
-  public static final String SERIALIZED_NAME_DATA = "data";
-  @SerializedName(SERIALIZED_NAME_DATA)
-  private Tag data;
+public class SortLogsOptions {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private SortOrder id;
+
+  public static final String SERIALIZED_NAME_TEXT = "text";
+  @SerializedName(SERIALIZED_NAME_TEXT)
+  private SortOrder text;
 
 
-  public TagResponse data(Tag data) {
+  public SortLogsOptions id(SortOrder id) {
     
-    this.data = data;
+    this.id = id;
     return this;
   }
 
    /**
-   * Get data
-   * @return data
+   * Get id
+   * @return id
   **/
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-  public Tag getData() {
-    return data;
+  public SortOrder getId() {
+    return id;
   }
 
 
-  public void setData(Tag data) {
-    this.data = data;
+  public void setId(SortOrder id) {
+    this.id = id;
+  }
+
+
+  public SortLogsOptions text(SortOrder text) {
+    
+    this.text = text;
+    return this;
+  }
+
+   /**
+   * Get text
+   * @return text
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public SortOrder getText() {
+    return text;
+  }
+
+
+  public void setText(SortOrder text) {
+    this.text = text;
   }
 
 
@@ -66,21 +94,23 @@ public class TagResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagResponse tagResponse = (TagResponse) o;
-    return Objects.equals(this.data, tagResponse.data);
+    SortLogsOptions sortLogsOptions = (SortLogsOptions) o;
+    return Objects.equals(this.id, sortLogsOptions.id) &&
+        Objects.equals(this.text, sortLogsOptions.text);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(id, text);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagResponse {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class SortLogsOptions {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("}");
     return sb.toString();
   }

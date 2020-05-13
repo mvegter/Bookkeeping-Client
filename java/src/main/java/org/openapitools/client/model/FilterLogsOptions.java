@@ -23,38 +23,39 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.openapitools.client.model.Tag;
+import org.openapitools.client.model.LogOrigin;
 
 /**
- * Response containing a single tag.
+ * Specifies the log related filter requirements for a request.
  */
-@ApiModel(description = "Response containing a single tag.")
+@ApiModel(description = "Specifies the log related filter requirements for a request.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-13T12:46:49.577+01:00[Europe/London]")
-public class TagResponse {
-  public static final String SERIALIZED_NAME_DATA = "data";
-  @SerializedName(SERIALIZED_NAME_DATA)
-  private Tag data;
+public class FilterLogsOptions {
+  public static final String SERIALIZED_NAME_ORIGIN = "origin";
+  @SerializedName(SERIALIZED_NAME_ORIGIN)
+  private LogOrigin origin;
 
 
-  public TagResponse data(Tag data) {
+  public FilterLogsOptions origin(LogOrigin origin) {
     
-    this.data = data;
+    this.origin = origin;
     return this;
   }
 
    /**
-   * Get data
-   * @return data
+   * Get origin
+   * @return origin
   **/
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
-  public Tag getData() {
-    return data;
+  public LogOrigin getOrigin() {
+    return origin;
   }
 
 
-  public void setData(Tag data) {
-    this.data = data;
+  public void setOrigin(LogOrigin origin) {
+    this.origin = origin;
   }
 
 
@@ -66,21 +67,21 @@ public class TagResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagResponse tagResponse = (TagResponse) o;
-    return Objects.equals(this.data, tagResponse.data);
+    FilterLogsOptions filterLogsOptions = (FilterLogsOptions) o;
+    return Objects.equals(this.origin, filterLogsOptions.origin);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(origin);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagResponse {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class FilterLogsOptions {\n");
+    sb.append("    origin: ").append(toIndentedString(origin)).append("\n");
     sb.append("}");
     return sb.toString();
   }

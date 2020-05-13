@@ -21,56 +21,39 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.openapitools.client.model.ErrorSource;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for Error
+ * Model tests for PaginationOptions
  */
-public class ErrorTest {
-    private final Error model = new Error();
+public class PaginationOptionsTest {
+    private final PaginationOptions model = new PaginationOptions();
 
     /**
-     * Model tests for Error
+     * Model tests for PaginationOptions
      */
     @Test
-    public void testError() {
-        // TODO: test Error
+    public void testPaginationOptions() {
+        // TODO: test PaginationOptions
     }
 
     /**
-     * Test the property 'status'
+     * Test the property 'limit'
      */
     @Test
-    public void statusTest() {
-        // TODO: test status
+    public void limitTest() {
+        // TODO: test limit
     }
 
     /**
-     * Test the property 'title'
+     * Test the property 'offset'
      */
     @Test
-    public void titleTest() {
-        // TODO: test title
-    }
-
-    /**
-     * Test the property 'detail'
-     */
-    @Test
-    public void detailTest() {
-        // TODO: test detail
-    }
-
-    /**
-     * Test the property 'source'
-     */
-    @Test
-    public void sourceTest() {
-        // TODO: test source
+    public void offsetTest() {
+        // TODO: test offset
     }
 
 }

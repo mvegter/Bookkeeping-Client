@@ -23,38 +23,38 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.openapitools.client.model.Tag;
 
 /**
- * Response containing a single tag.
+ * An object containing references to the source of the error.
  */
-@ApiModel(description = "Response containing a single tag.")
+@ApiModel(description = "An object containing references to the source of the error.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-13T12:46:49.577+01:00[Europe/London]")
-public class TagResponse {
-  public static final String SERIALIZED_NAME_DATA = "data";
-  @SerializedName(SERIALIZED_NAME_DATA)
-  private Tag data;
+public class ErrorSource {
+  public static final String SERIALIZED_NAME_POINTER = "pointer";
+  @SerializedName(SERIALIZED_NAME_POINTER)
+  private String pointer;
 
 
-  public TagResponse data(Tag data) {
+  public ErrorSource pointer(String pointer) {
     
-    this.data = data;
+    this.pointer = pointer;
     return this;
   }
 
    /**
-   * Get data
-   * @return data
+   * A pointer to the associated entity in the request document.
+   * @return pointer
   **/
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A pointer to the associated entity in the request document.")
 
-  public Tag getData() {
-    return data;
+  public String getPointer() {
+    return pointer;
   }
 
 
-  public void setData(Tag data) {
-    this.data = data;
+  public void setPointer(String pointer) {
+    this.pointer = pointer;
   }
 
 
@@ -66,21 +66,21 @@ public class TagResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagResponse tagResponse = (TagResponse) o;
-    return Objects.equals(this.data, tagResponse.data);
+    ErrorSource errorSource = (ErrorSource) o;
+    return Objects.equals(this.pointer, errorSource.pointer);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(pointer);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagResponse {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class ErrorSource {\n");
+    sb.append("    pointer: ").append(toIndentedString(pointer)).append("\n");
     sb.append("}");
     return sb.toString();
   }

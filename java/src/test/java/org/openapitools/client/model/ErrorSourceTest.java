@@ -21,56 +21,31 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.openapitools.client.model.ErrorSource;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for Error
+ * Model tests for ErrorSource
  */
-public class ErrorTest {
-    private final Error model = new Error();
+public class ErrorSourceTest {
+    private final ErrorSource model = new ErrorSource();
 
     /**
-     * Model tests for Error
+     * Model tests for ErrorSource
      */
     @Test
-    public void testError() {
-        // TODO: test Error
+    public void testErrorSource() {
+        // TODO: test ErrorSource
     }
 
     /**
-     * Test the property 'status'
+     * Test the property 'pointer'
      */
     @Test
-    public void statusTest() {
-        // TODO: test status
-    }
-
-    /**
-     * Test the property 'title'
-     */
-    @Test
-    public void titleTest() {
-        // TODO: test title
-    }
-
-    /**
-     * Test the property 'detail'
-     */
-    @Test
-    public void detailTest() {
-        // TODO: test detail
-    }
-
-    /**
-     * Test the property 'source'
-     */
-    @Test
-    public void sourceTest() {
-        // TODO: test source
+    public void pointerTest() {
+        // TODO: test pointer
     }
 
 }
