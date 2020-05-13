@@ -37,10 +37,15 @@ from openapi_client.models.create_log import CreateLog
 from openapi_client.models.create_tag import CreateTag
 from openapi_client.models.deploy_information import DeployInformation
 from openapi_client.models.error import Error
+from openapi_client.models.error_source import ErrorSource
 from openapi_client.models.errors import Errors
+from openapi_client.models.filter_logs_options import FilterLogsOptions
 from openapi_client.models.log import Log
 from openapi_client.models.log_origin import LogOrigin
 from openapi_client.models.log_response import LogResponse
+from openapi_client.models.pagination_options import PaginationOptions
+from openapi_client.models.sort_logs_options import SortLogsOptions
+from openapi_client.models.sort_order import SortOrder
 from openapi_client.models.tag import Tag
 from openapi_client.models.tag_response import TagResponse
 

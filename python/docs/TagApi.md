@@ -200,7 +200,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_tags**
-> ArrayOfTagsResponse list_tags(page_offset=page_offset, page_limit=page_limit)
+> ArrayOfTagsResponse list_tags(page=page)
 
 List all tags
 
@@ -223,12 +223,11 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.TagApi(api_client)
-    page_offset = 0 # int | The number of items to skip before starting to collect the result set. (optional) (default to 0)
-page_limit = 100 # int | The numbers of items to return. (optional) (default to 100)
+    page = openapi_client.PaginationOptions() # PaginationOptions | Specifies the pagination requirements. (optional)
 
     try:
         # List all tags
-        api_response = api_instance.list_tags(page_offset=page_offset, page_limit=page_limit)
+        api_response = api_instance.list_tags(page=page)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling TagApi->list_tags: %s\n" % e)
@@ -238,8 +237,7 @@ page_limit = 100 # int | The numbers of items to return. (optional) (default to 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_offset** | **int**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
- **page_limit** | **int**| The numbers of items to return. | [optional] [default to 100]
+ **page** | [**PaginationOptions**](.md)| Specifies the pagination requirements. | [optional] 
 
 ### Return type
 

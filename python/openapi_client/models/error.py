@@ -35,16 +35,18 @@ class Error(object):
     openapi_types = {
         'status': 'str',
         'title': 'str',
-        'detail': 'str'
+        'detail': 'str',
+        'source': 'ErrorSource'
     }
 
     attribute_map = {
         'status': 'status',
         'title': 'title',
-        'detail': 'detail'
+        'detail': 'detail',
+        'source': 'source'
     }
 
-    def __init__(self, status=None, title=None, detail=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, status=None, title=None, detail=None, source=None, local_vars_configuration=None):  # noqa: E501
         """Error - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -53,12 +55,15 @@ class Error(object):
         self._status = None
         self._title = None
         self._detail = None
+        self._source = None
         self.discriminator = None
 
         self.status = status
         self.title = title
         if detail is not None:
             self.detail = detail
+        if source is not None:
+            self.source = source
 
     @property
     def status(self):
@@ -132,6 +137,27 @@ class Error(object):
         """
 
         self._detail = detail
+
+    @property
+    def source(self):
+        """Gets the source of this Error.  # noqa: E501
+
+
+        :return: The source of this Error.  # noqa: E501
+        :rtype: ErrorSource
+        """
+        return self._source
+
+    @source.setter
+    def source(self, source):
+        """Sets the source of this Error.
+
+
+        :param source: The source of this Error.  # noqa: E501
+        :type: ErrorSource
+        """
+
+        self._source = source
 
     def to_dict(self):
         """Returns the model properties as a dict"""

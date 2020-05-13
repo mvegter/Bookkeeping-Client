@@ -16,11 +16,11 @@ import unittest
 import datetime
 
 import openapi_client
-from openapi_client.models.error import Error  # noqa: E501
+from openapi_client.models.sort_logs_options import SortLogsOptions  # noqa: E501
 from openapi_client.rest import ApiException
 
-class TestError(unittest.TestCase):
-    """Error unit test stubs"""
+class TestSortLogsOptions(unittest.TestCase):
+    """SortLogsOptions unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,27 +29,22 @@ class TestError(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test Error
+        """Test SortLogsOptions
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = openapi_client.models.error.Error()  # noqa: E501
+        # model = openapi_client.models.sort_logs_options.SortLogsOptions()  # noqa: E501
         if include_optional :
-            return Error(
-                status = '0', 
-                title = '0', 
-                detail = '0', 
-                source = openapi_client.models.error_source.ErrorSource(
-                    pointer = '0', )
+            return SortLogsOptions(
+                id = 'asc', 
+                text = 'asc'
             )
         else :
-            return Error(
-                status = '0',
-                title = '0',
+            return SortLogsOptions(
         )
 
-    def testError(self):
-        """Test Error"""
+    def testSortLogsOptions(self):
+        """Test SortLogsOptions"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 
