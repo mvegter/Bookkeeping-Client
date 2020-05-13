@@ -69,7 +69,7 @@ class Tag(object):
     def id(self):
         """Gets the id of this Tag.  # noqa: E501
 
-        Id of the tag.  # noqa: E501
+        The unique identifier of this entity.  # noqa: E501
 
         :return: The id of this Tag.  # noqa: E501
         :rtype: int
@@ -80,7 +80,7 @@ class Tag(object):
     def id(self, id):
         """Sets the id of this Tag.
 
-        Id of the tag.  # noqa: E501
+        The unique identifier of this entity.  # noqa: E501
 
         :param id: The id of this Tag.  # noqa: E501
         :type: int

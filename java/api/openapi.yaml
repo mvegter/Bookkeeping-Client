@@ -1,5 +1,8 @@
 openapi: 3.0.0
 info:
+  license:
+    name: GNU General Public License v3.0
+    url: http://alice-o2.web.cern.ch/license
   title: ALICE Bookkeeping
   version: 0.0.0
 servers:
@@ -39,10 +42,7 @@ paths:
         name: filter[origin]
         required: false
         schema:
-          enum:
-          - human
-          - process
-          type: string
+          $ref: '#/components/schemas/LogOrigin'
         style: form
       - description: The number of items to skip before starting to collect the result
           set.
@@ -139,8 +139,7 @@ paths:
         name: logId
         required: true
         schema:
-          format: int64
-          type: integer
+          $ref: '#/components/schemas/EntityId'
         style: simple
       responses:
         "200":
@@ -181,8 +180,7 @@ paths:
         name: logId
         required: true
         schema:
-          format: int64
-          type: integer
+          $ref: '#/components/schemas/EntityId'
         style: simple
       responses:
         "200":
@@ -212,7 +210,6 @@ paths:
       summary: Lists all tags associated with a log
       tags:
       - log
-      - tag
       x-accepts: application/json
   /status:
     get:
@@ -331,8 +328,7 @@ paths:
         name: tagId
         required: true
         schema:
-          format: int64
-          type: integer
+          $ref: '#/components/schemas/EntityId'
         style: simple
       responses:
         "200":
@@ -373,8 +369,7 @@ paths:
         name: tagId
         required: true
         schema:
-          format: int64
-          type: integer
+          $ref: '#/components/schemas/EntityId'
         style: simple
       responses:
         "200":
@@ -414,10 +409,7 @@ components:
       name: filter[origin]
       required: false
       schema:
-        enum:
-        - human
-        - process
-        type: string
+        $ref: '#/components/schemas/LogOrigin'
       style: form
     LogId:
       description: The id of the log to retrieve
@@ -426,8 +418,7 @@ components:
       name: logId
       required: true
       schema:
-        format: int64
-        type: integer
+        $ref: '#/components/schemas/EntityId'
       style: simple
     PageLimit:
       description: The numbers of items to return.
@@ -473,8 +464,7 @@ components:
       name: tagId
       required: true
       schema:
-        format: int64
-        type: integer
+        $ref: '#/components/schemas/EntityId'
       style: simple
   requestBodies:
     CreateLog:
@@ -570,8 +560,7 @@ components:
       description: Response containing multiple logs.
       example:
         data:
-        - origin: human
-          title: title
+        - title: title
           entryId: 0
           tags:
           - createdAt: createdAt
@@ -582,8 +571,7 @@ components:
             updateAt: updateAt
             id: 6
             text: text
-        - origin: human
-          title: title
+        - title: title
           entryId: 0
           tags:
           - createdAt: createdAt
@@ -669,6 +657,10 @@ components:
       - age
       - start
       type: object
+    EntityId:
+      description: The unique identifier of this entity.
+      format: int64
+      type: integer
     Error:
       description: An Error object.
       properties:
@@ -701,7 +693,6 @@ components:
     Log:
       description: Describes an intervention or an event that happened.
       example:
-        origin: human
         title: title
         entryId: 0
         tags:
@@ -715,18 +706,14 @@ components:
           text: text
       properties:
         entryId:
-          description: Id of the log.
+          description: The unique identifier of this entity.
           format: int64
           type: integer
         title:
           description: Title of the log.
           type: string
         origin:
-          description: Type of creator.
-          enum:
-          - human
-          - process
-          type: string
+          $ref: '#/components/schemas/LogOrigin'
         tags:
           description: A list of Tag objects.
           items:
@@ -738,11 +725,16 @@ components:
       - tags
       - title
       type: object
+    LogOrigin:
+      description: Type of creator.
+      enum:
+      - human
+      - process
+      type: string
     LogResponse:
       description: Response containing a single log.
       example:
         data:
-          origin: human
           title: title
           entryId: 0
           tags:
@@ -770,7 +762,7 @@ components:
         text: text
       properties:
         id:
-          description: Id of the tag.
+          description: The unique identifier of this entity.
           format: int64
           type: integer
         text:

@@ -18,6 +18,7 @@ import org.openapitools.client.model.ArrayOfLogsResponse;
 import org.openapitools.client.model.ArrayOfTagsResponse;
 import org.openapitools.client.model.CreateLog;
 import org.openapitools.client.model.Errors;
+import org.openapitools.client.model.LogOrigin;
 import org.openapitools.client.model.LogResponse;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -78,7 +79,7 @@ public class LogApiTest {
      */
     @Test
     public void listLogsTest() throws ApiException {
-        String filterOrigin = null;
+        LogOrigin filterOrigin = null;
         Integer pageOffset = null;
         Integer pageLimit = null;
         List<String> sort = null;

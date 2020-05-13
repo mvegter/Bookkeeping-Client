@@ -35,7 +35,7 @@ class Log(object):
     openapi_types = {
         'entry_id': 'int',
         'title': 'str',
-        'origin': 'str',
+        'origin': 'LogOrigin',
         'tags': 'list[Tag]'
     }
 
@@ -67,7 +67,7 @@ class Log(object):
     def entry_id(self):
         """Gets the entry_id of this Log.  # noqa: E501
 
-        Id of the log.  # noqa: E501
+        The unique identifier of this entity.  # noqa: E501
 
         :return: The entry_id of this Log.  # noqa: E501
         :rtype: int
@@ -78,7 +78,7 @@ class Log(object):
     def entry_id(self, entry_id):
         """Sets the entry_id of this Log.
 
-        Id of the log.  # noqa: E501
+        The unique identifier of this entity.  # noqa: E501
 
         :param entry_id: The entry_id of this Log.  # noqa: E501
         :type: int
@@ -117,10 +117,9 @@ class Log(object):
     def origin(self):
         """Gets the origin of this Log.  # noqa: E501
 
-        Type of creator.  # noqa: E501
 
         :return: The origin of this Log.  # noqa: E501
-        :rtype: str
+        :rtype: LogOrigin
         """
         return self._origin
 
@@ -128,19 +127,12 @@ class Log(object):
     def origin(self, origin):
         """Sets the origin of this Log.
 
-        Type of creator.  # noqa: E501
 
         :param origin: The origin of this Log.  # noqa: E501
-        :type: str
+        :type: LogOrigin
         """
         if self.local_vars_configuration.client_side_validation and origin is None:  # noqa: E501
             raise ValueError("Invalid value for `origin`, must not be `None`")  # noqa: E501
-        allowed_values = ["human", "process"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and origin not in allowed_values:  # noqa: E501
-            raise ValueError(
-                "Invalid value for `origin` ({0}), must be one of {1}"  # noqa: E501
-                .format(origin, allowed_values)
-            )
 
         self._origin = origin
 

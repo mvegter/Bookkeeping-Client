@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import LogOrigin from './LogOrigin';
 import Tag from './Tag';
 
 /**
@@ -24,9 +25,9 @@ class Log {
      * Constructs a new <code>Log</code>.
      * Describes an intervention or an event that happened.
      * @alias module:model/Log
-     * @param entryId {Number} Id of the log.
+     * @param entryId {Number} The unique identifier of this entity.
      * @param title {String} Title of the log.
-     * @param origin {module:model/Log.OriginEnum} Type of creator.
+     * @param origin {module:model/LogOrigin} 
      * @param tags {Array.<module:model/Tag>} A list of Tag objects.
      */
     constructor(entryId, title, origin, tags) { 
@@ -64,7 +65,7 @@ class Log {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
             if (data.hasOwnProperty('origin')) {
-                obj['origin'] = ApiClient.convertToType(data['origin'], 'String');
+                obj['origin'] = LogOrigin.constructFromObject(data['origin']);
             }
             if (data.hasOwnProperty('tags')) {
                 obj['tags'] = ApiClient.convertToType(data['tags'], [Tag]);
@@ -77,7 +78,7 @@ class Log {
 }
 
 /**
- * Id of the log.
+ * The unique identifier of this entity.
  * @member {Number} entryId
  */
 Log.prototype['entryId'] = undefined;
@@ -89,8 +90,7 @@ Log.prototype['entryId'] = undefined;
 Log.prototype['title'] = undefined;
 
 /**
- * Type of creator.
- * @member {module:model/Log.OriginEnum} origin
+ * @member {module:model/LogOrigin} origin
  */
 Log.prototype['origin'] = undefined;
 
@@ -102,27 +102,6 @@ Log.prototype['tags'] = undefined;
 
 
 
-
-
-/**
- * Allowed values for the <code>origin</code> property.
- * @enum {String}
- * @readonly
- */
-Log['OriginEnum'] = {
-
-    /**
-     * value: "human"
-     * @const
-     */
-    "human": "human",
-
-    /**
-     * value: "process"
-     * @const
-     */
-    "process": "process"
-};
 
 
 

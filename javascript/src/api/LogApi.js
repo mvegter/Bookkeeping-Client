@@ -17,6 +17,7 @@ import ArrayOfLogsResponse from '../model/ArrayOfLogsResponse';
 import ArrayOfTagsResponse from '../model/ArrayOfTagsResponse';
 import CreateLog from '../model/CreateLog';
 import Errors from '../model/Errors';
+import LogOrigin from '../model/LogOrigin';
 import LogResponse from '../model/LogResponse';
 
 /**
@@ -132,7 +133,7 @@ export default class LogApi {
     /**
      * List all logs
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.filterOrigin Filter logs by their origin
+     * @param {module:model/LogOrigin} opts.filterOrigin Filter logs by their origin
      * @param {Number} opts.pageOffset The number of items to skip before starting to collect the result set. (default to 0)
      * @param {Number} opts.pageLimit The numbers of items to return. (default to 100)
      * @param {Array.<String>} opts.sort The sort order of the returned items.

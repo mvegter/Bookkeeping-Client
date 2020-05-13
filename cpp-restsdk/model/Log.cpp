@@ -27,7 +27,6 @@ Log::Log()
     m_EntryIdIsSet = false;
     m_Title = utility::conversions::to_string_t("");
     m_TitleIsSet = false;
-    m_Origin = utility::conversions::to_string_t("");
     m_OriginIsSet = false;
     m_TagsIsSet = false;
 }
@@ -95,7 +94,7 @@ bool Log::fromJson(const web::json::value& val)
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("origin"));
         if(!fieldValue.is_null())
         {
-            utility::string_t refVal_origin;
+            std::shared_ptr<LogOrigin> refVal_origin;
             ok &= ModelBase::fromJson(fieldValue, refVal_origin);
             setOrigin(refVal_origin);
         }
@@ -161,7 +160,7 @@ bool Log::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const util
     }
     if(multipart->hasContent(utility::conversions::to_string_t("origin")))
     {
-        utility::string_t refVal_origin;
+        std::shared_ptr<LogOrigin> refVal_origin;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("origin")), refVal_origin );
         setOrigin(refVal_origin);
     }
@@ -214,12 +213,12 @@ void Log::unsetTitle()
 {
     m_TitleIsSet = false;
 }
-utility::string_t Log::getOrigin() const
+std::shared_ptr<LogOrigin> Log::getOrigin() const
 {
     return m_Origin;
 }
 
-void Log::setOrigin(const utility::string_t& value)
+void Log::setOrigin(const std::shared_ptr<LogOrigin>& value)
 {
     m_Origin = value;
     m_OriginIsSet = true;

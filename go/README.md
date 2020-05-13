@@ -42,7 +42,6 @@ Class | Method | HTTP request | Description
 *TagApi* | [**GetLogsByTagId**](docs/TagApi.md#getlogsbytagid) | **Get** /tags/{tagId}/logs | Gets all logs with this tag id
 *TagApi* | [**GetTagById**](docs/TagApi.md#gettagbyid) | **Get** /tags/{tagId} | Gets a tag by Id
 *TagApi* | [**ListTags**](docs/TagApi.md#listtags) | **Get** /tags | List all tags
-*TagApi* | [**ListTagsByLogId**](docs/TagApi.md#listtagsbylogid) | **Get** /logs/{logId}/tags | Lists all tags associated with a log
 
 
 ## Documentation For Models
@@ -56,6 +55,7 @@ Class | Method | HTTP request | Description
  - [Error](docs/Error.md)
  - [Errors](docs/Errors.md)
  - [Log](docs/Log.md)
+ - [LogOrigin](docs/LogOrigin.md)
  - [LogResponse](docs/LogResponse.md)
  - [Tag](docs/Tag.md)
  - [TagResponse](docs/TagResponse.md)

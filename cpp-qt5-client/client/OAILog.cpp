@@ -83,7 +83,7 @@ QJsonObject OAILog::asJsonObject() const {
     if (m_title_isSet) {
         obj.insert(QString("title"), ::OpenAPI::toJsonValue(title));
     }
-    if (m_origin_isSet) {
+    if (origin.isSet()) {
         obj.insert(QString("origin"), ::OpenAPI::toJsonValue(origin));
     }
     if (tags.size() > 0) {
@@ -124,10 +124,10 @@ bool OAILog::is_title_Valid() const{
     return m_title_isValid;
 }
 
-QString OAILog::getOrigin() const {
+OAILogOrigin OAILog::getOrigin() const {
     return origin;
 }
-void OAILog::setOrigin(const QString &origin) {
+void OAILog::setOrigin(const OAILogOrigin &origin) {
     this->origin = origin;
     this->m_origin_isSet = true;
 }
@@ -169,7 +169,7 @@ bool OAILog::isSet() const {
             break;
         }
 
-        if (m_origin_isSet) {
+        if (origin.isSet()) {
             isObjectUpdated = true;
             break;
         }

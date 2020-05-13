@@ -31,6 +31,7 @@ import org.openapitools.client.model.ArrayOfLogsResponse;
 import org.openapitools.client.model.ArrayOfTagsResponse;
 import org.openapitools.client.model.CreateLog;
 import org.openapitools.client.model.Errors;
+import org.openapitools.client.model.LogOrigin;
 import org.openapitools.client.model.LogResponse;
 
 import java.lang.reflect.Type;
@@ -316,7 +317,7 @@ public class LogApi {
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listLogsCall(String filterOrigin, Integer pageOffset, Integer pageLimit, List<String> sort, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listLogsCall(LogOrigin filterOrigin, Integer pageOffset, Integer pageLimit, List<String> sort, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -362,7 +363,7 @@ public class LogApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listLogsValidateBeforeCall(String filterOrigin, Integer pageOffset, Integer pageLimit, List<String> sort, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listLogsValidateBeforeCall(LogOrigin filterOrigin, Integer pageOffset, Integer pageLimit, List<String> sort, final ApiCallback _callback) throws ApiException {
         
 
         okhttp3.Call localVarCall = listLogsCall(filterOrigin, pageOffset, pageLimit, sort, _callback);
@@ -387,7 +388,7 @@ public class LogApi {
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
-    public ArrayOfLogsResponse listLogs(String filterOrigin, Integer pageOffset, Integer pageLimit, List<String> sort) throws ApiException {
+    public ArrayOfLogsResponse listLogs(LogOrigin filterOrigin, Integer pageOffset, Integer pageLimit, List<String> sort) throws ApiException {
         ApiResponse<ArrayOfLogsResponse> localVarResp = listLogsWithHttpInfo(filterOrigin, pageOffset, pageLimit, sort);
         return localVarResp.getData();
     }
@@ -409,7 +410,7 @@ public class LogApi {
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ArrayOfLogsResponse> listLogsWithHttpInfo(String filterOrigin, Integer pageOffset, Integer pageLimit, List<String> sort) throws ApiException {
+    public ApiResponse<ArrayOfLogsResponse> listLogsWithHttpInfo(LogOrigin filterOrigin, Integer pageOffset, Integer pageLimit, List<String> sort) throws ApiException {
         okhttp3.Call localVarCall = listLogsValidateBeforeCall(filterOrigin, pageOffset, pageLimit, sort, null);
         Type localVarReturnType = new TypeToken<ArrayOfLogsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -433,7 +434,7 @@ public class LogApi {
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listLogsAsync(String filterOrigin, Integer pageOffset, Integer pageLimit, List<String> sort, final ApiCallback<ArrayOfLogsResponse> _callback) throws ApiException {
+    public okhttp3.Call listLogsAsync(LogOrigin filterOrigin, Integer pageOffset, Integer pageLimit, List<String> sort, final ApiCallback<ArrayOfLogsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listLogsValidateBeforeCall(filterOrigin, pageOffset, pageLimit, sort, _callback);
         Type localVarReturnType = new TypeToken<ArrayOfLogsResponse>(){}.getType();

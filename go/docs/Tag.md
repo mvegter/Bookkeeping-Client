@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int64** | Id of the tag. | 
+**Id** | **int64** | The unique identifier of this entity. | 
 **Text** | **string** | The label value of the tag. | 
 **CreatedAt** | **string** | Date when the tag was created. | [optional] 
 **UpdateAt** | **string** | Date when the tag was last updated. | [optional] 

@@ -295,7 +295,7 @@ pplx::task<std::shared_ptr<LogResponse>> LogApi::getLogById(int64_t logId) const
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ArrayOfLogsResponse>> LogApi::listLogs(boost::optional<utility::string_t> filterLeft_Square_BracketoriginRight_Square_Bracket, boost::optional<int32_t> pageLeft_Square_BracketoffsetRight_Square_Bracket, boost::optional<int32_t> pageLeft_Square_BracketlimitRight_Square_Bracket, boost::optional<std::vector<utility::string_t>> sort) const
+pplx::task<std::shared_ptr<ArrayOfLogsResponse>> LogApi::listLogs(boost::optional<std::shared_ptr<LogOrigin>> filterLeft_Square_BracketoriginRight_Square_Bracket, boost::optional<int32_t> pageLeft_Square_BracketoffsetRight_Square_Bracket, boost::optional<int32_t> pageLeft_Square_BracketlimitRight_Square_Bracket, boost::optional<std::vector<utility::string_t>> sort) const
 {
 
 
@@ -336,7 +336,7 @@ pplx::task<std::shared_ptr<ArrayOfLogsResponse>> LogApi::listLogs(boost::optiona
 
     std::unordered_set<utility::string_t> localVarConsumeHttpContentTypes;
 
-    if (filterLeft_Square_BracketoriginRight_Square_Bracket)
+    if (filterLeft_Square_BracketoriginRight_Square_Bracket && *filterLeft_Square_BracketoriginRight_Square_Bracket != nullptr)
     {
         localVarQueryParams[utility::conversions::to_string_t("filter[origin]")] = ApiClient::parameterToString(*filterLeft_Square_BracketoriginRight_Square_Bracket);
     }

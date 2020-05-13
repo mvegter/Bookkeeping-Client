@@ -45,11 +45,11 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get Id of the tag.
+	/*! \brief Get The unique identifier of this entity.
 	 */
 	long long getId();
 
-	/*! \brief Set Id of the tag.
+	/*! \brief Set The unique identifier of this entity.
 	 */
 	void setId(long long  id);
 	/*! \brief Get The label value of the tag.

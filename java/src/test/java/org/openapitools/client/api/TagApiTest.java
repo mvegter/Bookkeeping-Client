@@ -101,20 +101,4 @@ public class TagApiTest {
         // TODO: test validations
     }
     
-    /**
-     * Lists all tags associated with a log
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void listTagsByLogIdTest() throws ApiException {
-        Long logId = null;
-        ArrayOfTagsResponse response = api.listTagsByLogId(logId);
-
-        // TODO: test validations
-    }
-    
 }

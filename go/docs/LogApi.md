@@ -96,7 +96,7 @@ Optional parameters are passed through a pointer to a ListLogsOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterOrigin** | **optional.String**| Filter logs by their origin | 
+ **filterOrigin** | [**optional.Interface of LogOrigin**](.md)| Filter logs by their origin | 
  **pageOffset** | **optional.Int32**| The number of items to skip before starting to collect the result set. | [default to 0]
  **pageLimit** | **optional.Int32**| The numbers of items to return. | [default to 100]
  **sort** | [**optional.Interface of []string**](string.md)| The sort order of the returned items. | [default to [&quot;-id&quot;]]

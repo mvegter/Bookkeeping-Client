@@ -9,6 +9,7 @@
 
 
 #include <string>
+#include "LogOrigin.h"
 #include "Tag.h"
 #include <list>
 #include "Object.h"
@@ -47,11 +48,11 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get Id of the log.
+	/*! \brief Get The unique identifier of this entity.
 	 */
 	long long getEntryId();
 
-	/*! \brief Set Id of the log.
+	/*! \brief Set The unique identifier of this entity.
 	 */
 	void setEntryId(long long  entryId);
 	/*! \brief Get Title of the log.
@@ -61,13 +62,13 @@ public:
 	/*! \brief Set Title of the log.
 	 */
 	void setTitle(std::string  title);
-	/*! \brief Get Type of creator.
+	/*! \brief Get 
 	 */
-	std::string getOrigin();
+	LogOrigin getOrigin();
 
-	/*! \brief Set Type of creator.
+	/*! \brief Set 
 	 */
-	void setOrigin(std::string  origin);
+	void setOrigin(LogOrigin  origin);
 	/*! \brief Get A list of Tag objects.
 	 */
 	std::list<Tag> getTags();
@@ -79,7 +80,7 @@ public:
 private:
 	long long entryId;
 	std::string title;
-	std::string origin;
+	LogOrigin origin;
 	std::list <Tag>tags;
 	void __init();
 	void __cleanup();

@@ -89,16 +89,6 @@ public:
         boost::optional<int32_t> pageLeft_Square_BracketoffsetRight_Square_Bracket,
         boost::optional<int32_t> pageLeft_Square_BracketlimitRight_Square_Bracket
     ) const;
-    /// <summary>
-    /// Lists all tags associated with a log
-    /// </summary>
-    /// <remarks>
-    /// 
-    /// </remarks>
-    /// <param name="logId">The id of the log to retrieve</param>
-    pplx::task<std::shared_ptr<ArrayOfTagsResponse>> listTagsByLogId(
-        int64_t logId
-    ) const;
 
 protected:
     std::shared_ptr<const ApiClient> m_ApiClient;

@@ -205,47 +205,5 @@ export default class TagApi {
       );
     }
 
-    /**
-     * Callback function to receive the result of the listTagsByLogId operation.
-     * @callback module:api/TagApi~listTagsByLogIdCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ArrayOfTagsResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Lists all tags associated with a log
-     * @param {Number} logId The id of the log to retrieve
-     * @param {module:api/TagApi~listTagsByLogIdCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ArrayOfTagsResponse}
-     */
-    listTagsByLogId(logId, callback) {
-      let postBody = null;
-      // verify the required parameter 'logId' is set
-      if (logId === undefined || logId === null) {
-        throw new Error("Missing the required parameter 'logId' when calling listTagsByLogId");
-      }
-
-      let pathParams = {
-        'logId': logId
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = [];
-      let accepts = ['application/json'];
-      let returnType = ArrayOfTagsResponse;
-      return this.apiClient.callApi(
-        '/logs/{logId}/tags', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
 
 }

@@ -56,13 +56,6 @@ class TestTagApi(unittest.TestCase):
         """
         pass
 
-    def test_list_tags_by_log_id(self):
-        """Test case for list_tags_by_log_id
-
-        Lists all tags associated with a log  # noqa: E501
-        """
-        pass
-
 
 if __name__ == '__main__':
     unittest.main()

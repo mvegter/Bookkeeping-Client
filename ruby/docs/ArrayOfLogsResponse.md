@@ -1,0 +1,17 @@
+# OpenapiClient::ArrayOfLogsResponse
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**data** | [**Array&lt;Log&gt;**](Log.md) | A list of Log objects. | 
+
+## Code Sample
+
+```ruby
+require 'OpenapiClient'
+
+instance = OpenapiClient::ArrayOfLogsResponse.new(data: null)
+```
+
+
