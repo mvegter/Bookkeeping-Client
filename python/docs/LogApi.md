@@ -159,7 +159,7 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.LogApi(api_client)
-    filter_origin = 'filter_origin_example' # str | Filter logs by their origin (optional)
+    filter_origin = openapi_client.LogOrigin() # LogOrigin | Filter logs by their origin (optional)
 page_offset = 0 # int | The number of items to skip before starting to collect the result set. (optional) (default to 0)
 page_limit = 100 # int | The numbers of items to return. (optional) (default to 100)
 sort = ["-id"] # list[str] | The sort order of the returned items. (optional) (default to ["-id"])
@@ -176,7 +176,7 @@ sort = ["-id"] # list[str] | The sort order of the returned items. (optional) (d
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filter_origin** | **str**| Filter logs by their origin | [optional] 
+ **filter_origin** | [**LogOrigin**](.md)| Filter logs by their origin | [optional] 
  **page_offset** | **int**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
  **page_limit** | **int**| The numbers of items to return. | [optional] [default to 100]
  **sort** | [**list[str]**](str.md)| The sort order of the returned items. | [optional] [default to [&quot;-id&quot;]]

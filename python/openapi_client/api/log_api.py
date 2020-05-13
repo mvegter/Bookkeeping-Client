@@ -273,7 +273,7 @@ class LogApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str filter_origin: Filter logs by their origin
+        :param LogOrigin filter_origin: Filter logs by their origin
         :param int page_offset: The number of items to skip before starting to collect the result set.
         :param int page_limit: The numbers of items to return.
         :param list[str] sort: The sort order of the returned items.
@@ -300,7 +300,7 @@ class LogApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str filter_origin: Filter logs by their origin
+        :param LogOrigin filter_origin: Filter logs by their origin
         :param int page_offset: The number of items to skip before starting to collect the result set.
         :param int page_limit: The numbers of items to return.
         :param list[str] sort: The sort order of the returned items.

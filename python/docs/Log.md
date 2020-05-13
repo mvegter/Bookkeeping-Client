@@ -4,9 +4,9 @@ Describes an intervention or an event that happened.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**entry_id** | **int** | Id of the log. | 
+**entry_id** | **int** | The unique identifier of this entity. | 
 **title** | **str** | Title of the log. | 
-**origin** | **str** | Type of creator. | 
+**origin** | [**LogOrigin**](LogOrigin.md) |  | 
 **tags** | [**list[Tag]**](Tag.md) | A list of Tag objects. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
