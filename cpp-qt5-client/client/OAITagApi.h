@@ -18,6 +18,7 @@
 #include "OAIArrayOfTagsResponse.h"
 #include "OAICreateTag.h"
 #include "OAIErrors.h"
+#include "OAIPaginationOptions.h"
 #include "OAITagResponse.h"
 #include <QString>
 
@@ -46,7 +47,7 @@ public:
     void createTag(const OAICreateTag &oai_create_tag);
     void getLogsByTagId(const qint64 &tag_id);
     void getTagById(const qint64 &tag_id);
-    void listTags(const qint32 &page_offset, const qint32 &page_limit);
+    void listTags(const OAIPaginationOptions &page);
 
 private:
     QString _scheme, _host;
