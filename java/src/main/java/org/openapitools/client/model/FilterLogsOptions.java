@@ -29,7 +29,7 @@ import org.openapitools.client.model.LogOrigin;
  * Specifies the log related filter requirements for a request.
  */
 @ApiModel(description = "Specifies the log related filter requirements for a request.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T12:46:45.346+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T13:02:18.128+01:00[Europe/London]")
 public class FilterLogsOptions {
   public static final String SERIALIZED_NAME_ORIGIN = "origin";
   @SerializedName(SERIALIZED_NAME_ORIGIN)

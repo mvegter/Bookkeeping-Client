@@ -28,7 +28,7 @@ import java.io.IOException;
  * A label attached to something for the purpose of identification.
  */
 @ApiModel(description = "A label attached to something for the purpose of identification.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T12:46:45.346+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T13:02:18.128+01:00[Europe/London]")
 public class CreateTag {
   public static final String SERIALIZED_NAME_TEXT = "text";
   @SerializedName(SERIALIZED_NAME_TEXT)
