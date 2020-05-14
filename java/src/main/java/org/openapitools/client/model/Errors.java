@@ -31,7 +31,7 @@ import org.openapitools.client.model.Error;
  * A list of Error objects.
  */
 @ApiModel(description = "A list of Error objects.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T12:46:45.346+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T13:02:18.128+01:00[Europe/London]")
 public class Errors {
   public static final String SERIALIZED_NAME_ERRORS = "errors";
   @SerializedName(SERIALIZED_NAME_ERRORS)
