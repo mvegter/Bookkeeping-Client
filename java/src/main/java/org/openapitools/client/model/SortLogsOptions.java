@@ -29,7 +29,7 @@ import org.openapitools.client.model.SortOrder;
  * Specifies the sorting requirements of a request.
  */
 @ApiModel(description = "Specifies the sorting requirements of a request.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-14T13:02:18.128+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-15T12:18:03.979+01:00[Europe/London]")
 public class SortLogsOptions {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
