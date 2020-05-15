@@ -28,7 +28,7 @@ import java.io.IOException;
  * An object containing references to the source of the error.
  */
 @ApiModel(description = "An object containing references to the source of the error.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-15T12:18:03.979+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-15T13:32:26.583+01:00[Europe/London]")
 public class ErrorSource {
   public static final String SERIALIZED_NAME_POINTER = "pointer";
   @SerializedName(SERIALIZED_NAME_POINTER)
