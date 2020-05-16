@@ -12,7 +12,7 @@ The version of the OpenAPI document: 0.0.0
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C554F34D-A997-4326-BC1B-EAD4B4B62DB3}</ProjectGuid>
+    <ProjectGuid>{96320C92-A0A1-44C0-98F1-9090BF773F7E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Org.OpenAPITools</RootNamespace>
