@@ -43,6 +43,17 @@ describe 'TagApi' do
     end
   end
 
+  # unit tests for delete_tag_by_id
+  # Deletes a tag by Id
+  # @param tag_id The id of the tag to retrieve
+  # @param [Hash] opts the optional parameters
+  # @return [TagResponse]
+  describe 'delete_tag_by_id test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for get_logs_by_tag_id
   # Gets all logs with this tag id
   # @param tag_id The id of the tag to retrieve

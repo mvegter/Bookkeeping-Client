@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost/api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_tag**](TagApi.md#create_tag) | **POST** /tags | Adds a new tag
+[**delete_tag_by_id**](TagApi.md#delete_tag_by_id) | **DELETE** /tags/{tagId} | Deletes a tag by Id
 [**get_logs_by_tag_id**](TagApi.md#get_logs_by_tag_id) | **GET** /tags/{tagId}/logs | Gets all logs with this tag id
 [**get_tag_by_id**](TagApi.md#get_tag_by_id) | **GET** /tags/{tagId} | Gets a tag by Id
 [**list_tags**](TagApi.md#list_tags) | **GET** /tags | List all tags
@@ -53,6 +54,51 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## delete_tag_by_id
+
+> TagResponse delete_tag_by_id(tag_id)
+
+Deletes a tag by Id
+
+### Example
+
+```ruby
+# load the gem
+require 'openapi_client'
+
+api_instance = OpenapiClient::TagApi.new
+tag_id = 56 # Integer | The id of the tag to retrieve
+
+begin
+  #Deletes a tag by Id
+  result = api_instance.delete_tag_by_id(tag_id)
+  p result
+rescue OpenapiClient::ApiError => e
+  puts "Exception when calling TagApi->delete_tag_by_id: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tag_id** | **Integer**| The id of the tag to retrieve | 
+
+### Return type
+
+[**TagResponse**](TagResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
