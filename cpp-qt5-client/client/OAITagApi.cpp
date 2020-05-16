@@ -115,6 +115,52 @@ void OAITagApi::createTagCallback(OAIHttpRequestWorker *worker) {
     }
 }
 
+void OAITagApi::deleteTagById(const qint64 &tag_id) {
+    QString fullPath = QString("%1://%2%3%4%5")
+                           .arg(_scheme)
+                           .arg(_host)
+                           .arg(_port ? ":" + QString::number(_port) : "")
+                           .arg(_basePath)
+                           .arg("/tags/{tagId}");
+    QString tag_idPathParam("{");
+    tag_idPathParam.append("tagId").append("}");
+    fullPath.replace(tag_idPathParam, QUrl::toPercentEncoding(::OpenAPI::toStringValue(tag_id)));
+
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "DELETE");
+
+    foreach (QString key, this->defaultHeaders.keys()) { input.headers.insert(key, this->defaultHeaders.value(key)); }
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAITagApi::deleteTagByIdCallback);
+    connect(this, &OAITagApi::abortRequestsSignal, worker, &QObject::deleteLater); 
+    worker->execute(&input);
+}
+
+void OAITagApi::deleteTagByIdCallback(OAIHttpRequestWorker *worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    } else {
+        msg = "Error: " + worker->error_str;
+        error_str = QString("%1, %2").arg(worker->error_str).arg(QString(worker->response));
+    }
+    OAITagResponse output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit deleteTagByIdSignal(output);
+        emit deleteTagByIdSignalFull(worker, output);
+    } else {
+        emit deleteTagByIdSignalE(output, error_type, error_str);
+        emit deleteTagByIdSignalEFull(worker, error_type, error_str);
+    }
+}
+
 void OAITagApi::getLogsByTagId(const qint64 &tag_id) {
     QString fullPath = QString("%1://%2%3%4%5")
                            .arg(_scheme)
