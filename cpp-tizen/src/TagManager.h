@@ -56,6 +56,33 @@ bool createTagAsync(char * accessToken,
 	, void* userData);
 
 
+/*! \brief Deletes a tag by Id. *Synchronous*
+ *
+ * 
+ * \param tagId The id of the tag to retrieve *Required*
+ * \param handler The callback function to be invoked on completion. *Required*
+ * \param accessToken The Authorization token. *Required*
+ * \param userData The user data to be passed to the callback function.
+ */
+bool deleteTagByIdSync(char * accessToken,
+	long long tagId, 
+	void(* handler)(TagResponse, Error, void* )
+	, void* userData);
+
+/*! \brief Deletes a tag by Id. *Asynchronous*
+ *
+ * 
+ * \param tagId The id of the tag to retrieve *Required*
+ * \param handler The callback function to be invoked on completion. *Required*
+ * \param accessToken The Authorization token. *Required*
+ * \param userData The user data to be passed to the callback function.
+ */
+bool deleteTagByIdAsync(char * accessToken,
+	long long tagId, 
+	void(* handler)(TagResponse, Error, void* )
+	, void* userData);
+
+
 /*! \brief Gets all logs with this tag id. *Synchronous*
  *
  * 

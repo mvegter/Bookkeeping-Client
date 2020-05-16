@@ -63,6 +63,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 *createTagSync* | *POST* /tags | Adds a new tag.
 *createTagASync* | *POST* /tags | Adds a new tag.
+*deleteTagByIdSync* | *DELETE* /tags/{tagId} | Deletes a tag by Id.
+*deleteTagByIdASync* | *DELETE* /tags/{tagId} | Deletes a tag by Id.
 *getLogsByTagIdSync* | *GET* /tags/{tagId}/logs | Gets all logs with this tag id.
 *getLogsByTagIdASync* | *GET* /tags/{tagId}/logs | Gets all logs with this tag id.
 *getTagByIdSync* | *GET* /tags/{tagId} | Gets a tag by Id.
