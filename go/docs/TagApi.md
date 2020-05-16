@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost/api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateTag**](TagApi.md#CreateTag) | **Post** /tags | Adds a new tag
+[**DeleteTagById**](TagApi.md#DeleteTagById) | **Delete** /tags/{tagId} | Deletes a tag by Id
 [**GetLogsByTagId**](TagApi.md#GetLogsByTagId) | **Get** /tags/{tagId}/logs | Gets all logs with this tag id
 [**GetTagById**](TagApi.md#GetTagById) | **Get** /tags/{tagId} | Gets a tag by Id
 [**ListTags**](TagApi.md#ListTags) | **Get** /tags | List all tags
@@ -36,6 +37,38 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteTagById
+
+> TagResponse DeleteTagById(ctx, tagId)
+
+Deletes a tag by Id
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**tagId** | **int64**| The id of the tag to retrieve | 
+
+### Return type
+
+[**TagResponse**](TagResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -277,6 +277,45 @@ paths:
       tags:
       - tag
   /tags/{tagId}:
+    delete:
+      operationId: deleteTagById
+      parameters:
+      - description: The id of the tag to retrieve
+        explode: false
+        in: path
+        name: tagId
+        required: true
+        schema:
+          $ref: '#/components/schemas/EntityId'
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TagResponse'
+          description: Expected response to a valid request.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Unexpected Error
+      summary: Deletes a tag by Id
+      tags:
+      - tag
     get:
       operationId: getTagById
       parameters:
