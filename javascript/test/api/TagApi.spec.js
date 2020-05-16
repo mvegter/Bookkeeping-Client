@@ -58,6 +58,16 @@
         done();
       });
     });
+    describe('deleteTagById', function() {
+      it('should call deleteTagById successfully', function(done) {
+        //uncomment below and update the code to test deleteTagById
+        //instance.deleteTagById(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getLogsByTagId', function() {
       it('should call getLogsByTagId successfully', function(done) {
         //uncomment below and update the code to test getLogsByTagId
