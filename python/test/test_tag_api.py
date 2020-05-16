@@ -35,6 +35,13 @@ class TestTagApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_tag_by_id(self):
+        """Test case for delete_tag_by_id
+
+        Deletes a tag by Id  # noqa: E501
+        """
+        pass
+
     def test_get_logs_by_tag_id(self):
         """Test case for get_logs_by_tag_id
 
