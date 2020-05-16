@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost/api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateTag**](TagApi.md#createtag) | **POST** /tags | Adds a new tag
+[**DeleteTagById**](TagApi.md#deletetagbyid) | **DELETE** /tags/{tagId} | Deletes a tag by Id
 [**GetLogsByTagId**](TagApi.md#getlogsbytagid) | **GET** /tags/{tagId}/logs | Gets all logs with this tag id
 [**GetTagById**](TagApi.md#gettagbyid) | **GET** /tags/{tagId} | Gets a tag by Id
 [**ListTags**](TagApi.md#listtags) | **GET** /tags | List all tags
@@ -79,6 +80,82 @@ No authorization required
 | **201** | Expected response to a valid request. |  -  |
 | **400** | Bad Request |  -  |
 | **409** | Conflict |  -  |
+| **0** | Unexpected Error |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteTagById
+
+> TagResponse DeleteTagById (long tagId)
+
+Deletes a tag by Id
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class DeleteTagByIdExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "http://localhost/api";
+            var apiInstance = new TagApi(Configuration.Default);
+            var tagId = 789;  // long | The id of the tag to retrieve
+
+            try
+            {
+                // Deletes a tag by Id
+                TagResponse result = apiInstance.DeleteTagById(tagId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling TagApi.DeleteTagById: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tagId** | **long**| The id of the tag to retrieve | 
+
+### Return type
+
+[**TagResponse**](TagResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Expected response to a valid request. |  -  |
+| **400** | Bad Request |  -  |
+| **404** | Not Found |  -  |
 | **0** | Unexpected Error |  -  |
 
 [[Back to top]](#)

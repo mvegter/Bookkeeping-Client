@@ -111,6 +111,7 @@ Class | Method | HTTP request | Description
 *LogApi* | [**ListLogs**](docs/LogApi.md#listlogs) | **GET** /logs | List all logs
 *LogApi* | [**ListTagsByLogId**](docs/LogApi.md#listtagsbylogid) | **GET** /logs/{logId}/tags | Lists all tags associated with a log
 *TagApi* | [**CreateTag**](docs/TagApi.md#createtag) | **POST** /tags | Adds a new tag
+*TagApi* | [**DeleteTagById**](docs/TagApi.md#deletetagbyid) | **DELETE** /tags/{tagId} | Deletes a tag by Id
 *TagApi* | [**GetLogsByTagId**](docs/TagApi.md#getlogsbytagid) | **GET** /tags/{tagId}/logs | Gets all logs with this tag id
 *TagApi* | [**GetTagById**](docs/TagApi.md#gettagbyid) | **GET** /tags/{tagId} | Gets a tag by Id
 *TagApi* | [**ListTags**](docs/TagApi.md#listtags) | **GET** /tags | List all tags
