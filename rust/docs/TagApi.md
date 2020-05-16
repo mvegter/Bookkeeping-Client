@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost/api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_tag**](TagApi.md#create_tag) | **Post** /tags | Adds a new tag
+[**delete_tag_by_id**](TagApi.md#delete_tag_by_id) | **Delete** /tags/{tagId} | Deletes a tag by Id
 [**get_logs_by_tag_id**](TagApi.md#get_logs_by_tag_id) | **Get** /tags/{tagId}/logs | Gets all logs with this tag id
 [**get_tag_by_id**](TagApi.md#get_tag_by_id) | **Get** /tags/{tagId} | Gets a tag by Id
 [**list_tags**](TagApi.md#list_tags) | **Get** /tags | List all tags
@@ -34,6 +35,34 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## delete_tag_by_id
+
+> crate::models::TagResponse delete_tag_by_id(tag_id)
+Deletes a tag by Id
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tag_id** | **i64** | The id of the tag to retrieve | [required] |
+
+### Return type
+
+[**crate::models::TagResponse**](TagResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

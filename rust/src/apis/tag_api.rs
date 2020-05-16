@@ -34,6 +34,7 @@ impl<C: hyper::client::Connect> TagApiClient<C> {
 
 pub trait TagApi {
     fn create_tag(&self, create_tag: crate::models::CreateTag) -> Box<dyn Future<Item = crate::models::TagResponse, Error = Error<serde_json::Value>>>;
+    fn delete_tag_by_id(&self, tag_id: i64) -> Box<dyn Future<Item = crate::models::TagResponse, Error = Error<serde_json::Value>>>;
     fn get_logs_by_tag_id(&self, tag_id: i64) -> Box<dyn Future<Item = crate::models::ArrayOfLogsResponse, Error = Error<serde_json::Value>>>;
     fn get_tag_by_id(&self, tag_id: i64) -> Box<dyn Future<Item = crate::models::TagResponse, Error = Error<serde_json::Value>>>;
     fn list_tags(&self, page: Option<crate::models::crate::models::PaginationOptions>) -> Box<dyn Future<Item = crate::models::ArrayOfTagsResponse, Error = Error<serde_json::Value>>>;
@@ -44,6 +45,14 @@ impl<C: hyper::client::Connect>TagApi for TagApiClient<C> {
         let mut req = __internal_request::Request::new(hyper::Method::Post, "/tags".to_string())
         ;
         req = req.with_body_param(create_tag);
+
+        req.execute(self.configuration.borrow())
+    }
+
+    fn delete_tag_by_id(&self, tag_id: i64) -> Box<dyn Future<Item = crate::models::TagResponse, Error = Error<serde_json::Value>>> {
+        let mut req = __internal_request::Request::new(hyper::Method::Delete, "/tags/{tagId}".to_string())
+        ;
+        req = req.with_path_param("tagId".to_string(), tag_id.to_string());
 
         req.execute(self.configuration.borrow())
     }
