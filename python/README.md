@@ -87,6 +87,7 @@ Class | Method | HTTP request | Description
 *LogApi* | [**list_logs**](docs/LogApi.md#list_logs) | **GET** /logs | List all logs
 *LogApi* | [**list_tags_by_log_id**](docs/LogApi.md#list_tags_by_log_id) | **GET** /logs/{logId}/tags | Lists all tags associated with a log
 *TagApi* | [**create_tag**](docs/TagApi.md#create_tag) | **POST** /tags | Adds a new tag
+*TagApi* | [**delete_tag_by_id**](docs/TagApi.md#delete_tag_by_id) | **DELETE** /tags/{tagId} | Deletes a tag by Id
 *TagApi* | [**get_logs_by_tag_id**](docs/TagApi.md#get_logs_by_tag_id) | **GET** /tags/{tagId}/logs | Gets all logs with this tag id
 *TagApi* | [**get_tag_by_id**](docs/TagApi.md#get_tag_by_id) | **GET** /tags/{tagId} | Gets a tag by Id
 *TagApi* | [**list_tags**](docs/TagApi.md#list_tags) | **GET** /tags | List all tags

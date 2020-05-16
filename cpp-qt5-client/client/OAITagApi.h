@@ -45,6 +45,7 @@ public:
     void abortRequests();
 
     void createTag(const OAICreateTag &oai_create_tag);
+    void deleteTagById(const qint64 &tag_id);
     void getLogsByTagId(const qint64 &tag_id);
     void getTagById(const qint64 &tag_id);
     void listTags(const OAIPaginationOptions &page);
@@ -60,6 +61,7 @@ private:
     bool isRequestCompressionEnabled;
 
     void createTagCallback(OAIHttpRequestWorker *worker);
+    void deleteTagByIdCallback(OAIHttpRequestWorker *worker);
     void getLogsByTagIdCallback(OAIHttpRequestWorker *worker);
     void getTagByIdCallback(OAIHttpRequestWorker *worker);
     void listTagsCallback(OAIHttpRequestWorker *worker);
@@ -67,21 +69,25 @@ private:
 signals:
 
     void createTagSignal(OAITagResponse summary);
+    void deleteTagByIdSignal(OAITagResponse summary);
     void getLogsByTagIdSignal(OAIArrayOfLogsResponse summary);
     void getTagByIdSignal(OAITagResponse summary);
     void listTagsSignal(OAIArrayOfTagsResponse summary);
 
     void createTagSignalFull(OAIHttpRequestWorker *worker, OAITagResponse summary);
+    void deleteTagByIdSignalFull(OAIHttpRequestWorker *worker, OAITagResponse summary);
     void getLogsByTagIdSignalFull(OAIHttpRequestWorker *worker, OAIArrayOfLogsResponse summary);
     void getTagByIdSignalFull(OAIHttpRequestWorker *worker, OAITagResponse summary);
     void listTagsSignalFull(OAIHttpRequestWorker *worker, OAIArrayOfTagsResponse summary);
 
     void createTagSignalE(OAITagResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void deleteTagByIdSignalE(OAITagResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getLogsByTagIdSignalE(OAIArrayOfLogsResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getTagByIdSignalE(OAITagResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
     void listTagsSignalE(OAIArrayOfTagsResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
 
     void createTagSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void deleteTagByIdSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void getLogsByTagIdSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void getTagByIdSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
     void listTagsSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);

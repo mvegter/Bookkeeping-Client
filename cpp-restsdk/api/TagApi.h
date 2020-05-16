@@ -59,6 +59,16 @@ public:
         std::shared_ptr<CreateTag> createTag
     ) const;
     /// <summary>
+    /// Deletes a tag by Id
+    /// </summary>
+    /// <remarks>
+    /// 
+    /// </remarks>
+    /// <param name="tagId">The id of the tag to retrieve</param>
+    pplx::task<std::shared_ptr<TagResponse>> deleteTagById(
+        int64_t tagId
+    ) const;
+    /// <summary>
     /// Gets all logs with this tag id
     /// </summary>
     /// <remarks>

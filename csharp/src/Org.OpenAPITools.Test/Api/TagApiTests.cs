@@ -76,6 +76,18 @@ namespace Org.OpenAPITools.Test
         }
         
         /// <summary>
+        /// Test DeleteTagById
+        /// </summary>
+        [Test]
+        public void DeleteTagByIdTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //long tagId = null;
+            //var response = instance.DeleteTagById(tagId);
+            //Assert.IsInstanceOf(typeof(TagResponse), response, "response is TagResponse");
+        }
+        
+        /// <summary>
         /// Test GetLogsByTagId
         /// </summary>
         [Test]

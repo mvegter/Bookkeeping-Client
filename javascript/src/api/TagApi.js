@@ -81,6 +81,48 @@ export default class TagApi {
     }
 
     /**
+     * Callback function to receive the result of the deleteTagById operation.
+     * @callback module:api/TagApi~deleteTagByIdCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/TagResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Deletes a tag by Id
+     * @param {Number} tagId The id of the tag to retrieve
+     * @param {module:api/TagApi~deleteTagByIdCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/TagResponse}
+     */
+    deleteTagById(tagId, callback) {
+      let postBody = null;
+      // verify the required parameter 'tagId' is set
+      if (tagId === undefined || tagId === null) {
+        throw new Error("Missing the required parameter 'tagId' when calling deleteTagById");
+      }
+
+      let pathParams = {
+        'tagId': tagId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = TagResponse;
+      return this.apiClient.callApi(
+        '/tags/{tagId}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the getLogsByTagId operation.
      * @callback module:api/TagApi~getLogsByTagIdCallback
      * @param {String} error Error message, if any.

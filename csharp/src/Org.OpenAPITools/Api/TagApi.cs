@@ -46,6 +46,27 @@ namespace Org.OpenAPITools.Api
         /// <returns>ApiResponse of TagResponse</returns>
         ApiResponse<TagResponse> CreateTagWithHttpInfo (CreateTag createTag);
         /// <summary>
+        /// Deletes a tag by Id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tagId">The id of the tag to retrieve</param>
+        /// <returns>TagResponse</returns>
+        TagResponse DeleteTagById (long tagId);
+
+        /// <summary>
+        /// Deletes a tag by Id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tagId">The id of the tag to retrieve</param>
+        /// <returns>ApiResponse of TagResponse</returns>
+        ApiResponse<TagResponse> DeleteTagByIdWithHttpInfo (long tagId);
+        /// <summary>
         /// Gets all logs with this tag id
         /// </summary>
         /// <remarks>
@@ -131,6 +152,27 @@ namespace Org.OpenAPITools.Api
         /// <param name="createTag"></param>
         /// <returns>Task of ApiResponse (TagResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<TagResponse>> CreateTagAsyncWithHttpInfo (CreateTag createTag);
+        /// <summary>
+        /// Deletes a tag by Id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tagId">The id of the tag to retrieve</param>
+        /// <returns>Task of TagResponse</returns>
+        System.Threading.Tasks.Task<TagResponse> DeleteTagByIdAsync (long tagId);
+
+        /// <summary>
+        /// Deletes a tag by Id
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tagId">The id of the tag to retrieve</param>
+        /// <returns>Task of ApiResponse (TagResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TagResponse>> DeleteTagByIdAsyncWithHttpInfo (long tagId);
         /// <summary>
         /// Gets all logs with this tag id
         /// </summary>
@@ -446,6 +488,139 @@ namespace Org.OpenAPITools.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("CreateTag", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TagResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (TagResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TagResponse)));
+        }
+
+        /// <summary>
+        /// Deletes a tag by Id 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tagId">The id of the tag to retrieve</param>
+        /// <returns>TagResponse</returns>
+        public TagResponse DeleteTagById (long tagId)
+        {
+             ApiResponse<TagResponse> localVarResponse = DeleteTagByIdWithHttpInfo(tagId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Deletes a tag by Id 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tagId">The id of the tag to retrieve</param>
+        /// <returns>ApiResponse of TagResponse</returns>
+        public ApiResponse<TagResponse> DeleteTagByIdWithHttpInfo (long tagId)
+        {
+            // verify the required parameter 'tagId' is set
+            if (tagId == null)
+                throw new ApiException(400, "Missing required parameter 'tagId' when calling TagApi->DeleteTagById");
+
+            var localVarPath = "/tags/{tagId}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (tagId != null) localVarPathParams.Add("tagId", this.Configuration.ApiClient.ParameterToString(tagId)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteTagById", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TagResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (TagResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TagResponse)));
+        }
+
+        /// <summary>
+        /// Deletes a tag by Id 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tagId">The id of the tag to retrieve</param>
+        /// <returns>Task of TagResponse</returns>
+        public async System.Threading.Tasks.Task<TagResponse> DeleteTagByIdAsync (long tagId)
+        {
+             ApiResponse<TagResponse> localVarResponse = await DeleteTagByIdAsyncWithHttpInfo(tagId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Deletes a tag by Id 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tagId">The id of the tag to retrieve</param>
+        /// <returns>Task of ApiResponse (TagResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TagResponse>> DeleteTagByIdAsyncWithHttpInfo (long tagId)
+        {
+            // verify the required parameter 'tagId' is set
+            if (tagId == null)
+                throw new ApiException(400, "Missing required parameter 'tagId' when calling TagApi->DeleteTagById");
+
+            var localVarPath = "/tags/{tagId}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (tagId != null) localVarPathParams.Add("tagId", this.Configuration.ApiClient.ParameterToString(tagId)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteTagById", localVarResponse);
                 if (exception != null) throw exception;
             }
 

@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost/api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createTag**](TagApi.md#createTag) | **POST** /tags | Adds a new tag
+[**deleteTagById**](TagApi.md#deleteTagById) | **DELETE** /tags/{tagId} | Deletes a tag by Id
 [**getLogsByTagId**](TagApi.md#getLogsByTagId) | **GET** /tags/{tagId}/logs | Gets all logs with this tag id
 [**getTagById**](TagApi.md#getTagById) | **GET** /tags/{tagId} | Gets a tag by Id
 [**listTags**](TagApi.md#listTags) | **GET** /tags | List all tags
@@ -51,6 +52,49 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## deleteTagById
+
+> TagResponse deleteTagById(tagId)
+
+Deletes a tag by Id
+
+### Example
+
+```javascript
+import AliceBookkeeping from 'alice_bookkeeping';
+
+let apiInstance = new AliceBookkeeping.TagApi();
+let tagId = 789; // Number | The id of the tag to retrieve
+apiInstance.deleteTagById(tagId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tagId** | **Number**| The id of the tag to retrieve | 
+
+### Return type
+
+[**TagResponse**](TagResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 

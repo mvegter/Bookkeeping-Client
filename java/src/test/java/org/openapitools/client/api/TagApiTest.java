@@ -54,6 +54,22 @@ public class TagApiTest {
     }
     
     /**
+     * Deletes a tag by Id
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteTagByIdTest() throws ApiException {
+        Long tagId = null;
+        TagResponse response = api.deleteTagById(tagId);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Gets all logs with this tag id
      *
      * 

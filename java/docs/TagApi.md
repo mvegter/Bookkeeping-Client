@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost/api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createTag**](TagApi.md#createTag) | **POST** /tags | Adds a new tag
+[**deleteTagById**](TagApi.md#deleteTagById) | **DELETE** /tags/{tagId} | Deletes a tag by Id
 [**getLogsByTagId**](TagApi.md#getLogsByTagId) | **GET** /tags/{tagId}/logs | Gets all logs with this tag id
 [**getTagById**](TagApi.md#getTagById) | **GET** /tags/{tagId} | Gets a tag by Id
 [**listTags**](TagApi.md#listTags) | **GET** /tags | List all tags
@@ -71,6 +72,69 @@ No authorization required
 **201** | Expected response to a valid request. |  -  |
 **400** | Bad Request |  -  |
 **409** | Conflict |  -  |
+**0** | Unexpected Error |  -  |
+
+<a name="deleteTagById"></a>
+# **deleteTagById**
+> TagResponse deleteTagById(tagId)
+
+Deletes a tag by Id
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.TagApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost/api");
+
+    TagApi apiInstance = new TagApi(defaultClient);
+    Long tagId = 56L; // Long | The id of the tag to retrieve
+    try {
+      TagResponse result = apiInstance.deleteTagById(tagId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TagApi#deleteTagById");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tagId** | **Long**| The id of the tag to retrieve |
+
+### Return type
+
+[**TagResponse**](TagResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Expected response to a valid request. |  -  |
+**400** | Bad Request |  -  |
+**404** | Not Found |  -  |
 **0** | Unexpected Error |  -  |
 
 <a name="getLogsByTagId"></a>
