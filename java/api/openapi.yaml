@@ -37,29 +37,29 @@ paths:
       operationId: listLogs
       parameters:
       - description: Specifies the pagination requirements.
-        explode: true
+        explode: false
         in: query
         name: page
         required: false
         schema:
           $ref: '#/components/schemas/PaginationOptions'
-        style: form
+        style: deepObject
       - description: Specifies the filter requirements.
-        explode: true
+        explode: false
         in: query
         name: filter
         required: false
         schema:
           $ref: '#/components/schemas/FilterLogsOptions'
-        style: form
+        style: deepObject
       - description: Specifies the sorting requirements.
-        explode: true
+        explode: false
         in: query
         name: sort
         required: false
         schema:
           $ref: '#/components/schemas/SortLogsOptions'
-        style: form
+        style: deepObject
       responses:
         "200":
           content:
@@ -222,13 +222,13 @@ paths:
       operationId: listTags
       parameters:
       - description: Specifies the pagination requirements.
-        explode: true
+        explode: false
         in: query
         name: page
         required: false
         schema:
           $ref: '#/components/schemas/PaginationOptions'
-        style: form
+        style: deepObject
       responses:
         "200":
           content:
@@ -412,13 +412,13 @@ components:
   parameters:
     FilterLogs:
       description: Specifies the filter requirements.
-      explode: true
+      explode: false
       in: query
       name: filter
       required: false
       schema:
         $ref: '#/components/schemas/FilterLogsOptions'
-      style: form
+      style: deepObject
     LogId:
       description: The id of the log to retrieve
       explode: false
@@ -430,22 +430,22 @@ components:
       style: simple
     Pagination:
       description: Specifies the pagination requirements.
-      explode: true
+      explode: false
       in: query
       name: page
       required: false
       schema:
         $ref: '#/components/schemas/PaginationOptions'
-      style: form
+      style: deepObject
     SortLogs:
       description: Specifies the sorting requirements.
-      explode: true
+      explode: false
       in: query
       name: sort
       required: false
       schema:
         $ref: '#/components/schemas/SortLogsOptions'
-      style: form
+      style: deepObject
     TagId:
       description: The id of the tag to retrieve
       explode: false
