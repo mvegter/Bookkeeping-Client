@@ -182,6 +182,129 @@ public class TagApi {
         return localVarCall;
     }
     /**
+     * Build call for deleteTagById
+     * @param tagId The id of the tag to retrieve (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteTagByIdCall(Long tagId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/tags/{tagId}"
+            .replaceAll("\\{" + "tagId" + "\\}", localVarApiClient.escapeString(tagId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteTagByIdValidateBeforeCall(Long tagId, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'tagId' is set
+        if (tagId == null) {
+            throw new ApiException("Missing the required parameter 'tagId' when calling deleteTagById(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = deleteTagByIdCall(tagId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Deletes a tag by Id
+     * 
+     * @param tagId The id of the tag to retrieve (required)
+     * @return TagResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public TagResponse deleteTagById(Long tagId) throws ApiException {
+        ApiResponse<TagResponse> localVarResp = deleteTagByIdWithHttpInfo(tagId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Deletes a tag by Id
+     * 
+     * @param tagId The id of the tag to retrieve (required)
+     * @return ApiResponse&lt;TagResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TagResponse> deleteTagByIdWithHttpInfo(Long tagId) throws ApiException {
+        okhttp3.Call localVarCall = deleteTagByIdValidateBeforeCall(tagId, null);
+        Type localVarReturnType = new TypeToken<TagResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Deletes a tag by Id (asynchronously)
+     * 
+     * @param tagId The id of the tag to retrieve (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteTagByIdAsync(Long tagId, final ApiCallback<TagResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteTagByIdValidateBeforeCall(tagId, _callback);
+        Type localVarReturnType = new TypeToken<TagResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getLogsByTagId
      * @param tagId The id of the tag to retrieve (required)
      * @param _callback Callback for upload/download progress
