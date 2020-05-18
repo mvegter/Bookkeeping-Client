@@ -10,20 +10,18 @@
  */
 
 /*
- * ArrayOfLogsResponse.h
+ * ArrayOfLogsResponseMeta.h
  *
- * Response containing multiple logs.
+ * The metadata related to an array of logs response.
  */
 
-#ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_ArrayOfLogsResponse_H_
-#define ORG_OPENAPITOOLS_CLIENT_MODEL_ArrayOfLogsResponse_H_
+#ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_ArrayOfLogsResponseMeta_H_
+#define ORG_OPENAPITOOLS_CLIENT_MODEL_ArrayOfLogsResponseMeta_H_
 
 
 #include "../ModelBase.h"
 
-#include "ArrayOfLogsResponseMeta.h"
-#include <vector>
-#include "Log.h"
+#include "PaginationMeta.h"
 
 namespace org {
 namespace openapitools {
@@ -32,14 +30,14 @@ namespace model {
 
 
 /// <summary>
-/// Response containing multiple logs.
+/// The metadata related to an array of logs response.
 /// </summary>
-class  ArrayOfLogsResponse
+class  ArrayOfLogsResponseMeta
     : public ModelBase
 {
 public:
-    ArrayOfLogsResponse();
-    virtual ~ArrayOfLogsResponse();
+    ArrayOfLogsResponseMeta();
+    virtual ~ArrayOfLogsResponseMeta();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -53,32 +51,21 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// ArrayOfLogsResponse members
+    /// ArrayOfLogsResponseMeta members
 
     /// <summary>
     /// 
     /// </summary>
-    std::shared_ptr<ArrayOfLogsResponseMeta> getMeta() const;
-    bool metaIsSet() const;
-    void unsetMeta();
+    std::shared_ptr<PaginationMeta> getPage() const;
+    bool pageIsSet() const;
+    void unsetPage();
 
-    void setMeta(const std::shared_ptr<ArrayOfLogsResponseMeta>& value);
-
-    /// <summary>
-    /// A list of Log objects.
-    /// </summary>
-    std::vector<std::shared_ptr<Log>>& getData();
-    bool dataIsSet() const;
-    void unsetData();
-
-    void setData(const std::vector<std::shared_ptr<Log>>& value);
+    void setPage(const std::shared_ptr<PaginationMeta>& value);
 
 
 protected:
-    std::shared_ptr<ArrayOfLogsResponseMeta> m_Meta;
-    bool m_MetaIsSet;
-    std::vector<std::shared_ptr<Log>> m_Data;
-    bool m_DataIsSet;
+    std::shared_ptr<PaginationMeta> m_Page;
+    bool m_PageIsSet;
 };
 
 
@@ -87,4 +74,4 @@ protected:
 }
 }
 
-#endif /* ORG_OPENAPITOOLS_CLIENT_MODEL_ArrayOfLogsResponse_H_ */
+#endif /* ORG_OPENAPITOOLS_CLIENT_MODEL_ArrayOfLogsResponseMeta_H_ */

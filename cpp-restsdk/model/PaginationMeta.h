@@ -10,20 +10,17 @@
  */
 
 /*
- * ArrayOfLogsResponse.h
+ * PaginationMeta.h
  *
- * Response containing multiple logs.
+ * The metadata related to pagination.
  */
 
-#ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_ArrayOfLogsResponse_H_
-#define ORG_OPENAPITOOLS_CLIENT_MODEL_ArrayOfLogsResponse_H_
+#ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_PaginationMeta_H_
+#define ORG_OPENAPITOOLS_CLIENT_MODEL_PaginationMeta_H_
 
 
 #include "../ModelBase.h"
 
-#include "ArrayOfLogsResponseMeta.h"
-#include <vector>
-#include "Log.h"
 
 namespace org {
 namespace openapitools {
@@ -32,14 +29,14 @@ namespace model {
 
 
 /// <summary>
-/// Response containing multiple logs.
+/// The metadata related to pagination.
 /// </summary>
-class  ArrayOfLogsResponse
+class  PaginationMeta
     : public ModelBase
 {
 public:
-    ArrayOfLogsResponse();
-    virtual ~ArrayOfLogsResponse();
+    PaginationMeta();
+    virtual ~PaginationMeta();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -53,32 +50,21 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// ArrayOfLogsResponse members
+    /// PaginationMeta members
 
     /// <summary>
-    /// 
+    /// The number of pages which contain data.
     /// </summary>
-    std::shared_ptr<ArrayOfLogsResponseMeta> getMeta() const;
-    bool metaIsSet() const;
-    void unsetMeta();
+    int32_t getTotal() const;
+    bool totalIsSet() const;
+    void unsetTotal();
 
-    void setMeta(const std::shared_ptr<ArrayOfLogsResponseMeta>& value);
-
-    /// <summary>
-    /// A list of Log objects.
-    /// </summary>
-    std::vector<std::shared_ptr<Log>>& getData();
-    bool dataIsSet() const;
-    void unsetData();
-
-    void setData(const std::vector<std::shared_ptr<Log>>& value);
+    void setTotal(int32_t value);
 
 
 protected:
-    std::shared_ptr<ArrayOfLogsResponseMeta> m_Meta;
-    bool m_MetaIsSet;
-    std::vector<std::shared_ptr<Log>> m_Data;
-    bool m_DataIsSet;
+    int32_t m_Total;
+    bool m_TotalIsSet;
 };
 
 
@@ -87,4 +73,4 @@ protected:
 }
 }
 
-#endif /* ORG_OPENAPITOOLS_CLIENT_MODEL_ArrayOfLogsResponse_H_ */
+#endif /* ORG_OPENAPITOOLS_CLIENT_MODEL_PaginationMeta_H_ */
