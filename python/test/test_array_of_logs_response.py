@@ -36,6 +36,9 @@ class TestArrayOfLogsResponse(unittest.TestCase):
         # model = openapi_client.models.array_of_logs_response.ArrayOfLogsResponse()  # noqa: E501
         if include_optional :
             return ArrayOfLogsResponse(
+                meta = openapi_client.models.array_of_logs_response_meta.ArrayOfLogsResponseMeta(
+                    page = openapi_client.models.pagination_meta.PaginationMeta(
+                        total = 1, ), ), 
                 data = [
                     openapi_client.models.log.Log(
                         entry_id = 56, 

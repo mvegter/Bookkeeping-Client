@@ -32,6 +32,7 @@ from openapi_client.exceptions import ApiException
 # import models into sdk package
 from openapi_client.models.api_information import ApiInformation
 from openapi_client.models.array_of_logs_response import ArrayOfLogsResponse
+from openapi_client.models.array_of_logs_response_meta import ArrayOfLogsResponseMeta
 from openapi_client.models.array_of_tags_response import ArrayOfTagsResponse
 from openapi_client.models.create_log import CreateLog
 from openapi_client.models.create_tag import CreateTag
@@ -43,6 +44,7 @@ from openapi_client.models.filter_logs_options import FilterLogsOptions
 from openapi_client.models.log import Log
 from openapi_client.models.log_origin import LogOrigin
 from openapi_client.models.log_response import LogResponse
+from openapi_client.models.pagination_meta import PaginationMeta
 from openapi_client.models.pagination_options import PaginationOptions
 from openapi_client.models.sort_logs_options import SortLogsOptions
 from openapi_client.models.sort_order import SortOrder

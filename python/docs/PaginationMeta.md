@@ -1,11 +1,10 @@
-# ArrayOfLogsResponse
+# PaginationMeta
 
-Response containing multiple logs.
+The metadata related to pagination.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**meta** | [**ArrayOfLogsResponseMeta**](ArrayOfLogsResponseMeta.md) |  | [optional] 
-**data** | [**list[Log]**](Log.md) | A list of Log objects. | 
+**total** | **int** | The number of pages which contain data. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,11 +1,10 @@
-# ArrayOfLogsResponse
+# ArrayOfLogsResponseMeta
 
-Response containing multiple logs.
+The metadata related to an array of logs response.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**meta** | [**ArrayOfLogsResponseMeta**](ArrayOfLogsResponseMeta.md) |  | [optional] 
-**data** | [**list[Log]**](Log.md) | A list of Log objects. | 
+**page** | [**PaginationMeta**](PaginationMeta.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
