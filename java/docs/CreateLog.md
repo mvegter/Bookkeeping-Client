@@ -7,7 +7,8 @@ Describes an intervention or an event that happened.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**title** | **String** | Title of the log. | 
+**title** | **String** | Body of the log. | 
+**text** | **String** | Title of the log. | 
 
 
 

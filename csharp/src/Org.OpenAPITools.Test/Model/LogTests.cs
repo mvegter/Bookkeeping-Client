@@ -82,6 +82,14 @@ namespace Org.OpenAPITools.Test
             // TODO unit test for the property 'Title'
         }
         /// <summary>
+        /// Test the property 'Text'
+        /// </summary>
+        [Test]
+        public void TextTest()
+        {
+            // TODO unit test for the property 'Text'
+        }
+        /// <summary>
         /// Test the property 'Origin'
         /// </summary>
         [Test]

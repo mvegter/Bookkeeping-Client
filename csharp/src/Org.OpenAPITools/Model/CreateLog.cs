@@ -38,8 +38,9 @@ namespace Org.OpenAPITools.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateLog" /> class.
         /// </summary>
-        /// <param name="title">Title of the log. (required).</param>
-        public CreateLog(string title = default(string))
+        /// <param name="title">Body of the log. (required).</param>
+        /// <param name="text">Title of the log. (required).</param>
+        public CreateLog(string title = default(string), string text = default(string))
         {
             // to ensure "title" is required (not null)
             if (title == null)
@@ -51,14 +52,31 @@ namespace Org.OpenAPITools.Model
                 this.Title = title;
             }
             
+            // to ensure "text" is required (not null)
+            if (text == null)
+            {
+                throw new InvalidDataException("text is a required property for CreateLog and cannot be null");
+            }
+            else
+            {
+                this.Text = text;
+            }
+            
         }
         
+        /// <summary>
+        /// Body of the log.
+        /// </summary>
+        /// <value>Body of the log.</value>
+        [DataMember(Name="title", EmitDefaultValue=true)]
+        public string Title { get; set; }
+
         /// <summary>
         /// Title of the log.
         /// </summary>
         /// <value>Title of the log.</value>
-        [DataMember(Name="title", EmitDefaultValue=true)]
-        public string Title { get; set; }
+        [DataMember(Name="text", EmitDefaultValue=true)]
+        public string Text { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -69,6 +87,7 @@ namespace Org.OpenAPITools.Model
             var sb = new StringBuilder();
             sb.Append("class CreateLog {\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
+            sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -107,6 +126,11 @@ namespace Org.OpenAPITools.Model
                     this.Title == input.Title ||
                     (this.Title != null &&
                     this.Title.Equals(input.Title))
+                ) && 
+                (
+                    this.Text == input.Text ||
+                    (this.Text != null &&
+                    this.Text.Equals(input.Text))
                 );
         }
 
@@ -121,6 +145,8 @@ namespace Org.OpenAPITools.Model
                 int hashCode = 41;
                 if (this.Title != null)
                     hashCode = hashCode * 59 + this.Title.GetHashCode();
+                if (this.Text != null)
+                    hashCode = hashCode * 59 + this.Text.GetHashCode();
                 return hashCode;
             }
         }
@@ -132,6 +158,20 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
+            // Title (string) minLength
+            if(this.Title != null && this.Title.Length < 3)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be greater than 3.", new [] { "Title" });
+            }
+            
+
+            // Text (string) minLength
+            if(this.Text != null && this.Text.Length < 3)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Text, length must be greater than 3.", new [] { "Text" });
+            }
+            
             yield break;
         }
     }

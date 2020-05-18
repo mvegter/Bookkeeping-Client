@@ -48,4 +48,12 @@ public class CreateLogTest {
         // TODO: test title
     }
 
+    /**
+     * Test the property 'text'
+     */
+    @Test
+    public void textTest() {
+        // TODO: test text
+    }
+
 }

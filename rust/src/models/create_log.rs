@@ -14,16 +14,20 @@
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CreateLog {
-    /// Title of the log.
+    /// Body of the log.
     #[serde(rename = "title")]
     pub title: String,
+    /// Title of the log.
+    #[serde(rename = "text")]
+    pub text: String,
 }
 
 impl CreateLog {
     /// Describes an intervention or an event that happened.
-    pub fn new(title: String) -> CreateLog {
+    pub fn new(title: String, text: String) -> CreateLog {
         CreateLog {
             title,
+            text,
         }
     }
 }

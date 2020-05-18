@@ -15,20 +15,25 @@ require 'date'
 module OpenapiClient
   # Describes an intervention or an event that happened.
   class CreateLog
-    # Title of the log.
+    # Body of the log.
     attr_accessor :title
+
+    # Title of the log.
+    attr_accessor :text
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'title' => :'title'
+        :'title' => :'title',
+        :'text' => :'text'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'title' => :'String'
+        :'title' => :'String',
+        :'text' => :'String'
       }
     end
 
@@ -56,6 +61,10 @@ module OpenapiClient
       if attributes.key?(:'title')
         self.title = attributes[:'title']
       end
+
+      if attributes.key?(:'text')
+        self.text = attributes[:'text']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -66,6 +75,18 @@ module OpenapiClient
         invalid_properties.push('invalid value for "title", title cannot be nil.')
       end
 
+      if @title.to_s.length < 3
+        invalid_properties.push('invalid value for "title", the character length must be great than or equal to 3.')
+      end
+
+      if @text.nil?
+        invalid_properties.push('invalid value for "text", text cannot be nil.')
+      end
+
+      if @text.to_s.length < 3
+        invalid_properties.push('invalid value for "text", the character length must be great than or equal to 3.')
+      end
+
       invalid_properties
     end
 
@@ -73,7 +94,38 @@ module OpenapiClient
     # @return true if the model is valid
     def valid?
       return false if @title.nil?
+      return false if @title.to_s.length < 3
+      return false if @text.nil?
+      return false if @text.to_s.length < 3
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] title Value to be assigned
+    def title=(title)
+      if title.nil?
+        fail ArgumentError, 'title cannot be nil'
+      end
+
+      if title.to_s.length < 3
+        fail ArgumentError, 'invalid value for "title", the character length must be great than or equal to 3.'
+      end
+
+      @title = title
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] text Value to be assigned
+    def text=(text)
+      if text.nil?
+        fail ArgumentError, 'text cannot be nil'
+      end
+
+      if text.to_s.length < 3
+        fail ArgumentError, 'invalid value for "text", the character length must be great than or equal to 3.'
+      end
+
+      @text = text
     end
 
     # Checks equality by comparing each attribute.
@@ -81,7 +133,8 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          title == o.title
+          title == o.title &&
+          text == o.text
     end
 
     # @see the `==` method
@@ -93,7 +146,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [title].hash
+      [title, text].hash
     end
 
     # Builds the object from hash

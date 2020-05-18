@@ -35,6 +35,7 @@ class Log(object):
     openapi_types = {
         'entry_id': 'int',
         'title': 'str',
+        'text': 'str',
         'origin': 'LogOrigin',
         'tags': 'list[Tag]'
     }
@@ -42,11 +43,12 @@ class Log(object):
     attribute_map = {
         'entry_id': 'entryId',
         'title': 'title',
+        'text': 'text',
         'origin': 'origin',
         'tags': 'tags'
     }
 
-    def __init__(self, entry_id=None, title=None, origin=None, tags=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, entry_id=None, title=None, text=None, origin=None, tags=None, local_vars_configuration=None):  # noqa: E501
         """Log - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -54,12 +56,14 @@ class Log(object):
 
         self._entry_id = None
         self._title = None
+        self._text = None
         self._origin = None
         self._tags = None
         self.discriminator = None
 
         self.entry_id = entry_id
         self.title = title
+        self.text = text
         self.origin = origin
         self.tags = tags
 
@@ -92,7 +96,7 @@ class Log(object):
     def title(self):
         """Gets the title of this Log.  # noqa: E501
 
-        Title of the log.  # noqa: E501
+        Body of the log.  # noqa: E501
 
         :return: The title of this Log.  # noqa: E501
         :rtype: str
@@ -103,15 +107,46 @@ class Log(object):
     def title(self, title):
         """Sets the title of this Log.
 
-        Title of the log.  # noqa: E501
+        Body of the log.  # noqa: E501
 
         :param title: The title of this Log.  # noqa: E501
         :type: str
         """
         if self.local_vars_configuration.client_side_validation and title is None:  # noqa: E501
             raise ValueError("Invalid value for `title`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                title is not None and len(title) < 3):
+            raise ValueError("Invalid value for `title`, length must be greater than or equal to `3`")  # noqa: E501
 
         self._title = title
+
+    @property
+    def text(self):
+        """Gets the text of this Log.  # noqa: E501
+
+        Title of the log.  # noqa: E501
+
+        :return: The text of this Log.  # noqa: E501
+        :rtype: str
+        """
+        return self._text
+
+    @text.setter
+    def text(self, text):
+        """Sets the text of this Log.
+
+        Title of the log.  # noqa: E501
+
+        :param text: The text of this Log.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and text is None:  # noqa: E501
+            raise ValueError("Invalid value for `text`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                text is not None and len(text) < 3):
+            raise ValueError("Invalid value for `text`, length must be greater than or equal to `3`")  # noqa: E501
+
+        self._text = text
 
     @property
     def origin(self):

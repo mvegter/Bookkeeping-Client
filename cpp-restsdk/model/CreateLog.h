@@ -54,7 +54,7 @@ public:
     /// CreateLog members
 
     /// <summary>
-    /// Title of the log.
+    /// Body of the log.
     /// </summary>
     utility::string_t getTitle() const;
     bool titleIsSet() const;
@@ -62,10 +62,21 @@ public:
 
     void setTitle(const utility::string_t& value);
 
+    /// <summary>
+    /// Title of the log.
+    /// </summary>
+    utility::string_t getText() const;
+    bool textIsSet() const;
+    void unsetText();
+
+    void setText(const utility::string_t& value);
+
 
 protected:
     utility::string_t m_Title;
     bool m_TitleIsSet;
+    utility::string_t m_Text;
+    bool m_TextIsSet;
 };
 
 

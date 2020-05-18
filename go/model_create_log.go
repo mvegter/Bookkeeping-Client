@@ -10,6 +10,8 @@
 package openapi
 // CreateLog Describes an intervention or an event that happened.
 type CreateLog struct {
-	// Title of the log.
+	// Body of the log.
 	Title string `json:"title"`
+	// Title of the log.
+	Text string `json:"text"`
 }

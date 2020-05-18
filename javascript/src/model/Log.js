@@ -26,13 +26,14 @@ class Log {
      * Describes an intervention or an event that happened.
      * @alias module:model/Log
      * @param entryId {Number} The unique identifier of this entity.
-     * @param title {String} Title of the log.
+     * @param title {String} Body of the log.
+     * @param text {String} Title of the log.
      * @param origin {module:model/LogOrigin} 
      * @param tags {Array.<module:model/Tag>} A list of Tag objects.
      */
-    constructor(entryId, title, origin, tags) { 
+    constructor(entryId, title, text, origin, tags) { 
         
-        Log.initialize(this, entryId, title, origin, tags);
+        Log.initialize(this, entryId, title, text, origin, tags);
     }
 
     /**
@@ -40,9 +41,10 @@ class Log {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, entryId, title, origin, tags) { 
+    static initialize(obj, entryId, title, text, origin, tags) { 
         obj['entryId'] = entryId;
         obj['title'] = title;
+        obj['text'] = text;
         obj['origin'] = origin;
         obj['tags'] = tags;
     }
@@ -64,6 +66,9 @@ class Log {
             if (data.hasOwnProperty('title')) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
+            if (data.hasOwnProperty('text')) {
+                obj['text'] = ApiClient.convertToType(data['text'], 'String');
+            }
             if (data.hasOwnProperty('origin')) {
                 obj['origin'] = LogOrigin.constructFromObject(data['origin']);
             }
@@ -84,10 +89,16 @@ class Log {
 Log.prototype['entryId'] = undefined;
 
 /**
- * Title of the log.
+ * Body of the log.
  * @member {String} title
  */
 Log.prototype['title'] = undefined;
+
+/**
+ * Title of the log.
+ * @member {String} text
+ */
+Log.prototype['text'] = undefined;
 
 /**
  * @member {module:model/LogOrigin} origin

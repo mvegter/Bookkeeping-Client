@@ -33,29 +33,33 @@ class CreateLog(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'title': 'str'
+        'title': 'str',
+        'text': 'str'
     }
 
     attribute_map = {
-        'title': 'title'
+        'title': 'title',
+        'text': 'text'
     }
 
-    def __init__(self, title=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, title=None, text=None, local_vars_configuration=None):  # noqa: E501
         """CreateLog - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._title = None
+        self._text = None
         self.discriminator = None
 
         self.title = title
+        self.text = text
 
     @property
     def title(self):
         """Gets the title of this CreateLog.  # noqa: E501
 
-        Title of the log.  # noqa: E501
+        Body of the log.  # noqa: E501
 
         :return: The title of this CreateLog.  # noqa: E501
         :rtype: str
@@ -66,15 +70,46 @@ class CreateLog(object):
     def title(self, title):
         """Sets the title of this CreateLog.
 
-        Title of the log.  # noqa: E501
+        Body of the log.  # noqa: E501
 
         :param title: The title of this CreateLog.  # noqa: E501
         :type: str
         """
         if self.local_vars_configuration.client_side_validation and title is None:  # noqa: E501
             raise ValueError("Invalid value for `title`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                title is not None and len(title) < 3):
+            raise ValueError("Invalid value for `title`, length must be greater than or equal to `3`")  # noqa: E501
 
         self._title = title
+
+    @property
+    def text(self):
+        """Gets the text of this CreateLog.  # noqa: E501
+
+        Title of the log.  # noqa: E501
+
+        :return: The text of this CreateLog.  # noqa: E501
+        :rtype: str
+        """
+        return self._text
+
+    @text.setter
+    def text(self, text):
+        """Sets the text of this CreateLog.
+
+        Title of the log.  # noqa: E501
+
+        :param text: The text of this CreateLog.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and text is None:  # noqa: E501
+            raise ValueError("Invalid value for `text`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                text is not None and len(text) < 3):
+            raise ValueError("Invalid value for `text`, length must be greater than or equal to `3`")  # noqa: E501
+
+        self._text = text
 
     def to_dict(self):
         """Returns the model properties as a dict"""

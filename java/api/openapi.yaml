@@ -551,7 +551,8 @@ components:
       description: Response containing multiple logs.
       example:
         data:
-        - title: title
+        - text: text
+          title: title
           entryId: 0
           tags:
           - createdAt: createdAt
@@ -562,7 +563,8 @@ components:
             updateAt: updateAt
             id: 6
             text: text
-        - title: title
+        - text: text
+          title: title
           entryId: 0
           tags:
           - createdAt: createdAt
@@ -613,12 +615,19 @@ components:
       additionalProperties: false
       description: Describes an intervention or an event that happened.
       example:
+        text: text
         title: title
       properties:
         title:
+          description: Body of the log.
+          minLength: 3
+          type: string
+        text:
           description: Title of the log.
+          minLength: 3
           type: string
       required:
+      - text
       - title
       type: object
     CreateTag:
@@ -705,6 +714,7 @@ components:
     Log:
       description: Describes an intervention or an event that happened.
       example:
+        text: text
         title: title
         entryId: 0
         tags:
@@ -722,7 +732,12 @@ components:
           format: int64
           type: integer
         title:
+          description: Body of the log.
+          minLength: 3
+          type: string
+        text:
           description: Title of the log.
+          minLength: 3
           type: string
         origin:
           $ref: '#/components/schemas/LogOrigin'
@@ -735,6 +750,7 @@ components:
       - entryId
       - origin
       - tags
+      - text
       - title
       type: object
     LogOrigin:
@@ -748,6 +764,7 @@ components:
       description: Response containing a single log.
       example:
         data:
+          text: text
           title: title
           entryId: 0
           tags:
@@ -765,6 +782,14 @@ components:
       required:
       - data
       type: object
+    LogText:
+      description: Title of the log.
+      minLength: 3
+      type: string
+    LogTitle:
+      description: Body of the log.
+      minLength: 3
+      type: string
     PaginationLimit:
       default: 100
       description: The numbers of items to return.

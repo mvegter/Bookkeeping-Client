@@ -4,14 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**title** | **String** | Title of the log. | 
+**title** | **String** | Body of the log. | 
+**text** | **String** | Title of the log. | 
 
 ## Code Sample
 
 ```ruby
 require 'OpenapiClient'
 
-instance = OpenapiClient::CreateLog.new(title: null)
+instance = OpenapiClient::CreateLog.new(title: null,
+                                 text: null)
 ```
 
 

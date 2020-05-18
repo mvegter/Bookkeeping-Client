@@ -61,6 +61,14 @@ public class LogTest {
     }
 
     /**
+     * Test the property 'text'
+     */
+    @Test
+    public void textTest() {
+        // TODO: test text
+    }
+
+    /**
      * Test the property 'origin'
      */
     @Test

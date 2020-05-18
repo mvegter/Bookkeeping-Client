@@ -25,6 +25,7 @@ Log::__init()
 {
 	//entryId = long(0);
 	//title = std::string();
+	//text = std::string();
 	//origin = new LogOrigin();
 	//new std::list()std::list> tags;
 }
@@ -41,6 +42,11 @@ Log::__cleanup()
 	//
 	//delete title;
 	//title = NULL;
+	//}
+	//if(text != NULL) {
+	//
+	//delete text;
+	//text = NULL;
 	//}
 	//if(origin != NULL) {
 	//
@@ -78,6 +84,17 @@ Log::fromJson(char* jsonStr)
 
 		if (isprimitive("std::string")) {
 			jsonToValue(&title, node, "std::string", "");
+		} else {
+			
+		}
+	}
+	const gchar *textKey = "text";
+	node = json_object_get_member(pJsonObject, textKey);
+	if (node !=NULL) {
+	
+
+		if (isprimitive("std::string")) {
+			jsonToValue(&text, node, "std::string", "");
 		} else {
 			
 		}
@@ -150,6 +167,15 @@ Log::toJson()
 	}
 	const gchar *titleKey = "title";
 	json_object_set_member(pJsonObject, titleKey, node);
+	if (isprimitive("std::string")) {
+		std::string obj = getText();
+		node = converttoJson(&obj, "std::string", "");
+	}
+	else {
+		
+	}
+	const gchar *textKey = "text";
+	json_object_set_member(pJsonObject, textKey, node);
 	if (isprimitive("LogOrigin")) {
 		LogOrigin obj = getOrigin();
 		node = converttoJson(&obj, "LogOrigin", "");
@@ -219,6 +245,18 @@ void
 Log::setTitle(std::string  title)
 {
 	this->title = title;
+}
+
+std::string
+Log::getText()
+{
+	return text;
+}
+
+void
+Log::setText(std::string  text)
+{
+	this->text = text;
 }
 
 LogOrigin

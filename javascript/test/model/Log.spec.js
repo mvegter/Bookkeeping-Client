@@ -66,6 +66,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property text (base name: "text")', function() {
+      // uncomment below and update the code to test the property text
+      //var instane = new AliceBookkeeping.Log();
+      //expect(instance).to.be();
+    });
+
     it('should have the property origin (base name: "origin")', function() {
       // uncomment below and update the code to test the property origin
       //var instane = new AliceBookkeeping.Log();

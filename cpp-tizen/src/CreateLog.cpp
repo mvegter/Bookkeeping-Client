@@ -24,6 +24,7 @@ void
 CreateLog::__init()
 {
 	//title = std::string();
+	//text = std::string();
 }
 
 void
@@ -33,6 +34,11 @@ CreateLog::__cleanup()
 	//
 	//delete title;
 	//title = NULL;
+	//}
+	//if(text != NULL) {
+	//
+	//delete text;
+	//text = NULL;
 	//}
 	//
 }
@@ -49,6 +55,17 @@ CreateLog::fromJson(char* jsonStr)
 
 		if (isprimitive("std::string")) {
 			jsonToValue(&title, node, "std::string", "");
+		} else {
+			
+		}
+	}
+	const gchar *textKey = "text";
+	node = json_object_get_member(pJsonObject, textKey);
+	if (node !=NULL) {
+	
+
+		if (isprimitive("std::string")) {
+			jsonToValue(&text, node, "std::string", "");
 		} else {
 			
 		}
@@ -74,6 +91,15 @@ CreateLog::toJson()
 	}
 	const gchar *titleKey = "title";
 	json_object_set_member(pJsonObject, titleKey, node);
+	if (isprimitive("std::string")) {
+		std::string obj = getText();
+		node = converttoJson(&obj, "std::string", "");
+	}
+	else {
+		
+	}
+	const gchar *textKey = "text";
+	json_object_set_member(pJsonObject, textKey, node);
 	node = json_node_alloc();
 	json_node_init(node, JSON_NODE_OBJECT);
 	json_node_take_object(node, pJsonObject);
@@ -92,6 +118,18 @@ void
 CreateLog::setTitle(std::string  title)
 {
 	this->title = title;
+}
+
+std::string
+CreateLog::getText()
+{
+	return text;
+}
+
+void
+CreateLog::setText(std::string  text)
+{
+	this->text = text;
 }
 
 

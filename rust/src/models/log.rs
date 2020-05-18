@@ -17,9 +17,12 @@ pub struct Log {
     /// The unique identifier of this entity.
     #[serde(rename = "entryId")]
     pub entry_id: i64,
-    /// Title of the log.
+    /// Body of the log.
     #[serde(rename = "title")]
     pub title: String,
+    /// Title of the log.
+    #[serde(rename = "text")]
+    pub text: String,
     #[serde(rename = "origin")]
     pub origin: crate::models::LogOrigin,
     /// A list of Tag objects.
@@ -29,10 +32,11 @@ pub struct Log {
 
 impl Log {
     /// Describes an intervention or an event that happened.
-    pub fn new(entry_id: i64, title: String, origin: crate::models::LogOrigin, tags: Vec<crate::models::Tag>) -> Log {
+    pub fn new(entry_id: i64, title: String, text: String, origin: crate::models::LogOrigin, tags: Vec<crate::models::Tag>) -> Log {
         Log {
             entry_id,
             title,
+            text,
             origin,
             tags,
         }

@@ -37,7 +37,8 @@ class TestLog(unittest.TestCase):
         if include_optional :
             return Log(
                 entry_id = 56, 
-                title = '0', 
+                title = '012', 
+                text = '012', 
                 origin = 'human', 
                 tags = [
                     openapi_client.models.tag.Tag(
@@ -50,7 +51,8 @@ class TestLog(unittest.TestCase):
         else :
             return Log(
                 entry_id = 56,
-                title = '0',
+                title = '012',
+                text = '012',
                 origin = 'human',
                 tags = [
                     openapi_client.models.tag.Tag(

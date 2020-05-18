@@ -28,11 +28,15 @@ import java.io.IOException;
  * Describes an intervention or an event that happened.
  */
 @ApiModel(description = "Describes an intervention or an event that happened.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-16T15:16:55.570+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-18T10:17:02.665+01:00[Europe/London]")
 public class CreateLog {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
   private String title;
+
+  public static final String SERIALIZED_NAME_TEXT = "text";
+  @SerializedName(SERIALIZED_NAME_TEXT)
+  private String text;
 
 
   public CreateLog title(String title) {
@@ -42,10 +46,10 @@ public class CreateLog {
   }
 
    /**
-   * Title of the log.
+   * Body of the log.
    * @return title
   **/
-  @ApiModelProperty(required = true, value = "Title of the log.")
+  @ApiModelProperty(required = true, value = "Body of the log.")
 
   public String getTitle() {
     return title;
@@ -54,6 +58,28 @@ public class CreateLog {
 
   public void setTitle(String title) {
     this.title = title;
+  }
+
+
+  public CreateLog text(String text) {
+    
+    this.text = text;
+    return this;
+  }
+
+   /**
+   * Title of the log.
+   * @return text
+  **/
+  @ApiModelProperty(required = true, value = "Title of the log.")
+
+  public String getText() {
+    return text;
+  }
+
+
+  public void setText(String text) {
+    this.text = text;
   }
 
 
@@ -66,12 +92,13 @@ public class CreateLog {
       return false;
     }
     CreateLog createLog = (CreateLog) o;
-    return Objects.equals(this.title, createLog.title);
+    return Objects.equals(this.title, createLog.title) &&
+        Objects.equals(this.text, createLog.text);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(title);
+    return Objects.hash(title, text);
   }
 
 
@@ -80,6 +107,7 @@ public class CreateLog {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateLog {\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("}");
     return sb.toString();
   }

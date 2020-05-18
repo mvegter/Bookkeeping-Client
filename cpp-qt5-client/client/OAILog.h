@@ -51,6 +51,11 @@ public:
     bool is_title_Set() const;
     bool is_title_Valid() const;
 
+    QString getText() const;
+    void setText(const QString &text);
+    bool is_text_Set() const;
+    bool is_text_Valid() const;
+
     OAILogOrigin getOrigin() const;
     void setOrigin(const OAILogOrigin &origin);
     bool is_origin_Set() const;
@@ -74,6 +79,10 @@ private:
     QString title;
     bool m_title_isSet;
     bool m_title_isValid;
+
+    QString text;
+    bool m_text_isSet;
+    bool m_text_isValid;
 
     OAILogOrigin origin;
     bool m_origin_isSet;

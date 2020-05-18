@@ -18,8 +18,11 @@ module OpenapiClient
     # The unique identifier of this entity.
     attr_accessor :entry_id
 
-    # Title of the log.
+    # Body of the log.
     attr_accessor :title
+
+    # Title of the log.
+    attr_accessor :text
 
     attr_accessor :origin
 
@@ -31,6 +34,7 @@ module OpenapiClient
       {
         :'entry_id' => :'entryId',
         :'title' => :'title',
+        :'text' => :'text',
         :'origin' => :'origin',
         :'tags' => :'tags'
       }
@@ -41,6 +45,7 @@ module OpenapiClient
       {
         :'entry_id' => :'Integer',
         :'title' => :'String',
+        :'text' => :'String',
         :'origin' => :'LogOrigin',
         :'tags' => :'Array<Tag>'
       }
@@ -75,6 +80,10 @@ module OpenapiClient
         self.title = attributes[:'title']
       end
 
+      if attributes.key?(:'text')
+        self.text = attributes[:'text']
+      end
+
       if attributes.key?(:'origin')
         self.origin = attributes[:'origin']
       end
@@ -98,6 +107,18 @@ module OpenapiClient
         invalid_properties.push('invalid value for "title", title cannot be nil.')
       end
 
+      if @title.to_s.length < 3
+        invalid_properties.push('invalid value for "title", the character length must be great than or equal to 3.')
+      end
+
+      if @text.nil?
+        invalid_properties.push('invalid value for "text", text cannot be nil.')
+      end
+
+      if @text.to_s.length < 3
+        invalid_properties.push('invalid value for "text", the character length must be great than or equal to 3.')
+      end
+
       if @origin.nil?
         invalid_properties.push('invalid value for "origin", origin cannot be nil.')
       end
@@ -114,9 +135,40 @@ module OpenapiClient
     def valid?
       return false if @entry_id.nil?
       return false if @title.nil?
+      return false if @title.to_s.length < 3
+      return false if @text.nil?
+      return false if @text.to_s.length < 3
       return false if @origin.nil?
       return false if @tags.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] title Value to be assigned
+    def title=(title)
+      if title.nil?
+        fail ArgumentError, 'title cannot be nil'
+      end
+
+      if title.to_s.length < 3
+        fail ArgumentError, 'invalid value for "title", the character length must be great than or equal to 3.'
+      end
+
+      @title = title
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] text Value to be assigned
+    def text=(text)
+      if text.nil?
+        fail ArgumentError, 'text cannot be nil'
+      end
+
+      if text.to_s.length < 3
+        fail ArgumentError, 'invalid value for "text", the character length must be great than or equal to 3.'
+      end
+
+      @text = text
     end
 
     # Checks equality by comparing each attribute.
@@ -126,6 +178,7 @@ module OpenapiClient
       self.class == o.class &&
           entry_id == o.entry_id &&
           title == o.title &&
+          text == o.text &&
           origin == o.origin &&
           tags == o.tags
     end
@@ -139,7 +192,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [entry_id, title, origin, tags].hash
+      [entry_id, title, text, origin, tags].hash
     end
 
     # Builds the object from hash

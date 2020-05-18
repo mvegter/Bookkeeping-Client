@@ -44,10 +44,11 @@ namespace Org.OpenAPITools.Model
         /// Initializes a new instance of the <see cref="Log" /> class.
         /// </summary>
         /// <param name="entryId">The unique identifier of this entity. (required).</param>
-        /// <param name="title">Title of the log. (required).</param>
+        /// <param name="title">Body of the log. (required).</param>
+        /// <param name="text">Title of the log. (required).</param>
         /// <param name="origin">origin (required).</param>
         /// <param name="tags">A list of Tag objects. (required).</param>
-        public Log(long entryId = default(long), string title = default(string), LogOrigin origin = default(LogOrigin), List<Tag> tags = default(List<Tag>))
+        public Log(long entryId = default(long), string title = default(string), string text = default(string), LogOrigin origin = default(LogOrigin), List<Tag> tags = default(List<Tag>))
         {
             // to ensure "entryId" is required (not null)
             if (entryId == null)
@@ -67,6 +68,16 @@ namespace Org.OpenAPITools.Model
             else
             {
                 this.Title = title;
+            }
+            
+            // to ensure "text" is required (not null)
+            if (text == null)
+            {
+                throw new InvalidDataException("text is a required property for Log and cannot be null");
+            }
+            else
+            {
+                this.Text = text;
             }
             
             // to ensure "origin" is required (not null)
@@ -99,11 +110,18 @@ namespace Org.OpenAPITools.Model
         public long EntryId { get; set; }
 
         /// <summary>
+        /// Body of the log.
+        /// </summary>
+        /// <value>Body of the log.</value>
+        [DataMember(Name="title", EmitDefaultValue=true)]
+        public string Title { get; set; }
+
+        /// <summary>
         /// Title of the log.
         /// </summary>
         /// <value>Title of the log.</value>
-        [DataMember(Name="title", EmitDefaultValue=true)]
-        public string Title { get; set; }
+        [DataMember(Name="text", EmitDefaultValue=true)]
+        public string Text { get; set; }
 
 
         /// <summary>
@@ -123,6 +141,7 @@ namespace Org.OpenAPITools.Model
             sb.Append("class Log {\n");
             sb.Append("  EntryId: ").Append(EntryId).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
+            sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("  Origin: ").Append(Origin).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("}\n");
@@ -170,6 +189,11 @@ namespace Org.OpenAPITools.Model
                     this.Title.Equals(input.Title))
                 ) && 
                 (
+                    this.Text == input.Text ||
+                    (this.Text != null &&
+                    this.Text.Equals(input.Text))
+                ) && 
+                (
                     this.Origin == input.Origin ||
                     (this.Origin != null &&
                     this.Origin.Equals(input.Origin))
@@ -195,6 +219,8 @@ namespace Org.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.EntryId.GetHashCode();
                 if (this.Title != null)
                     hashCode = hashCode * 59 + this.Title.GetHashCode();
+                if (this.Text != null)
+                    hashCode = hashCode * 59 + this.Text.GetHashCode();
                 if (this.Origin != null)
                     hashCode = hashCode * 59 + this.Origin.GetHashCode();
                 if (this.Tags != null)
@@ -210,6 +236,20 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
+            // Title (string) minLength
+            if(this.Title != null && this.Title.Length < 3)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be greater than 3.", new [] { "Title" });
+            }
+            
+
+            // Text (string) minLength
+            if(this.Text != null && this.Text.Length < 3)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Text, length must be greater than 3.", new [] { "Text" });
+            }
+            
             yield break;
         }
     }
