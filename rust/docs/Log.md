@@ -5,7 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **entry_id** | **i64** | The unique identifier of this entity. | 
-**title** | **String** | Title of the log. | 
+**title** | **String** | Body of the log. | 
+**text** | **String** | Title of the log. | 
 **origin** | [**crate::models::LogOrigin**](LogOrigin.md) |  | 
 **tags** | [**Vec<crate::models::Tag>**](Tag.md) | A list of Tag objects. | 
 
