@@ -25,17 +25,45 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.openapitools.client.model.ArrayOfLogsResponseMeta;
 import org.openapitools.client.model.Log;
 
 /**
  * Response containing multiple logs.
  */
 @ApiModel(description = "Response containing multiple logs.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-18T10:17:02.665+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-18T14:17:17.489+01:00[Europe/London]")
 public class ArrayOfLogsResponse {
+  public static final String SERIALIZED_NAME_META = "meta";
+  @SerializedName(SERIALIZED_NAME_META)
+  private ArrayOfLogsResponseMeta meta;
+
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
   private List<Log> data = new ArrayList<Log>();
+
+
+  public ArrayOfLogsResponse meta(ArrayOfLogsResponseMeta meta) {
+    
+    this.meta = meta;
+    return this;
+  }
+
+   /**
+   * Get meta
+   * @return meta
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ArrayOfLogsResponseMeta getMeta() {
+    return meta;
+  }
+
+
+  public void setMeta(ArrayOfLogsResponseMeta meta) {
+    this.meta = meta;
+  }
 
 
   public ArrayOfLogsResponse data(List<Log> data) {
@@ -74,12 +102,13 @@ public class ArrayOfLogsResponse {
       return false;
     }
     ArrayOfLogsResponse arrayOfLogsResponse = (ArrayOfLogsResponse) o;
-    return Objects.equals(this.data, arrayOfLogsResponse.data);
+    return Objects.equals(this.meta, arrayOfLogsResponse.meta) &&
+        Objects.equals(this.data, arrayOfLogsResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(meta, data);
   }
 
 
@@ -87,6 +116,7 @@ public class ArrayOfLogsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ArrayOfLogsResponse {\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();

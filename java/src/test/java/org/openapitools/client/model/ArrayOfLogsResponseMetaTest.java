@@ -21,43 +21,32 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import org.openapitools.client.model.ArrayOfLogsResponseMeta;
-import org.openapitools.client.model.Log;
+import org.openapitools.client.model.PaginationMeta;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for ArrayOfLogsResponse
+ * Model tests for ArrayOfLogsResponseMeta
  */
-public class ArrayOfLogsResponseTest {
-    private final ArrayOfLogsResponse model = new ArrayOfLogsResponse();
+public class ArrayOfLogsResponseMetaTest {
+    private final ArrayOfLogsResponseMeta model = new ArrayOfLogsResponseMeta();
 
     /**
-     * Model tests for ArrayOfLogsResponse
+     * Model tests for ArrayOfLogsResponseMeta
      */
     @Test
-    public void testArrayOfLogsResponse() {
-        // TODO: test ArrayOfLogsResponse
+    public void testArrayOfLogsResponseMeta() {
+        // TODO: test ArrayOfLogsResponseMeta
     }
 
     /**
-     * Test the property 'meta'
+     * Test the property 'page'
      */
     @Test
-    public void metaTest() {
-        // TODO: test meta
-    }
-
-    /**
-     * Test the property 'data'
-     */
-    @Test
-    public void dataTest() {
-        // TODO: test data
+    public void pageTest() {
+        // TODO: test page
     }
 
 }

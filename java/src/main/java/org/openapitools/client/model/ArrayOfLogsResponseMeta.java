@@ -23,37 +23,38 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.openapitools.client.model.PaginationMeta;
 
 /**
- * A label attached to something for the purpose of identification.
+ * The metadata related to an array of logs response.
  */
-@ApiModel(description = "A label attached to something for the purpose of identification.")
+@ApiModel(description = "The metadata related to an array of logs response.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-18T14:17:17.489+01:00[Europe/London]")
-public class CreateTag {
-  public static final String SERIALIZED_NAME_TEXT = "text";
-  @SerializedName(SERIALIZED_NAME_TEXT)
-  private String text;
+public class ArrayOfLogsResponseMeta {
+  public static final String SERIALIZED_NAME_PAGE = "page";
+  @SerializedName(SERIALIZED_NAME_PAGE)
+  private PaginationMeta page;
 
 
-  public CreateTag text(String text) {
+  public ArrayOfLogsResponseMeta page(PaginationMeta page) {
     
-    this.text = text;
+    this.page = page;
     return this;
   }
 
    /**
-   * The label value of the tag.
-   * @return text
+   * Get page
+   * @return page
   **/
-  @ApiModelProperty(required = true, value = "The label value of the tag.")
+  @ApiModelProperty(required = true, value = "")
 
-  public String getText() {
-    return text;
+  public PaginationMeta getPage() {
+    return page;
   }
 
 
-  public void setText(String text) {
-    this.text = text;
+  public void setPage(PaginationMeta page) {
+    this.page = page;
   }
 
 
@@ -65,21 +66,21 @@ public class CreateTag {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateTag createTag = (CreateTag) o;
-    return Objects.equals(this.text, createTag.text);
+    ArrayOfLogsResponseMeta arrayOfLogsResponseMeta = (ArrayOfLogsResponseMeta) o;
+    return Objects.equals(this.page, arrayOfLogsResponseMeta.page);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(text);
+    return Objects.hash(page);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateTag {\n");
-    sb.append("    text: ").append(toIndentedString(text)).append("\n");
+    sb.append("class ArrayOfLogsResponseMeta {\n");
+    sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -25,35 +25,36 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * A label attached to something for the purpose of identification.
+ * The metadata related to pagination.
  */
-@ApiModel(description = "A label attached to something for the purpose of identification.")
+@ApiModel(description = "The metadata related to pagination.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-18T14:17:17.489+01:00[Europe/London]")
-public class CreateTag {
-  public static final String SERIALIZED_NAME_TEXT = "text";
-  @SerializedName(SERIALIZED_NAME_TEXT)
-  private String text;
+public class PaginationMeta {
+  public static final String SERIALIZED_NAME_TOTAL = "total";
+  @SerializedName(SERIALIZED_NAME_TOTAL)
+  private Integer total;
 
 
-  public CreateTag text(String text) {
+  public PaginationMeta total(Integer total) {
     
-    this.text = text;
+    this.total = total;
     return this;
   }
 
    /**
-   * The label value of the tag.
-   * @return text
+   * The number of pages which contain data.
+   * minimum: 1
+   * @return total
   **/
-  @ApiModelProperty(required = true, value = "The label value of the tag.")
+  @ApiModelProperty(required = true, value = "The number of pages which contain data.")
 
-  public String getText() {
-    return text;
+  public Integer getTotal() {
+    return total;
   }
 
 
-  public void setText(String text) {
-    this.text = text;
+  public void setTotal(Integer total) {
+    this.total = total;
   }
 
 
@@ -65,21 +66,21 @@ public class CreateTag {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateTag createTag = (CreateTag) o;
-    return Objects.equals(this.text, createTag.text);
+    PaginationMeta paginationMeta = (PaginationMeta) o;
+    return Objects.equals(this.total, paginationMeta.total);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(text);
+    return Objects.hash(total);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateTag {\n");
-    sb.append("    text: ").append(toIndentedString(text)).append("\n");
+    sb.append("class PaginationMeta {\n");
+    sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("}");
     return sb.toString();
   }
