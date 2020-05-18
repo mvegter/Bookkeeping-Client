@@ -78,6 +78,7 @@ Class | Description
 ------------- | -------------
  *ApiInformation* | API information
  *ArrayOfLogsResponse* | Response containing multiple logs.
+ *ArrayOfLogsResponseMeta* | The metadata related to an array of logs response.
  *ArrayOfTagsResponse* | Response containing multiple tags.
  *CreateLog* | Describes an intervention or an event that happened.
  *CreateTag* | A label attached to something for the purpose of identification.
@@ -89,6 +90,7 @@ Class | Description
  *Log* | Describes an intervention or an event that happened.
  *LogOrigin* | Type of creator.
  *LogResponse* | Response containing a single log.
+ *PaginationMeta* | The metadata related to pagination.
  *PaginationOptions* | Specifies the pagination requirements of a request.
  *SortLogsOptions* | Specifies the sorting requirements of a request.
  *SortOrder* | Specifies the sorting direction of a sorting option.
