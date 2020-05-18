@@ -39,6 +39,9 @@ void OAILog::initializeModel() {
     m_title_isSet = false;
     m_title_isValid = false;
 
+    m_text_isSet = false;
+    m_text_isValid = false;
+
     m_origin_isSet = false;
     m_origin_isValid = false;
 
@@ -61,6 +64,9 @@ void OAILog::fromJsonObject(QJsonObject json) {
     m_title_isValid = ::OpenAPI::fromJsonValue(title, json[QString("title")]);
     m_title_isSet = !json[QString("title")].isNull() && m_title_isValid;
 
+    m_text_isValid = ::OpenAPI::fromJsonValue(text, json[QString("text")]);
+    m_text_isSet = !json[QString("text")].isNull() && m_text_isValid;
+
     m_origin_isValid = ::OpenAPI::fromJsonValue(origin, json[QString("origin")]);
     m_origin_isSet = !json[QString("origin")].isNull() && m_origin_isValid;
 
@@ -82,6 +88,9 @@ QJsonObject OAILog::asJsonObject() const {
     }
     if (m_title_isSet) {
         obj.insert(QString("title"), ::OpenAPI::toJsonValue(title));
+    }
+    if (m_text_isSet) {
+        obj.insert(QString("text"), ::OpenAPI::toJsonValue(text));
     }
     if (origin.isSet()) {
         obj.insert(QString("origin"), ::OpenAPI::toJsonValue(origin));
@@ -122,6 +131,22 @@ bool OAILog::is_title_Set() const{
 
 bool OAILog::is_title_Valid() const{
     return m_title_isValid;
+}
+
+QString OAILog::getText() const {
+    return text;
+}
+void OAILog::setText(const QString &text) {
+    this->text = text;
+    this->m_text_isSet = true;
+}
+
+bool OAILog::is_text_Set() const{
+    return m_text_isSet;
+}
+
+bool OAILog::is_text_Valid() const{
+    return m_text_isValid;
 }
 
 OAILogOrigin OAILog::getOrigin() const {
@@ -169,6 +194,11 @@ bool OAILog::isSet() const {
             break;
         }
 
+        if (m_text_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (origin.isSet()) {
             isObjectUpdated = true;
             break;
@@ -184,7 +214,7 @@ bool OAILog::isSet() const {
 
 bool OAILog::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_entry_id_isValid && m_title_isValid && m_origin_isValid && m_tags_isValid && true;
+    return m_entry_id_isValid && m_title_isValid && m_text_isValid && m_origin_isValid && m_tags_isValid && true;
 }
 
 } // namespace OpenAPI

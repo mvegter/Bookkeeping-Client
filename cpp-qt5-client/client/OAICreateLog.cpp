@@ -35,6 +35,9 @@ void OAICreateLog::initializeModel() {
 
     m_title_isSet = false;
     m_title_isValid = false;
+
+    m_text_isSet = false;
+    m_text_isValid = false;
 }
 
 void OAICreateLog::fromJson(QString jsonString) {
@@ -48,6 +51,9 @@ void OAICreateLog::fromJsonObject(QJsonObject json) {
 
     m_title_isValid = ::OpenAPI::fromJsonValue(title, json[QString("title")]);
     m_title_isSet = !json[QString("title")].isNull() && m_title_isValid;
+
+    m_text_isValid = ::OpenAPI::fromJsonValue(text, json[QString("text")]);
+    m_text_isSet = !json[QString("text")].isNull() && m_text_isValid;
 }
 
 QString OAICreateLog::asJson() const {
@@ -61,6 +67,9 @@ QJsonObject OAICreateLog::asJsonObject() const {
     QJsonObject obj;
     if (m_title_isSet) {
         obj.insert(QString("title"), ::OpenAPI::toJsonValue(title));
+    }
+    if (m_text_isSet) {
+        obj.insert(QString("text"), ::OpenAPI::toJsonValue(text));
     }
     return obj;
 }
@@ -81,10 +90,31 @@ bool OAICreateLog::is_title_Valid() const{
     return m_title_isValid;
 }
 
+QString OAICreateLog::getText() const {
+    return text;
+}
+void OAICreateLog::setText(const QString &text) {
+    this->text = text;
+    this->m_text_isSet = true;
+}
+
+bool OAICreateLog::is_text_Set() const{
+    return m_text_isSet;
+}
+
+bool OAICreateLog::is_text_Valid() const{
+    return m_text_isValid;
+}
+
 bool OAICreateLog::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (m_title_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_text_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -94,7 +124,7 @@ bool OAICreateLog::isSet() const {
 
 bool OAICreateLog::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_title_isValid && true;
+    return m_title_isValid && m_text_isValid && true;
 }
 
 } // namespace OpenAPI
