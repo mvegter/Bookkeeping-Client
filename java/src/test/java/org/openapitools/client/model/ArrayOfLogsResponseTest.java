@@ -23,6 +23,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.openapitools.client.model.ArrayOfLogsResponseMeta;
 import org.openapitools.client.model.Log;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -41,6 +42,14 @@ public class ArrayOfLogsResponseTest {
     @Test
     public void testArrayOfLogsResponse() {
         // TODO: test ArrayOfLogsResponse
+    }
+
+    /**
+     * Test the property 'meta'
+     */
+    @Test
+    public void metaTest() {
+        // TODO: test meta
     }
 
     /**

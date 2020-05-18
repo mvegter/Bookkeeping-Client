@@ -38,8 +38,9 @@ namespace Org.OpenAPITools.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ArrayOfLogsResponse" /> class.
         /// </summary>
+        /// <param name="meta">meta.</param>
         /// <param name="data">A list of Log objects. (required).</param>
-        public ArrayOfLogsResponse(List<Log> data = default(List<Log>))
+        public ArrayOfLogsResponse(ArrayOfLogsResponseMeta meta = default(ArrayOfLogsResponseMeta), List<Log> data = default(List<Log>))
         {
             // to ensure "data" is required (not null)
             if (data == null)
@@ -51,8 +52,15 @@ namespace Org.OpenAPITools.Model
                 this.Data = data;
             }
             
+            this.Meta = meta;
         }
         
+        /// <summary>
+        /// Gets or Sets Meta
+        /// </summary>
+        [DataMember(Name="meta", EmitDefaultValue=false)]
+        public ArrayOfLogsResponseMeta Meta { get; set; }
+
         /// <summary>
         /// A list of Log objects.
         /// </summary>
@@ -68,6 +76,7 @@ namespace Org.OpenAPITools.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ArrayOfLogsResponse {\n");
+            sb.Append("  Meta: ").Append(Meta).Append("\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -104,6 +113,11 @@ namespace Org.OpenAPITools.Model
 
             return 
                 (
+                    this.Meta == input.Meta ||
+                    (this.Meta != null &&
+                    this.Meta.Equals(input.Meta))
+                ) && 
+                (
                     this.Data == input.Data ||
                     this.Data != null &&
                     input.Data != null &&
@@ -120,6 +134,8 @@ namespace Org.OpenAPITools.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Meta != null)
+                    hashCode = hashCode * 59 + this.Meta.GetHashCode();
                 if (this.Data != null)
                     hashCode = hashCode * 59 + this.Data.GetHashCode();
                 return hashCode;

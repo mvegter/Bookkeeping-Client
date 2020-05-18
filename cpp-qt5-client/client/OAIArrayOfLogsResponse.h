@@ -20,6 +20,7 @@
 
 #include <QJsonObject>
 
+#include "OAIArrayOfLogsResponseMeta.h"
 #include "OAILog.h"
 #include <QList>
 
@@ -39,6 +40,11 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
+    OAIArrayOfLogsResponseMeta getMeta() const;
+    void setMeta(const OAIArrayOfLogsResponseMeta &meta);
+    bool is_meta_Set() const;
+    bool is_meta_Valid() const;
+
     QList<OAILog> getData() const;
     void setData(const QList<OAILog> &data);
     bool is_data_Set() const;
@@ -49,6 +55,10 @@ public:
 
 private:
     void initializeModel();
+
+    OAIArrayOfLogsResponseMeta meta;
+    bool m_meta_isSet;
+    bool m_meta_isValid;
 
     QList<OAILog> data;
     bool m_data_isSet;

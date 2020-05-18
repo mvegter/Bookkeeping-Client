@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**meta** | [**ArrayOfLogsResponseMeta**](ArrayOfLogsResponseMeta.md) |  | [optional] 
 **data** | [**Array&lt;Log&gt;**](Log.md) | A list of Log objects. | 
 
 ## Code Sample
@@ -11,7 +12,8 @@ Name | Type | Description | Notes
 ```ruby
 require 'OpenapiClient'
 
-instance = OpenapiClient::ArrayOfLogsResponse.new(data: null)
+instance = OpenapiClient::ArrayOfLogsResponse.new(meta: null,
+                                 data: null)
 ```
 
 

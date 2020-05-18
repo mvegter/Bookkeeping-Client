@@ -540,29 +540,34 @@ components:
         data:
         - text: text
           title: title
-          entryId: 0
+          entryId: 6
           tags:
           - createdAt: createdAt
             updateAt: updateAt
-            id: 6
+            id: 1
             text: text
           - createdAt: createdAt
             updateAt: updateAt
-            id: 6
+            id: 1
             text: text
         - text: text
           title: title
-          entryId: 0
+          entryId: 6
           tags:
           - createdAt: createdAt
             updateAt: updateAt
-            id: 6
+            id: 1
             text: text
           - createdAt: createdAt
             updateAt: updateAt
-            id: 6
+            id: 1
             text: text
+        meta:
+          page:
+            total: 1
       properties:
+        meta:
+          $ref: '#/components/schemas/ArrayOfLogsResponseMeta'
         data:
           description: A list of Log objects.
           items:
@@ -570,6 +575,18 @@ components:
           type: array
       required:
       - data
+      type: object
+    ArrayOfLogsResponseMeta:
+      additionalProperties: false
+      description: The metadata related to an array of logs response.
+      example:
+        page:
+          total: 1
+      properties:
+        page:
+          $ref: '#/components/schemas/PaginationMeta'
+      required:
+      - page
       type: object
     ArrayOfTags:
       description: A list of Tag objects.
@@ -583,11 +600,11 @@ components:
         data:
         - createdAt: createdAt
           updateAt: updateAt
-          id: 6
+          id: 1
           text: text
         - createdAt: createdAt
           updateAt: updateAt
-          id: 6
+          id: 1
           text: text
       properties:
         data:
@@ -703,15 +720,15 @@ components:
       example:
         text: text
         title: title
-        entryId: 0
+        entryId: 6
         tags:
         - createdAt: createdAt
           updateAt: updateAt
-          id: 6
+          id: 1
           text: text
         - createdAt: createdAt
           updateAt: updateAt
-          id: 6
+          id: 1
           text: text
       properties:
         entryId:
@@ -753,15 +770,15 @@ components:
         data:
           text: text
           title: title
-          entryId: 0
+          entryId: 6
           tags:
           - createdAt: createdAt
             updateAt: updateAt
-            id: 6
+            id: 1
             text: text
           - createdAt: createdAt
             updateAt: updateAt
-            id: 6
+            id: 1
             text: text
       properties:
         data:
@@ -783,6 +800,19 @@ components:
       maximum: 100
       minimum: 1
       type: integer
+    PaginationMeta:
+      additionalProperties: false
+      description: The metadata related to pagination.
+      example:
+        total: 1
+      properties:
+        total:
+          description: The number of pages which contain data.
+          minimum: 1
+          type: integer
+      required:
+      - total
+      type: object
     PaginationOffset:
       default: 0
       description: The number of items to skip before starting to collect the result
@@ -827,7 +857,7 @@ components:
       example:
         createdAt: createdAt
         updateAt: updateAt
-        id: 6
+        id: 1
         text: text
       properties:
         id:
@@ -854,7 +884,7 @@ components:
         data:
           createdAt: createdAt
           updateAt: updateAt
-          id: 6
+          id: 1
           text: text
       properties:
         data:

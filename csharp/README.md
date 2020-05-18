@@ -121,6 +121,7 @@ Class | Method | HTTP request | Description
 
  - [Model.ApiInformation](docs/ApiInformation.md)
  - [Model.ArrayOfLogsResponse](docs/ArrayOfLogsResponse.md)
+ - [Model.ArrayOfLogsResponseMeta](docs/ArrayOfLogsResponseMeta.md)
  - [Model.ArrayOfTagsResponse](docs/ArrayOfTagsResponse.md)
  - [Model.CreateLog](docs/CreateLog.md)
  - [Model.CreateTag](docs/CreateTag.md)
@@ -132,6 +133,7 @@ Class | Method | HTTP request | Description
  - [Model.Log](docs/Log.md)
  - [Model.LogOrigin](docs/LogOrigin.md)
  - [Model.LogResponse](docs/LogResponse.md)
+ - [Model.PaginationMeta](docs/PaginationMeta.md)
  - [Model.PaginationOptions](docs/PaginationOptions.md)
  - [Model.SortLogsOptions](docs/SortLogsOptions.md)
  - [Model.SortOrder](docs/SortOrder.md)

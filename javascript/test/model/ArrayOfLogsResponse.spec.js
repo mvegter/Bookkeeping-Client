@@ -54,6 +54,12 @@
       //expect(instance).to.be.a(AliceBookkeeping.ArrayOfLogsResponse);
     });
 
+    it('should have the property meta (base name: "meta")', function() {
+      // uncomment below and update the code to test the property meta
+      //var instane = new AliceBookkeeping.ArrayOfLogsResponse();
+      //expect(instance).to.be();
+    });
+
     it('should have the property data (base name: "data")', function() {
       // uncomment below and update the code to test the property data
       //var instane = new AliceBookkeeping.ArrayOfLogsResponse();

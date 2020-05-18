@@ -15,12 +15,15 @@ require 'date'
 module OpenapiClient
   # Response containing multiple logs.
   class ArrayOfLogsResponse
+    attr_accessor :meta
+
     # A list of Log objects.
     attr_accessor :data
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'meta' => :'meta',
         :'data' => :'data'
       }
     end
@@ -28,6 +31,7 @@ module OpenapiClient
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'meta' => :'ArrayOfLogsResponseMeta',
         :'data' => :'Array<Log>'
       }
     end
@@ -52,6 +56,10 @@ module OpenapiClient
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'meta')
+        self.meta = attributes[:'meta']
+      end
 
       if attributes.key?(:'data')
         if (value = attributes[:'data']).is_a?(Array)
@@ -83,6 +91,7 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          meta == o.meta &&
           data == o.data
     end
 
@@ -95,7 +104,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [data].hash
+      [meta, data].hash
     end
 
     # Builds the object from hash

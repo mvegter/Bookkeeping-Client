@@ -21,6 +21,7 @@
 
 #include "../ModelBase.h"
 
+#include "ArrayOfLogsResponseMeta.h"
 #include <vector>
 #include "Log.h"
 
@@ -55,6 +56,15 @@ public:
     /// ArrayOfLogsResponse members
 
     /// <summary>
+    /// 
+    /// </summary>
+    std::shared_ptr<ArrayOfLogsResponseMeta> getMeta() const;
+    bool metaIsSet() const;
+    void unsetMeta();
+
+    void setMeta(const std::shared_ptr<ArrayOfLogsResponseMeta>& value);
+
+    /// <summary>
     /// A list of Log objects.
     /// </summary>
     std::vector<std::shared_ptr<Log>>& getData();
@@ -65,6 +75,8 @@ public:
 
 
 protected:
+    std::shared_ptr<ArrayOfLogsResponseMeta> m_Meta;
+    bool m_MetaIsSet;
     std::vector<std::shared_ptr<Log>> m_Data;
     bool m_DataIsSet;
 };

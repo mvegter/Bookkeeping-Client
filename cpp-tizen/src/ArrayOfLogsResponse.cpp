@@ -23,12 +23,18 @@ ArrayOfLogsResponse::~ArrayOfLogsResponse()
 void
 ArrayOfLogsResponse::__init()
 {
+	//meta = new ArrayOfLogsResponseMeta();
 	//new std::list()std::list> data;
 }
 
 void
 ArrayOfLogsResponse::__cleanup()
 {
+	//if(meta != NULL) {
+	//
+	//delete meta;
+	//meta = NULL;
+	//}
 	//if(data != NULL) {
 	//data.RemoveAll(true);
 	//delete data;
@@ -42,6 +48,20 @@ ArrayOfLogsResponse::fromJson(char* jsonStr)
 {
 	JsonObject *pJsonObject = json_node_get_object(json_from_string(jsonStr,NULL));
 	JsonNode *node;
+	const gchar *metaKey = "meta";
+	node = json_object_get_member(pJsonObject, metaKey);
+	if (node !=NULL) {
+	
+
+		if (isprimitive("ArrayOfLogsResponseMeta")) {
+			jsonToValue(&meta, node, "ArrayOfLogsResponseMeta", "ArrayOfLogsResponseMeta");
+		} else {
+			
+			ArrayOfLogsResponseMeta* obj = static_cast<ArrayOfLogsResponseMeta*> (&meta);
+			obj->fromJson(json_to_string(node, false));
+			
+		}
+	}
 	const gchar *dataKey = "data";
 	node = json_object_get_member(pJsonObject, dataKey);
 	if (node !=NULL) {
@@ -78,6 +98,20 @@ ArrayOfLogsResponse::toJson()
 {
 	JsonObject *pJsonObject = json_object_new();
 	JsonNode *node;
+	if (isprimitive("ArrayOfLogsResponseMeta")) {
+		ArrayOfLogsResponseMeta obj = getMeta();
+		node = converttoJson(&obj, "ArrayOfLogsResponseMeta", "");
+	}
+	else {
+		
+		ArrayOfLogsResponseMeta obj = static_cast<ArrayOfLogsResponseMeta> (getMeta());
+		GError *mygerror;
+		mygerror = NULL;
+		node = json_from_string(obj.toJson(), &mygerror);
+		
+	}
+	const gchar *metaKey = "meta";
+	json_object_set_member(pJsonObject, metaKey, node);
 	if (isprimitive("Log")) {
 		list<Log> new_list = static_cast<list <Log> > (getData());
 		node = converttoJson(&new_list, "Log", "array");
@@ -109,6 +143,18 @@ ArrayOfLogsResponse::toJson()
 	char * ret = json_to_string(node, false);
 	json_node_free(node);
 	return ret;
+}
+
+ArrayOfLogsResponseMeta
+ArrayOfLogsResponse::getMeta()
+{
+	return meta;
+}
+
+void
+ArrayOfLogsResponse::setMeta(ArrayOfLogsResponseMeta  meta)
+{
+	this->meta = meta;
 }
 
 std::list<Log>

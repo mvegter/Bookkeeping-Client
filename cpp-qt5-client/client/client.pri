@@ -4,6 +4,7 @@ HEADERS += \
 # Models
     $${PWD}/OAIApiInformation.h \
     $${PWD}/OAIArrayOfLogsResponse.h \
+    $${PWD}/OAIArrayOfLogsResponseMeta.h \
     $${PWD}/OAIArrayOfTagsResponse.h \
     $${PWD}/OAICreateLog.h \
     $${PWD}/OAICreateTag.h \
@@ -15,6 +16,7 @@ HEADERS += \
     $${PWD}/OAILog.h \
     $${PWD}/OAILogOrigin.h \
     $${PWD}/OAILogResponse.h \
+    $${PWD}/OAIPaginationMeta.h \
     $${PWD}/OAIPaginationOptions.h \
     $${PWD}/OAISortLogsOptions.h \
     $${PWD}/OAISortOrder.h \
@@ -35,6 +37,7 @@ SOURCES += \
 # Models
     $${PWD}/OAIApiInformation.cpp \
     $${PWD}/OAIArrayOfLogsResponse.cpp \
+    $${PWD}/OAIArrayOfLogsResponseMeta.cpp \
     $${PWD}/OAIArrayOfTagsResponse.cpp \
     $${PWD}/OAICreateLog.cpp \
     $${PWD}/OAICreateTag.cpp \
@@ -46,6 +49,7 @@ SOURCES += \
     $${PWD}/OAILog.cpp \
     $${PWD}/OAILogOrigin.cpp \
     $${PWD}/OAILogResponse.cpp \
+    $${PWD}/OAIPaginationMeta.cpp \
     $${PWD}/OAIPaginationOptions.cpp \
     $${PWD}/OAISortLogsOptions.cpp \
     $${PWD}/OAISortOrder.cpp \

@@ -23,6 +23,7 @@ namespace model {
 
 ArrayOfLogsResponse::ArrayOfLogsResponse()
 {
+    m_MetaIsSet = false;
     m_DataIsSet = false;
 }
 
@@ -40,6 +41,10 @@ web::json::value ArrayOfLogsResponse::toJson() const
 
     web::json::value val = web::json::value::object();
     
+    if(m_MetaIsSet)
+    {
+        val[utility::conversions::to_string_t("meta")] = ModelBase::toJson(m_Meta);
+    }
     if(m_DataIsSet)
     {
         val[utility::conversions::to_string_t("data")] = ModelBase::toJson(m_Data);
@@ -52,6 +57,16 @@ bool ArrayOfLogsResponse::fromJson(const web::json::value& val)
 {
     bool ok = true;
     
+    if(val.has_field(utility::conversions::to_string_t("meta")))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("meta"));
+        if(!fieldValue.is_null())
+        {
+            std::shared_ptr<ArrayOfLogsResponseMeta> refVal_meta;
+            ok &= ModelBase::fromJson(fieldValue, refVal_meta);
+            setMeta(refVal_meta);
+        }
+    }
     if(val.has_field(utility::conversions::to_string_t("data")))
     {
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("data"));
@@ -72,6 +87,10 @@ void ArrayOfLogsResponse::toMultipart(std::shared_ptr<MultipartFormData> multipa
     {
         namePrefix += utility::conversions::to_string_t(".");
     }
+    if(m_MetaIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("meta"), m_Meta));
+    }
     if(m_DataIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("data"), m_Data));
@@ -87,6 +106,12 @@ bool ArrayOfLogsResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multi
         namePrefix += utility::conversions::to_string_t(".");
     }
 
+    if(multipart->hasContent(utility::conversions::to_string_t("meta")))
+    {
+        std::shared_ptr<ArrayOfLogsResponseMeta> refVal_meta;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("meta")), refVal_meta );
+        setMeta(refVal_meta);
+    }
     if(multipart->hasContent(utility::conversions::to_string_t("data")))
     {
         std::vector<std::shared_ptr<Log>> refVal_data;
@@ -96,6 +121,26 @@ bool ArrayOfLogsResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multi
     return ok;
 }
 
+std::shared_ptr<ArrayOfLogsResponseMeta> ArrayOfLogsResponse::getMeta() const
+{
+    return m_Meta;
+}
+
+void ArrayOfLogsResponse::setMeta(const std::shared_ptr<ArrayOfLogsResponseMeta>& value)
+{
+    m_Meta = value;
+    m_MetaIsSet = true;
+}
+
+bool ArrayOfLogsResponse::metaIsSet() const
+{
+    return m_MetaIsSet;
+}
+
+void ArrayOfLogsResponse::unsetMeta()
+{
+    m_MetaIsSet = false;
+}
 std::vector<std::shared_ptr<Log>>& ArrayOfLogsResponse::getData()
 {
     return m_Data;

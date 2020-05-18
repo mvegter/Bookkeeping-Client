@@ -33,23 +33,49 @@ class ArrayOfLogsResponse(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'meta': 'ArrayOfLogsResponseMeta',
         'data': 'list[Log]'
     }
 
     attribute_map = {
+        'meta': 'meta',
         'data': 'data'
     }
 
-    def __init__(self, data=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, meta=None, data=None, local_vars_configuration=None):  # noqa: E501
         """ArrayOfLogsResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._meta = None
         self._data = None
         self.discriminator = None
 
+        if meta is not None:
+            self.meta = meta
         self.data = data
+
+    @property
+    def meta(self):
+        """Gets the meta of this ArrayOfLogsResponse.  # noqa: E501
+
+
+        :return: The meta of this ArrayOfLogsResponse.  # noqa: E501
+        :rtype: ArrayOfLogsResponseMeta
+        """
+        return self._meta
+
+    @meta.setter
+    def meta(self, meta):
+        """Sets the meta of this ArrayOfLogsResponse.
+
+
+        :param meta: The meta of this ArrayOfLogsResponse.  # noqa: E501
+        :type: ArrayOfLogsResponseMeta
+        """
+
+        self._meta = meta
 
     @property
     def data(self):

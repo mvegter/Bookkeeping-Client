@@ -9,6 +9,7 @@
 
 
 #include <string>
+#include "ArrayOfLogsResponseMeta.h"
 #include "Log.h"
 #include <list>
 #include "Object.h"
@@ -47,6 +48,13 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
+	/*! \brief Get 
+	 */
+	ArrayOfLogsResponseMeta getMeta();
+
+	/*! \brief Set 
+	 */
+	void setMeta(ArrayOfLogsResponseMeta  meta);
 	/*! \brief Get A list of Log objects.
 	 */
 	std::list<Log> getData();
@@ -56,6 +64,7 @@ public:
 	void setData(std::list <Log> data);
 
 private:
+	ArrayOfLogsResponseMeta meta;
 	std::list <Log>data;
 	void __init();
 	void __cleanup();

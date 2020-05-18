@@ -136,6 +136,7 @@ Class | Method | HTTP request | Description
 
  - [AliceBookkeeping.ApiInformation](docs/ApiInformation.md)
  - [AliceBookkeeping.ArrayOfLogsResponse](docs/ArrayOfLogsResponse.md)
+ - [AliceBookkeeping.ArrayOfLogsResponseMeta](docs/ArrayOfLogsResponseMeta.md)
  - [AliceBookkeeping.ArrayOfTagsResponse](docs/ArrayOfTagsResponse.md)
  - [AliceBookkeeping.CreateLog](docs/CreateLog.md)
  - [AliceBookkeeping.CreateTag](docs/CreateTag.md)
@@ -147,6 +148,7 @@ Class | Method | HTTP request | Description
  - [AliceBookkeeping.Log](docs/Log.md)
  - [AliceBookkeeping.LogOrigin](docs/LogOrigin.md)
  - [AliceBookkeeping.LogResponse](docs/LogResponse.md)
+ - [AliceBookkeeping.PaginationMeta](docs/PaginationMeta.md)
  - [AliceBookkeeping.PaginationOptions](docs/PaginationOptions.md)
  - [AliceBookkeeping.SortLogsOptions](docs/SortLogsOptions.md)
  - [AliceBookkeeping.SortOrder](docs/SortOrder.md)

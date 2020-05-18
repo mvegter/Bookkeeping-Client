@@ -49,6 +49,7 @@ Class | Method | HTTP request | Description
 
  - [ApiInformation](docs/ApiInformation.md)
  - [ArrayOfLogsResponse](docs/ArrayOfLogsResponse.md)
+ - [ArrayOfLogsResponseMeta](docs/ArrayOfLogsResponseMeta.md)
  - [ArrayOfTagsResponse](docs/ArrayOfTagsResponse.md)
  - [CreateLog](docs/CreateLog.md)
  - [CreateTag](docs/CreateTag.md)
@@ -60,6 +61,7 @@ Class | Method | HTTP request | Description
  - [Log](docs/Log.md)
  - [LogOrigin](docs/LogOrigin.md)
  - [LogResponse](docs/LogResponse.md)
+ - [PaginationMeta](docs/PaginationMeta.md)
  - [PaginationOptions](docs/PaginationOptions.md)
  - [SortLogsOptions](docs/SortLogsOptions.md)
  - [SortOrder](docs/SortOrder.md)

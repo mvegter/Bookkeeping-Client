@@ -15,6 +15,7 @@
 import ApiClient from './ApiClient';
 import ApiInformation from './model/ApiInformation';
 import ArrayOfLogsResponse from './model/ArrayOfLogsResponse';
+import ArrayOfLogsResponseMeta from './model/ArrayOfLogsResponseMeta';
 import ArrayOfTagsResponse from './model/ArrayOfTagsResponse';
 import CreateLog from './model/CreateLog';
 import CreateTag from './model/CreateTag';
@@ -26,6 +27,7 @@ import FilterLogsOptions from './model/FilterLogsOptions';
 import Log from './model/Log';
 import LogOrigin from './model/LogOrigin';
 import LogResponse from './model/LogResponse';
+import PaginationMeta from './model/PaginationMeta';
 import PaginationOptions from './model/PaginationOptions';
 import SortLogsOptions from './model/SortLogsOptions';
 import SortOrder from './model/SortOrder';
@@ -85,6 +87,12 @@ export {
      * @property {module:model/ArrayOfLogsResponse}
      */
     ArrayOfLogsResponse,
+
+    /**
+     * The ArrayOfLogsResponseMeta model constructor.
+     * @property {module:model/ArrayOfLogsResponseMeta}
+     */
+    ArrayOfLogsResponseMeta,
 
     /**
      * The ArrayOfTagsResponse model constructor.
@@ -151,6 +159,12 @@ export {
      * @property {module:model/LogResponse}
      */
     LogResponse,
+
+    /**
+     * The PaginationMeta model constructor.
+     * @property {module:model/PaginationMeta}
+     */
+    PaginationMeta,
 
     /**
      * The PaginationOptions model constructor.

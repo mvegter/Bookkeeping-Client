@@ -66,6 +66,14 @@ namespace Org.OpenAPITools.Test
 
 
         /// <summary>
+        /// Test the property 'Meta'
+        /// </summary>
+        [Test]
+        public void MetaTest()
+        {
+            // TODO unit test for the property 'Meta'
+        }
+        /// <summary>
         /// Test the property 'Data'
         /// </summary>
         [Test]
