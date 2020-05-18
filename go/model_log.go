@@ -12,8 +12,10 @@ package openapi
 type Log struct {
 	// The unique identifier of this entity.
 	EntryId int64 `json:"entryId"`
-	// Title of the log.
+	// Body of the log.
 	Title string `json:"title"`
+	// Title of the log.
+	Text string `json:"text"`
 	Origin LogOrigin `json:"origin"`
 	// A list of Tag objects.
 	Tags []Tag `json:"tags"`

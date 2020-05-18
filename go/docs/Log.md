@@ -5,7 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EntryId** | **int64** | The unique identifier of this entity. | 
-**Title** | **string** | Title of the log. | 
+**Title** | **string** | Body of the log. | 
+**Text** | **string** | Title of the log. | 
 **Origin** | [**LogOrigin**](LogOrigin.md) |  | 
 **Tags** | [**[]Tag**](Tag.md) | A list of Tag objects. | 
 
