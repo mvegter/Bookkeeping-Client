@@ -23,11 +23,12 @@ class CreateLog {
      * Constructs a new <code>CreateLog</code>.
      * Describes an intervention or an event that happened.
      * @alias module:model/CreateLog
-     * @param title {String} Title of the log.
+     * @param title {String} Body of the log.
+     * @param text {String} Title of the log.
      */
-    constructor(title) { 
+    constructor(title, text) { 
         
-        CreateLog.initialize(this, title);
+        CreateLog.initialize(this, title, text);
     }
 
     /**
@@ -35,8 +36,9 @@ class CreateLog {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, title) { 
+    static initialize(obj, title, text) { 
         obj['title'] = title;
+        obj['text'] = text;
     }
 
     /**
@@ -53,6 +55,9 @@ class CreateLog {
             if (data.hasOwnProperty('title')) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
             }
+            if (data.hasOwnProperty('text')) {
+                obj['text'] = ApiClient.convertToType(data['text'], 'String');
+            }
         }
         return obj;
     }
@@ -61,10 +66,16 @@ class CreateLog {
 }
 
 /**
- * Title of the log.
+ * Body of the log.
  * @member {String} title
  */
 CreateLog.prototype['title'] = undefined;
+
+/**
+ * Title of the log.
+ * @member {String} text
+ */
+CreateLog.prototype['text'] = undefined;
 
 
 
