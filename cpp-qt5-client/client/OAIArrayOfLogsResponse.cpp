@@ -33,6 +33,9 @@ OAIArrayOfLogsResponse::~OAIArrayOfLogsResponse() {}
 
 void OAIArrayOfLogsResponse::initializeModel() {
 
+    m_meta_isSet = false;
+    m_meta_isValid = false;
+
     m_data_isSet = false;
     m_data_isValid = false;
 }
@@ -45,6 +48,9 @@ void OAIArrayOfLogsResponse::fromJson(QString jsonString) {
 }
 
 void OAIArrayOfLogsResponse::fromJsonObject(QJsonObject json) {
+
+    m_meta_isValid = ::OpenAPI::fromJsonValue(meta, json[QString("meta")]);
+    m_meta_isSet = !json[QString("meta")].isNull() && m_meta_isValid;
 
     m_data_isValid = ::OpenAPI::fromJsonValue(data, json[QString("data")]);
     m_data_isSet = !json[QString("data")].isNull() && m_data_isValid;
@@ -59,10 +65,29 @@ QString OAIArrayOfLogsResponse::asJson() const {
 
 QJsonObject OAIArrayOfLogsResponse::asJsonObject() const {
     QJsonObject obj;
+    if (meta.isSet()) {
+        obj.insert(QString("meta"), ::OpenAPI::toJsonValue(meta));
+    }
     if (data.size() > 0) {
         obj.insert(QString("data"), ::OpenAPI::toJsonValue(data));
     }
     return obj;
+}
+
+OAIArrayOfLogsResponseMeta OAIArrayOfLogsResponse::getMeta() const {
+    return meta;
+}
+void OAIArrayOfLogsResponse::setMeta(const OAIArrayOfLogsResponseMeta &meta) {
+    this->meta = meta;
+    this->m_meta_isSet = true;
+}
+
+bool OAIArrayOfLogsResponse::is_meta_Set() const{
+    return m_meta_isSet;
+}
+
+bool OAIArrayOfLogsResponse::is_meta_Valid() const{
+    return m_meta_isValid;
 }
 
 QList<OAILog> OAIArrayOfLogsResponse::getData() const {
@@ -84,6 +109,11 @@ bool OAIArrayOfLogsResponse::is_data_Valid() const{
 bool OAIArrayOfLogsResponse::isSet() const {
     bool isObjectUpdated = false;
     do {
+        if (meta.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (data.size() > 0) {
             isObjectUpdated = true;
             break;
