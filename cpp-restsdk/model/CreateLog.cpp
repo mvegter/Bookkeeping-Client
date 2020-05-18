@@ -25,6 +25,8 @@ CreateLog::CreateLog()
 {
     m_Title = utility::conversions::to_string_t("");
     m_TitleIsSet = false;
+    m_Text = utility::conversions::to_string_t("");
+    m_TextIsSet = false;
 }
 
 CreateLog::~CreateLog()
@@ -45,6 +47,10 @@ web::json::value CreateLog::toJson() const
     {
         val[utility::conversions::to_string_t("title")] = ModelBase::toJson(m_Title);
     }
+    if(m_TextIsSet)
+    {
+        val[utility::conversions::to_string_t("text")] = ModelBase::toJson(m_Text);
+    }
 
     return val;
 }
@@ -63,6 +69,16 @@ bool CreateLog::fromJson(const web::json::value& val)
             setTitle(refVal_title);
         }
     }
+    if(val.has_field(utility::conversions::to_string_t("text")))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("text"));
+        if(!fieldValue.is_null())
+        {
+            utility::string_t refVal_text;
+            ok &= ModelBase::fromJson(fieldValue, refVal_text);
+            setText(refVal_text);
+        }
+    }
     return ok;
 }
 
@@ -76,6 +92,10 @@ void CreateLog::toMultipart(std::shared_ptr<MultipartFormData> multipart, const 
     if(m_TitleIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("title"), m_Title));
+    }
+    if(m_TextIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("text"), m_Text));
     }
 }
 
@@ -93,6 +113,12 @@ bool CreateLog::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, cons
         utility::string_t refVal_title;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("title")), refVal_title );
         setTitle(refVal_title);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("text")))
+    {
+        utility::string_t refVal_text;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("text")), refVal_text );
+        setText(refVal_text);
     }
     return ok;
 }
@@ -116,6 +142,26 @@ bool CreateLog::titleIsSet() const
 void CreateLog::unsetTitle()
 {
     m_TitleIsSet = false;
+}
+utility::string_t CreateLog::getText() const
+{
+    return m_Text;
+}
+
+void CreateLog::setText(const utility::string_t& value)
+{
+    m_Text = value;
+    m_TextIsSet = true;
+}
+
+bool CreateLog::textIsSet() const
+{
+    return m_TextIsSet;
+}
+
+void CreateLog::unsetText()
+{
+    m_TextIsSet = false;
 }
 }
 }

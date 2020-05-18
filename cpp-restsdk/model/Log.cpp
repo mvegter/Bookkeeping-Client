@@ -27,6 +27,8 @@ Log::Log()
     m_EntryIdIsSet = false;
     m_Title = utility::conversions::to_string_t("");
     m_TitleIsSet = false;
+    m_Text = utility::conversions::to_string_t("");
+    m_TextIsSet = false;
     m_OriginIsSet = false;
     m_TagsIsSet = false;
 }
@@ -52,6 +54,10 @@ web::json::value Log::toJson() const
     if(m_TitleIsSet)
     {
         val[utility::conversions::to_string_t("title")] = ModelBase::toJson(m_Title);
+    }
+    if(m_TextIsSet)
+    {
+        val[utility::conversions::to_string_t("text")] = ModelBase::toJson(m_Text);
     }
     if(m_OriginIsSet)
     {
@@ -87,6 +93,16 @@ bool Log::fromJson(const web::json::value& val)
             utility::string_t refVal_title;
             ok &= ModelBase::fromJson(fieldValue, refVal_title);
             setTitle(refVal_title);
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("text")))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("text"));
+        if(!fieldValue.is_null())
+        {
+            utility::string_t refVal_text;
+            ok &= ModelBase::fromJson(fieldValue, refVal_text);
+            setText(refVal_text);
         }
     }
     if(val.has_field(utility::conversions::to_string_t("origin")))
@@ -127,6 +143,10 @@ void Log::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utilit
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("title"), m_Title));
     }
+    if(m_TextIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("text"), m_Text));
+    }
     if(m_OriginIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("origin"), m_Origin));
@@ -157,6 +177,12 @@ bool Log::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const util
         utility::string_t refVal_title;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("title")), refVal_title );
         setTitle(refVal_title);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("text")))
+    {
+        utility::string_t refVal_text;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("text")), refVal_text );
+        setText(refVal_text);
     }
     if(multipart->hasContent(utility::conversions::to_string_t("origin")))
     {
@@ -212,6 +238,26 @@ bool Log::titleIsSet() const
 void Log::unsetTitle()
 {
     m_TitleIsSet = false;
+}
+utility::string_t Log::getText() const
+{
+    return m_Text;
+}
+
+void Log::setText(const utility::string_t& value)
+{
+    m_Text = value;
+    m_TextIsSet = true;
+}
+
+bool Log::textIsSet() const
+{
+    return m_TextIsSet;
+}
+
+void Log::unsetText()
+{
+    m_TextIsSet = false;
 }
 std::shared_ptr<LogOrigin> Log::getOrigin() const
 {

@@ -66,13 +66,22 @@ public:
     void setEntryId(int64_t value);
 
     /// <summary>
-    /// Title of the log.
+    /// Body of the log.
     /// </summary>
     utility::string_t getTitle() const;
     bool titleIsSet() const;
     void unsetTitle();
 
     void setTitle(const utility::string_t& value);
+
+    /// <summary>
+    /// Title of the log.
+    /// </summary>
+    utility::string_t getText() const;
+    bool textIsSet() const;
+    void unsetText();
+
+    void setText(const utility::string_t& value);
 
     /// <summary>
     /// 
@@ -98,6 +107,8 @@ protected:
     bool m_EntryIdIsSet;
     utility::string_t m_Title;
     bool m_TitleIsSet;
+    utility::string_t m_Text;
+    bool m_TextIsSet;
     std::shared_ptr<LogOrigin> m_Origin;
     bool m_OriginIsSet;
     std::vector<std::shared_ptr<Tag>> m_Tags;
