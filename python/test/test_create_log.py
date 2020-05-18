@@ -36,11 +36,13 @@ class TestCreateLog(unittest.TestCase):
         # model = openapi_client.models.create_log.CreateLog()  # noqa: E501
         if include_optional :
             return CreateLog(
-                title = '0'
+                title = '012', 
+                text = '012'
             )
         else :
             return CreateLog(
-                title = '0',
+                title = '012',
+                text = '012',
         )
 
     def testCreateLog(self):

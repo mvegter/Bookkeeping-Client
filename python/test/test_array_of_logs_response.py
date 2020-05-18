@@ -39,7 +39,8 @@ class TestArrayOfLogsResponse(unittest.TestCase):
                 data = [
                     openapi_client.models.log.Log(
                         entry_id = 56, 
-                        title = '0', 
+                        title = '012', 
+                        text = '012', 
                         origin = 'human', 
                         tags = [
                             openapi_client.models.tag.Tag(
@@ -55,7 +56,8 @@ class TestArrayOfLogsResponse(unittest.TestCase):
                 data = [
                     openapi_client.models.log.Log(
                         entry_id = 56, 
-                        title = '0', 
+                        title = '012', 
+                        text = '012', 
                         origin = 'human', 
                         tags = [
                             openapi_client.models.tag.Tag(
