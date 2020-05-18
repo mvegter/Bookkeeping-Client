@@ -45,16 +45,24 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get Title of the log.
+	/*! \brief Get Body of the log.
 	 */
 	std::string getTitle();
 
-	/*! \brief Set Title of the log.
+	/*! \brief Set Body of the log.
 	 */
 	void setTitle(std::string  title);
+	/*! \brief Get Title of the log.
+	 */
+	std::string getText();
+
+	/*! \brief Set Title of the log.
+	 */
+	void setText(std::string  text);
 
 private:
 	std::string title;
+	std::string text;
 	void __init();
 	void __cleanup();
 

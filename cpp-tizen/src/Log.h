@@ -55,13 +55,20 @@ public:
 	/*! \brief Set The unique identifier of this entity.
 	 */
 	void setEntryId(long long  entryId);
-	/*! \brief Get Title of the log.
+	/*! \brief Get Body of the log.
 	 */
 	std::string getTitle();
 
-	/*! \brief Set Title of the log.
+	/*! \brief Set Body of the log.
 	 */
 	void setTitle(std::string  title);
+	/*! \brief Get Title of the log.
+	 */
+	std::string getText();
+
+	/*! \brief Set Title of the log.
+	 */
+	void setText(std::string  text);
 	/*! \brief Get 
 	 */
 	LogOrigin getOrigin();
@@ -80,6 +87,7 @@ public:
 private:
 	long long entryId;
 	std::string title;
+	std::string text;
 	LogOrigin origin;
 	std::list <Tag>tags;
 	void __init();
