@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import ArrayOfLogsResponseMeta from './ArrayOfLogsResponseMeta';
 import Log from './Log';
 
 /**
@@ -51,6 +52,9 @@ class ArrayOfLogsResponse {
         if (data) {
             obj = obj || new ArrayOfLogsResponse();
 
+            if (data.hasOwnProperty('meta')) {
+                obj['meta'] = ArrayOfLogsResponseMeta.constructFromObject(data['meta']);
+            }
             if (data.hasOwnProperty('data')) {
                 obj['data'] = ApiClient.convertToType(data['data'], [Log]);
             }
@@ -60,6 +64,11 @@ class ArrayOfLogsResponse {
 
 
 }
+
+/**
+ * @member {module:model/ArrayOfLogsResponseMeta} meta
+ */
+ArrayOfLogsResponse.prototype['meta'] = undefined;
 
 /**
  * A list of Log objects.

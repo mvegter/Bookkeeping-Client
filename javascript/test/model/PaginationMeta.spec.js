@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new AliceBookkeeping.ArrayOfLogsResponse();
+    instance = new AliceBookkeeping.PaginationMeta();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,22 +47,16 @@
       object[property] = value;
   }
 
-  describe('ArrayOfLogsResponse', function() {
-    it('should create an instance of ArrayOfLogsResponse', function() {
-      // uncomment below and update the code to test ArrayOfLogsResponse
-      //var instane = new AliceBookkeeping.ArrayOfLogsResponse();
-      //expect(instance).to.be.a(AliceBookkeeping.ArrayOfLogsResponse);
+  describe('PaginationMeta', function() {
+    it('should create an instance of PaginationMeta', function() {
+      // uncomment below and update the code to test PaginationMeta
+      //var instane = new AliceBookkeeping.PaginationMeta();
+      //expect(instance).to.be.a(AliceBookkeeping.PaginationMeta);
     });
 
-    it('should have the property meta (base name: "meta")', function() {
-      // uncomment below and update the code to test the property meta
-      //var instane = new AliceBookkeeping.ArrayOfLogsResponse();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property data (base name: "data")', function() {
-      // uncomment below and update the code to test the property data
-      //var instane = new AliceBookkeeping.ArrayOfLogsResponse();
+    it('should have the property total (base name: "total")', function() {
+      // uncomment below and update the code to test the property total
+      //var instane = new AliceBookkeeping.PaginationMeta();
       //expect(instance).to.be();
     });
 
