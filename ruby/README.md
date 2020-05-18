@@ -91,6 +91,7 @@ Class | Method | HTTP request | Description
 
  - [OpenapiClient::ApiInformation](docs/ApiInformation.md)
  - [OpenapiClient::ArrayOfLogsResponse](docs/ArrayOfLogsResponse.md)
+ - [OpenapiClient::ArrayOfLogsResponseMeta](docs/ArrayOfLogsResponseMeta.md)
  - [OpenapiClient::ArrayOfTagsResponse](docs/ArrayOfTagsResponse.md)
  - [OpenapiClient::CreateLog](docs/CreateLog.md)
  - [OpenapiClient::CreateTag](docs/CreateTag.md)
@@ -102,6 +103,7 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::Log](docs/Log.md)
  - [OpenapiClient::LogOrigin](docs/LogOrigin.md)
  - [OpenapiClient::LogResponse](docs/LogResponse.md)
+ - [OpenapiClient::PaginationMeta](docs/PaginationMeta.md)
  - [OpenapiClient::PaginationOptions](docs/PaginationOptions.md)
  - [OpenapiClient::SortLogsOptions](docs/SortLogsOptions.md)
  - [OpenapiClient::SortOrder](docs/SortOrder.md)

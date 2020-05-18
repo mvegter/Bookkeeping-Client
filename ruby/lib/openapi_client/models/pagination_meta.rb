@@ -13,26 +13,22 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module OpenapiClient
-  # Response containing multiple logs.
-  class ArrayOfLogsResponse
-    attr_accessor :meta
-
-    # A list of Log objects.
-    attr_accessor :data
+  # The metadata related to pagination.
+  class PaginationMeta
+    # The number of pages which contain data.
+    attr_accessor :total
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'meta' => :'meta',
-        :'data' => :'data'
+        :'total' => :'total'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'meta' => :'ArrayOfLogsResponseMeta',
-        :'data' => :'Array<Log>'
+        :'total' => :'Integer'
       }
     end
 
@@ -46,25 +42,19 @@ module OpenapiClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `OpenapiClient::ArrayOfLogsResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `OpenapiClient::PaginationMeta` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `OpenapiClient::ArrayOfLogsResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `OpenapiClient::PaginationMeta`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
-      end
-
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
+      if attributes.key?(:'total')
+        self.total = attributes[:'total']
       end
     end
 
@@ -72,8 +62,12 @@ module OpenapiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @data.nil?
-        invalid_properties.push('invalid value for "data", data cannot be nil.')
+      if @total.nil?
+        invalid_properties.push('invalid value for "total", total cannot be nil.')
+      end
+
+      if @total < 1
+        invalid_properties.push('invalid value for "total", must be greater than or equal to 1.')
       end
 
       invalid_properties
@@ -82,8 +76,23 @@ module OpenapiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @data.nil?
+      return false if @total.nil?
+      return false if @total < 1
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] total Value to be assigned
+    def total=(total)
+      if total.nil?
+        fail ArgumentError, 'total cannot be nil'
+      end
+
+      if total < 1
+        fail ArgumentError, 'invalid value for "total", must be greater than or equal to 1.'
+      end
+
+      @total = total
     end
 
     # Checks equality by comparing each attribute.
@@ -91,8 +100,7 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          meta == o.meta &&
-          data == o.data
+          total == o.total
     end
 
     # @see the `==` method
@@ -104,7 +112,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [meta, data].hash
+      [total].hash
     end
 
     # Builds the object from hash
