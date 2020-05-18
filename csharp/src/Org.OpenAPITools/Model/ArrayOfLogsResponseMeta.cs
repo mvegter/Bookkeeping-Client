@@ -25,48 +25,39 @@ using OpenAPIDateConverter = Org.OpenAPITools.Client.OpenAPIDateConverter;
 namespace Org.OpenAPITools.Model
 {
     /// <summary>
-    /// Response containing multiple logs.
+    /// The metadata related to an array of logs response.
     /// </summary>
     [DataContract]
-    public partial class ArrayOfLogsResponse :  IEquatable<ArrayOfLogsResponse>, IValidatableObject
+    public partial class ArrayOfLogsResponseMeta :  IEquatable<ArrayOfLogsResponseMeta>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ArrayOfLogsResponse" /> class.
+        /// Initializes a new instance of the <see cref="ArrayOfLogsResponseMeta" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ArrayOfLogsResponse() { }
+        protected ArrayOfLogsResponseMeta() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ArrayOfLogsResponse" /> class.
+        /// Initializes a new instance of the <see cref="ArrayOfLogsResponseMeta" /> class.
         /// </summary>
-        /// <param name="meta">meta.</param>
-        /// <param name="data">A list of Log objects. (required).</param>
-        public ArrayOfLogsResponse(ArrayOfLogsResponseMeta meta = default(ArrayOfLogsResponseMeta), List<Log> data = default(List<Log>))
+        /// <param name="page">page (required).</param>
+        public ArrayOfLogsResponseMeta(PaginationMeta page = default(PaginationMeta))
         {
-            // to ensure "data" is required (not null)
-            if (data == null)
+            // to ensure "page" is required (not null)
+            if (page == null)
             {
-                throw new InvalidDataException("data is a required property for ArrayOfLogsResponse and cannot be null");
+                throw new InvalidDataException("page is a required property for ArrayOfLogsResponseMeta and cannot be null");
             }
             else
             {
-                this.Data = data;
+                this.Page = page;
             }
             
-            this.Meta = meta;
         }
         
         /// <summary>
-        /// Gets or Sets Meta
+        /// Gets or Sets Page
         /// </summary>
-        [DataMember(Name="meta", EmitDefaultValue=false)]
-        public ArrayOfLogsResponseMeta Meta { get; set; }
-
-        /// <summary>
-        /// A list of Log objects.
-        /// </summary>
-        /// <value>A list of Log objects.</value>
-        [DataMember(Name="data", EmitDefaultValue=true)]
-        public List<Log> Data { get; set; }
+        [DataMember(Name="page", EmitDefaultValue=true)]
+        public PaginationMeta Page { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -75,9 +66,8 @@ namespace Org.OpenAPITools.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ArrayOfLogsResponse {\n");
-            sb.Append("  Meta: ").Append(Meta).Append("\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("class ArrayOfLogsResponseMeta {\n");
+            sb.Append("  Page: ").Append(Page).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -98,30 +88,24 @@ namespace Org.OpenAPITools.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ArrayOfLogsResponse);
+            return this.Equals(input as ArrayOfLogsResponseMeta);
         }
 
         /// <summary>
-        /// Returns true if ArrayOfLogsResponse instances are equal
+        /// Returns true if ArrayOfLogsResponseMeta instances are equal
         /// </summary>
-        /// <param name="input">Instance of ArrayOfLogsResponse to be compared</param>
+        /// <param name="input">Instance of ArrayOfLogsResponseMeta to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ArrayOfLogsResponse input)
+        public bool Equals(ArrayOfLogsResponseMeta input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Meta == input.Meta ||
-                    (this.Meta != null &&
-                    this.Meta.Equals(input.Meta))
-                ) && 
-                (
-                    this.Data == input.Data ||
-                    this.Data != null &&
-                    input.Data != null &&
-                    this.Data.SequenceEqual(input.Data)
+                    this.Page == input.Page ||
+                    (this.Page != null &&
+                    this.Page.Equals(input.Page))
                 );
         }
 
@@ -134,10 +118,8 @@ namespace Org.OpenAPITools.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Meta != null)
-                    hashCode = hashCode * 59 + this.Meta.GetHashCode();
-                if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                if (this.Page != null)
+                    hashCode = hashCode * 59 + this.Page.GetHashCode();
                 return hashCode;
             }
         }

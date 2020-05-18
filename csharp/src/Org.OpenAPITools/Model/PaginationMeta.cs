@@ -25,48 +25,40 @@ using OpenAPIDateConverter = Org.OpenAPITools.Client.OpenAPIDateConverter;
 namespace Org.OpenAPITools.Model
 {
     /// <summary>
-    /// Response containing multiple logs.
+    /// The metadata related to pagination.
     /// </summary>
     [DataContract]
-    public partial class ArrayOfLogsResponse :  IEquatable<ArrayOfLogsResponse>, IValidatableObject
+    public partial class PaginationMeta :  IEquatable<PaginationMeta>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ArrayOfLogsResponse" /> class.
+        /// Initializes a new instance of the <see cref="PaginationMeta" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ArrayOfLogsResponse() { }
+        protected PaginationMeta() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ArrayOfLogsResponse" /> class.
+        /// Initializes a new instance of the <see cref="PaginationMeta" /> class.
         /// </summary>
-        /// <param name="meta">meta.</param>
-        /// <param name="data">A list of Log objects. (required).</param>
-        public ArrayOfLogsResponse(ArrayOfLogsResponseMeta meta = default(ArrayOfLogsResponseMeta), List<Log> data = default(List<Log>))
+        /// <param name="total">The number of pages which contain data. (required).</param>
+        public PaginationMeta(int total = default(int))
         {
-            // to ensure "data" is required (not null)
-            if (data == null)
+            // to ensure "total" is required (not null)
+            if (total == null)
             {
-                throw new InvalidDataException("data is a required property for ArrayOfLogsResponse and cannot be null");
+                throw new InvalidDataException("total is a required property for PaginationMeta and cannot be null");
             }
             else
             {
-                this.Data = data;
+                this.Total = total;
             }
             
-            this.Meta = meta;
         }
         
         /// <summary>
-        /// Gets or Sets Meta
+        /// The number of pages which contain data.
         /// </summary>
-        [DataMember(Name="meta", EmitDefaultValue=false)]
-        public ArrayOfLogsResponseMeta Meta { get; set; }
-
-        /// <summary>
-        /// A list of Log objects.
-        /// </summary>
-        /// <value>A list of Log objects.</value>
-        [DataMember(Name="data", EmitDefaultValue=true)]
-        public List<Log> Data { get; set; }
+        /// <value>The number of pages which contain data.</value>
+        [DataMember(Name="total", EmitDefaultValue=true)]
+        public int Total { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -75,9 +67,8 @@ namespace Org.OpenAPITools.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ArrayOfLogsResponse {\n");
-            sb.Append("  Meta: ").Append(Meta).Append("\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("class PaginationMeta {\n");
+            sb.Append("  Total: ").Append(Total).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -98,30 +89,24 @@ namespace Org.OpenAPITools.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ArrayOfLogsResponse);
+            return this.Equals(input as PaginationMeta);
         }
 
         /// <summary>
-        /// Returns true if ArrayOfLogsResponse instances are equal
+        /// Returns true if PaginationMeta instances are equal
         /// </summary>
-        /// <param name="input">Instance of ArrayOfLogsResponse to be compared</param>
+        /// <param name="input">Instance of PaginationMeta to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ArrayOfLogsResponse input)
+        public bool Equals(PaginationMeta input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Meta == input.Meta ||
-                    (this.Meta != null &&
-                    this.Meta.Equals(input.Meta))
-                ) && 
-                (
-                    this.Data == input.Data ||
-                    this.Data != null &&
-                    input.Data != null &&
-                    this.Data.SequenceEqual(input.Data)
+                    this.Total == input.Total ||
+                    (this.Total != null &&
+                    this.Total.Equals(input.Total))
                 );
         }
 
@@ -134,10 +119,8 @@ namespace Org.OpenAPITools.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Meta != null)
-                    hashCode = hashCode * 59 + this.Meta.GetHashCode();
-                if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                if (this.Total != null)
+                    hashCode = hashCode * 59 + this.Total.GetHashCode();
                 return hashCode;
             }
         }
@@ -149,6 +132,14 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
+            
+            // Total (int) minimum
+            if(this.Total < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Total, must be a value greater than or equal to 1.", new [] { "Total" });
+            }
+
             yield break;
         }
     }
