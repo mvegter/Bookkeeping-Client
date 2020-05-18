@@ -32,7 +32,7 @@ import org.openapitools.client.model.Tag;
  * Describes an intervention or an event that happened.
  */
 @ApiModel(description = "Describes an intervention or an event that happened.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-16T15:16:55.570+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-18T10:17:02.665+01:00[Europe/London]")
 public class Log {
   public static final String SERIALIZED_NAME_ENTRY_ID = "entryId";
   @SerializedName(SERIALIZED_NAME_ENTRY_ID)
@@ -41,6 +41,10 @@ public class Log {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
   private String title;
+
+  public static final String SERIALIZED_NAME_TEXT = "text";
+  @SerializedName(SERIALIZED_NAME_TEXT)
+  private String text;
 
   public static final String SERIALIZED_NAME_ORIGIN = "origin";
   @SerializedName(SERIALIZED_NAME_ORIGIN)
@@ -80,10 +84,10 @@ public class Log {
   }
 
    /**
-   * Title of the log.
+   * Body of the log.
    * @return title
   **/
-  @ApiModelProperty(required = true, value = "Title of the log.")
+  @ApiModelProperty(required = true, value = "Body of the log.")
 
   public String getTitle() {
     return title;
@@ -92,6 +96,28 @@ public class Log {
 
   public void setTitle(String title) {
     this.title = title;
+  }
+
+
+  public Log text(String text) {
+    
+    this.text = text;
+    return this;
+  }
+
+   /**
+   * Title of the log.
+   * @return text
+  **/
+  @ApiModelProperty(required = true, value = "Title of the log.")
+
+  public String getText() {
+    return text;
+  }
+
+
+  public void setText(String text) {
+    this.text = text;
   }
 
 
@@ -155,13 +181,14 @@ public class Log {
     Log log = (Log) o;
     return Objects.equals(this.entryId, log.entryId) &&
         Objects.equals(this.title, log.title) &&
+        Objects.equals(this.text, log.text) &&
         Objects.equals(this.origin, log.origin) &&
         Objects.equals(this.tags, log.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(entryId, title, origin, tags);
+    return Objects.hash(entryId, title, text, origin, tags);
   }
 
 
@@ -171,6 +198,7 @@ public class Log {
     sb.append("class Log {\n");
     sb.append("    entryId: ").append(toIndentedString(entryId)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("    origin: ").append(toIndentedString(origin)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
