@@ -101,6 +101,24 @@ public:
 
     void setTags(const std::vector<std::shared_ptr<Tag>>& value);
 
+    /// <summary>
+    /// The unique identifier of this entity.
+    /// </summary>
+    int64_t getRootLogId() const;
+    bool rootLogIdIsSet() const;
+    void unsetRootLogId();
+
+    void setRootLogId(int64_t value);
+
+    /// <summary>
+    /// The unique identifier of this entity.
+    /// </summary>
+    int64_t getParentLogId() const;
+    bool parentLogIdIsSet() const;
+    void unsetParentLogId();
+
+    void setParentLogId(int64_t value);
+
 
 protected:
     int64_t m_Id;
@@ -113,6 +131,10 @@ protected:
     bool m_OriginIsSet;
     std::vector<std::shared_ptr<Tag>> m_Tags;
     bool m_TagsIsSet;
+    int64_t m_RootLogId;
+    bool m_RootLogIdIsSet;
+    int64_t m_ParentLogId;
+    bool m_ParentLogIdIsSet;
 };
 
 
