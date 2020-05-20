@@ -37,7 +37,9 @@ class Log(object):
         'title': 'str',
         'text': 'str',
         'origin': 'LogOrigin',
-        'tags': 'list[Tag]'
+        'tags': 'list[Tag]',
+        'root_log_id': 'int',
+        'parent_log_id': 'int'
     }
 
     attribute_map = {
@@ -45,10 +47,12 @@ class Log(object):
         'title': 'title',
         'text': 'text',
         'origin': 'origin',
-        'tags': 'tags'
+        'tags': 'tags',
+        'root_log_id': 'rootLogId',
+        'parent_log_id': 'parentLogId'
     }
 
-    def __init__(self, id=None, title=None, text=None, origin=None, tags=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, title=None, text=None, origin=None, tags=None, root_log_id=None, parent_log_id=None, local_vars_configuration=None):  # noqa: E501
         """Log - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -59,6 +63,8 @@ class Log(object):
         self._text = None
         self._origin = None
         self._tags = None
+        self._root_log_id = None
+        self._parent_log_id = None
         self.discriminator = None
 
         self.id = id
@@ -66,6 +72,8 @@ class Log(object):
         self.text = text
         self.origin = origin
         self.tags = tags
+        self.root_log_id = root_log_id
+        self.parent_log_id = parent_log_id
 
     @property
     def id(self):
@@ -198,6 +206,62 @@ class Log(object):
             raise ValueError("Invalid value for `tags`, must not be `None`")  # noqa: E501
 
         self._tags = tags
+
+    @property
+    def root_log_id(self):
+        """Gets the root_log_id of this Log.  # noqa: E501
+
+        The unique identifier of this entity.  # noqa: E501
+
+        :return: The root_log_id of this Log.  # noqa: E501
+        :rtype: int
+        """
+        return self._root_log_id
+
+    @root_log_id.setter
+    def root_log_id(self, root_log_id):
+        """Sets the root_log_id of this Log.
+
+        The unique identifier of this entity.  # noqa: E501
+
+        :param root_log_id: The root_log_id of this Log.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and root_log_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `root_log_id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                root_log_id is not None and root_log_id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `root_log_id`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._root_log_id = root_log_id
+
+    @property
+    def parent_log_id(self):
+        """Gets the parent_log_id of this Log.  # noqa: E501
+
+        The unique identifier of this entity.  # noqa: E501
+
+        :return: The parent_log_id of this Log.  # noqa: E501
+        :rtype: int
+        """
+        return self._parent_log_id
+
+    @parent_log_id.setter
+    def parent_log_id(self, parent_log_id):
+        """Sets the parent_log_id of this Log.
+
+        The unique identifier of this entity.  # noqa: E501
+
+        :param parent_log_id: The parent_log_id of this Log.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and parent_log_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `parent_log_id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                parent_log_id is not None and parent_log_id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `parent_log_id`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._parent_log_id = parent_log_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

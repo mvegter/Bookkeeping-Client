@@ -46,7 +46,9 @@ class TestLog(unittest.TestCase):
                         text = '0', 
                         created_at = '0', 
                         update_at = '0', )
-                    ]
+                    ], 
+                root_log_id = 1, 
+                parent_log_id = 1
             )
         else :
             return Log(
@@ -61,6 +63,8 @@ class TestLog(unittest.TestCase):
                         created_at = '0', 
                         update_at = '0', )
                     ],
+                root_log_id = 1,
+                parent_log_id = 1,
         )
 
     def testLog(self):
