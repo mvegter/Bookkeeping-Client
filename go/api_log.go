@@ -155,6 +155,9 @@ func (a *LogApiService) GetLogById(ctx _context.Context, logId int64) (LogRespon
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
+	if logId < 1 {
+		return localVarReturnValue, nil, reportError("logId must be greater than 1")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -394,6 +397,9 @@ func (a *LogApiService) ListTagsByLogId(ctx _context.Context, logId int64) (Arra
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
+	if logId < 1 {
+		return localVarReturnValue, nil, reportError("logId must be greater than 1")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
