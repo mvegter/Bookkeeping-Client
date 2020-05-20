@@ -78,6 +78,11 @@ namespace Example
         {
 
             Configuration.Default.BasePath = "http://localhost/api";
+            // Configure API key authorization: ApiKeyAuth
+            Configuration.Default.ApiKey.Add("token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("token", "Bearer");
+
             var apiInstance = new DefaultApi(Configuration.Default);
 
             try
@@ -143,4 +148,11 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Authorization
 
-All endpoints do not require authorization.
+
+### ApiKeyAuth
+
+- **Type**: API key
+
+- **API key parameter name**: token
+- **Location**: URL query string
+

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EntryId** | **long** | The unique identifier of this entity. | 
+**Id** | **long** | The unique identifier of this entity. | 
 **Title** | **string** | Body of the log. | 
 **Text** | **string** | Title of the log. | 
 **Origin** | **LogOrigin** |  | 

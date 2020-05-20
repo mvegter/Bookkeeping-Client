@@ -33,6 +33,11 @@ namespace Example
         public static void Main()
         {
             Configuration.Default.BasePath = "http://localhost/api";
+            // Configure API key authorization: ApiKeyAuth
+            Configuration.Default.AddApiKey("token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("token", "Bearer");
+
             var apiInstance = new LogApi(Configuration.Default);
             var createLog = new CreateLog(); // CreateLog | 
 
@@ -66,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -108,6 +113,11 @@ namespace Example
         public static void Main()
         {
             Configuration.Default.BasePath = "http://localhost/api";
+            // Configure API key authorization: ApiKeyAuth
+            Configuration.Default.AddApiKey("token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("token", "Bearer");
+
             var apiInstance = new LogApi(Configuration.Default);
             var logId = 789;  // long | The id of the log to retrieve
 
@@ -141,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -184,6 +194,11 @@ namespace Example
         public static void Main()
         {
             Configuration.Default.BasePath = "http://localhost/api";
+            // Configure API key authorization: ApiKeyAuth
+            Configuration.Default.AddApiKey("token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("token", "Bearer");
+
             var apiInstance = new LogApi(Configuration.Default);
             var page = new PaginationOptions(); // PaginationOptions | Specifies the pagination requirements. (optional) 
             var filter = new FilterLogsOptions(); // FilterLogsOptions | Specifies the filter requirements. (optional) 
@@ -221,7 +236,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -263,6 +278,11 @@ namespace Example
         public static void Main()
         {
             Configuration.Default.BasePath = "http://localhost/api";
+            // Configure API key authorization: ApiKeyAuth
+            Configuration.Default.AddApiKey("token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("token", "Bearer");
+
             var apiInstance = new LogApi(Configuration.Default);
             var logId = 789;  // long | The id of the log to retrieve
 
@@ -296,7 +316,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
