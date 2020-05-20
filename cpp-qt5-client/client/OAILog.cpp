@@ -47,6 +47,12 @@ void OAILog::initializeModel() {
 
     m_tags_isSet = false;
     m_tags_isValid = false;
+
+    m_root_log_id_isSet = false;
+    m_root_log_id_isValid = false;
+
+    m_parent_log_id_isSet = false;
+    m_parent_log_id_isValid = false;
 }
 
 void OAILog::fromJson(QString jsonString) {
@@ -72,6 +78,12 @@ void OAILog::fromJsonObject(QJsonObject json) {
 
     m_tags_isValid = ::OpenAPI::fromJsonValue(tags, json[QString("tags")]);
     m_tags_isSet = !json[QString("tags")].isNull() && m_tags_isValid;
+
+    m_root_log_id_isValid = ::OpenAPI::fromJsonValue(root_log_id, json[QString("rootLogId")]);
+    m_root_log_id_isSet = !json[QString("rootLogId")].isNull() && m_root_log_id_isValid;
+
+    m_parent_log_id_isValid = ::OpenAPI::fromJsonValue(parent_log_id, json[QString("parentLogId")]);
+    m_parent_log_id_isSet = !json[QString("parentLogId")].isNull() && m_parent_log_id_isValid;
 }
 
 QString OAILog::asJson() const {
@@ -97,6 +109,12 @@ QJsonObject OAILog::asJsonObject() const {
     }
     if (tags.size() > 0) {
         obj.insert(QString("tags"), ::OpenAPI::toJsonValue(tags));
+    }
+    if (m_root_log_id_isSet) {
+        obj.insert(QString("rootLogId"), ::OpenAPI::toJsonValue(root_log_id));
+    }
+    if (m_parent_log_id_isSet) {
+        obj.insert(QString("parentLogId"), ::OpenAPI::toJsonValue(parent_log_id));
     }
     return obj;
 }
@@ -181,6 +199,38 @@ bool OAILog::is_tags_Valid() const{
     return m_tags_isValid;
 }
 
+qint64 OAILog::getRootLogId() const {
+    return root_log_id;
+}
+void OAILog::setRootLogId(const qint64 &root_log_id) {
+    this->root_log_id = root_log_id;
+    this->m_root_log_id_isSet = true;
+}
+
+bool OAILog::is_root_log_id_Set() const{
+    return m_root_log_id_isSet;
+}
+
+bool OAILog::is_root_log_id_Valid() const{
+    return m_root_log_id_isValid;
+}
+
+qint64 OAILog::getParentLogId() const {
+    return parent_log_id;
+}
+void OAILog::setParentLogId(const qint64 &parent_log_id) {
+    this->parent_log_id = parent_log_id;
+    this->m_parent_log_id_isSet = true;
+}
+
+bool OAILog::is_parent_log_id_Set() const{
+    return m_parent_log_id_isSet;
+}
+
+bool OAILog::is_parent_log_id_Valid() const{
+    return m_parent_log_id_isValid;
+}
+
 bool OAILog::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -208,13 +258,23 @@ bool OAILog::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (m_root_log_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_parent_log_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool OAILog::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_id_isValid && m_title_isValid && m_text_isValid && m_origin_isValid && m_tags_isValid && true;
+    return m_id_isValid && m_title_isValid && m_text_isValid && m_origin_isValid && m_tags_isValid && m_root_log_id_isValid && m_parent_log_id_isValid && true;
 }
 
 } // namespace OpenAPI
