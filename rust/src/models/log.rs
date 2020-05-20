@@ -15,8 +15,8 @@
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Log {
     /// The unique identifier of this entity.
-    #[serde(rename = "entryId")]
-    pub entry_id: i64,
+    #[serde(rename = "id")]
+    pub id: i64,
     /// Body of the log.
     #[serde(rename = "title")]
     pub title: String,
@@ -32,9 +32,9 @@ pub struct Log {
 
 impl Log {
     /// Describes an intervention or an event that happened.
-    pub fn new(entry_id: i64, title: String, text: String, origin: crate::models::LogOrigin, tags: Vec<crate::models::Tag>) -> Log {
+    pub fn new(id: i64, title: String, text: String, origin: crate::models::LogOrigin, tags: Vec<crate::models::Tag>) -> Log {
         Log {
-            entry_id,
+            id,
             title,
             text,
             origin,

@@ -40,6 +40,11 @@ pub trait DefaultApi {
 impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
     fn get_deploy_information(&self, ) -> Box<dyn Future<Item = crate::models::DeployInformation, Error = Error<serde_json::Value>>> {
         let mut req = __internal_request::Request::new(hyper::Method::Get, "/status".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "token".to_owned(),
+            }))
         ;
 
         req.execute(self.configuration.borrow())
@@ -47,6 +52,11 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
 
     fn get_server_information(&self, ) -> Box<dyn Future<Item = crate::models::ApiInformation, Error = Error<serde_json::Value>>> {
         let mut req = __internal_request::Request::new(hyper::Method::Get, "/".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "token".to_owned(),
+            }))
         ;
 
         req.execute(self.configuration.borrow())

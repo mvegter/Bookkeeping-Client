@@ -42,6 +42,11 @@ pub trait LogApi {
 impl<C: hyper::client::Connect>LogApi for LogApiClient<C> {
     fn create_log(&self, create_log: crate::models::CreateLog) -> Box<dyn Future<Item = crate::models::LogResponse, Error = Error<serde_json::Value>>> {
         let mut req = __internal_request::Request::new(hyper::Method::Post, "/logs".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "token".to_owned(),
+            }))
         ;
         req = req.with_body_param(create_log);
 
@@ -50,6 +55,11 @@ impl<C: hyper::client::Connect>LogApi for LogApiClient<C> {
 
     fn get_log_by_id(&self, log_id: i64) -> Box<dyn Future<Item = crate::models::LogResponse, Error = Error<serde_json::Value>>> {
         let mut req = __internal_request::Request::new(hyper::Method::Get, "/logs/{logId}".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "token".to_owned(),
+            }))
         ;
         req = req.with_path_param("logId".to_string(), log_id.to_string());
 
@@ -58,6 +68,11 @@ impl<C: hyper::client::Connect>LogApi for LogApiClient<C> {
 
     fn list_logs(&self, page: Option<crate::models::crate::models::PaginationOptions>, filter: Option<crate::models::crate::models::FilterLogsOptions>, sort: Option<crate::models::crate::models::SortLogsOptions>) -> Box<dyn Future<Item = crate::models::ArrayOfLogsResponse, Error = Error<serde_json::Value>>> {
         let mut req = __internal_request::Request::new(hyper::Method::Get, "/logs".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "token".to_owned(),
+            }))
         ;
         if let Some(ref s) = page {
             req = req.with_query_param("page".to_string(), s.to_string());
@@ -74,6 +89,11 @@ impl<C: hyper::client::Connect>LogApi for LogApiClient<C> {
 
     fn list_tags_by_log_id(&self, log_id: i64) -> Box<dyn Future<Item = crate::models::ArrayOfTagsResponse, Error = Error<serde_json::Value>>> {
         let mut req = __internal_request::Request::new(hyper::Method::Get, "/logs/{logId}/tags".to_string())
+            .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
+                in_header: false,
+                in_query: true,
+                param_name: "token".to_owned(),
+            }))
         ;
         req = req.with_path_param("logId".to_string(), log_id.to_string());
 
