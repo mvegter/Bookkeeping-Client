@@ -102,6 +102,10 @@ module OpenapiClient
       if @api_client.config.client_side_validation && tag_id.nil?
         fail ArgumentError, "Missing the required parameter 'tag_id' when calling TagApi.delete_tag_by_id"
       end
+      if @api_client.config.client_side_validation && tag_id < 1
+        fail ArgumentError, 'invalid value for "tag_id" when calling TagApi.delete_tag_by_id, must be greater than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/tags/{tagId}'.sub('{' + 'tagId' + '}', CGI.escape(tag_id.to_s))
 
@@ -162,6 +166,10 @@ module OpenapiClient
       if @api_client.config.client_side_validation && tag_id.nil?
         fail ArgumentError, "Missing the required parameter 'tag_id' when calling TagApi.get_logs_by_tag_id"
       end
+      if @api_client.config.client_side_validation && tag_id < 1
+        fail ArgumentError, 'invalid value for "tag_id" when calling TagApi.get_logs_by_tag_id, must be greater than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/tags/{tagId}/logs'.sub('{' + 'tagId' + '}', CGI.escape(tag_id.to_s))
 
@@ -222,6 +230,10 @@ module OpenapiClient
       if @api_client.config.client_side_validation && tag_id.nil?
         fail ArgumentError, "Missing the required parameter 'tag_id' when calling TagApi.get_tag_by_id"
       end
+      if @api_client.config.client_side_validation && tag_id < 1
+        fail ArgumentError, 'invalid value for "tag_id" when calling TagApi.get_tag_by_id, must be greater than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/tags/{tagId}'.sub('{' + 'tagId' + '}', CGI.escape(tag_id.to_s))
 
