@@ -41,10 +41,10 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    qint64 getEntryId() const;
-    void setEntryId(const qint64 &entry_id);
-    bool is_entry_id_Set() const;
-    bool is_entry_id_Valid() const;
+    qint64 getId() const;
+    void setId(const qint64 &id);
+    bool is_id_Set() const;
+    bool is_id_Valid() const;
 
     QString getTitle() const;
     void setTitle(const QString &title);
@@ -72,9 +72,9 @@ public:
 private:
     void initializeModel();
 
-    qint64 entry_id;
-    bool m_entry_id_isSet;
-    bool m_entry_id_isValid;
+    qint64 id;
+    bool m_id_isSet;
+    bool m_id_isValid;
 
     QString title;
     bool m_title_isSet;
