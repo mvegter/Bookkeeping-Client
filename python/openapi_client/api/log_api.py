@@ -134,7 +134,7 @@ class LogApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKeyAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/logs', 'POST',
@@ -246,7 +246,7 @@ class LogApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKeyAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/logs/{logId}', 'GET',
@@ -364,7 +364,7 @@ class LogApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKeyAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/logs', 'GET',
@@ -476,7 +476,7 @@ class LogApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKeyAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/logs/{logId}/tags', 'GET',

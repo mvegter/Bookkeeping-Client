@@ -134,7 +134,7 @@ class TagApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKeyAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/tags', 'POST',
@@ -246,7 +246,7 @@ class TagApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKeyAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/tags/{tagId}', 'DELETE',
@@ -358,7 +358,7 @@ class TagApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKeyAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/tags/{tagId}/logs', 'GET',
@@ -470,7 +470,7 @@ class TagApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKeyAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/tags/{tagId}', 'GET',
@@ -578,7 +578,7 @@ class TagApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['ApiKeyAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/tags', 'GET',

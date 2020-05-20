@@ -33,7 +33,7 @@ class Log(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'entry_id': 'int',
+        'id': 'int',
         'title': 'str',
         'text': 'str',
         'origin': 'LogOrigin',
@@ -41,56 +41,56 @@ class Log(object):
     }
 
     attribute_map = {
-        'entry_id': 'entryId',
+        'id': 'id',
         'title': 'title',
         'text': 'text',
         'origin': 'origin',
         'tags': 'tags'
     }
 
-    def __init__(self, entry_id=None, title=None, text=None, origin=None, tags=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, title=None, text=None, origin=None, tags=None, local_vars_configuration=None):  # noqa: E501
         """Log - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._entry_id = None
+        self._id = None
         self._title = None
         self._text = None
         self._origin = None
         self._tags = None
         self.discriminator = None
 
-        self.entry_id = entry_id
+        self.id = id
         self.title = title
         self.text = text
         self.origin = origin
         self.tags = tags
 
     @property
-    def entry_id(self):
-        """Gets the entry_id of this Log.  # noqa: E501
+    def id(self):
+        """Gets the id of this Log.  # noqa: E501
 
         The unique identifier of this entity.  # noqa: E501
 
-        :return: The entry_id of this Log.  # noqa: E501
+        :return: The id of this Log.  # noqa: E501
         :rtype: int
         """
-        return self._entry_id
+        return self._id
 
-    @entry_id.setter
-    def entry_id(self, entry_id):
-        """Sets the entry_id of this Log.
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Log.
 
         The unique identifier of this entity.  # noqa: E501
 
-        :param entry_id: The entry_id of this Log.  # noqa: E501
+        :param id: The id of this Log.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and entry_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `entry_id`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
-        self._entry_id = entry_id
+        self._id = id
 
     @property
     def title(self):

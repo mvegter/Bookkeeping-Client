@@ -4,7 +4,7 @@ Describes an intervention or an event that happened.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**entry_id** | **int** | The unique identifier of this entity. | 
+**id** | **int** | The unique identifier of this entity. | 
 **title** | **str** | Body of the log. | 
 **text** | **str** | Title of the log. | 
 **origin** | [**LogOrigin**](LogOrigin.md) |  | 

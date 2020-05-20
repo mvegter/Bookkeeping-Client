@@ -17,6 +17,7 @@ Adds a new log
 
 ### Example
 
+* Api Key Authentication (ApiKeyAuth):
 ```python
 from __future__ import print_function
 import time
@@ -29,9 +30,23 @@ configuration = openapi_client.Configuration(
     host = "http://localhost/api"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKeyAuth
+configuration = openapi_client.Configuration(
+    host = "http://localhost/api",
+    api_key = {
+        'token': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient() as api_client:
+with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.LogApi(api_client)
     create_log = openapi_client.CreateLog() # CreateLog | 
@@ -56,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -79,6 +94,7 @@ Gets a log by Id
 
 ### Example
 
+* Api Key Authentication (ApiKeyAuth):
 ```python
 from __future__ import print_function
 import time
@@ -91,9 +107,23 @@ configuration = openapi_client.Configuration(
     host = "http://localhost/api"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKeyAuth
+configuration = openapi_client.Configuration(
+    host = "http://localhost/api",
+    api_key = {
+        'token': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient() as api_client:
+with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.LogApi(api_client)
     log_id = 56 # int | The id of the log to retrieve
@@ -118,7 +148,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -142,6 +172,7 @@ List all logs
 
 ### Example
 
+* Api Key Authentication (ApiKeyAuth):
 ```python
 from __future__ import print_function
 import time
@@ -154,9 +185,23 @@ configuration = openapi_client.Configuration(
     host = "http://localhost/api"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKeyAuth
+configuration = openapi_client.Configuration(
+    host = "http://localhost/api",
+    api_key = {
+        'token': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient() as api_client:
+with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.LogApi(api_client)
     page = openapi_client.PaginationOptions() # PaginationOptions | Specifies the pagination requirements. (optional)
@@ -185,7 +230,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -208,6 +253,7 @@ Lists all tags associated with a log
 
 ### Example
 
+* Api Key Authentication (ApiKeyAuth):
 ```python
 from __future__ import print_function
 import time
@@ -220,9 +266,23 @@ configuration = openapi_client.Configuration(
     host = "http://localhost/api"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKeyAuth
+configuration = openapi_client.Configuration(
+    host = "http://localhost/api",
+    api_key = {
+        'token': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['token'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient() as api_client:
+with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.LogApi(api_client)
     log_id = 56 # int | The id of the log to retrieve
@@ -247,7 +307,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
