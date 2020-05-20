@@ -34,6 +34,11 @@ namespace Example
         public static void Main()
         {
             Configuration.Default.BasePath = "http://localhost/api";
+            // Configure API key authorization: ApiKeyAuth
+            Configuration.Default.AddApiKey("token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("token", "Bearer");
+
             var apiInstance = new TagApi(Configuration.Default);
             var createTag = new CreateTag(); // CreateTag | 
 
@@ -67,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -110,6 +115,11 @@ namespace Example
         public static void Main()
         {
             Configuration.Default.BasePath = "http://localhost/api";
+            // Configure API key authorization: ApiKeyAuth
+            Configuration.Default.AddApiKey("token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("token", "Bearer");
+
             var apiInstance = new TagApi(Configuration.Default);
             var tagId = 789;  // long | The id of the tag to retrieve
 
@@ -143,7 +153,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -186,6 +196,11 @@ namespace Example
         public static void Main()
         {
             Configuration.Default.BasePath = "http://localhost/api";
+            // Configure API key authorization: ApiKeyAuth
+            Configuration.Default.AddApiKey("token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("token", "Bearer");
+
             var apiInstance = new TagApi(Configuration.Default);
             var tagId = 789;  // long | The id of the tag to retrieve
 
@@ -219,7 +234,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -262,6 +277,11 @@ namespace Example
         public static void Main()
         {
             Configuration.Default.BasePath = "http://localhost/api";
+            // Configure API key authorization: ApiKeyAuth
+            Configuration.Default.AddApiKey("token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("token", "Bearer");
+
             var apiInstance = new TagApi(Configuration.Default);
             var tagId = 789;  // long | The id of the tag to retrieve
 
@@ -295,7 +315,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -338,6 +358,11 @@ namespace Example
         public static void Main()
         {
             Configuration.Default.BasePath = "http://localhost/api";
+            // Configure API key authorization: ApiKeyAuth
+            Configuration.Default.AddApiKey("token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("token", "Bearer");
+
             var apiInstance = new TagApi(Configuration.Default);
             var page = new PaginationOptions(); // PaginationOptions | Specifies the pagination requirements. (optional) 
 
@@ -371,7 +396,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 

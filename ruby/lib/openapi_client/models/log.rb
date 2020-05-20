@@ -16,7 +16,7 @@ module OpenapiClient
   # Describes an intervention or an event that happened.
   class Log
     # The unique identifier of this entity.
-    attr_accessor :entry_id
+    attr_accessor :id
 
     # Body of the log.
     attr_accessor :title
@@ -32,7 +32,7 @@ module OpenapiClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'entry_id' => :'entryId',
+        :'id' => :'id',
         :'title' => :'title',
         :'text' => :'text',
         :'origin' => :'origin',
@@ -43,7 +43,7 @@ module OpenapiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'entry_id' => :'Integer',
+        :'id' => :'Integer',
         :'title' => :'String',
         :'text' => :'String',
         :'origin' => :'LogOrigin',
@@ -72,8 +72,8 @@ module OpenapiClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'entry_id')
-        self.entry_id = attributes[:'entry_id']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
       if attributes.key?(:'title')
@@ -99,8 +99,8 @@ module OpenapiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @entry_id.nil?
-        invalid_properties.push('invalid value for "entry_id", entry_id cannot be nil.')
+      if @id.nil?
+        invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
       if @title.nil?
@@ -133,7 +133,7 @@ module OpenapiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @entry_id.nil?
+      return false if @id.nil?
       return false if @title.nil?
       return false if @title.to_s.length < 3
       return false if @text.nil?
@@ -176,7 +176,7 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          entry_id == o.entry_id &&
+          id == o.id &&
           title == o.title &&
           text == o.text &&
           origin == o.origin &&
@@ -192,7 +192,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [entry_id, title, text, origin, tags].hash
+      [id, title, text, origin, tags].hash
     end
 
     # Builds the object from hash

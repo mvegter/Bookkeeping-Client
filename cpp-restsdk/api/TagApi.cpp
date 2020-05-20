@@ -118,6 +118,14 @@ pplx::task<std::shared_ptr<TagResponse>> TagApi::createTag(std::shared_ptr<Creat
         throw ApiException(415, utility::conversions::to_string_t("TagApi->createTag does not consume any supported media type"));
     }
 
+    // authentication (ApiKeyAuth) required
+    {
+        utility::string_t localVarApiKey = localVarApiConfiguration->getApiKey(utility::conversions::to_string_t("token"));
+        if ( localVarApiKey.size() > 0 )
+        {
+            localVarQueryParams[utility::conversions::to_string_t("token")] = localVarApiKey;
+        }
+    }
 
     return m_ApiClient->callApi(localVarPath, utility::conversions::to_string_t("POST"), localVarQueryParams, localVarHttpBody, localVarHeaderParams, localVarFormParams, localVarFileParams, localVarRequestHttpContentType)
     .then([=](web::http::http_response localVarResponse)
@@ -237,6 +245,14 @@ pplx::task<std::shared_ptr<TagResponse>> TagApi::deleteTagById(int64_t tagId) co
         throw ApiException(415, utility::conversions::to_string_t("TagApi->deleteTagById does not consume any supported media type"));
     }
 
+    // authentication (ApiKeyAuth) required
+    {
+        utility::string_t localVarApiKey = localVarApiConfiguration->getApiKey(utility::conversions::to_string_t("token"));
+        if ( localVarApiKey.size() > 0 )
+        {
+            localVarQueryParams[utility::conversions::to_string_t("token")] = localVarApiKey;
+        }
+    }
 
     return m_ApiClient->callApi(localVarPath, utility::conversions::to_string_t("DELETE"), localVarQueryParams, localVarHttpBody, localVarHeaderParams, localVarFormParams, localVarFileParams, localVarRequestHttpContentType)
     .then([=](web::http::http_response localVarResponse)
@@ -356,6 +372,14 @@ pplx::task<std::shared_ptr<ArrayOfLogsResponse>> TagApi::getLogsByTagId(int64_t 
         throw ApiException(415, utility::conversions::to_string_t("TagApi->getLogsByTagId does not consume any supported media type"));
     }
 
+    // authentication (ApiKeyAuth) required
+    {
+        utility::string_t localVarApiKey = localVarApiConfiguration->getApiKey(utility::conversions::to_string_t("token"));
+        if ( localVarApiKey.size() > 0 )
+        {
+            localVarQueryParams[utility::conversions::to_string_t("token")] = localVarApiKey;
+        }
+    }
 
     return m_ApiClient->callApi(localVarPath, utility::conversions::to_string_t("GET"), localVarQueryParams, localVarHttpBody, localVarHeaderParams, localVarFormParams, localVarFileParams, localVarRequestHttpContentType)
     .then([=](web::http::http_response localVarResponse)
@@ -475,6 +499,14 @@ pplx::task<std::shared_ptr<TagResponse>> TagApi::getTagById(int64_t tagId) const
         throw ApiException(415, utility::conversions::to_string_t("TagApi->getTagById does not consume any supported media type"));
     }
 
+    // authentication (ApiKeyAuth) required
+    {
+        utility::string_t localVarApiKey = localVarApiConfiguration->getApiKey(utility::conversions::to_string_t("token"));
+        if ( localVarApiKey.size() > 0 )
+        {
+            localVarQueryParams[utility::conversions::to_string_t("token")] = localVarApiKey;
+        }
+    }
 
     return m_ApiClient->callApi(localVarPath, utility::conversions::to_string_t("GET"), localVarQueryParams, localVarHttpBody, localVarHeaderParams, localVarFormParams, localVarFileParams, localVarRequestHttpContentType)
     .then([=](web::http::http_response localVarResponse)
@@ -597,6 +629,14 @@ pplx::task<std::shared_ptr<ArrayOfTagsResponse>> TagApi::listTags(boost::optiona
         throw ApiException(415, utility::conversions::to_string_t("TagApi->listTags does not consume any supported media type"));
     }
 
+    // authentication (ApiKeyAuth) required
+    {
+        utility::string_t localVarApiKey = localVarApiConfiguration->getApiKey(utility::conversions::to_string_t("token"));
+        if ( localVarApiKey.size() > 0 )
+        {
+            localVarQueryParams[utility::conversions::to_string_t("token")] = localVarApiKey;
+        }
+    }
 
     return m_ApiClient->callApi(localVarPath, utility::conversions::to_string_t("GET"), localVarQueryParams, localVarHttpBody, localVarHeaderParams, localVarFormParams, localVarFileParams, localVarRequestHttpContentType)
     .then([=](web::http::http_response localVarResponse)

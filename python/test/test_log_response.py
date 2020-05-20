@@ -37,7 +37,7 @@ class TestLogResponse(unittest.TestCase):
         if include_optional :
             return LogResponse(
                 data = openapi_client.models.log.Log(
-                    entry_id = 56, 
+                    id = 56, 
                     title = '012', 
                     text = '012', 
                     origin = 'human', 
@@ -52,7 +52,7 @@ class TestLogResponse(unittest.TestCase):
         else :
             return LogResponse(
                 data = openapi_client.models.log.Log(
-                    entry_id = 56, 
+                    id = 56, 
                     title = '012', 
                     text = '012', 
                     origin = 'human', 

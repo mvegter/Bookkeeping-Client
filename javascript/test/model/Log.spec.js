@@ -54,8 +54,8 @@
       //expect(instance).to.be.a(AliceBookkeeping.Log);
     });
 
-    it('should have the property entryId (base name: "entryId")', function() {
-      // uncomment below and update the code to test the property entryId
+    it('should have the property id (base name: "id")', function() {
+      // uncomment below and update the code to test the property id
       //var instane = new AliceBookkeeping.Log();
       //expect(instance).to.be();
     });

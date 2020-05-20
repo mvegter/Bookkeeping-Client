@@ -33,8 +33,8 @@ OAILog::~OAILog() {}
 
 void OAILog::initializeModel() {
 
-    m_entry_id_isSet = false;
-    m_entry_id_isValid = false;
+    m_id_isSet = false;
+    m_id_isValid = false;
 
     m_title_isSet = false;
     m_title_isValid = false;
@@ -58,8 +58,8 @@ void OAILog::fromJson(QString jsonString) {
 
 void OAILog::fromJsonObject(QJsonObject json) {
 
-    m_entry_id_isValid = ::OpenAPI::fromJsonValue(entry_id, json[QString("entryId")]);
-    m_entry_id_isSet = !json[QString("entryId")].isNull() && m_entry_id_isValid;
+    m_id_isValid = ::OpenAPI::fromJsonValue(id, json[QString("id")]);
+    m_id_isSet = !json[QString("id")].isNull() && m_id_isValid;
 
     m_title_isValid = ::OpenAPI::fromJsonValue(title, json[QString("title")]);
     m_title_isSet = !json[QString("title")].isNull() && m_title_isValid;
@@ -83,8 +83,8 @@ QString OAILog::asJson() const {
 
 QJsonObject OAILog::asJsonObject() const {
     QJsonObject obj;
-    if (m_entry_id_isSet) {
-        obj.insert(QString("entryId"), ::OpenAPI::toJsonValue(entry_id));
+    if (m_id_isSet) {
+        obj.insert(QString("id"), ::OpenAPI::toJsonValue(id));
     }
     if (m_title_isSet) {
         obj.insert(QString("title"), ::OpenAPI::toJsonValue(title));
@@ -101,20 +101,20 @@ QJsonObject OAILog::asJsonObject() const {
     return obj;
 }
 
-qint64 OAILog::getEntryId() const {
-    return entry_id;
+qint64 OAILog::getId() const {
+    return id;
 }
-void OAILog::setEntryId(const qint64 &entry_id) {
-    this->entry_id = entry_id;
-    this->m_entry_id_isSet = true;
-}
-
-bool OAILog::is_entry_id_Set() const{
-    return m_entry_id_isSet;
+void OAILog::setId(const qint64 &id) {
+    this->id = id;
+    this->m_id_isSet = true;
 }
 
-bool OAILog::is_entry_id_Valid() const{
-    return m_entry_id_isValid;
+bool OAILog::is_id_Set() const{
+    return m_id_isSet;
+}
+
+bool OAILog::is_id_Valid() const{
+    return m_id_isValid;
 }
 
 QString OAILog::getTitle() const {
@@ -184,7 +184,7 @@ bool OAILog::is_tags_Valid() const{
 bool OAILog::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (m_entry_id_isSet) {
+        if (m_id_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -214,7 +214,7 @@ bool OAILog::isSet() const {
 
 bool OAILog::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_entry_id_isValid && m_title_isValid && m_text_isValid && m_origin_isValid && m_tags_isValid && true;
+    return m_id_isValid && m_title_isValid && m_text_isValid && m_origin_isValid && m_tags_isValid && true;
 }
 
 } // namespace OpenAPI

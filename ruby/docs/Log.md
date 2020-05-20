@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**entry_id** | **Integer** | The unique identifier of this entity. | 
+**id** | **Integer** | The unique identifier of this entity. | 
 **title** | **String** | Body of the log. | 
 **text** | **String** | Title of the log. | 
 **origin** | [**LogOrigin**](LogOrigin.md) |  | 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ```ruby
 require 'OpenapiClient'
 
-instance = OpenapiClient::Log.new(entry_id: null,
+instance = OpenapiClient::Log.new(id: null,
                                  title: null,
                                  text: null,
                                  origin: null,

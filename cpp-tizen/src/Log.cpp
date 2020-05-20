@@ -23,7 +23,7 @@ Log::~Log()
 void
 Log::__init()
 {
-	//entryId = long(0);
+	//id = long(0);
 	//title = std::string();
 	//text = std::string();
 	//origin = new LogOrigin();
@@ -33,10 +33,10 @@ Log::__init()
 void
 Log::__cleanup()
 {
-	//if(entryId != NULL) {
+	//if(id != NULL) {
 	//
-	//delete entryId;
-	//entryId = NULL;
+	//delete id;
+	//id = NULL;
 	//}
 	//if(title != NULL) {
 	//
@@ -66,13 +66,13 @@ Log::fromJson(char* jsonStr)
 {
 	JsonObject *pJsonObject = json_node_get_object(json_from_string(jsonStr,NULL));
 	JsonNode *node;
-	const gchar *entryIdKey = "entryId";
-	node = json_object_get_member(pJsonObject, entryIdKey);
+	const gchar *idKey = "id";
+	node = json_object_get_member(pJsonObject, idKey);
 	if (node !=NULL) {
 	
 
 		if (isprimitive("long long")) {
-			jsonToValue(&entryId, node, "long long", "");
+			jsonToValue(&id, node, "long long", "");
 		} else {
 			
 		}
@@ -150,14 +150,14 @@ Log::toJson()
 	JsonObject *pJsonObject = json_object_new();
 	JsonNode *node;
 	if (isprimitive("long long")) {
-		long long obj = getEntryId();
+		long long obj = getId();
 		node = converttoJson(&obj, "long long", "");
 	}
 	else {
 		
 	}
-	const gchar *entryIdKey = "entryId";
-	json_object_set_member(pJsonObject, entryIdKey, node);
+	const gchar *idKey = "id";
+	json_object_set_member(pJsonObject, idKey, node);
 	if (isprimitive("std::string")) {
 		std::string obj = getTitle();
 		node = converttoJson(&obj, "std::string", "");
@@ -224,15 +224,15 @@ Log::toJson()
 }
 
 long long
-Log::getEntryId()
+Log::getId()
 {
-	return entryId;
+	return id;
 }
 
 void
-Log::setEntryId(long long  entryId)
+Log::setId(long long  id)
 {
-	this->entryId = entryId;
+	this->id = id;
 }
 
 std::string

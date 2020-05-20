@@ -23,8 +23,8 @@ namespace model {
 
 Log::Log()
 {
-    m_EntryId = 0L;
-    m_EntryIdIsSet = false;
+    m_Id = 0L;
+    m_IdIsSet = false;
     m_Title = utility::conversions::to_string_t("");
     m_TitleIsSet = false;
     m_Text = utility::conversions::to_string_t("");
@@ -47,9 +47,9 @@ web::json::value Log::toJson() const
 
     web::json::value val = web::json::value::object();
     
-    if(m_EntryIdIsSet)
+    if(m_IdIsSet)
     {
-        val[utility::conversions::to_string_t("entryId")] = ModelBase::toJson(m_EntryId);
+        val[utility::conversions::to_string_t("id")] = ModelBase::toJson(m_Id);
     }
     if(m_TitleIsSet)
     {
@@ -75,14 +75,14 @@ bool Log::fromJson(const web::json::value& val)
 {
     bool ok = true;
     
-    if(val.has_field(utility::conversions::to_string_t("entryId")))
+    if(val.has_field(utility::conversions::to_string_t("id")))
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("entryId"));
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("id"));
         if(!fieldValue.is_null())
         {
-            int64_t refVal_entryId;
-            ok &= ModelBase::fromJson(fieldValue, refVal_entryId);
-            setEntryId(refVal_entryId);
+            int64_t refVal_id;
+            ok &= ModelBase::fromJson(fieldValue, refVal_id);
+            setId(refVal_id);
         }
     }
     if(val.has_field(utility::conversions::to_string_t("title")))
@@ -135,9 +135,9 @@ void Log::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utilit
     {
         namePrefix += utility::conversions::to_string_t(".");
     }
-    if(m_EntryIdIsSet)
+    if(m_IdIsSet)
     {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("entryId"), m_EntryId));
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("id"), m_Id));
     }
     if(m_TitleIsSet)
     {
@@ -166,11 +166,11 @@ bool Log::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const util
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    if(multipart->hasContent(utility::conversions::to_string_t("entryId")))
+    if(multipart->hasContent(utility::conversions::to_string_t("id")))
     {
-        int64_t refVal_entryId;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("entryId")), refVal_entryId );
-        setEntryId(refVal_entryId);
+        int64_t refVal_id;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("id")), refVal_id );
+        setId(refVal_id);
     }
     if(multipart->hasContent(utility::conversions::to_string_t("title")))
     {
@@ -199,25 +199,25 @@ bool Log::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const util
     return ok;
 }
 
-int64_t Log::getEntryId() const
+int64_t Log::getId() const
 {
-    return m_EntryId;
+    return m_Id;
 }
 
-void Log::setEntryId(int64_t value)
+void Log::setId(int64_t value)
 {
-    m_EntryId = value;
-    m_EntryIdIsSet = true;
+    m_Id = value;
+    m_IdIsSet = true;
 }
 
-bool Log::entryIdIsSet() const
+bool Log::idIsSet() const
 {
-    return m_EntryIdIsSet;
+    return m_IdIsSet;
 }
 
-void Log::unsetEntryId()
+void Log::unsetId()
 {
-    m_EntryIdIsSet = false;
+    m_IdIsSet = false;
 }
 utility::string_t Log::getTitle() const
 {

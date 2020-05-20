@@ -66,12 +66,12 @@ namespace Org.OpenAPITools.Test
 
 
         /// <summary>
-        /// Test the property 'EntryId'
+        /// Test the property 'Id'
         /// </summary>
         [Test]
-        public void EntryIdTest()
+        public void IdTest()
         {
-            // TODO unit test for the property 'EntryId'
+            // TODO unit test for the property 'Id'
         }
         /// <summary>
         /// Test the property 'Title'

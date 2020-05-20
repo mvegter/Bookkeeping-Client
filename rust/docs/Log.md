@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**entry_id** | **i64** | The unique identifier of this entity. | 
+**id** | **i64** | The unique identifier of this entity. | 
 **title** | **String** | Body of the log. | 
 **text** | **String** | Title of the log. | 
 **origin** | [**crate::models::LogOrigin**](LogOrigin.md) |  | 

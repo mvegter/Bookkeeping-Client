@@ -45,11 +45,11 @@ public class LogTest {
     }
 
     /**
-     * Test the property 'entryId'
+     * Test the property 'id'
      */
     @Test
-    public void entryIdTest() {
-        // TODO: test entryId
+    public void idTest() {
+        // TODO: test id
     }
 
     /**

@@ -55,7 +55,7 @@ module OpenapiClient
       return_type = opts[:return_type] || 'DeployInformation' 
 
       # auth_names
-      auth_names = opts[:auth_names] || []
+      auth_names = opts[:auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
         :header_params => header_params,
@@ -109,7 +109,7 @@ module OpenapiClient
       return_type = opts[:return_type] || 'ApiInformation' 
 
       # auth_names
-      auth_names = opts[:auth_names] || []
+      auth_names = opts[:auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
         :header_params => header_params,

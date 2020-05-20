@@ -43,21 +43,21 @@ namespace Org.OpenAPITools.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Log" /> class.
         /// </summary>
-        /// <param name="entryId">The unique identifier of this entity. (required).</param>
+        /// <param name="id">The unique identifier of this entity. (required).</param>
         /// <param name="title">Body of the log. (required).</param>
         /// <param name="text">Title of the log. (required).</param>
         /// <param name="origin">origin (required).</param>
         /// <param name="tags">A list of Tag objects. (required).</param>
-        public Log(long entryId = default(long), string title = default(string), string text = default(string), LogOrigin origin = default(LogOrigin), List<Tag> tags = default(List<Tag>))
+        public Log(long id = default(long), string title = default(string), string text = default(string), LogOrigin origin = default(LogOrigin), List<Tag> tags = default(List<Tag>))
         {
-            // to ensure "entryId" is required (not null)
-            if (entryId == null)
+            // to ensure "id" is required (not null)
+            if (id == null)
             {
-                throw new InvalidDataException("entryId is a required property for Log and cannot be null");
+                throw new InvalidDataException("id is a required property for Log and cannot be null");
             }
             else
             {
-                this.EntryId = entryId;
+                this.Id = id;
             }
             
             // to ensure "title" is required (not null)
@@ -106,8 +106,8 @@ namespace Org.OpenAPITools.Model
         /// The unique identifier of this entity.
         /// </summary>
         /// <value>The unique identifier of this entity.</value>
-        [DataMember(Name="entryId", EmitDefaultValue=true)]
-        public long EntryId { get; set; }
+        [DataMember(Name="id", EmitDefaultValue=true)]
+        public long Id { get; set; }
 
         /// <summary>
         /// Body of the log.
@@ -139,7 +139,7 @@ namespace Org.OpenAPITools.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Log {\n");
-            sb.Append("  EntryId: ").Append(EntryId).Append("\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("  Origin: ").Append(Origin).Append("\n");
@@ -179,9 +179,9 @@ namespace Org.OpenAPITools.Model
 
             return 
                 (
-                    this.EntryId == input.EntryId ||
-                    (this.EntryId != null &&
-                    this.EntryId.Equals(input.EntryId))
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
                     this.Title == input.Title ||
@@ -215,8 +215,8 @@ namespace Org.OpenAPITools.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.EntryId != null)
-                    hashCode = hashCode * 59 + this.EntryId.GetHashCode();
+                if (this.Id != null)
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Title != null)
                     hashCode = hashCode * 59 + this.Title.GetHashCode();
                 if (this.Text != null)

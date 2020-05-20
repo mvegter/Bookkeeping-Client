@@ -59,11 +59,11 @@ public:
     /// <summary>
     /// The unique identifier of this entity.
     /// </summary>
-    int64_t getEntryId() const;
-    bool entryIdIsSet() const;
-    void unsetEntryId();
+    int64_t getId() const;
+    bool idIsSet() const;
+    void unsetId();
 
-    void setEntryId(int64_t value);
+    void setId(int64_t value);
 
     /// <summary>
     /// Body of the log.
@@ -103,8 +103,8 @@ public:
 
 
 protected:
-    int64_t m_EntryId;
-    bool m_EntryIdIsSet;
+    int64_t m_Id;
+    bool m_IdIsSet;
     utility::string_t m_Title;
     bool m_TitleIsSet;
     utility::string_t m_Text;

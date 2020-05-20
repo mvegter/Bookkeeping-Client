@@ -69,7 +69,7 @@ export default class TagApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['ApiKeyAuth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
       let returnType = TagResponse;
@@ -111,7 +111,7 @@ export default class TagApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['ApiKeyAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = TagResponse;
@@ -153,7 +153,7 @@ export default class TagApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['ApiKeyAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ArrayOfLogsResponse;
@@ -195,7 +195,7 @@ export default class TagApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['ApiKeyAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = TagResponse;
@@ -235,7 +235,7 @@ export default class TagApi {
       let formParams = {
       };
 
-      let authNames = [];
+      let authNames = ['ApiKeyAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = ArrayOfTagsResponse;

@@ -25,15 +25,15 @@ class Log {
      * Constructs a new <code>Log</code>.
      * Describes an intervention or an event that happened.
      * @alias module:model/Log
-     * @param entryId {Number} The unique identifier of this entity.
+     * @param id {Number} The unique identifier of this entity.
      * @param title {String} Body of the log.
      * @param text {String} Title of the log.
      * @param origin {module:model/LogOrigin} 
      * @param tags {Array.<module:model/Tag>} A list of Tag objects.
      */
-    constructor(entryId, title, text, origin, tags) { 
+    constructor(id, title, text, origin, tags) { 
         
-        Log.initialize(this, entryId, title, text, origin, tags);
+        Log.initialize(this, id, title, text, origin, tags);
     }
 
     /**
@@ -41,8 +41,8 @@ class Log {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, entryId, title, text, origin, tags) { 
-        obj['entryId'] = entryId;
+    static initialize(obj, id, title, text, origin, tags) { 
+        obj['id'] = id;
         obj['title'] = title;
         obj['text'] = text;
         obj['origin'] = origin;
@@ -60,8 +60,8 @@ class Log {
         if (data) {
             obj = obj || new Log();
 
-            if (data.hasOwnProperty('entryId')) {
-                obj['entryId'] = ApiClient.convertToType(data['entryId'], 'Number');
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
             if (data.hasOwnProperty('title')) {
                 obj['title'] = ApiClient.convertToType(data['title'], 'String');
@@ -84,9 +84,9 @@ class Log {
 
 /**
  * The unique identifier of this entity.
- * @member {Number} entryId
+ * @member {Number} id
  */
-Log.prototype['entryId'] = undefined;
+Log.prototype['id'] = undefined;
 
 /**
  * Body of the log.

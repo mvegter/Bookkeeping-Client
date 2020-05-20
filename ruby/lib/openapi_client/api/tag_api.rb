@@ -63,7 +63,7 @@ module OpenapiClient
       return_type = opts[:return_type] || 'TagResponse' 
 
       # auth_names
-      auth_names = opts[:auth_names] || []
+      auth_names = opts[:auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
         :header_params => header_params,
@@ -123,7 +123,7 @@ module OpenapiClient
       return_type = opts[:return_type] || 'TagResponse' 
 
       # auth_names
-      auth_names = opts[:auth_names] || []
+      auth_names = opts[:auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
         :header_params => header_params,
@@ -183,7 +183,7 @@ module OpenapiClient
       return_type = opts[:return_type] || 'ArrayOfLogsResponse' 
 
       # auth_names
-      auth_names = opts[:auth_names] || []
+      auth_names = opts[:auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
         :header_params => header_params,
@@ -243,7 +243,7 @@ module OpenapiClient
       return_type = opts[:return_type] || 'TagResponse' 
 
       # auth_names
-      auth_names = opts[:auth_names] || []
+      auth_names = opts[:auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
         :header_params => header_params,
@@ -300,7 +300,7 @@ module OpenapiClient
       return_type = opts[:return_type] || 'ArrayOfTagsResponse' 
 
       # auth_names
-      auth_names = opts[:auth_names] || []
+      auth_names = opts[:auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
         :header_params => header_params,

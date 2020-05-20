@@ -7,6 +7,8 @@ info:
   version: 0.0.0
 servers:
 - url: /api
+security:
+- ApiKeyAuth: []
 paths:
   /:
     get:
@@ -538,9 +540,9 @@ components:
       description: Response containing multiple logs.
       example:
         data:
-        - text: text
+        - id: 6
+          text: text
           title: title
-          entryId: 6
           tags:
           - createdAt: createdAt
             updateAt: updateAt
@@ -550,9 +552,9 @@ components:
             updateAt: updateAt
             id: 1
             text: text
-        - text: text
+        - id: 6
+          text: text
           title: title
-          entryId: 6
           tags:
           - createdAt: createdAt
             updateAt: updateAt
@@ -718,9 +720,9 @@ components:
     Log:
       description: Describes an intervention or an event that happened.
       example:
+        id: 6
         text: text
         title: title
-        entryId: 6
         tags:
         - createdAt: createdAt
           updateAt: updateAt
@@ -731,7 +733,7 @@ components:
           id: 1
           text: text
       properties:
-        entryId:
+        id:
           description: The unique identifier of this entity.
           format: int64
           type: integer
@@ -751,7 +753,7 @@ components:
             $ref: '#/components/schemas/Tag'
           type: array
       required:
-      - entryId
+      - id
       - origin
       - tags
       - text
@@ -768,9 +770,9 @@ components:
       description: Response containing a single log.
       example:
         data:
+          id: 6
           text: text
           title: title
-          entryId: 6
           tags:
           - createdAt: createdAt
             updateAt: updateAt
@@ -892,3 +894,8 @@ components:
       required:
       - data
       type: object
+  securitySchemes:
+    ApiKeyAuth:
+      in: query
+      name: token
+      type: apiKey

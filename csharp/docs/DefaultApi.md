@@ -31,6 +31,11 @@ namespace Example
         public static void Main()
         {
             Configuration.Default.BasePath = "http://localhost/api";
+            // Configure API key authorization: ApiKeyAuth
+            Configuration.Default.AddApiKey("token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("token", "Bearer");
+
             var apiInstance = new DefaultApi(Configuration.Default);
 
             try
@@ -60,7 +65,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -102,6 +107,11 @@ namespace Example
         public static void Main()
         {
             Configuration.Default.BasePath = "http://localhost/api";
+            // Configure API key authorization: ApiKeyAuth
+            Configuration.Default.AddApiKey("token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("token", "Bearer");
+
             var apiInstance = new DefaultApi(Configuration.Default);
 
             try
@@ -131,7 +141,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 

@@ -32,11 +32,11 @@ import org.openapitools.client.model.Tag;
  * Describes an intervention or an event that happened.
  */
 @ApiModel(description = "Describes an intervention or an event that happened.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-18T14:17:17.489+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-20T10:27:08.310+01:00[Europe/London]")
 public class Log {
-  public static final String SERIALIZED_NAME_ENTRY_ID = "entryId";
-  @SerializedName(SERIALIZED_NAME_ENTRY_ID)
-  private Long entryId;
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private Long id;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -55,25 +55,25 @@ public class Log {
   private List<Tag> tags = new ArrayList<Tag>();
 
 
-  public Log entryId(Long entryId) {
+  public Log id(Long id) {
     
-    this.entryId = entryId;
+    this.id = id;
     return this;
   }
 
    /**
    * The unique identifier of this entity.
-   * @return entryId
+   * @return id
   **/
   @ApiModelProperty(required = true, value = "The unique identifier of this entity.")
 
-  public Long getEntryId() {
-    return entryId;
+  public Long getId() {
+    return id;
   }
 
 
-  public void setEntryId(Long entryId) {
-    this.entryId = entryId;
+  public void setId(Long id) {
+    this.id = id;
   }
 
 
@@ -179,7 +179,7 @@ public class Log {
       return false;
     }
     Log log = (Log) o;
-    return Objects.equals(this.entryId, log.entryId) &&
+    return Objects.equals(this.id, log.id) &&
         Objects.equals(this.title, log.title) &&
         Objects.equals(this.text, log.text) &&
         Objects.equals(this.origin, log.origin) &&
@@ -188,7 +188,7 @@ public class Log {
 
   @Override
   public int hashCode() {
-    return Objects.hash(entryId, title, text, origin, tags);
+    return Objects.hash(id, title, text, origin, tags);
   }
 
 
@@ -196,7 +196,7 @@ public class Log {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Log {\n");
-    sb.append("    entryId: ").append(toIndentedString(entryId)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("    origin: ").append(toIndentedString(origin)).append("\n");

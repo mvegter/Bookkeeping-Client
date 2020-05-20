@@ -118,6 +118,14 @@ pplx::task<std::shared_ptr<LogResponse>> LogApi::createLog(std::shared_ptr<Creat
         throw ApiException(415, utility::conversions::to_string_t("LogApi->createLog does not consume any supported media type"));
     }
 
+    // authentication (ApiKeyAuth) required
+    {
+        utility::string_t localVarApiKey = localVarApiConfiguration->getApiKey(utility::conversions::to_string_t("token"));
+        if ( localVarApiKey.size() > 0 )
+        {
+            localVarQueryParams[utility::conversions::to_string_t("token")] = localVarApiKey;
+        }
+    }
 
     return m_ApiClient->callApi(localVarPath, utility::conversions::to_string_t("POST"), localVarQueryParams, localVarHttpBody, localVarHeaderParams, localVarFormParams, localVarFileParams, localVarRequestHttpContentType)
     .then([=](web::http::http_response localVarResponse)
@@ -237,6 +245,14 @@ pplx::task<std::shared_ptr<LogResponse>> LogApi::getLogById(int64_t logId) const
         throw ApiException(415, utility::conversions::to_string_t("LogApi->getLogById does not consume any supported media type"));
     }
 
+    // authentication (ApiKeyAuth) required
+    {
+        utility::string_t localVarApiKey = localVarApiConfiguration->getApiKey(utility::conversions::to_string_t("token"));
+        if ( localVarApiKey.size() > 0 )
+        {
+            localVarQueryParams[utility::conversions::to_string_t("token")] = localVarApiKey;
+        }
+    }
 
     return m_ApiClient->callApi(localVarPath, utility::conversions::to_string_t("GET"), localVarQueryParams, localVarHttpBody, localVarHeaderParams, localVarFormParams, localVarFileParams, localVarRequestHttpContentType)
     .then([=](web::http::http_response localVarResponse)
@@ -367,6 +383,14 @@ pplx::task<std::shared_ptr<ArrayOfLogsResponse>> LogApi::listLogs(boost::optiona
         throw ApiException(415, utility::conversions::to_string_t("LogApi->listLogs does not consume any supported media type"));
     }
 
+    // authentication (ApiKeyAuth) required
+    {
+        utility::string_t localVarApiKey = localVarApiConfiguration->getApiKey(utility::conversions::to_string_t("token"));
+        if ( localVarApiKey.size() > 0 )
+        {
+            localVarQueryParams[utility::conversions::to_string_t("token")] = localVarApiKey;
+        }
+    }
 
     return m_ApiClient->callApi(localVarPath, utility::conversions::to_string_t("GET"), localVarQueryParams, localVarHttpBody, localVarHeaderParams, localVarFormParams, localVarFileParams, localVarRequestHttpContentType)
     .then([=](web::http::http_response localVarResponse)
@@ -486,6 +510,14 @@ pplx::task<std::shared_ptr<ArrayOfTagsResponse>> LogApi::listTagsByLogId(int64_t
         throw ApiException(415, utility::conversions::to_string_t("LogApi->listTagsByLogId does not consume any supported media type"));
     }
 
+    // authentication (ApiKeyAuth) required
+    {
+        utility::string_t localVarApiKey = localVarApiConfiguration->getApiKey(utility::conversions::to_string_t("token"));
+        if ( localVarApiKey.size() > 0 )
+        {
+            localVarQueryParams[utility::conversions::to_string_t("token")] = localVarApiKey;
+        }
+    }
 
     return m_ApiClient->callApi(localVarPath, utility::conversions::to_string_t("GET"), localVarQueryParams, localVarHttpBody, localVarHeaderParams, localVarFormParams, localVarFileParams, localVarRequestHttpContentType)
     .then([=](web::http::http_response localVarResponse)

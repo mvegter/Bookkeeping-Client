@@ -95,6 +95,14 @@ pplx::task<std::shared_ptr<DeployInformation>> DefaultApi::getDeployInformation(
         throw ApiException(415, utility::conversions::to_string_t("DefaultApi->getDeployInformation does not consume any supported media type"));
     }
 
+    // authentication (ApiKeyAuth) required
+    {
+        utility::string_t localVarApiKey = localVarApiConfiguration->getApiKey(utility::conversions::to_string_t("token"));
+        if ( localVarApiKey.size() > 0 )
+        {
+            localVarQueryParams[utility::conversions::to_string_t("token")] = localVarApiKey;
+        }
+    }
 
     return m_ApiClient->callApi(localVarPath, utility::conversions::to_string_t("GET"), localVarQueryParams, localVarHttpBody, localVarHeaderParams, localVarFormParams, localVarFileParams, localVarRequestHttpContentType)
     .then([=](web::http::http_response localVarResponse)
@@ -213,6 +221,14 @@ pplx::task<std::shared_ptr<ApiInformation>> DefaultApi::getServerInformation() c
         throw ApiException(415, utility::conversions::to_string_t("DefaultApi->getServerInformation does not consume any supported media type"));
     }
 
+    // authentication (ApiKeyAuth) required
+    {
+        utility::string_t localVarApiKey = localVarApiConfiguration->getApiKey(utility::conversions::to_string_t("token"));
+        if ( localVarApiKey.size() > 0 )
+        {
+            localVarQueryParams[utility::conversions::to_string_t("token")] = localVarApiKey;
+        }
+    }
 
     return m_ApiClient->callApi(localVarPath, utility::conversions::to_string_t("GET"), localVarQueryParams, localVarHttpBody, localVarHeaderParams, localVarFormParams, localVarFileParams, localVarRequestHttpContentType)
     .then([=](web::http::http_response localVarResponse)
