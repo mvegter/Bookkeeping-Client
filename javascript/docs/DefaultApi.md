@@ -19,6 +19,12 @@ Get deploy information
 
 ```javascript
 import AliceBookkeeping from 'alice_bookkeeping';
+let defaultClient = AliceBookkeeping.ApiClient.instance;
+// Configure API key authorization: ApiKeyAuth
+let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
+ApiKeyAuth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new AliceBookkeeping.DefaultApi();
 apiInstance.getDeployInformation((error, data, response) => {
@@ -40,7 +46,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -58,6 +64,12 @@ Get server information
 
 ```javascript
 import AliceBookkeeping from 'alice_bookkeeping';
+let defaultClient = AliceBookkeeping.ApiClient.instance;
+// Configure API key authorization: ApiKeyAuth
+let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
+ApiKeyAuth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new AliceBookkeeping.DefaultApi();
 apiInstance.getServerInformation((error, data, response) => {
@@ -79,7 +91,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 

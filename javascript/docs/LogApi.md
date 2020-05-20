@@ -21,6 +21,12 @@ Adds a new log
 
 ```javascript
 import AliceBookkeeping from 'alice_bookkeeping';
+let defaultClient = AliceBookkeeping.ApiClient.instance;
+// Configure API key authorization: ApiKeyAuth
+let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
+ApiKeyAuth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new AliceBookkeeping.LogApi();
 let createLog = new AliceBookkeeping.CreateLog(); // CreateLog | 
@@ -46,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -64,6 +70,12 @@ Gets a log by Id
 
 ```javascript
 import AliceBookkeeping from 'alice_bookkeeping';
+let defaultClient = AliceBookkeeping.ApiClient.instance;
+// Configure API key authorization: ApiKeyAuth
+let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
+ApiKeyAuth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new AliceBookkeeping.LogApi();
 let logId = 789; // Number | The id of the log to retrieve
@@ -89,7 +101,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -107,6 +119,12 @@ List all logs
 
 ```javascript
 import AliceBookkeeping from 'alice_bookkeeping';
+let defaultClient = AliceBookkeeping.ApiClient.instance;
+// Configure API key authorization: ApiKeyAuth
+let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
+ApiKeyAuth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new AliceBookkeeping.LogApi();
 let opts = {
@@ -138,7 +156,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -156,6 +174,12 @@ Lists all tags associated with a log
 
 ```javascript
 import AliceBookkeeping from 'alice_bookkeeping';
+let defaultClient = AliceBookkeeping.ApiClient.instance;
+// Configure API key authorization: ApiKeyAuth
+let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
+ApiKeyAuth.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKeyAuth.apiKeyPrefix = 'Token';
 
 let apiInstance = new AliceBookkeeping.LogApi();
 let logId = 789; // Number | The id of the log to retrieve
@@ -181,7 +205,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**entryId** | **Number** | The unique identifier of this entity. | 
+**id** | **Number** | The unique identifier of this entity. | 
 **title** | **String** | Body of the log. | 
 **text** | **String** | Title of the log. | 
 **origin** | [**LogOrigin**](LogOrigin.md) |  | 
