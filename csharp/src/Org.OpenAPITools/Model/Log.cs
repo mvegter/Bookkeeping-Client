@@ -48,7 +48,9 @@ namespace Org.OpenAPITools.Model
         /// <param name="text">Title of the log. (required).</param>
         /// <param name="origin">origin (required).</param>
         /// <param name="tags">A list of Tag objects. (required).</param>
-        public Log(long id = default(long), string title = default(string), string text = default(string), LogOrigin origin = default(LogOrigin), List<Tag> tags = default(List<Tag>))
+        /// <param name="rootLogId">The unique identifier of this entity. (required).</param>
+        /// <param name="parentLogId">The unique identifier of this entity. (required).</param>
+        public Log(long id = default(long), string title = default(string), string text = default(string), LogOrigin origin = default(LogOrigin), List<Tag> tags = default(List<Tag>), long rootLogId = default(long), long parentLogId = default(long))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -100,6 +102,26 @@ namespace Org.OpenAPITools.Model
                 this.Tags = tags;
             }
             
+            // to ensure "rootLogId" is required (not null)
+            if (rootLogId == null)
+            {
+                throw new InvalidDataException("rootLogId is a required property for Log and cannot be null");
+            }
+            else
+            {
+                this.RootLogId = rootLogId;
+            }
+            
+            // to ensure "parentLogId" is required (not null)
+            if (parentLogId == null)
+            {
+                throw new InvalidDataException("parentLogId is a required property for Log and cannot be null");
+            }
+            else
+            {
+                this.ParentLogId = parentLogId;
+            }
+            
         }
         
         /// <summary>
@@ -132,6 +154,20 @@ namespace Org.OpenAPITools.Model
         public List<Tag> Tags { get; set; }
 
         /// <summary>
+        /// The unique identifier of this entity.
+        /// </summary>
+        /// <value>The unique identifier of this entity.</value>
+        [DataMember(Name="rootLogId", EmitDefaultValue=true)]
+        public long RootLogId { get; set; }
+
+        /// <summary>
+        /// The unique identifier of this entity.
+        /// </summary>
+        /// <value>The unique identifier of this entity.</value>
+        [DataMember(Name="parentLogId", EmitDefaultValue=true)]
+        public long ParentLogId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -144,6 +180,8 @@ namespace Org.OpenAPITools.Model
             sb.Append("  Text: ").Append(Text).Append("\n");
             sb.Append("  Origin: ").Append(Origin).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
+            sb.Append("  RootLogId: ").Append(RootLogId).Append("\n");
+            sb.Append("  ParentLogId: ").Append(ParentLogId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -203,6 +241,16 @@ namespace Org.OpenAPITools.Model
                     this.Tags != null &&
                     input.Tags != null &&
                     this.Tags.SequenceEqual(input.Tags)
+                ) && 
+                (
+                    this.RootLogId == input.RootLogId ||
+                    (this.RootLogId != null &&
+                    this.RootLogId.Equals(input.RootLogId))
+                ) && 
+                (
+                    this.ParentLogId == input.ParentLogId ||
+                    (this.ParentLogId != null &&
+                    this.ParentLogId.Equals(input.ParentLogId))
                 );
         }
 
@@ -225,6 +273,10 @@ namespace Org.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.Origin.GetHashCode();
                 if (this.Tags != null)
                     hashCode = hashCode * 59 + this.Tags.GetHashCode();
+                if (this.RootLogId != null)
+                    hashCode = hashCode * 59 + this.RootLogId.GetHashCode();
+                if (this.ParentLogId != null)
+                    hashCode = hashCode * 59 + this.ParentLogId.GetHashCode();
                 return hashCode;
             }
         }
@@ -258,6 +310,22 @@ namespace Org.OpenAPITools.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Text, length must be greater than 3.", new [] { "Text" });
             }
             
+
+            
+            // RootLogId (long) minimum
+            if(this.RootLogId < (long)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RootLogId, must be a value greater than or equal to 1.", new [] { "RootLogId" });
+            }
+
+
+            
+            // ParentLogId (long) minimum
+            if(this.ParentLogId < (long)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ParentLogId, must be a value greater than or equal to 1.", new [] { "ParentLogId" });
+            }
+
             yield break;
         }
     }
