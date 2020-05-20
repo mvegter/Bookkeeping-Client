@@ -22,6 +22,13 @@ Adds a new log
 ```ruby
 # load the gem
 require 'openapi_client'
+# setup authorization
+OpenapiClient.configure do |config|
+  # Configure API key authorization: ApiKeyAuth
+  config.api_key['token'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['token'] = 'Bearer'
+end
 
 api_instance = OpenapiClient::LogApi.new
 create_log = OpenapiClient::CreateLog.new # CreateLog | 
@@ -48,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -67,6 +74,13 @@ Gets a log by Id
 ```ruby
 # load the gem
 require 'openapi_client'
+# setup authorization
+OpenapiClient.configure do |config|
+  # Configure API key authorization: ApiKeyAuth
+  config.api_key['token'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['token'] = 'Bearer'
+end
 
 api_instance = OpenapiClient::LogApi.new
 log_id = 56 # Integer | The id of the log to retrieve
@@ -93,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -112,6 +126,13 @@ List all logs
 ```ruby
 # load the gem
 require 'openapi_client'
+# setup authorization
+OpenapiClient.configure do |config|
+  # Configure API key authorization: ApiKeyAuth
+  config.api_key['token'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['token'] = 'Bearer'
+end
 
 api_instance = OpenapiClient::LogApi.new
 opts = {
@@ -144,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -163,6 +184,13 @@ Lists all tags associated with a log
 ```ruby
 # load the gem
 require 'openapi_client'
+# setup authorization
+OpenapiClient.configure do |config|
+  # Configure API key authorization: ApiKeyAuth
+  config.api_key['token'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['token'] = 'Bearer'
+end
 
 api_instance = OpenapiClient::LogApi.new
 log_id = 56 # Integer | The id of the log to retrieve
@@ -189,7 +217,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 

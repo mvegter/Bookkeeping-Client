@@ -193,6 +193,13 @@ module OpenapiClient
     # Returns Auth Settings hash for api client.
     def auth_settings
       {
+        'ApiKeyAuth' =>
+          {
+            type: 'api_key',
+            in: 'query',
+            key: 'token',
+            value: api_key_with_prefix('token')
+          },
       }
     end
 

@@ -56,6 +56,14 @@ Please follow the [installation](#installation) procedure and then run the follo
 # Load the gem
 require 'openapi_client'
 
+# Setup authorization
+OpenapiClient.configure do |config|
+  # Configure API key authorization: ApiKeyAuth
+  config.api_key['token'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['token'] = 'Bearer'
+end
+
 api_instance = OpenapiClient::DefaultApi.new
 
 begin
@@ -113,5 +121,11 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Authorization
 
- All endpoints do not require authorization.
+
+### ApiKeyAuth
+
+
+- **Type**: API key
+- **API key parameter name**: token
+- **Location**: URL query string
 
