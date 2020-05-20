@@ -553,7 +553,7 @@ components:
       description: Response containing multiple logs.
       example:
         data:
-        - id: 6
+        - id: 1
           text: text
           title: title
           tags:
@@ -565,7 +565,7 @@ components:
             updateAt: updateAt
             id: 1
             text: text
-        - id: 6
+        - id: 1
           text: text
           title: title
           tags:
@@ -681,6 +681,7 @@ components:
     EntityId:
       description: The unique identifier of this entity.
       format: int64
+      minimum: 1
       type: integer
     Error:
       additionalProperties: false
@@ -733,7 +734,7 @@ components:
     Log:
       description: Describes an intervention or an event that happened.
       example:
-        id: 6
+        id: 1
         text: text
         title: title
         tags:
@@ -749,6 +750,7 @@ components:
         id:
           description: The unique identifier of this entity.
           format: int64
+          minimum: 1
           type: integer
         title:
           description: Body of the log.
@@ -783,7 +785,7 @@ components:
       description: Response containing a single log.
       example:
         data:
-          id: 6
+          id: 1
           text: text
           title: title
           tags:
@@ -878,6 +880,7 @@ components:
         id:
           description: The unique identifier of this entity.
           format: int64
+          minimum: 1
           type: integer
         text:
           description: The label value of the tag.

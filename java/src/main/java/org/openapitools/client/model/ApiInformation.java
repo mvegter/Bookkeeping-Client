@@ -28,7 +28,7 @@ import java.io.IOException;
  * API information
  */
 @ApiModel(description = "API information")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-20T10:27:08.310+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-20T10:42:03.827+01:00[Europe/London]")
 public class ApiInformation {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
