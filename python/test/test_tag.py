@@ -36,14 +36,14 @@ class TestTag(unittest.TestCase):
         # model = openapi_client.models.tag.Tag()  # noqa: E501
         if include_optional :
             return Tag(
-                id = 56, 
+                id = 1, 
                 text = '0', 
                 created_at = '0', 
                 update_at = '0'
             )
         else :
             return Tag(
-                id = 56,
+                id = 1,
                 text = '0',
         )
 

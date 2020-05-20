@@ -37,13 +37,13 @@ class TestLogResponse(unittest.TestCase):
         if include_optional :
             return LogResponse(
                 data = openapi_client.models.log.Log(
-                    id = 56, 
+                    id = 1, 
                     title = '012', 
                     text = '012', 
                     origin = 'human', 
                     tags = [
                         openapi_client.models.tag.Tag(
-                            id = 56, 
+                            id = 1, 
                             text = '0', 
                             created_at = '0', 
                             update_at = '0', )
@@ -52,13 +52,13 @@ class TestLogResponse(unittest.TestCase):
         else :
             return LogResponse(
                 data = openapi_client.models.log.Log(
-                    id = 56, 
+                    id = 1, 
                     title = '012', 
                     text = '012', 
                     origin = 'human', 
                     tags = [
                         openapi_client.models.tag.Tag(
-                            id = 56, 
+                            id = 1, 
                             text = '0', 
                             created_at = '0', 
                             update_at = '0', )

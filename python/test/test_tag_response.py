@@ -37,7 +37,7 @@ class TestTagResponse(unittest.TestCase):
         if include_optional :
             return TagResponse(
                 data = openapi_client.models.tag.Tag(
-                    id = 56, 
+                    id = 1, 
                     text = '0', 
                     created_at = '0', 
                     update_at = '0', )
@@ -45,7 +45,7 @@ class TestTagResponse(unittest.TestCase):
         else :
             return TagResponse(
                 data = openapi_client.models.tag.Tag(
-                    id = 56, 
+                    id = 1, 
                     text = '0', 
                     created_at = '0', 
                     update_at = '0', ),
