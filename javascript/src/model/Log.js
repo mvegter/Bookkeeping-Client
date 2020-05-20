@@ -30,10 +30,12 @@ class Log {
      * @param text {String} Title of the log.
      * @param origin {module:model/LogOrigin} 
      * @param tags {Array.<module:model/Tag>} A list of Tag objects.
+     * @param rootLogId {Number} The unique identifier of this entity.
+     * @param parentLogId {Number} The unique identifier of this entity.
      */
-    constructor(id, title, text, origin, tags) { 
+    constructor(id, title, text, origin, tags, rootLogId, parentLogId) { 
         
-        Log.initialize(this, id, title, text, origin, tags);
+        Log.initialize(this, id, title, text, origin, tags, rootLogId, parentLogId);
     }
 
     /**
@@ -41,12 +43,14 @@ class Log {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, title, text, origin, tags) { 
+    static initialize(obj, id, title, text, origin, tags, rootLogId, parentLogId) { 
         obj['id'] = id;
         obj['title'] = title;
         obj['text'] = text;
         obj['origin'] = origin;
         obj['tags'] = tags;
+        obj['rootLogId'] = rootLogId;
+        obj['parentLogId'] = parentLogId;
     }
 
     /**
@@ -74,6 +78,12 @@ class Log {
             }
             if (data.hasOwnProperty('tags')) {
                 obj['tags'] = ApiClient.convertToType(data['tags'], [Tag]);
+            }
+            if (data.hasOwnProperty('rootLogId')) {
+                obj['rootLogId'] = ApiClient.convertToType(data['rootLogId'], 'Number');
+            }
+            if (data.hasOwnProperty('parentLogId')) {
+                obj['parentLogId'] = ApiClient.convertToType(data['parentLogId'], 'Number');
             }
         }
         return obj;
@@ -110,6 +120,18 @@ Log.prototype['origin'] = undefined;
  * @member {Array.<module:model/Tag>} tags
  */
 Log.prototype['tags'] = undefined;
+
+/**
+ * The unique identifier of this entity.
+ * @member {Number} rootLogId
+ */
+Log.prototype['rootLogId'] = undefined;
+
+/**
+ * The unique identifier of this entity.
+ * @member {Number} parentLogId
+ */
+Log.prototype['parentLogId'] = undefined;
 
 
 
