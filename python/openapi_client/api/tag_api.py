@@ -227,6 +227,8 @@ class TagApi(object):
                                                         local_var_params['tag_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `tag_id` when calling `delete_tag_by_id`")  # noqa: E501
 
+        if self.api_client.client_side_validation and 'tag_id' in local_var_params and local_var_params['tag_id'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `tag_id` when calling `delete_tag_by_id`, must be a value greater than or equal to `1`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -339,6 +341,8 @@ class TagApi(object):
                                                         local_var_params['tag_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `tag_id` when calling `get_logs_by_tag_id`")  # noqa: E501
 
+        if self.api_client.client_side_validation and 'tag_id' in local_var_params and local_var_params['tag_id'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `tag_id` when calling `get_logs_by_tag_id`, must be a value greater than or equal to `1`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -451,6 +455,8 @@ class TagApi(object):
                                                         local_var_params['tag_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `tag_id` when calling `get_tag_by_id`")  # noqa: E501
 
+        if self.api_client.client_side_validation and 'tag_id' in local_var_params and local_var_params['tag_id'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `tag_id` when calling `get_tag_by_id`, must be a value greater than or equal to `1`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}

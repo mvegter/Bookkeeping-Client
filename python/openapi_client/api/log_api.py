@@ -227,6 +227,8 @@ class LogApi(object):
                                                         local_var_params['log_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `log_id` when calling `get_log_by_id`")  # noqa: E501
 
+        if self.api_client.client_side_validation and 'log_id' in local_var_params and local_var_params['log_id'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `log_id` when calling `get_log_by_id`, must be a value greater than or equal to `1`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -457,6 +459,8 @@ class LogApi(object):
                                                         local_var_params['log_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `log_id` when calling `list_tags_by_log_id`")  # noqa: E501
 
+        if self.api_client.client_side_validation and 'log_id' in local_var_params and local_var_params['log_id'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `log_id` when calling `list_tags_by_log_id`, must be a value greater than or equal to `1`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}

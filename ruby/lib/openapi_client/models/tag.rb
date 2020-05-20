@@ -93,6 +93,10 @@ module OpenapiClient
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
+      if @id < 1
+        invalid_properties.push('invalid value for "id", must be greater than or equal to 1.')
+      end
+
       if @text.nil?
         invalid_properties.push('invalid value for "text", text cannot be nil.')
       end
@@ -104,8 +108,23 @@ module OpenapiClient
     # @return true if the model is valid
     def valid?
       return false if @id.nil?
+      return false if @id < 1
       return false if @text.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] id Value to be assigned
+    def id=(id)
+      if id.nil?
+        fail ArgumentError, 'id cannot be nil'
+      end
+
+      if id < 1
+        fail ArgumentError, 'invalid value for "id", must be greater than or equal to 1.'
+      end
+
+      @id = id
     end
 
     # Checks equality by comparing each attribute.

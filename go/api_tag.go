@@ -165,6 +165,9 @@ func (a *TagApiService) DeleteTagById(ctx _context.Context, tagId int64) (TagRes
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
+	if tagId < 1 {
+		return localVarReturnValue, nil, reportError("tagId must be greater than 1")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -281,6 +284,9 @@ func (a *TagApiService) GetLogsByTagId(ctx _context.Context, tagId int64) (Array
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
+	if tagId < 1 {
+		return localVarReturnValue, nil, reportError("tagId must be greater than 1")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -397,6 +403,9 @@ func (a *TagApiService) GetTagById(ctx _context.Context, tagId int64) (TagRespon
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
+	if tagId < 1 {
+		return localVarReturnValue, nil, reportError("tagId must be greater than 1")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

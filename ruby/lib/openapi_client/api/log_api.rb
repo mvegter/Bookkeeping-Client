@@ -102,6 +102,10 @@ module OpenapiClient
       if @api_client.config.client_side_validation && log_id.nil?
         fail ArgumentError, "Missing the required parameter 'log_id' when calling LogApi.get_log_by_id"
       end
+      if @api_client.config.client_side_validation && log_id < 1
+        fail ArgumentError, 'invalid value for "log_id" when calling LogApi.get_log_by_id, must be greater than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/logs/{logId}'.sub('{' + 'logId' + '}', CGI.escape(log_id.to_s))
 
@@ -225,6 +229,10 @@ module OpenapiClient
       if @api_client.config.client_side_validation && log_id.nil?
         fail ArgumentError, "Missing the required parameter 'log_id' when calling LogApi.list_tags_by_log_id"
       end
+      if @api_client.config.client_side_validation && log_id < 1
+        fail ArgumentError, 'invalid value for "log_id" when calling LogApi.list_tags_by_log_id, must be greater than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/logs/{logId}/tags'.sub('{' + 'logId' + '}', CGI.escape(log_id.to_s))
 

@@ -41,13 +41,13 @@ class TestArrayOfLogsResponse(unittest.TestCase):
                         total = 1, ), ), 
                 data = [
                     openapi_client.models.log.Log(
-                        id = 56, 
+                        id = 1, 
                         title = '012', 
                         text = '012', 
                         origin = 'human', 
                         tags = [
                             openapi_client.models.tag.Tag(
-                                id = 56, 
+                                id = 1, 
                                 text = '0', 
                                 created_at = '0', 
                                 update_at = '0', )
@@ -58,13 +58,13 @@ class TestArrayOfLogsResponse(unittest.TestCase):
             return ArrayOfLogsResponse(
                 data = [
                     openapi_client.models.log.Log(
-                        id = 56, 
+                        id = 1, 
                         title = '012', 
                         text = '012', 
                         origin = 'human', 
                         tags = [
                             openapi_client.models.tag.Tag(
-                                id = 56, 
+                                id = 1, 
                                 text = '0', 
                                 created_at = '0', 
                                 update_at = '0', )

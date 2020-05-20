@@ -36,13 +36,13 @@ class TestLog(unittest.TestCase):
         # model = openapi_client.models.log.Log()  # noqa: E501
         if include_optional :
             return Log(
-                id = 56, 
+                id = 1, 
                 title = '012', 
                 text = '012', 
                 origin = 'human', 
                 tags = [
                     openapi_client.models.tag.Tag(
-                        id = 56, 
+                        id = 1, 
                         text = '0', 
                         created_at = '0', 
                         update_at = '0', )
@@ -50,13 +50,13 @@ class TestLog(unittest.TestCase):
             )
         else :
             return Log(
-                id = 56,
+                id = 1,
                 title = '012',
                 text = '012',
                 origin = 'human',
                 tags = [
                     openapi_client.models.tag.Tag(
-                        id = 56, 
+                        id = 1, 
                         text = '0', 
                         created_at = '0', 
                         update_at = '0', )

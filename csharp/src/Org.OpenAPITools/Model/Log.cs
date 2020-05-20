@@ -237,6 +237,14 @@ namespace Org.OpenAPITools.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
 
+            
+            // Id (long) minimum
+            if(this.Id < (long)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, must be a value greater than or equal to 1.", new [] { "Id" });
+            }
+
+
             // Title (string) minLength
             if(this.Title != null && this.Title.Length < 3)
             {
