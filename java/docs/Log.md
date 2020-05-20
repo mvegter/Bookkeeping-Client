@@ -7,7 +7,7 @@ Describes an intervention or an event that happened.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**entryId** | **Long** | The unique identifier of this entity. | 
+**id** | **Long** | The unique identifier of this entity. | 
 **title** | **String** | Body of the log. | 
 **text** | **String** | Title of the log. | 
 **origin** | [**LogOrigin**](LogOrigin.md) |  | 
