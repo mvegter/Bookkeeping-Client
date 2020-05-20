@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **text** | **String** | Title of the log. | 
 **origin** | [**LogOrigin**](LogOrigin.md) |  | 
 **tags** | [**List&lt;Tag&gt;**](Tag.md) | A list of Tag objects. | 
+**rootLogId** | **Long** | The unique identifier of this entity. | 
+**parentLogId** | **Long** | The unique identifier of this entity. | 
 
 
 
