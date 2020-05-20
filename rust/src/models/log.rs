@@ -28,17 +28,25 @@ pub struct Log {
     /// A list of Tag objects.
     #[serde(rename = "tags")]
     pub tags: Vec<crate::models::Tag>,
+    /// The unique identifier of this entity.
+    #[serde(rename = "rootLogId")]
+    pub root_log_id: i64,
+    /// The unique identifier of this entity.
+    #[serde(rename = "parentLogId")]
+    pub parent_log_id: i64,
 }
 
 impl Log {
     /// Describes an intervention or an event that happened.
-    pub fn new(id: i64, title: String, text: String, origin: crate::models::LogOrigin, tags: Vec<crate::models::Tag>) -> Log {
+    pub fn new(id: i64, title: String, text: String, origin: crate::models::LogOrigin, tags: Vec<crate::models::Tag>, root_log_id: i64, parent_log_id: i64) -> Log {
         Log {
             id,
             title,
             text,
             origin,
             tags,
+            root_log_id,
+            parent_log_id,
         }
     }
 }

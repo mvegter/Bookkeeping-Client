@@ -66,6 +66,16 @@ public:
     bool is_tags_Set() const;
     bool is_tags_Valid() const;
 
+    qint64 getRootLogId() const;
+    void setRootLogId(const qint64 &root_log_id);
+    bool is_root_log_id_Set() const;
+    bool is_root_log_id_Valid() const;
+
+    qint64 getParentLogId() const;
+    void setParentLogId(const qint64 &parent_log_id);
+    bool is_parent_log_id_Set() const;
+    bool is_parent_log_id_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -91,6 +101,14 @@ private:
     QList<OAITag> tags;
     bool m_tags_isSet;
     bool m_tags_isValid;
+
+    qint64 root_log_id;
+    bool m_root_log_id_isSet;
+    bool m_root_log_id_isValid;
+
+    qint64 parent_log_id;
+    bool m_parent_log_id_isSet;
+    bool m_parent_log_id_isValid;
 };
 
 } // namespace OpenAPI

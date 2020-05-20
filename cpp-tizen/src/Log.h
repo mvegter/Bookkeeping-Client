@@ -83,6 +83,20 @@ public:
 	/*! \brief Set A list of Tag objects.
 	 */
 	void setTags(std::list <Tag> tags);
+	/*! \brief Get The unique identifier of this entity.
+	 */
+	long long getRootLogId();
+
+	/*! \brief Set The unique identifier of this entity.
+	 */
+	void setRootLogId(long long  rootLogId);
+	/*! \brief Get The unique identifier of this entity.
+	 */
+	long long getParentLogId();
+
+	/*! \brief Set The unique identifier of this entity.
+	 */
+	void setParentLogId(long long  parentLogId);
 
 private:
 	long long id;
@@ -90,6 +104,8 @@ private:
 	std::string text;
 	LogOrigin origin;
 	std::list <Tag>tags;
+	long long rootLogId;
+	long long parentLogId;
 	void __init();
 	void __cleanup();
 

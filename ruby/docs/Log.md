@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **text** | **String** | Title of the log. | 
 **origin** | [**LogOrigin**](LogOrigin.md) |  | 
 **tags** | [**Array&lt;Tag&gt;**](Tag.md) | A list of Tag objects. | 
+**root_log_id** | **Integer** | The unique identifier of this entity. | 
+**parent_log_id** | **Integer** | The unique identifier of this entity. | 
 
 ## Code Sample
 
@@ -19,7 +21,9 @@ instance = OpenapiClient::Log.new(id: null,
                                  title: null,
                                  text: null,
                                  origin: null,
-                                 tags: null)
+                                 tags: null,
+                                 root_log_id: null,
+                                 parent_log_id: null)
 ```
 
 

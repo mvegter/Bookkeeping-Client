@@ -47,7 +47,9 @@ class TestLogResponse(unittest.TestCase):
                             text = '0', 
                             created_at = '0', 
                             update_at = '0', )
-                        ], )
+                        ], 
+                    root_log_id = 1, 
+                    parent_log_id = 1, )
             )
         else :
             return LogResponse(
@@ -62,7 +64,9 @@ class TestLogResponse(unittest.TestCase):
                             text = '0', 
                             created_at = '0', 
                             update_at = '0', )
-                        ], ),
+                        ], 
+                    root_log_id = 1, 
+                    parent_log_id = 1, ),
         )
 
     def testLogResponse(self):

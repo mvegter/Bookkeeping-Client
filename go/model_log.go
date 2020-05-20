@@ -19,4 +19,8 @@ type Log struct {
 	Origin LogOrigin `json:"origin"`
 	// A list of Tag objects.
 	Tags []Tag `json:"tags"`
+	// The unique identifier of this entity.
+	RootLogId int64 `json:"rootLogId"`
+	// The unique identifier of this entity.
+	ParentLogId int64 `json:"parentLogId"`
 }

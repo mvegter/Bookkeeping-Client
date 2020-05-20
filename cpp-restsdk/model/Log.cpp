@@ -31,6 +31,10 @@ Log::Log()
     m_TextIsSet = false;
     m_OriginIsSet = false;
     m_TagsIsSet = false;
+    m_RootLogId = 0L;
+    m_RootLogIdIsSet = false;
+    m_ParentLogId = 0L;
+    m_ParentLogIdIsSet = false;
 }
 
 Log::~Log()
@@ -66,6 +70,14 @@ web::json::value Log::toJson() const
     if(m_TagsIsSet)
     {
         val[utility::conversions::to_string_t("tags")] = ModelBase::toJson(m_Tags);
+    }
+    if(m_RootLogIdIsSet)
+    {
+        val[utility::conversions::to_string_t("rootLogId")] = ModelBase::toJson(m_RootLogId);
+    }
+    if(m_ParentLogIdIsSet)
+    {
+        val[utility::conversions::to_string_t("parentLogId")] = ModelBase::toJson(m_ParentLogId);
     }
 
     return val;
@@ -125,6 +137,26 @@ bool Log::fromJson(const web::json::value& val)
             setTags(refVal_tags);
         }
     }
+    if(val.has_field(utility::conversions::to_string_t("rootLogId")))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("rootLogId"));
+        if(!fieldValue.is_null())
+        {
+            int64_t refVal_rootLogId;
+            ok &= ModelBase::fromJson(fieldValue, refVal_rootLogId);
+            setRootLogId(refVal_rootLogId);
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("parentLogId")))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("parentLogId"));
+        if(!fieldValue.is_null())
+        {
+            int64_t refVal_parentLogId;
+            ok &= ModelBase::fromJson(fieldValue, refVal_parentLogId);
+            setParentLogId(refVal_parentLogId);
+        }
+    }
     return ok;
 }
 
@@ -154,6 +186,14 @@ void Log::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utilit
     if(m_TagsIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("tags"), m_Tags));
+    }
+    if(m_RootLogIdIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("rootLogId"), m_RootLogId));
+    }
+    if(m_ParentLogIdIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("parentLogId"), m_ParentLogId));
     }
 }
 
@@ -195,6 +235,18 @@ bool Log::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const util
         std::vector<std::shared_ptr<Tag>> refVal_tags;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("tags")), refVal_tags );
         setTags(refVal_tags);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("rootLogId")))
+    {
+        int64_t refVal_rootLogId;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("rootLogId")), refVal_rootLogId );
+        setRootLogId(refVal_rootLogId);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("parentLogId")))
+    {
+        int64_t refVal_parentLogId;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("parentLogId")), refVal_parentLogId );
+        setParentLogId(refVal_parentLogId);
     }
     return ok;
 }
@@ -298,6 +350,46 @@ bool Log::tagsIsSet() const
 void Log::unsetTags()
 {
     m_TagsIsSet = false;
+}
+int64_t Log::getRootLogId() const
+{
+    return m_RootLogId;
+}
+
+void Log::setRootLogId(int64_t value)
+{
+    m_RootLogId = value;
+    m_RootLogIdIsSet = true;
+}
+
+bool Log::rootLogIdIsSet() const
+{
+    return m_RootLogIdIsSet;
+}
+
+void Log::unsetRootLogId()
+{
+    m_RootLogIdIsSet = false;
+}
+int64_t Log::getParentLogId() const
+{
+    return m_ParentLogId;
+}
+
+void Log::setParentLogId(int64_t value)
+{
+    m_ParentLogId = value;
+    m_ParentLogIdIsSet = true;
+}
+
+bool Log::parentLogIdIsSet() const
+{
+    return m_ParentLogIdIsSet;
+}
+
+void Log::unsetParentLogId()
+{
+    m_ParentLogIdIsSet = false;
 }
 }
 }

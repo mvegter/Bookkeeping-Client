@@ -32,7 +32,7 @@ import org.openapitools.client.model.Tag;
  * Describes an intervention or an event that happened.
  */
 @ApiModel(description = "Describes an intervention or an event that happened.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-20T10:42:03.827+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-20T16:22:25.784+01:00[Europe/London]")
 public class Log {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -53,6 +53,14 @@ public class Log {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private List<Tag> tags = new ArrayList<Tag>();
+
+  public static final String SERIALIZED_NAME_ROOT_LOG_ID = "rootLogId";
+  @SerializedName(SERIALIZED_NAME_ROOT_LOG_ID)
+  private Long rootLogId;
+
+  public static final String SERIALIZED_NAME_PARENT_LOG_ID = "parentLogId";
+  @SerializedName(SERIALIZED_NAME_PARENT_LOG_ID)
+  private Long parentLogId;
 
 
   public Log id(Long id) {
@@ -171,6 +179,52 @@ public class Log {
   }
 
 
+  public Log rootLogId(Long rootLogId) {
+    
+    this.rootLogId = rootLogId;
+    return this;
+  }
+
+   /**
+   * The unique identifier of this entity.
+   * minimum: 1
+   * @return rootLogId
+  **/
+  @ApiModelProperty(required = true, value = "The unique identifier of this entity.")
+
+  public Long getRootLogId() {
+    return rootLogId;
+  }
+
+
+  public void setRootLogId(Long rootLogId) {
+    this.rootLogId = rootLogId;
+  }
+
+
+  public Log parentLogId(Long parentLogId) {
+    
+    this.parentLogId = parentLogId;
+    return this;
+  }
+
+   /**
+   * The unique identifier of this entity.
+   * minimum: 1
+   * @return parentLogId
+  **/
+  @ApiModelProperty(required = true, value = "The unique identifier of this entity.")
+
+  public Long getParentLogId() {
+    return parentLogId;
+  }
+
+
+  public void setParentLogId(Long parentLogId) {
+    this.parentLogId = parentLogId;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -184,12 +238,14 @@ public class Log {
         Objects.equals(this.title, log.title) &&
         Objects.equals(this.text, log.text) &&
         Objects.equals(this.origin, log.origin) &&
-        Objects.equals(this.tags, log.tags);
+        Objects.equals(this.tags, log.tags) &&
+        Objects.equals(this.rootLogId, log.rootLogId) &&
+        Objects.equals(this.parentLogId, log.parentLogId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, text, origin, tags);
+    return Objects.hash(id, title, text, origin, tags, rootLogId, parentLogId);
   }
 
 
@@ -202,6 +258,8 @@ public class Log {
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("    origin: ").append(toIndentedString(origin)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    rootLogId: ").append(toIndentedString(rootLogId)).append("\n");
+    sb.append("    parentLogId: ").append(toIndentedString(parentLogId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

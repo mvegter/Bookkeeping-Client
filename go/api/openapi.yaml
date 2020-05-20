@@ -540,7 +540,9 @@ components:
       description: Response containing multiple logs.
       example:
         data:
-        - id: 1
+        - parentLogId: 1
+          rootLogId: 1
+          id: 1
           text: text
           title: title
           tags:
@@ -552,7 +554,9 @@ components:
             updateAt: updateAt
             id: 1
             text: text
-        - id: 1
+        - parentLogId: 1
+          rootLogId: 1
+          id: 1
           text: text
           title: title
           tags:
@@ -721,6 +725,8 @@ components:
     Log:
       description: Describes an intervention or an event that happened.
       example:
+        parentLogId: 1
+        rootLogId: 1
         id: 1
         text: text
         title: title
@@ -754,9 +760,21 @@ components:
           items:
             $ref: '#/components/schemas/Tag'
           type: array
+        rootLogId:
+          description: The unique identifier of this entity.
+          format: int64
+          minimum: 1
+          type: integer
+        parentLogId:
+          description: The unique identifier of this entity.
+          format: int64
+          minimum: 1
+          type: integer
       required:
       - id
       - origin
+      - parentLogId
+      - rootLogId
       - tags
       - text
       - title
@@ -772,6 +790,8 @@ components:
       description: Response containing a single log.
       example:
         data:
+          parentLogId: 1
+          rootLogId: 1
           id: 1
           text: text
           title: title
