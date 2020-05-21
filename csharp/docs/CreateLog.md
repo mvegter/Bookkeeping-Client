@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Title** | **string** | Body of the log. | 
-**Text** | **string** | Title of the log. | 
+**Title** | **string** | Title of the log. | 
+**Text** | **string** | Body of the log. | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

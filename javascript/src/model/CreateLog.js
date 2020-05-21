@@ -23,8 +23,8 @@ class CreateLog {
      * Constructs a new <code>CreateLog</code>.
      * Describes an intervention or an event that happened.
      * @alias module:model/CreateLog
-     * @param title {String} Body of the log.
-     * @param text {String} Title of the log.
+     * @param title {String} Title of the log.
+     * @param text {String} Body of the log.
      */
     constructor(title, text) { 
         
@@ -66,13 +66,13 @@ class CreateLog {
 }
 
 /**
- * Body of the log.
+ * Title of the log.
  * @member {String} title
  */
 CreateLog.prototype['title'] = undefined;
 
 /**
- * Title of the log.
+ * Body of the log.
  * @member {String} text
  */
 CreateLog.prototype['text'] = undefined;

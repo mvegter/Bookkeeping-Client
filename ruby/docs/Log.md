@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Integer** | The unique identifier of this entity. | 
-**title** | **String** | Body of the log. | 
-**text** | **String** | Title of the log. | 
+**title** | **String** | Title of the log. | 
+**text** | **String** | Body of the log. | 
 **origin** | [**LogOrigin**](LogOrigin.md) |  | 
 **tags** | [**Array&lt;Tag&gt;**](Tag.md) | A list of Tag objects. | 
 **root_log_id** | **Integer** | The unique identifier of this entity. | 

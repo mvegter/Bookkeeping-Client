@@ -5,8 +5,8 @@ Describes an intervention or an event that happened.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | The unique identifier of this entity. | 
-**title** | **str** | Body of the log. | 
-**text** | **str** | Title of the log. | 
+**title** | **str** | Title of the log. | 
+**text** | **str** | Body of the log. | 
 **origin** | [**LogOrigin**](LogOrigin.md) |  | 
 **tags** | [**list[Tag]**](Tag.md) | A list of Tag objects. | 
 **root_log_id** | **int** | The unique identifier of this entity. | 

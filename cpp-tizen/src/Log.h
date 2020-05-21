@@ -55,18 +55,18 @@ public:
 	/*! \brief Set The unique identifier of this entity.
 	 */
 	void setId(long long  id);
-	/*! \brief Get Body of the log.
+	/*! \brief Get Title of the log.
 	 */
 	std::string getTitle();
 
-	/*! \brief Set Body of the log.
+	/*! \brief Set Title of the log.
 	 */
 	void setTitle(std::string  title);
-	/*! \brief Get Title of the log.
+	/*! \brief Get Body of the log.
 	 */
 	std::string getText();
 
-	/*! \brief Set Title of the log.
+	/*! \brief Set Body of the log.
 	 */
 	void setText(std::string  text);
 	/*! \brief Get 

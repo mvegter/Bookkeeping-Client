@@ -38,8 +38,8 @@ namespace Org.OpenAPITools.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateLog" /> class.
         /// </summary>
-        /// <param name="title">Body of the log. (required).</param>
-        /// <param name="text">Title of the log. (required).</param>
+        /// <param name="title">Title of the log. (required).</param>
+        /// <param name="text">Body of the log. (required).</param>
         public CreateLog(string title = default(string), string text = default(string))
         {
             // to ensure "title" is required (not null)
@@ -65,16 +65,16 @@ namespace Org.OpenAPITools.Model
         }
         
         /// <summary>
-        /// Body of the log.
+        /// Title of the log.
         /// </summary>
-        /// <value>Body of the log.</value>
+        /// <value>Title of the log.</value>
         [DataMember(Name="title", EmitDefaultValue=true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// Title of the log.
+        /// Body of the log.
         /// </summary>
-        /// <value>Title of the log.</value>
+        /// <value>Body of the log.</value>
         [DataMember(Name="text", EmitDefaultValue=true)]
         public string Text { get; set; }
 

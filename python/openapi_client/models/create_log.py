@@ -59,7 +59,7 @@ class CreateLog(object):
     def title(self):
         """Gets the title of this CreateLog.  # noqa: E501
 
-        Body of the log.  # noqa: E501
+        Title of the log.  # noqa: E501
 
         :return: The title of this CreateLog.  # noqa: E501
         :rtype: str
@@ -70,7 +70,7 @@ class CreateLog(object):
     def title(self, title):
         """Sets the title of this CreateLog.
 
-        Body of the log.  # noqa: E501
+        Title of the log.  # noqa: E501
 
         :param title: The title of this CreateLog.  # noqa: E501
         :type: str
@@ -87,7 +87,7 @@ class CreateLog(object):
     def text(self):
         """Gets the text of this CreateLog.  # noqa: E501
 
-        Title of the log.  # noqa: E501
+        Body of the log.  # noqa: E501
 
         :return: The text of this CreateLog.  # noqa: E501
         :rtype: str
@@ -98,7 +98,7 @@ class CreateLog(object):
     def text(self, text):
         """Sets the text of this CreateLog.
 
-        Title of the log.  # noqa: E501
+        Body of the log.  # noqa: E501
 
         :param text: The text of this CreateLog.  # noqa: E501
         :type: str
