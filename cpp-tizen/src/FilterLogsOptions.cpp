@@ -24,6 +24,8 @@ void
 FilterLogsOptions::__init()
 {
 	//origin = new LogOrigin();
+	//parentLog = long(0);
+	//rootLog = long(0);
 }
 
 void
@@ -33,6 +35,16 @@ FilterLogsOptions::__cleanup()
 	//
 	//delete origin;
 	//origin = NULL;
+	//}
+	//if(parentLog != NULL) {
+	//
+	//delete parentLog;
+	//parentLog = NULL;
+	//}
+	//if(rootLog != NULL) {
+	//
+	//delete rootLog;
+	//rootLog = NULL;
 	//}
 	//
 }
@@ -53,6 +65,28 @@ FilterLogsOptions::fromJson(char* jsonStr)
 			
 			LogOrigin* obj = static_cast<LogOrigin*> (&origin);
 			obj->fromJson(json_to_string(node, false));
+			
+		}
+	}
+	const gchar *parentLogKey = "parentLog";
+	node = json_object_get_member(pJsonObject, parentLogKey);
+	if (node !=NULL) {
+	
+
+		if (isprimitive("long long")) {
+			jsonToValue(&parentLog, node, "long long", "");
+		} else {
+			
+		}
+	}
+	const gchar *rootLogKey = "rootLog";
+	node = json_object_get_member(pJsonObject, rootLogKey);
+	if (node !=NULL) {
+	
+
+		if (isprimitive("long long")) {
+			jsonToValue(&rootLog, node, "long long", "");
+		} else {
 			
 		}
 	}
@@ -82,6 +116,24 @@ FilterLogsOptions::toJson()
 	}
 	const gchar *originKey = "origin";
 	json_object_set_member(pJsonObject, originKey, node);
+	if (isprimitive("long long")) {
+		long long obj = getParentLog();
+		node = converttoJson(&obj, "long long", "");
+	}
+	else {
+		
+	}
+	const gchar *parentLogKey = "parentLog";
+	json_object_set_member(pJsonObject, parentLogKey, node);
+	if (isprimitive("long long")) {
+		long long obj = getRootLog();
+		node = converttoJson(&obj, "long long", "");
+	}
+	else {
+		
+	}
+	const gchar *rootLogKey = "rootLog";
+	json_object_set_member(pJsonObject, rootLogKey, node);
 	node = json_node_alloc();
 	json_node_init(node, JSON_NODE_OBJECT);
 	json_node_take_object(node, pJsonObject);
@@ -100,6 +152,30 @@ void
 FilterLogsOptions::setOrigin(LogOrigin  origin)
 {
 	this->origin = origin;
+}
+
+long long
+FilterLogsOptions::getParentLog()
+{
+	return parentLog;
+}
+
+void
+FilterLogsOptions::setParentLog(long long  parentLog)
+{
+	this->parentLog = parentLog;
+}
+
+long long
+FilterLogsOptions::getRootLog()
+{
+	return rootLog;
+}
+
+void
+FilterLogsOptions::setRootLog(long long  rootLog)
+{
+	this->rootLog = rootLog;
 }
 
 
