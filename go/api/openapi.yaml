@@ -629,11 +629,11 @@ components:
         title: title
       properties:
         title:
-          description: Body of the log.
+          description: Title of the log.
           minLength: 3
           type: string
         text:
-          description: Title of the log.
+          description: Body of the log.
           minLength: 3
           type: string
       required:
@@ -756,11 +756,11 @@ components:
           minimum: 1
           type: integer
         title:
-          description: Body of the log.
+          description: Title of the log.
           minLength: 3
           type: string
         text:
-          description: Title of the log.
+          description: Body of the log.
           minLength: 3
           type: string
         origin:
@@ -821,11 +821,11 @@ components:
       - data
       type: object
     LogText:
-      description: Title of the log.
+      description: Body of the log.
       minLength: 3
       type: string
     LogTitle:
-      description: Body of the log.
+      description: Title of the log.
       minLength: 3
       type: string
     PaginationLimit:
