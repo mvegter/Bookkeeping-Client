@@ -44,8 +44,8 @@ namespace Org.OpenAPITools.Model
         /// Initializes a new instance of the <see cref="Log" /> class.
         /// </summary>
         /// <param name="id">The unique identifier of this entity. (required).</param>
-        /// <param name="title">Body of the log. (required).</param>
-        /// <param name="text">Title of the log. (required).</param>
+        /// <param name="title">Title of the log. (required).</param>
+        /// <param name="text">Body of the log. (required).</param>
         /// <param name="origin">origin (required).</param>
         /// <param name="tags">A list of Tag objects. (required).</param>
         /// <param name="rootLogId">The unique identifier of this entity. (required).</param>
@@ -132,16 +132,16 @@ namespace Org.OpenAPITools.Model
         public long Id { get; set; }
 
         /// <summary>
-        /// Body of the log.
+        /// Title of the log.
         /// </summary>
-        /// <value>Body of the log.</value>
+        /// <value>Title of the log.</value>
         [DataMember(Name="title", EmitDefaultValue=true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// Title of the log.
+        /// Body of the log.
         /// </summary>
-        /// <value>Title of the log.</value>
+        /// <value>Body of the log.</value>
         [DataMember(Name="text", EmitDefaultValue=true)]
         public string Text { get; set; }
 
