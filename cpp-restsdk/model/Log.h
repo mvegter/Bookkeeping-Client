@@ -66,7 +66,7 @@ public:
     void setId(int64_t value);
 
     /// <summary>
-    /// Body of the log.
+    /// Title of the log.
     /// </summary>
     utility::string_t getTitle() const;
     bool titleIsSet() const;
@@ -75,7 +75,7 @@ public:
     void setTitle(const utility::string_t& value);
 
     /// <summary>
-    /// Title of the log.
+    /// Body of the log.
     /// </summary>
     utility::string_t getText() const;
     bool textIsSet() const;
