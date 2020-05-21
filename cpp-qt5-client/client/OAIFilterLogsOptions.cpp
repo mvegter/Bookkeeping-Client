@@ -35,6 +35,12 @@ void OAIFilterLogsOptions::initializeModel() {
 
     m_origin_isSet = false;
     m_origin_isValid = false;
+
+    m_parent_log_isSet = false;
+    m_parent_log_isValid = false;
+
+    m_root_log_isSet = false;
+    m_root_log_isValid = false;
 }
 
 void OAIFilterLogsOptions::fromJson(QString jsonString) {
@@ -48,6 +54,12 @@ void OAIFilterLogsOptions::fromJsonObject(QJsonObject json) {
 
     m_origin_isValid = ::OpenAPI::fromJsonValue(origin, json[QString("origin")]);
     m_origin_isSet = !json[QString("origin")].isNull() && m_origin_isValid;
+
+    m_parent_log_isValid = ::OpenAPI::fromJsonValue(parent_log, json[QString("parentLog")]);
+    m_parent_log_isSet = !json[QString("parentLog")].isNull() && m_parent_log_isValid;
+
+    m_root_log_isValid = ::OpenAPI::fromJsonValue(root_log, json[QString("rootLog")]);
+    m_root_log_isSet = !json[QString("rootLog")].isNull() && m_root_log_isValid;
 }
 
 QString OAIFilterLogsOptions::asJson() const {
@@ -61,6 +73,12 @@ QJsonObject OAIFilterLogsOptions::asJsonObject() const {
     QJsonObject obj;
     if (origin.isSet()) {
         obj.insert(QString("origin"), ::OpenAPI::toJsonValue(origin));
+    }
+    if (m_parent_log_isSet) {
+        obj.insert(QString("parentLog"), ::OpenAPI::toJsonValue(parent_log));
+    }
+    if (m_root_log_isSet) {
+        obj.insert(QString("rootLog"), ::OpenAPI::toJsonValue(root_log));
     }
     return obj;
 }
@@ -81,10 +99,52 @@ bool OAIFilterLogsOptions::is_origin_Valid() const{
     return m_origin_isValid;
 }
 
+qint64 OAIFilterLogsOptions::getParentLog() const {
+    return parent_log;
+}
+void OAIFilterLogsOptions::setParentLog(const qint64 &parent_log) {
+    this->parent_log = parent_log;
+    this->m_parent_log_isSet = true;
+}
+
+bool OAIFilterLogsOptions::is_parent_log_Set() const{
+    return m_parent_log_isSet;
+}
+
+bool OAIFilterLogsOptions::is_parent_log_Valid() const{
+    return m_parent_log_isValid;
+}
+
+qint64 OAIFilterLogsOptions::getRootLog() const {
+    return root_log;
+}
+void OAIFilterLogsOptions::setRootLog(const qint64 &root_log) {
+    this->root_log = root_log;
+    this->m_root_log_isSet = true;
+}
+
+bool OAIFilterLogsOptions::is_root_log_Set() const{
+    return m_root_log_isSet;
+}
+
+bool OAIFilterLogsOptions::is_root_log_Valid() const{
+    return m_root_log_isValid;
+}
+
 bool OAIFilterLogsOptions::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (origin.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_parent_log_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_root_log_isSet) {
             isObjectUpdated = true;
             break;
         }

@@ -43,6 +43,16 @@ public:
     bool is_origin_Set() const;
     bool is_origin_Valid() const;
 
+    qint64 getParentLog() const;
+    void setParentLog(const qint64 &parent_log);
+    bool is_parent_log_Set() const;
+    bool is_parent_log_Valid() const;
+
+    qint64 getRootLog() const;
+    void setRootLog(const qint64 &root_log);
+    bool is_root_log_Set() const;
+    bool is_root_log_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -52,6 +62,14 @@ private:
     OAILogOrigin origin;
     bool m_origin_isSet;
     bool m_origin_isValid;
+
+    qint64 parent_log;
+    bool m_parent_log_isSet;
+    bool m_parent_log_isValid;
+
+    qint64 root_log;
+    bool m_root_log_isSet;
+    bool m_root_log_isValid;
 };
 
 } // namespace OpenAPI
