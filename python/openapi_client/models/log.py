@@ -107,7 +107,7 @@ class Log(object):
     def title(self):
         """Gets the title of this Log.  # noqa: E501
 
-        Body of the log.  # noqa: E501
+        Title of the log.  # noqa: E501
 
         :return: The title of this Log.  # noqa: E501
         :rtype: str
@@ -118,7 +118,7 @@ class Log(object):
     def title(self, title):
         """Sets the title of this Log.
 
-        Body of the log.  # noqa: E501
+        Title of the log.  # noqa: E501
 
         :param title: The title of this Log.  # noqa: E501
         :type: str
@@ -135,7 +135,7 @@ class Log(object):
     def text(self):
         """Gets the text of this Log.  # noqa: E501
 
-        Title of the log.  # noqa: E501
+        Body of the log.  # noqa: E501
 
         :return: The text of this Log.  # noqa: E501
         :rtype: str
@@ -146,7 +146,7 @@ class Log(object):
     def text(self, text):
         """Sets the text of this Log.
 
-        Title of the log.  # noqa: E501
+        Body of the log.  # noqa: E501
 
         :param text: The text of this Log.  # noqa: E501
         :type: str
