@@ -28,7 +28,7 @@ import java.io.IOException;
  * The metadata related to pagination.
  */
 @ApiModel(description = "The metadata related to pagination.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-20T16:22:25.784+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-21T10:16:59.429+01:00[Europe/London]")
 public class PaginationMeta {
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @SerializedName(SERIALIZED_NAME_TOTAL)
@@ -43,7 +43,7 @@ public class PaginationMeta {
 
    /**
    * The number of pages which contain data.
-   * minimum: 1
+   * minimum: 0
    * @return total
   **/
   @ApiModelProperty(required = true, value = "The number of pages which contain data.")
