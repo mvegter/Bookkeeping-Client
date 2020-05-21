@@ -26,8 +26,8 @@ class Log {
      * Describes an intervention or an event that happened.
      * @alias module:model/Log
      * @param id {Number} The unique identifier of this entity.
-     * @param title {String} Body of the log.
-     * @param text {String} Title of the log.
+     * @param title {String} Title of the log.
+     * @param text {String} Body of the log.
      * @param origin {module:model/LogOrigin} 
      * @param tags {Array.<module:model/Tag>} A list of Tag objects.
      * @param rootLogId {Number} The unique identifier of this entity.
@@ -99,13 +99,13 @@ class Log {
 Log.prototype['id'] = undefined;
 
 /**
- * Body of the log.
+ * Title of the log.
  * @member {String} title
  */
 Log.prototype['title'] = undefined;
 
 /**
- * Title of the log.
+ * Body of the log.
  * @member {String} text
  */
 Log.prototype['text'] = undefined;

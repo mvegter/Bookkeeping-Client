@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**title** | **String** | Body of the log. | 
-**text** | **String** | Title of the log. | 
+**title** | **String** | Title of the log. | 
+**text** | **String** | Body of the log. | 
 
 
