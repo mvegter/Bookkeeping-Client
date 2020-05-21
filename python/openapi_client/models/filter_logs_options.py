@@ -33,24 +33,34 @@ class FilterLogsOptions(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'origin': 'LogOrigin'
+        'origin': 'LogOrigin',
+        'parent_log': 'int',
+        'root_log': 'int'
     }
 
     attribute_map = {
-        'origin': 'origin'
+        'origin': 'origin',
+        'parent_log': 'parentLog',
+        'root_log': 'rootLog'
     }
 
-    def __init__(self, origin=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, origin=None, parent_log=None, root_log=None, local_vars_configuration=None):  # noqa: E501
         """FilterLogsOptions - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._origin = None
+        self._parent_log = None
+        self._root_log = None
         self.discriminator = None
 
         if origin is not None:
             self.origin = origin
+        if parent_log is not None:
+            self.parent_log = parent_log
+        if root_log is not None:
+            self.root_log = root_log
 
     @property
     def origin(self):
@@ -72,6 +82,58 @@ class FilterLogsOptions(object):
         """
 
         self._origin = origin
+
+    @property
+    def parent_log(self):
+        """Gets the parent_log of this FilterLogsOptions.  # noqa: E501
+
+        The unique identifier of this entity.  # noqa: E501
+
+        :return: The parent_log of this FilterLogsOptions.  # noqa: E501
+        :rtype: int
+        """
+        return self._parent_log
+
+    @parent_log.setter
+    def parent_log(self, parent_log):
+        """Sets the parent_log of this FilterLogsOptions.
+
+        The unique identifier of this entity.  # noqa: E501
+
+        :param parent_log: The parent_log of this FilterLogsOptions.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                parent_log is not None and parent_log < 1):  # noqa: E501
+            raise ValueError("Invalid value for `parent_log`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._parent_log = parent_log
+
+    @property
+    def root_log(self):
+        """Gets the root_log of this FilterLogsOptions.  # noqa: E501
+
+        The unique identifier of this entity.  # noqa: E501
+
+        :return: The root_log of this FilterLogsOptions.  # noqa: E501
+        :rtype: int
+        """
+        return self._root_log
+
+    @root_log.setter
+    def root_log(self, root_log):
+        """Sets the root_log of this FilterLogsOptions.
+
+        The unique identifier of this entity.  # noqa: E501
+
+        :param root_log: The root_log of this FilterLogsOptions.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                root_log is not None and root_log < 1):  # noqa: E501
+            raise ValueError("Invalid value for `root_log`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._root_log = root_log
 
     def to_dict(self):
         """Returns the model properties as a dict"""

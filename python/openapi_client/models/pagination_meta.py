@@ -74,8 +74,8 @@ class PaginationMeta(object):
         if self.local_vars_configuration.client_side_validation and total is None:  # noqa: E501
             raise ValueError("Invalid value for `total`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                total is not None and total < 1):  # noqa: E501
-            raise ValueError("Invalid value for `total`, must be a value greater than or equal to `1`")  # noqa: E501
+                total is not None and total < 0):  # noqa: E501
+            raise ValueError("Invalid value for `total`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._total = total
 
