@@ -14,10 +14,10 @@
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CreateLog {
-    /// Body of the log.
+    /// Title of the log.
     #[serde(rename = "title")]
     pub title: String,
-    /// Title of the log.
+    /// Body of the log.
     #[serde(rename = "text")]
     pub text: String,
 }

@@ -17,10 +17,10 @@ pub struct Log {
     /// The unique identifier of this entity.
     #[serde(rename = "id")]
     pub id: i64,
-    /// Body of the log.
+    /// Title of the log.
     #[serde(rename = "title")]
     pub title: String,
-    /// Title of the log.
+    /// Body of the log.
     #[serde(rename = "text")]
     pub text: String,
     #[serde(rename = "origin")]
