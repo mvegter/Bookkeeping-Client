@@ -15,10 +15,10 @@ require 'date'
 module OpenapiClient
   # Describes an intervention or an event that happened.
   class CreateLog
-    # Body of the log.
+    # Title of the log.
     attr_accessor :title
 
-    # Title of the log.
+    # Body of the log.
     attr_accessor :text
 
     # Attribute mapping from ruby-style variable name to JSON key.

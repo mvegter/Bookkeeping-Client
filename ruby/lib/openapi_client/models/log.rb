@@ -18,10 +18,10 @@ module OpenapiClient
     # The unique identifier of this entity.
     attr_accessor :id
 
-    # Body of the log.
+    # Title of the log.
     attr_accessor :title
 
-    # Title of the log.
+    # Body of the log.
     attr_accessor :text
 
     attr_accessor :origin
