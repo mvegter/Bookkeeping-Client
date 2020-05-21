@@ -32,7 +32,7 @@ import org.openapitools.client.model.Tag;
  * Describes an intervention or an event that happened.
  */
 @ApiModel(description = "Describes an intervention or an event that happened.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-21T10:16:59.429+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-21T22:08:01.434+01:00[Europe/London]")
 public class Log {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -93,10 +93,10 @@ public class Log {
   }
 
    /**
-   * Body of the log.
+   * Title of the log.
    * @return title
   **/
-  @ApiModelProperty(required = true, value = "Body of the log.")
+  @ApiModelProperty(required = true, value = "Title of the log.")
 
   public String getTitle() {
     return title;
@@ -115,10 +115,10 @@ public class Log {
   }
 
    /**
-   * Title of the log.
+   * Body of the log.
    * @return text
   **/
-  @ApiModelProperty(required = true, value = "Title of the log.")
+  @ApiModelProperty(required = true, value = "Body of the log.")
 
   public String getText() {
     return text;
