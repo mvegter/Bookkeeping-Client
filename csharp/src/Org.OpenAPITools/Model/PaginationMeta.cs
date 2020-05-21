@@ -135,9 +135,9 @@ namespace Org.OpenAPITools.Model
 
             
             // Total (int) minimum
-            if(this.Total < (int)1)
+            if(this.Total < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Total, must be a value greater than or equal to 1.", new [] { "Total" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Total, must be a value greater than or equal to 0.", new [] { "Total" });
             }
 
             yield break;

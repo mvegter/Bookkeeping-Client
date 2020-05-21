@@ -36,7 +36,9 @@ class TestFilterLogsOptions(unittest.TestCase):
         # model = openapi_client.models.filter_logs_options.FilterLogsOptions()  # noqa: E501
         if include_optional :
             return FilterLogsOptions(
-                origin = 'human'
+                origin = 'human', 
+                parent_log = 1, 
+                root_log = 1
             )
         else :
             return FilterLogsOptions(

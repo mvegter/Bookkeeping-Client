@@ -49,4 +49,20 @@ public class FilterLogsOptionsTest {
         // TODO: test origin
     }
 
+    /**
+     * Test the property 'parentLog'
+     */
+    @Test
+    public void parentLogTest() {
+        // TODO: test parentLog
+    }
+
+    /**
+     * Test the property 'rootLog'
+     */
+    @Test
+    public void rootLogTest() {
+        // TODO: test rootLog
+    }
+
 }

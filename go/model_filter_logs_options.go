@@ -11,4 +11,8 @@ package openapi
 // FilterLogsOptions Specifies the log related filter requirements for a request.
 type FilterLogsOptions struct {
 	Origin LogOrigin `json:"origin,omitempty"`
+	// The unique identifier of this entity.
+	ParentLog int64 `json:"parentLog,omitempty"`
+	// The unique identifier of this entity.
+	RootLog int64 `json:"rootLog,omitempty"`
 }

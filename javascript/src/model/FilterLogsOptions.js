@@ -52,6 +52,12 @@ class FilterLogsOptions {
             if (data.hasOwnProperty('origin')) {
                 obj['origin'] = LogOrigin.constructFromObject(data['origin']);
             }
+            if (data.hasOwnProperty('parentLog')) {
+                obj['parentLog'] = ApiClient.convertToType(data['parentLog'], 'Number');
+            }
+            if (data.hasOwnProperty('rootLog')) {
+                obj['rootLog'] = ApiClient.convertToType(data['rootLog'], 'Number');
+            }
         }
         return obj;
     }
@@ -63,6 +69,18 @@ class FilterLogsOptions {
  * @member {module:model/LogOrigin} origin
  */
 FilterLogsOptions.prototype['origin'] = undefined;
+
+/**
+ * The unique identifier of this entity.
+ * @member {Number} parentLog
+ */
+FilterLogsOptions.prototype['parentLog'] = undefined;
+
+/**
+ * The unique identifier of this entity.
+ * @member {Number} rootLog
+ */
+FilterLogsOptions.prototype['rootLog'] = undefined;
 
 
 

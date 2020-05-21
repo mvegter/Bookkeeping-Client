@@ -53,9 +53,25 @@ public:
 	/*! \brief Set 
 	 */
 	void setOrigin(LogOrigin  origin);
+	/*! \brief Get The unique identifier of this entity.
+	 */
+	long long getParentLog();
+
+	/*! \brief Set The unique identifier of this entity.
+	 */
+	void setParentLog(long long  parentLog);
+	/*! \brief Get The unique identifier of this entity.
+	 */
+	long long getRootLog();
+
+	/*! \brief Set The unique identifier of this entity.
+	 */
+	void setRootLog(long long  rootLog);
 
 private:
 	LogOrigin origin;
+	long long parentLog;
+	long long rootLog;
 	void __init();
 	void __cleanup();
 

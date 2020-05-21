@@ -24,6 +24,10 @@ namespace model {
 FilterLogsOptions::FilterLogsOptions()
 {
     m_OriginIsSet = false;
+    m_ParentLog = 0L;
+    m_ParentLogIsSet = false;
+    m_RootLog = 0L;
+    m_RootLogIsSet = false;
 }
 
 FilterLogsOptions::~FilterLogsOptions()
@@ -44,6 +48,14 @@ web::json::value FilterLogsOptions::toJson() const
     {
         val[utility::conversions::to_string_t("origin")] = ModelBase::toJson(m_Origin);
     }
+    if(m_ParentLogIsSet)
+    {
+        val[utility::conversions::to_string_t("parentLog")] = ModelBase::toJson(m_ParentLog);
+    }
+    if(m_RootLogIsSet)
+    {
+        val[utility::conversions::to_string_t("rootLog")] = ModelBase::toJson(m_RootLog);
+    }
 
     return val;
 }
@@ -62,6 +74,26 @@ bool FilterLogsOptions::fromJson(const web::json::value& val)
             setOrigin(refVal_origin);
         }
     }
+    if(val.has_field(utility::conversions::to_string_t("parentLog")))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("parentLog"));
+        if(!fieldValue.is_null())
+        {
+            int64_t refVal_parentLog;
+            ok &= ModelBase::fromJson(fieldValue, refVal_parentLog);
+            setParentLog(refVal_parentLog);
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("rootLog")))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("rootLog"));
+        if(!fieldValue.is_null())
+        {
+            int64_t refVal_rootLog;
+            ok &= ModelBase::fromJson(fieldValue, refVal_rootLog);
+            setRootLog(refVal_rootLog);
+        }
+    }
     return ok;
 }
 
@@ -75,6 +107,14 @@ void FilterLogsOptions::toMultipart(std::shared_ptr<MultipartFormData> multipart
     if(m_OriginIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("origin"), m_Origin));
+    }
+    if(m_ParentLogIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("parentLog"), m_ParentLog));
+    }
+    if(m_RootLogIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("rootLog"), m_RootLog));
     }
 }
 
@@ -92,6 +132,18 @@ bool FilterLogsOptions::fromMultiPart(std::shared_ptr<MultipartFormData> multipa
         std::shared_ptr<LogOrigin> refVal_origin;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("origin")), refVal_origin );
         setOrigin(refVal_origin);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("parentLog")))
+    {
+        int64_t refVal_parentLog;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("parentLog")), refVal_parentLog );
+        setParentLog(refVal_parentLog);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("rootLog")))
+    {
+        int64_t refVal_rootLog;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("rootLog")), refVal_rootLog );
+        setRootLog(refVal_rootLog);
     }
     return ok;
 }
@@ -115,6 +167,46 @@ bool FilterLogsOptions::originIsSet() const
 void FilterLogsOptions::unsetOrigin()
 {
     m_OriginIsSet = false;
+}
+int64_t FilterLogsOptions::getParentLog() const
+{
+    return m_ParentLog;
+}
+
+void FilterLogsOptions::setParentLog(int64_t value)
+{
+    m_ParentLog = value;
+    m_ParentLogIsSet = true;
+}
+
+bool FilterLogsOptions::parentLogIsSet() const
+{
+    return m_ParentLogIsSet;
+}
+
+void FilterLogsOptions::unsetParentLog()
+{
+    m_ParentLogIsSet = false;
+}
+int64_t FilterLogsOptions::getRootLog() const
+{
+    return m_RootLog;
+}
+
+void FilterLogsOptions::setRootLog(int64_t value)
+{
+    m_RootLog = value;
+    m_RootLogIsSet = true;
+}
+
+bool FilterLogsOptions::rootLogIsSet() const
+{
+    return m_RootLogIsSet;
+}
+
+void FilterLogsOptions::unsetRootLog()
+{
+    m_RootLogIsSet = false;
 }
 }
 }

@@ -16,6 +16,12 @@
 pub struct FilterLogsOptions {
     #[serde(rename = "origin", skip_serializing_if = "Option::is_none")]
     pub origin: Option<crate::models::LogOrigin>,
+    /// The unique identifier of this entity.
+    #[serde(rename = "parentLog", skip_serializing_if = "Option::is_none")]
+    pub parent_log: Option<i64>,
+    /// The unique identifier of this entity.
+    #[serde(rename = "rootLog", skip_serializing_if = "Option::is_none")]
+    pub root_log: Option<i64>,
 }
 
 impl FilterLogsOptions {
@@ -23,6 +29,8 @@ impl FilterLogsOptions {
     pub fn new() -> FilterLogsOptions {
         FilterLogsOptions {
             origin: None,
+            parent_log: None,
+            root_log: None,
         }
     }
 }

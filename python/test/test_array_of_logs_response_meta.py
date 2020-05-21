@@ -37,12 +37,12 @@ class TestArrayOfLogsResponseMeta(unittest.TestCase):
         if include_optional :
             return ArrayOfLogsResponseMeta(
                 page = openapi_client.models.pagination_meta.PaginationMeta(
-                    total = 1, )
+                    total = 0, )
             )
         else :
             return ArrayOfLogsResponseMeta(
                 page = openapi_client.models.pagination_meta.PaginationMeta(
-                    total = 1, ),
+                    total = 0, ),
         )
 
     def testArrayOfLogsResponseMeta(self):

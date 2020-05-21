@@ -39,11 +39,29 @@ namespace Org.OpenAPITools.Model
         /// Initializes a new instance of the <see cref="FilterLogsOptions" /> class.
         /// </summary>
         /// <param name="origin">origin.</param>
-        public FilterLogsOptions(LogOrigin? origin = default(LogOrigin?))
+        /// <param name="parentLog">The unique identifier of this entity..</param>
+        /// <param name="rootLog">The unique identifier of this entity..</param>
+        public FilterLogsOptions(LogOrigin? origin = default(LogOrigin?), long parentLog = default(long), long rootLog = default(long))
         {
             this.Origin = origin;
+            this.ParentLog = parentLog;
+            this.RootLog = rootLog;
         }
         
+
+        /// <summary>
+        /// The unique identifier of this entity.
+        /// </summary>
+        /// <value>The unique identifier of this entity.</value>
+        [DataMember(Name="parentLog", EmitDefaultValue=false)]
+        public long ParentLog { get; set; }
+
+        /// <summary>
+        /// The unique identifier of this entity.
+        /// </summary>
+        /// <value>The unique identifier of this entity.</value>
+        [DataMember(Name="rootLog", EmitDefaultValue=false)]
+        public long RootLog { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,6 +72,8 @@ namespace Org.OpenAPITools.Model
             var sb = new StringBuilder();
             sb.Append("class FilterLogsOptions {\n");
             sb.Append("  Origin: ").Append(Origin).Append("\n");
+            sb.Append("  ParentLog: ").Append(ParentLog).Append("\n");
+            sb.Append("  RootLog: ").Append(RootLog).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,6 +112,16 @@ namespace Org.OpenAPITools.Model
                     this.Origin == input.Origin ||
                     (this.Origin != null &&
                     this.Origin.Equals(input.Origin))
+                ) && 
+                (
+                    this.ParentLog == input.ParentLog ||
+                    (this.ParentLog != null &&
+                    this.ParentLog.Equals(input.ParentLog))
+                ) && 
+                (
+                    this.RootLog == input.RootLog ||
+                    (this.RootLog != null &&
+                    this.RootLog.Equals(input.RootLog))
                 );
         }
 
@@ -106,6 +136,10 @@ namespace Org.OpenAPITools.Model
                 int hashCode = 41;
                 if (this.Origin != null)
                     hashCode = hashCode * 59 + this.Origin.GetHashCode();
+                if (this.ParentLog != null)
+                    hashCode = hashCode * 59 + this.ParentLog.GetHashCode();
+                if (this.RootLog != null)
+                    hashCode = hashCode * 59 + this.RootLog.GetHashCode();
                 return hashCode;
             }
         }
@@ -117,6 +151,22 @@ namespace Org.OpenAPITools.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
+            
+            // ParentLog (long) minimum
+            if(this.ParentLog < (long)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ParentLog, must be a value greater than or equal to 1.", new [] { "ParentLog" });
+            }
+
+
+            
+            // RootLog (long) minimum
+            if(this.RootLog < (long)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RootLog, must be a value greater than or equal to 1.", new [] { "RootLog" });
+            }
+
             yield break;
         }
     }

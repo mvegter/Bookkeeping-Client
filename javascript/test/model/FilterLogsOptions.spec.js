@@ -60,6 +60,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property parentLog (base name: "parentLog")', function() {
+      // uncomment below and update the code to test the property parentLog
+      //var instane = new AliceBookkeeping.FilterLogsOptions();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property rootLog (base name: "rootLog")', function() {
+      // uncomment below and update the code to test the property rootLog
+      //var instane = new AliceBookkeeping.FilterLogsOptions();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

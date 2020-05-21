@@ -29,11 +29,19 @@ import org.openapitools.client.model.LogOrigin;
  * Specifies the log related filter requirements for a request.
  */
 @ApiModel(description = "Specifies the log related filter requirements for a request.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-20T16:22:25.784+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-21T10:16:59.429+01:00[Europe/London]")
 public class FilterLogsOptions {
   public static final String SERIALIZED_NAME_ORIGIN = "origin";
   @SerializedName(SERIALIZED_NAME_ORIGIN)
   private LogOrigin origin;
+
+  public static final String SERIALIZED_NAME_PARENT_LOG = "parentLog";
+  @SerializedName(SERIALIZED_NAME_PARENT_LOG)
+  private Long parentLog;
+
+  public static final String SERIALIZED_NAME_ROOT_LOG = "rootLog";
+  @SerializedName(SERIALIZED_NAME_ROOT_LOG)
+  private Long rootLog;
 
 
   public FilterLogsOptions origin(LogOrigin origin) {
@@ -59,6 +67,54 @@ public class FilterLogsOptions {
   }
 
 
+  public FilterLogsOptions parentLog(Long parentLog) {
+    
+    this.parentLog = parentLog;
+    return this;
+  }
+
+   /**
+   * The unique identifier of this entity.
+   * minimum: 1
+   * @return parentLog
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The unique identifier of this entity.")
+
+  public Long getParentLog() {
+    return parentLog;
+  }
+
+
+  public void setParentLog(Long parentLog) {
+    this.parentLog = parentLog;
+  }
+
+
+  public FilterLogsOptions rootLog(Long rootLog) {
+    
+    this.rootLog = rootLog;
+    return this;
+  }
+
+   /**
+   * The unique identifier of this entity.
+   * minimum: 1
+   * @return rootLog
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The unique identifier of this entity.")
+
+  public Long getRootLog() {
+    return rootLog;
+  }
+
+
+  public void setRootLog(Long rootLog) {
+    this.rootLog = rootLog;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -68,12 +124,14 @@ public class FilterLogsOptions {
       return false;
     }
     FilterLogsOptions filterLogsOptions = (FilterLogsOptions) o;
-    return Objects.equals(this.origin, filterLogsOptions.origin);
+    return Objects.equals(this.origin, filterLogsOptions.origin) &&
+        Objects.equals(this.parentLog, filterLogsOptions.parentLog) &&
+        Objects.equals(this.rootLog, filterLogsOptions.rootLog);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(origin);
+    return Objects.hash(origin, parentLog, rootLog);
   }
 
 
@@ -82,6 +140,8 @@ public class FilterLogsOptions {
     StringBuilder sb = new StringBuilder();
     sb.append("class FilterLogsOptions {\n");
     sb.append("    origin: ").append(toIndentedString(origin)).append("\n");
+    sb.append("    parentLog: ").append(toIndentedString(parentLog)).append("\n");
+    sb.append("    rootLog: ").append(toIndentedString(rootLog)).append("\n");
     sb.append("}");
     return sb.toString();
   }

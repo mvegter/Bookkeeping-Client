@@ -36,11 +36,11 @@ class TestPaginationMeta(unittest.TestCase):
         # model = openapi_client.models.pagination_meta.PaginationMeta()  # noqa: E501
         if include_optional :
             return PaginationMeta(
-                total = 1
+                total = 0
             )
         else :
             return PaginationMeta(
-                total = 1,
+                total = 0,
         )
 
     def testPaginationMeta(self):

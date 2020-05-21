@@ -38,7 +38,7 @@ class TestArrayOfLogsResponse(unittest.TestCase):
             return ArrayOfLogsResponse(
                 meta = openapi_client.models.array_of_logs_response_meta.ArrayOfLogsResponseMeta(
                     page = openapi_client.models.pagination_meta.PaginationMeta(
-                        total = 1, ), ), 
+                        total = 0, ), ), 
                 data = [
                     openapi_client.models.log.Log(
                         id = 1, 

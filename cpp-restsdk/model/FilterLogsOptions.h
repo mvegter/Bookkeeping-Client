@@ -62,10 +62,32 @@ public:
 
     void setOrigin(const std::shared_ptr<LogOrigin>& value);
 
+    /// <summary>
+    /// The unique identifier of this entity.
+    /// </summary>
+    int64_t getParentLog() const;
+    bool parentLogIsSet() const;
+    void unsetParentLog();
+
+    void setParentLog(int64_t value);
+
+    /// <summary>
+    /// The unique identifier of this entity.
+    /// </summary>
+    int64_t getRootLog() const;
+    bool rootLogIsSet() const;
+    void unsetRootLog();
+
+    void setRootLog(int64_t value);
+
 
 protected:
     std::shared_ptr<LogOrigin> m_Origin;
     bool m_OriginIsSet;
+    int64_t m_ParentLog;
+    bool m_ParentLogIsSet;
+    int64_t m_RootLog;
+    bool m_RootLogIsSet;
 };
 
 

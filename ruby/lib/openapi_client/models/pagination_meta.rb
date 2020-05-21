@@ -66,8 +66,8 @@ module OpenapiClient
         invalid_properties.push('invalid value for "total", total cannot be nil.')
       end
 
-      if @total < 1
-        invalid_properties.push('invalid value for "total", must be greater than or equal to 1.')
+      if @total < 0
+        invalid_properties.push('invalid value for "total", must be greater than or equal to 0.')
       end
 
       invalid_properties
@@ -77,7 +77,7 @@ module OpenapiClient
     # @return true if the model is valid
     def valid?
       return false if @total.nil?
-      return false if @total < 1
+      return false if @total < 0
       true
     end
 
@@ -88,8 +88,8 @@ module OpenapiClient
         fail ArgumentError, 'total cannot be nil'
       end
 
-      if total < 1
-        fail ArgumentError, 'invalid value for "total", must be greater than or equal to 1.'
+      if total < 0
+        fail ArgumentError, 'invalid value for "total", must be greater than or equal to 0.'
       end
 
       @total = total

@@ -73,6 +73,22 @@ namespace Org.OpenAPITools.Test
         {
             // TODO unit test for the property 'Origin'
         }
+        /// <summary>
+        /// Test the property 'ParentLog'
+        /// </summary>
+        [Test]
+        public void ParentLogTest()
+        {
+            // TODO unit test for the property 'ParentLog'
+        }
+        /// <summary>
+        /// Test the property 'RootLog'
+        /// </summary>
+        [Test]
+        public void RootLogTest()
+        {
+            // TODO unit test for the property 'RootLog'
+        }
 
     }
 

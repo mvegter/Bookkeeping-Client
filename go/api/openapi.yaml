@@ -570,7 +570,7 @@ components:
             text: text
         meta:
           page:
-            total: 1
+            total: 0
       properties:
         meta:
           $ref: '#/components/schemas/ArrayOfLogsResponseMeta'
@@ -587,7 +587,7 @@ components:
       description: The metadata related to an array of logs response.
       example:
         page:
-          total: 1
+          total: 0
       properties:
         page:
           $ref: '#/components/schemas/PaginationMeta'
@@ -721,6 +721,16 @@ components:
       properties:
         origin:
           $ref: '#/components/schemas/LogOrigin'
+        parentLog:
+          description: The unique identifier of this entity.
+          format: int64
+          minimum: 1
+          type: integer
+        rootLog:
+          description: The unique identifier of this entity.
+          format: int64
+          minimum: 1
+          type: integer
       type: object
     Log:
       description: Describes an intervention or an event that happened.
@@ -828,11 +838,11 @@ components:
       additionalProperties: false
       description: The metadata related to pagination.
       example:
-        total: 1
+        total: 0
       properties:
         total:
           description: The number of pages which contain data.
-          minimum: 1
+          minimum: 0
           type: integer
       required:
       - total

@@ -17,17 +17,27 @@ module OpenapiClient
   class FilterLogsOptions
     attr_accessor :origin
 
+    # The unique identifier of this entity.
+    attr_accessor :parent_log
+
+    # The unique identifier of this entity.
+    attr_accessor :root_log
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'origin' => :'origin'
+        :'origin' => :'origin',
+        :'parent_log' => :'parentLog',
+        :'root_log' => :'rootLog'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'origin' => :'LogOrigin'
+        :'origin' => :'LogOrigin',
+        :'parent_log' => :'Integer',
+        :'root_log' => :'Integer'
       }
     end
 
@@ -55,19 +65,57 @@ module OpenapiClient
       if attributes.key?(:'origin')
         self.origin = attributes[:'origin']
       end
+
+      if attributes.key?(:'parent_log')
+        self.parent_log = attributes[:'parent_log']
+      end
+
+      if attributes.key?(:'root_log')
+        self.root_log = attributes[:'root_log']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@parent_log.nil? && @parent_log < 1
+        invalid_properties.push('invalid value for "parent_log", must be greater than or equal to 1.')
+      end
+
+      if !@root_log.nil? && @root_log < 1
+        invalid_properties.push('invalid value for "root_log", must be greater than or equal to 1.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@parent_log.nil? && @parent_log < 1
+      return false if !@root_log.nil? && @root_log < 1
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] parent_log Value to be assigned
+    def parent_log=(parent_log)
+      if !parent_log.nil? && parent_log < 1
+        fail ArgumentError, 'invalid value for "parent_log", must be greater than or equal to 1.'
+      end
+
+      @parent_log = parent_log
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] root_log Value to be assigned
+    def root_log=(root_log)
+      if !root_log.nil? && root_log < 1
+        fail ArgumentError, 'invalid value for "root_log", must be greater than or equal to 1.'
+      end
+
+      @root_log = root_log
     end
 
     # Checks equality by comparing each attribute.
@@ -75,7 +123,9 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          origin == o.origin
+          origin == o.origin &&
+          parent_log == o.parent_log &&
+          root_log == o.root_log
     end
 
     # @see the `==` method
@@ -87,7 +137,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [origin].hash
+      [origin, parent_log, root_log].hash
     end
 
     # Builds the object from hash
