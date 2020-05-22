@@ -126,6 +126,9 @@ class Log(object):
         if self.local_vars_configuration.client_side_validation and title is None:  # noqa: E501
             raise ValueError("Invalid value for `title`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
+                title is not None and len(title) > 140):
+            raise ValueError("Invalid value for `title`, length must be less than or equal to `140`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
                 title is not None and len(title) < 3):
             raise ValueError("Invalid value for `title`, length must be greater than or equal to `3`")  # noqa: E501
 

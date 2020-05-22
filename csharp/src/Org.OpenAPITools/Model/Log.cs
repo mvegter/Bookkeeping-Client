@@ -296,6 +296,11 @@ namespace Org.OpenAPITools.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, must be a value greater than or equal to 1.", new [] { "Id" });
             }
 
+            // Title (string) maxLength
+            if(this.Title != null && this.Title.Length > 140)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be less than 140.", new [] { "Title" });
+            }
 
             // Title (string) minLength
             if(this.Title != null && this.Title.Length < 3)
