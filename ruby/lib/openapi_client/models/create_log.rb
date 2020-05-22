@@ -75,6 +75,10 @@ module OpenapiClient
         invalid_properties.push('invalid value for "title", title cannot be nil.')
       end
 
+      if @title.to_s.length > 140
+        invalid_properties.push('invalid value for "title", the character length must be smaller than or equal to 140.')
+      end
+
       if @title.to_s.length < 3
         invalid_properties.push('invalid value for "title", the character length must be great than or equal to 3.')
       end
@@ -94,6 +98,7 @@ module OpenapiClient
     # @return true if the model is valid
     def valid?
       return false if @title.nil?
+      return false if @title.to_s.length > 140
       return false if @title.to_s.length < 3
       return false if @text.nil?
       return false if @text.to_s.length < 3
@@ -105,6 +110,10 @@ module OpenapiClient
     def title=(title)
       if title.nil?
         fail ArgumentError, 'title cannot be nil'
+      end
+
+      if title.to_s.length > 140
+        fail ArgumentError, 'invalid value for "title", the character length must be smaller than or equal to 140.'
       end
 
       if title.to_s.length < 3
