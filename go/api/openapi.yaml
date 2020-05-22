@@ -630,6 +630,7 @@ components:
       properties:
         title:
           description: Title of the log.
+          maxLength: 140
           minLength: 3
           type: string
         text:
@@ -757,6 +758,7 @@ components:
           type: integer
         title:
           description: Title of the log.
+          maxLength: 140
           minLength: 3
           type: string
         text:
@@ -826,6 +828,7 @@ components:
       type: string
     LogTitle:
       description: Title of the log.
+      maxLength: 140
       minLength: 3
       type: string
     PaginationLimit:
