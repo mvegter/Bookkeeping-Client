@@ -36,6 +36,11 @@ namespace Org.OpenAPITools.Model
         [DataMember(Name="origin", EmitDefaultValue=true)]
         public LogOrigin Origin { get; set; }
         /// <summary>
+        /// Gets or Sets Subtype
+        /// </summary>
+        [DataMember(Name="subtype", EmitDefaultValue=true)]
+        public LogSubtype Subtype { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="Log" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -44,13 +49,17 @@ namespace Org.OpenAPITools.Model
         /// Initializes a new instance of the <see cref="Log" /> class.
         /// </summary>
         /// <param name="id">The unique identifier of this entity. (required).</param>
+        /// <param name="authorId">Name of the author. (required).</param>
         /// <param name="title">Title of the log. (required).</param>
         /// <param name="text">Body of the log. (required).</param>
+        /// <param name="creationTime">Unix timestamp of the creation date time. (required).</param>
         /// <param name="origin">origin (required).</param>
+        /// <param name="subtype">subtype (required).</param>
         /// <param name="tags">A list of Tag objects. (required).</param>
         /// <param name="rootLogId">The unique identifier of this entity. (required).</param>
         /// <param name="parentLogId">The unique identifier of this entity. (required).</param>
-        public Log(long id = default(long), string title = default(string), string text = default(string), LogOrigin origin = default(LogOrigin), List<Tag> tags = default(List<Tag>), long rootLogId = default(long), long parentLogId = default(long))
+        /// <param name="children">A list of Log objects..</param>
+        public Log(long id = default(long), string authorId = default(string), string title = default(string), string text = default(string), long creationTime = default(long), LogOrigin origin = default(LogOrigin), LogSubtype subtype = default(LogSubtype), List<Tag> tags = default(List<Tag>), long rootLogId = default(long), long parentLogId = default(long), List<Log> children = default(List<Log>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -60,6 +69,16 @@ namespace Org.OpenAPITools.Model
             else
             {
                 this.Id = id;
+            }
+            
+            // to ensure "authorId" is required (not null)
+            if (authorId == null)
+            {
+                throw new InvalidDataException("authorId is a required property for Log and cannot be null");
+            }
+            else
+            {
+                this.AuthorId = authorId;
             }
             
             // to ensure "title" is required (not null)
@@ -82,6 +101,16 @@ namespace Org.OpenAPITools.Model
                 this.Text = text;
             }
             
+            // to ensure "creationTime" is required (not null)
+            if (creationTime == null)
+            {
+                throw new InvalidDataException("creationTime is a required property for Log and cannot be null");
+            }
+            else
+            {
+                this.CreationTime = creationTime;
+            }
+            
             // to ensure "origin" is required (not null)
             if (origin == null)
             {
@@ -90,6 +119,16 @@ namespace Org.OpenAPITools.Model
             else
             {
                 this.Origin = origin;
+            }
+            
+            // to ensure "subtype" is required (not null)
+            if (subtype == null)
+            {
+                throw new InvalidDataException("subtype is a required property for Log and cannot be null");
+            }
+            else
+            {
+                this.Subtype = subtype;
             }
             
             // to ensure "tags" is required (not null)
@@ -122,6 +161,7 @@ namespace Org.OpenAPITools.Model
                 this.ParentLogId = parentLogId;
             }
             
+            this.Children = children;
         }
         
         /// <summary>
@@ -130,6 +170,13 @@ namespace Org.OpenAPITools.Model
         /// <value>The unique identifier of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=true)]
         public long Id { get; set; }
+
+        /// <summary>
+        /// Name of the author.
+        /// </summary>
+        /// <value>Name of the author.</value>
+        [DataMember(Name="authorId", EmitDefaultValue=true)]
+        public string AuthorId { get; set; }
 
         /// <summary>
         /// Title of the log.
@@ -144,6 +191,14 @@ namespace Org.OpenAPITools.Model
         /// <value>Body of the log.</value>
         [DataMember(Name="text", EmitDefaultValue=true)]
         public string Text { get; set; }
+
+        /// <summary>
+        /// Unix timestamp of the creation date time.
+        /// </summary>
+        /// <value>Unix timestamp of the creation date time.</value>
+        [DataMember(Name="creationTime", EmitDefaultValue=true)]
+        public long CreationTime { get; set; }
+
 
 
         /// <summary>
@@ -168,6 +223,13 @@ namespace Org.OpenAPITools.Model
         public long ParentLogId { get; set; }
 
         /// <summary>
+        /// A list of Log objects.
+        /// </summary>
+        /// <value>A list of Log objects.</value>
+        [DataMember(Name="children", EmitDefaultValue=false)]
+        public List<Log> Children { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -176,12 +238,16 @@ namespace Org.OpenAPITools.Model
             var sb = new StringBuilder();
             sb.Append("class Log {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  AuthorId: ").Append(AuthorId).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
+            sb.Append("  CreationTime: ").Append(CreationTime).Append("\n");
             sb.Append("  Origin: ").Append(Origin).Append("\n");
+            sb.Append("  Subtype: ").Append(Subtype).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  RootLogId: ").Append(RootLogId).Append("\n");
             sb.Append("  ParentLogId: ").Append(ParentLogId).Append("\n");
+            sb.Append("  Children: ").Append(Children).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -222,6 +288,11 @@ namespace Org.OpenAPITools.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
+                    this.AuthorId == input.AuthorId ||
+                    (this.AuthorId != null &&
+                    this.AuthorId.Equals(input.AuthorId))
+                ) && 
+                (
                     this.Title == input.Title ||
                     (this.Title != null &&
                     this.Title.Equals(input.Title))
@@ -232,9 +303,19 @@ namespace Org.OpenAPITools.Model
                     this.Text.Equals(input.Text))
                 ) && 
                 (
+                    this.CreationTime == input.CreationTime ||
+                    (this.CreationTime != null &&
+                    this.CreationTime.Equals(input.CreationTime))
+                ) && 
+                (
                     this.Origin == input.Origin ||
                     (this.Origin != null &&
                     this.Origin.Equals(input.Origin))
+                ) && 
+                (
+                    this.Subtype == input.Subtype ||
+                    (this.Subtype != null &&
+                    this.Subtype.Equals(input.Subtype))
                 ) && 
                 (
                     this.Tags == input.Tags ||
@@ -251,6 +332,12 @@ namespace Org.OpenAPITools.Model
                     this.ParentLogId == input.ParentLogId ||
                     (this.ParentLogId != null &&
                     this.ParentLogId.Equals(input.ParentLogId))
+                ) && 
+                (
+                    this.Children == input.Children ||
+                    this.Children != null &&
+                    input.Children != null &&
+                    this.Children.SequenceEqual(input.Children)
                 );
         }
 
@@ -265,18 +352,26 @@ namespace Org.OpenAPITools.Model
                 int hashCode = 41;
                 if (this.Id != null)
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
+                if (this.AuthorId != null)
+                    hashCode = hashCode * 59 + this.AuthorId.GetHashCode();
                 if (this.Title != null)
                     hashCode = hashCode * 59 + this.Title.GetHashCode();
                 if (this.Text != null)
                     hashCode = hashCode * 59 + this.Text.GetHashCode();
+                if (this.CreationTime != null)
+                    hashCode = hashCode * 59 + this.CreationTime.GetHashCode();
                 if (this.Origin != null)
                     hashCode = hashCode * 59 + this.Origin.GetHashCode();
+                if (this.Subtype != null)
+                    hashCode = hashCode * 59 + this.Subtype.GetHashCode();
                 if (this.Tags != null)
                     hashCode = hashCode * 59 + this.Tags.GetHashCode();
                 if (this.RootLogId != null)
                     hashCode = hashCode * 59 + this.RootLogId.GetHashCode();
                 if (this.ParentLogId != null)
                     hashCode = hashCode * 59 + this.ParentLogId.GetHashCode();
+                if (this.Children != null)
+                    hashCode = hashCode * 59 + this.Children.GetHashCode();
                 return hashCode;
             }
         }

@@ -18,13 +18,21 @@ module OpenapiClient
     # The unique identifier of this entity.
     attr_accessor :id
 
+    # Name of the author.
+    attr_accessor :author_id
+
     # Title of the log.
     attr_accessor :title
 
     # Body of the log.
     attr_accessor :text
 
+    # Unix timestamp of the creation date time.
+    attr_accessor :creation_time
+
     attr_accessor :origin
+
+    attr_accessor :subtype
 
     # A list of Tag objects.
     attr_accessor :tags
@@ -35,16 +43,23 @@ module OpenapiClient
     # The unique identifier of this entity.
     attr_accessor :parent_log_id
 
+    # A list of Log objects.
+    attr_accessor :children
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
+        :'author_id' => :'authorId',
         :'title' => :'title',
         :'text' => :'text',
+        :'creation_time' => :'creationTime',
         :'origin' => :'origin',
+        :'subtype' => :'subtype',
         :'tags' => :'tags',
         :'root_log_id' => :'rootLogId',
-        :'parent_log_id' => :'parentLogId'
+        :'parent_log_id' => :'parentLogId',
+        :'children' => :'children'
       }
     end
 
@@ -52,12 +67,16 @@ module OpenapiClient
     def self.openapi_types
       {
         :'id' => :'Integer',
+        :'author_id' => :'String',
         :'title' => :'String',
         :'text' => :'String',
+        :'creation_time' => :'Integer',
         :'origin' => :'LogOrigin',
+        :'subtype' => :'LogSubtype',
         :'tags' => :'Array<Tag>',
         :'root_log_id' => :'Integer',
-        :'parent_log_id' => :'Integer'
+        :'parent_log_id' => :'Integer',
+        :'children' => :'Array<Log>'
       }
     end
 
@@ -86,6 +105,10 @@ module OpenapiClient
         self.id = attributes[:'id']
       end
 
+      if attributes.key?(:'author_id')
+        self.author_id = attributes[:'author_id']
+      end
+
       if attributes.key?(:'title')
         self.title = attributes[:'title']
       end
@@ -94,8 +117,16 @@ module OpenapiClient
         self.text = attributes[:'text']
       end
 
+      if attributes.key?(:'creation_time')
+        self.creation_time = attributes[:'creation_time']
+      end
+
       if attributes.key?(:'origin')
         self.origin = attributes[:'origin']
+      end
+
+      if attributes.key?(:'subtype')
+        self.subtype = attributes[:'subtype']
       end
 
       if attributes.key?(:'tags')
@@ -111,6 +142,12 @@ module OpenapiClient
       if attributes.key?(:'parent_log_id')
         self.parent_log_id = attributes[:'parent_log_id']
       end
+
+      if attributes.key?(:'children')
+        if (value = attributes[:'children']).is_a?(Array)
+          self.children = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -123,6 +160,10 @@ module OpenapiClient
 
       if @id < 1
         invalid_properties.push('invalid value for "id", must be greater than or equal to 1.')
+      end
+
+      if @author_id.nil?
+        invalid_properties.push('invalid value for "author_id", author_id cannot be nil.')
       end
 
       if @title.nil?
@@ -145,8 +186,16 @@ module OpenapiClient
         invalid_properties.push('invalid value for "text", the character length must be great than or equal to 3.')
       end
 
+      if @creation_time.nil?
+        invalid_properties.push('invalid value for "creation_time", creation_time cannot be nil.')
+      end
+
       if @origin.nil?
         invalid_properties.push('invalid value for "origin", origin cannot be nil.')
+      end
+
+      if @subtype.nil?
+        invalid_properties.push('invalid value for "subtype", subtype cannot be nil.')
       end
 
       if @tags.nil?
@@ -177,12 +226,15 @@ module OpenapiClient
     def valid?
       return false if @id.nil?
       return false if @id < 1
+      return false if @author_id.nil?
       return false if @title.nil?
       return false if @title.to_s.length > 140
       return false if @title.to_s.length < 3
       return false if @text.nil?
       return false if @text.to_s.length < 3
+      return false if @creation_time.nil?
       return false if @origin.nil?
+      return false if @subtype.nil?
       return false if @tags.nil?
       return false if @root_log_id.nil?
       return false if @root_log_id < 1
@@ -271,12 +323,16 @@ module OpenapiClient
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
+          author_id == o.author_id &&
           title == o.title &&
           text == o.text &&
+          creation_time == o.creation_time &&
           origin == o.origin &&
+          subtype == o.subtype &&
           tags == o.tags &&
           root_log_id == o.root_log_id &&
-          parent_log_id == o.parent_log_id
+          parent_log_id == o.parent_log_id &&
+          children == o.children
     end
 
     # @see the `==` method
@@ -288,7 +344,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, title, text, origin, tags, root_log_id, parent_log_id].hash
+      [id, author_id, title, text, creation_time, origin, subtype, tags, root_log_id, parent_log_id, children].hash
     end
 
     # Builds the object from hash

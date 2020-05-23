@@ -303,6 +303,129 @@ public class LogApi {
         return localVarCall;
     }
     /**
+     * Build call for getLogTree
+     * @param logId The id of the log to retrieve (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getLogTreeCall(Long logId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/logs/{logId}/tree"
+            .replaceAll("\\{" + "logId" + "\\}", localVarApiClient.escapeString(logId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getLogTreeValidateBeforeCall(Long logId, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'logId' is set
+        if (logId == null) {
+            throw new ApiException("Missing the required parameter 'logId' when calling getLogTree(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getLogTreeCall(logId, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Get the Log tree for a given Log
+     * 
+     * @param logId The id of the log to retrieve (required)
+     * @return LogResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public LogResponse getLogTree(Long logId) throws ApiException {
+        ApiResponse<LogResponse> localVarResp = getLogTreeWithHttpInfo(logId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get the Log tree for a given Log
+     * 
+     * @param logId The id of the log to retrieve (required)
+     * @return ApiResponse&lt;LogResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<LogResponse> getLogTreeWithHttpInfo(Long logId) throws ApiException {
+        okhttp3.Call localVarCall = getLogTreeValidateBeforeCall(logId, null);
+        Type localVarReturnType = new TypeToken<LogResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get the Log tree for a given Log (asynchronously)
+     * 
+     * @param logId The id of the log to retrieve (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getLogTreeAsync(Long logId, final ApiCallback<LogResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getLogTreeValidateBeforeCall(logId, _callback);
+        Type localVarReturnType = new TypeToken<LogResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for listLogs
      * @param page Specifies the pagination requirements. (optional)
      * @param filter Specifies the filter requirements. (optional)

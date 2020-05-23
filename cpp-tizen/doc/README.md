@@ -53,6 +53,8 @@ Method | HTTP request | Description
 *createLogASync* | *POST* /logs | Adds a new log.
 *getLogByIdSync* | *GET* /logs/{logId} | Gets a log by Id.
 *getLogByIdASync* | *GET* /logs/{logId} | Gets a log by Id.
+*getLogTreeSync* | *GET* /logs/{logId}/tree | Get the Log tree for a given Log.
+*getLogTreeASync* | *GET* /logs/{logId}/tree | Get the Log tree for a given Log.
 *listLogsSync* | *GET* /logs | List all logs.
 *listLogsASync* | *GET* /logs | List all logs.
 *listTagsByLogIdSync* | *GET* /logs/{logId}/tags | Lists all tags associated with a log.
@@ -90,6 +92,7 @@ Class | Description
  *Log* | Describes an intervention or an event that happened.
  *LogOrigin* | Type of creator.
  *LogResponse* | Response containing a single log.
+ *LogSubtype* | The subtype of a Log.
  *PaginationMeta* | The metadata related to pagination.
  *PaginationOptions* | Specifies the pagination requirements of a request.
  *SortLogsOptions* | Specifies the sorting requirements of a request.

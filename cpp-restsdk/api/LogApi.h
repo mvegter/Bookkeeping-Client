@@ -71,6 +71,16 @@ public:
         int64_t logId
     ) const;
     /// <summary>
+    /// Get the Log tree for a given Log
+    /// </summary>
+    /// <remarks>
+    /// 
+    /// </remarks>
+    /// <param name="logId">The id of the log to retrieve</param>
+    pplx::task<std::shared_ptr<LogResponse>> getLogTree(
+        int64_t logId
+    ) const;
+    /// <summary>
     /// List all logs
     /// </summary>
     /// <remarks>

@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.client.model.LogOrigin;
+import org.openapitools.client.model.LogSubtype;
 import org.openapitools.client.model.Tag;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -53,6 +54,14 @@ public class LogTest {
     }
 
     /**
+     * Test the property 'authorId'
+     */
+    @Test
+    public void authorIdTest() {
+        // TODO: test authorId
+    }
+
+    /**
      * Test the property 'title'
      */
     @Test
@@ -69,11 +78,27 @@ public class LogTest {
     }
 
     /**
+     * Test the property 'creationTime'
+     */
+    @Test
+    public void creationTimeTest() {
+        // TODO: test creationTime
+    }
+
+    /**
      * Test the property 'origin'
      */
     @Test
     public void originTest() {
         // TODO: test origin
+    }
+
+    /**
+     * Test the property 'subtype'
+     */
+    @Test
+    public void subtypeTest() {
+        // TODO: test subtype
     }
 
     /**
@@ -98,6 +123,14 @@ public class LogTest {
     @Test
     public void parentLogIdTest() {
         // TODO: test parentLogId
+    }
+
+    /**
+     * Test the property 'children'
+     */
+    @Test
+    public void childrenTest() {
+        // TODO: test children
     }
 
 }

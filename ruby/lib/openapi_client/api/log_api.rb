@@ -145,6 +145,70 @@ module OpenapiClient
       return data, status_code, headers
     end
 
+    # Get the Log tree for a given Log
+    # @param log_id [Integer] The id of the log to retrieve
+    # @param [Hash] opts the optional parameters
+    # @return [LogResponse]
+    def get_log_tree(log_id, opts = {})
+      data, _status_code, _headers = get_log_tree_with_http_info(log_id, opts)
+      data
+    end
+
+    # Get the Log tree for a given Log
+    # @param log_id [Integer] The id of the log to retrieve
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(LogResponse, Integer, Hash)>] LogResponse data, response status code and response headers
+    def get_log_tree_with_http_info(log_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: LogApi.get_log_tree ...'
+      end
+      # verify the required parameter 'log_id' is set
+      if @api_client.config.client_side_validation && log_id.nil?
+        fail ArgumentError, "Missing the required parameter 'log_id' when calling LogApi.get_log_tree"
+      end
+      if @api_client.config.client_side_validation && log_id < 1
+        fail ArgumentError, 'invalid value for "log_id" when calling LogApi.get_log_tree, must be greater than or equal to 1.'
+      end
+
+      # resource path
+      local_var_path = '/logs/{logId}/tree'.sub('{' + 'logId' + '}', CGI.escape(log_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:body] 
+
+      # return_type
+      return_type = opts[:return_type] || 'LogResponse' 
+
+      # auth_names
+      auth_names = opts[:auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: LogApi#get_log_tree\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List all logs
     # @param [Hash] opts the optional parameters
     # @option opts [PaginationOptions] :page Specifies the pagination requirements.

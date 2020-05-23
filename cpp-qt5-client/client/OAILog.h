@@ -21,6 +21,7 @@
 #include <QJsonObject>
 
 #include "OAILogOrigin.h"
+#include "OAILogSubtype.h"
 #include "OAITag.h"
 #include <QList>
 #include <QString>
@@ -46,6 +47,11 @@ public:
     bool is_id_Set() const;
     bool is_id_Valid() const;
 
+    QString getAuthorId() const;
+    void setAuthorId(const QString &author_id);
+    bool is_author_id_Set() const;
+    bool is_author_id_Valid() const;
+
     QString getTitle() const;
     void setTitle(const QString &title);
     bool is_title_Set() const;
@@ -56,10 +62,20 @@ public:
     bool is_text_Set() const;
     bool is_text_Valid() const;
 
+    qint64 getCreationTime() const;
+    void setCreationTime(const qint64 &creation_time);
+    bool is_creation_time_Set() const;
+    bool is_creation_time_Valid() const;
+
     OAILogOrigin getOrigin() const;
     void setOrigin(const OAILogOrigin &origin);
     bool is_origin_Set() const;
     bool is_origin_Valid() const;
+
+    OAILogSubtype getSubtype() const;
+    void setSubtype(const OAILogSubtype &subtype);
+    bool is_subtype_Set() const;
+    bool is_subtype_Valid() const;
 
     QList<OAITag> getTags() const;
     void setTags(const QList<OAITag> &tags);
@@ -76,6 +92,11 @@ public:
     bool is_parent_log_id_Set() const;
     bool is_parent_log_id_Valid() const;
 
+    QList<OAILog> getChildren() const;
+    void setChildren(const QList<OAILog> &children);
+    bool is_children_Set() const;
+    bool is_children_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -86,6 +107,10 @@ private:
     bool m_id_isSet;
     bool m_id_isValid;
 
+    QString author_id;
+    bool m_author_id_isSet;
+    bool m_author_id_isValid;
+
     QString title;
     bool m_title_isSet;
     bool m_title_isValid;
@@ -94,9 +119,17 @@ private:
     bool m_text_isSet;
     bool m_text_isValid;
 
+    qint64 creation_time;
+    bool m_creation_time_isSet;
+    bool m_creation_time_isValid;
+
     OAILogOrigin origin;
     bool m_origin_isSet;
     bool m_origin_isValid;
+
+    OAILogSubtype subtype;
+    bool m_subtype_isSet;
+    bool m_subtype_isValid;
 
     QList<OAITag> tags;
     bool m_tags_isSet;
@@ -109,6 +142,10 @@ private:
     qint64 parent_log_id;
     bool m_parent_log_id_isSet;
     bool m_parent_log_id_isValid;
+
+    QList<OAILog> children;
+    bool m_children_isSet;
+    bool m_children_isValid;
 };
 
 } // namespace OpenAPI

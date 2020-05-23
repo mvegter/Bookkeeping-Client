@@ -74,6 +74,14 @@ namespace Org.OpenAPITools.Test
             // TODO unit test for the property 'Id'
         }
         /// <summary>
+        /// Test the property 'AuthorId'
+        /// </summary>
+        [Test]
+        public void AuthorIdTest()
+        {
+            // TODO unit test for the property 'AuthorId'
+        }
+        /// <summary>
         /// Test the property 'Title'
         /// </summary>
         [Test]
@@ -90,12 +98,28 @@ namespace Org.OpenAPITools.Test
             // TODO unit test for the property 'Text'
         }
         /// <summary>
+        /// Test the property 'CreationTime'
+        /// </summary>
+        [Test]
+        public void CreationTimeTest()
+        {
+            // TODO unit test for the property 'CreationTime'
+        }
+        /// <summary>
         /// Test the property 'Origin'
         /// </summary>
         [Test]
         public void OriginTest()
         {
             // TODO unit test for the property 'Origin'
+        }
+        /// <summary>
+        /// Test the property 'Subtype'
+        /// </summary>
+        [Test]
+        public void SubtypeTest()
+        {
+            // TODO unit test for the property 'Subtype'
         }
         /// <summary>
         /// Test the property 'Tags'
@@ -120,6 +144,14 @@ namespace Org.OpenAPITools.Test
         public void ParentLogIdTest()
         {
             // TODO unit test for the property 'ParentLogId'
+        }
+        /// <summary>
+        /// Test the property 'Children'
+        /// </summary>
+        [Test]
+        public void ChildrenTest()
+        {
+            // TODO unit test for the property 'Children'
         }
 
     }

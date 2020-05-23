@@ -26,6 +26,8 @@ pub mod log_origin;
 pub use self::log_origin::LogOrigin;
 pub mod log_response;
 pub use self::log_response::LogResponse;
+pub mod log_subtype;
+pub use self::log_subtype::LogSubtype;
 pub mod pagination_meta;
 pub use self::pagination_meta::PaginationMeta;
 pub mod pagination_options;

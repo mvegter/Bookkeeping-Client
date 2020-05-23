@@ -24,12 +24,16 @@ void
 Log::__init()
 {
 	//id = long(0);
+	//authorId = std::string();
 	//title = std::string();
 	//text = std::string();
+	//creationTime = long(0);
 	//origin = new LogOrigin();
+	//subtype = new LogSubtype();
 	//new std::list()std::list> tags;
 	//rootLogId = long(0);
 	//parentLogId = long(0);
+	//new std::list()std::list> children;
 }
 
 void
@@ -39,6 +43,11 @@ Log::__cleanup()
 	//
 	//delete id;
 	//id = NULL;
+	//}
+	//if(authorId != NULL) {
+	//
+	//delete authorId;
+	//authorId = NULL;
 	//}
 	//if(title != NULL) {
 	//
@@ -50,10 +59,20 @@ Log::__cleanup()
 	//delete text;
 	//text = NULL;
 	//}
+	//if(creationTime != NULL) {
+	//
+	//delete creationTime;
+	//creationTime = NULL;
+	//}
 	//if(origin != NULL) {
 	//
 	//delete origin;
 	//origin = NULL;
+	//}
+	//if(subtype != NULL) {
+	//
+	//delete subtype;
+	//subtype = NULL;
 	//}
 	//if(tags != NULL) {
 	//tags.RemoveAll(true);
@@ -70,6 +89,11 @@ Log::__cleanup()
 	//delete parentLogId;
 	//parentLogId = NULL;
 	//}
+	//if(children != NULL) {
+	//children.RemoveAll(true);
+	//delete children;
+	//children = NULL;
+	//}
 	//
 }
 
@@ -85,6 +109,17 @@ Log::fromJson(char* jsonStr)
 
 		if (isprimitive("long long")) {
 			jsonToValue(&id, node, "long long", "");
+		} else {
+			
+		}
+	}
+	const gchar *authorIdKey = "authorId";
+	node = json_object_get_member(pJsonObject, authorIdKey);
+	if (node !=NULL) {
+	
+
+		if (isprimitive("std::string")) {
+			jsonToValue(&authorId, node, "std::string", "");
 		} else {
 			
 		}
@@ -111,6 +146,17 @@ Log::fromJson(char* jsonStr)
 			
 		}
 	}
+	const gchar *creationTimeKey = "creationTime";
+	node = json_object_get_member(pJsonObject, creationTimeKey);
+	if (node !=NULL) {
+	
+
+		if (isprimitive("long long")) {
+			jsonToValue(&creationTime, node, "long long", "");
+		} else {
+			
+		}
+	}
 	const gchar *originKey = "origin";
 	node = json_object_get_member(pJsonObject, originKey);
 	if (node !=NULL) {
@@ -121,6 +167,20 @@ Log::fromJson(char* jsonStr)
 		} else {
 			
 			LogOrigin* obj = static_cast<LogOrigin*> (&origin);
+			obj->fromJson(json_to_string(node, false));
+			
+		}
+	}
+	const gchar *subtypeKey = "subtype";
+	node = json_object_get_member(pJsonObject, subtypeKey);
+	if (node !=NULL) {
+	
+
+		if (isprimitive("LogSubtype")) {
+			jsonToValue(&subtype, node, "LogSubtype", "LogSubtype");
+		} else {
+			
+			LogSubtype* obj = static_cast<LogSubtype*> (&subtype);
 			obj->fromJson(json_to_string(node, false));
 			
 		}
@@ -171,6 +231,30 @@ Log::fromJson(char* jsonStr)
 			
 		}
 	}
+	const gchar *childrenKey = "children";
+	node = json_object_get_member(pJsonObject, childrenKey);
+	if (node !=NULL) {
+	
+		{
+			JsonArray* arr = json_node_get_array(node);
+			JsonNode*  temp_json;
+			list<Log> new_list;
+			Log inst;
+			for (guint i=0;i<json_array_get_length(arr);i++) {
+				temp_json = json_array_get_element(arr,i);
+				if (isprimitive("Log")) {
+					jsonToValue(&inst, temp_json, "Log", "");
+				} else {
+					
+					inst.fromJson(json_to_string(temp_json, false));
+					
+				}
+				new_list.push_back(inst);
+			}
+			children = new_list;
+		}
+		
+	}
 }
 
 Log::Log(char* json)
@@ -193,6 +277,15 @@ Log::toJson()
 	const gchar *idKey = "id";
 	json_object_set_member(pJsonObject, idKey, node);
 	if (isprimitive("std::string")) {
+		std::string obj = getAuthorId();
+		node = converttoJson(&obj, "std::string", "");
+	}
+	else {
+		
+	}
+	const gchar *authorIdKey = "authorId";
+	json_object_set_member(pJsonObject, authorIdKey, node);
+	if (isprimitive("std::string")) {
 		std::string obj = getTitle();
 		node = converttoJson(&obj, "std::string", "");
 	}
@@ -210,6 +303,15 @@ Log::toJson()
 	}
 	const gchar *textKey = "text";
 	json_object_set_member(pJsonObject, textKey, node);
+	if (isprimitive("long long")) {
+		long long obj = getCreationTime();
+		node = converttoJson(&obj, "long long", "");
+	}
+	else {
+		
+	}
+	const gchar *creationTimeKey = "creationTime";
+	json_object_set_member(pJsonObject, creationTimeKey, node);
 	if (isprimitive("LogOrigin")) {
 		LogOrigin obj = getOrigin();
 		node = converttoJson(&obj, "LogOrigin", "");
@@ -224,6 +326,20 @@ Log::toJson()
 	}
 	const gchar *originKey = "origin";
 	json_object_set_member(pJsonObject, originKey, node);
+	if (isprimitive("LogSubtype")) {
+		LogSubtype obj = getSubtype();
+		node = converttoJson(&obj, "LogSubtype", "");
+	}
+	else {
+		
+		LogSubtype obj = static_cast<LogSubtype> (getSubtype());
+		GError *mygerror;
+		mygerror = NULL;
+		node = json_from_string(obj.toJson(), &mygerror);
+		
+	}
+	const gchar *subtypeKey = "subtype";
+	json_object_set_member(pJsonObject, subtypeKey, node);
 	if (isprimitive("Tag")) {
 		list<Tag> new_list = static_cast<list <Tag> > (getTags());
 		node = converttoJson(&new_list, "Tag", "array");
@@ -267,6 +383,31 @@ Log::toJson()
 	}
 	const gchar *parentLogIdKey = "parentLogId";
 	json_object_set_member(pJsonObject, parentLogIdKey, node);
+	if (isprimitive("Log")) {
+		list<Log> new_list = static_cast<list <Log> > (getChildren());
+		node = converttoJson(&new_list, "Log", "array");
+	} else {
+		node = json_node_alloc();
+		list<Log> new_list = static_cast<list <Log> > (getChildren());
+		JsonArray* json_array = json_array_new();
+		GError *mygerror;
+		
+		for (list<Log>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+			mygerror = NULL;
+			Log obj = *it;
+			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
+			json_array_add_element(json_array, node_temp);
+			g_clear_error(&mygerror);
+		}
+		json_node_init_array(node, json_array);
+		json_array_unref(json_array);
+		
+	}
+
+
+	
+	const gchar *childrenKey = "children";
+	json_object_set_member(pJsonObject, childrenKey, node);
 	node = json_node_alloc();
 	json_node_init(node, JSON_NODE_OBJECT);
 	json_node_take_object(node, pJsonObject);
@@ -285,6 +426,18 @@ void
 Log::setId(long long  id)
 {
 	this->id = id;
+}
+
+std::string
+Log::getAuthorId()
+{
+	return authorId;
+}
+
+void
+Log::setAuthorId(std::string  authorId)
+{
+	this->authorId = authorId;
 }
 
 std::string
@@ -311,6 +464,18 @@ Log::setText(std::string  text)
 	this->text = text;
 }
 
+long long
+Log::getCreationTime()
+{
+	return creationTime;
+}
+
+void
+Log::setCreationTime(long long  creationTime)
+{
+	this->creationTime = creationTime;
+}
+
 LogOrigin
 Log::getOrigin()
 {
@@ -321,6 +486,18 @@ void
 Log::setOrigin(LogOrigin  origin)
 {
 	this->origin = origin;
+}
+
+LogSubtype
+Log::getSubtype()
+{
+	return subtype;
+}
+
+void
+Log::setSubtype(LogSubtype  subtype)
+{
+	this->subtype = subtype;
 }
 
 std::list<Tag>
@@ -357,6 +534,18 @@ void
 Log::setParentLogId(long long  parentLogId)
 {
 	this->parentLogId = parentLogId;
+}
+
+std::list<Log>
+Log::getChildren()
+{
+	return children;
+}
+
+void
+Log::setChildren(std::list <Log> children)
+{
+	this->children = children;
 }
 
 

@@ -86,6 +86,7 @@ Class | Method | HTTP request | Description
 *OpenapiClient::DefaultApi* | [**get_server_information**](docs/DefaultApi.md#get_server_information) | **GET** / | Get server information
 *OpenapiClient::LogApi* | [**create_log**](docs/LogApi.md#create_log) | **POST** /logs | Adds a new log
 *OpenapiClient::LogApi* | [**get_log_by_id**](docs/LogApi.md#get_log_by_id) | **GET** /logs/{logId} | Gets a log by Id
+*OpenapiClient::LogApi* | [**get_log_tree**](docs/LogApi.md#get_log_tree) | **GET** /logs/{logId}/tree | Get the Log tree for a given Log
 *OpenapiClient::LogApi* | [**list_logs**](docs/LogApi.md#list_logs) | **GET** /logs | List all logs
 *OpenapiClient::LogApi* | [**list_tags_by_log_id**](docs/LogApi.md#list_tags_by_log_id) | **GET** /logs/{logId}/tags | Lists all tags associated with a log
 *OpenapiClient::TagApi* | [**create_tag**](docs/TagApi.md#create_tag) | **POST** /tags | Adds a new tag
@@ -111,6 +112,7 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::Log](docs/Log.md)
  - [OpenapiClient::LogOrigin](docs/LogOrigin.md)
  - [OpenapiClient::LogResponse](docs/LogResponse.md)
+ - [OpenapiClient::LogSubtype](docs/LogSubtype.md)
  - [OpenapiClient::PaginationMeta](docs/PaginationMeta.md)
  - [OpenapiClient::PaginationOptions](docs/PaginationOptions.md)
  - [OpenapiClient::SortLogsOptions](docs/SortLogsOptions.md)

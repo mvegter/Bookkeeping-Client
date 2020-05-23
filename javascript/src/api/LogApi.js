@@ -125,6 +125,48 @@ export default class LogApi {
     }
 
     /**
+     * Callback function to receive the result of the getLogTree operation.
+     * @callback module:api/LogApi~getLogTreeCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/LogResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get the Log tree for a given Log
+     * @param {Number} logId The id of the log to retrieve
+     * @param {module:api/LogApi~getLogTreeCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/LogResponse}
+     */
+    getLogTree(logId, callback) {
+      let postBody = null;
+      // verify the required parameter 'logId' is set
+      if (logId === undefined || logId === null) {
+        throw new Error("Missing the required parameter 'logId' when calling getLogTree");
+      }
+
+      let pathParams = {
+        'logId': logId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKeyAuth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = LogResponse;
+      return this.apiClient.callApi(
+        '/logs/{logId}/tree', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the listLogs operation.
      * @callback module:api/LogApi~listLogsCallback
      * @param {String} error Error message, if any.

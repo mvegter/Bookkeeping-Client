@@ -27,6 +27,7 @@ import FilterLogsOptions from './model/FilterLogsOptions';
 import Log from './model/Log';
 import LogOrigin from './model/LogOrigin';
 import LogResponse from './model/LogResponse';
+import LogSubtype from './model/LogSubtype';
 import PaginationMeta from './model/PaginationMeta';
 import PaginationOptions from './model/PaginationOptions';
 import SortLogsOptions from './model/SortLogsOptions';
@@ -159,6 +160,12 @@ export {
      * @property {module:model/LogResponse}
      */
     LogResponse,
+
+    /**
+     * The LogSubtype model constructor.
+     * @property {module:model/LogSubtype}
+     */
+    LogSubtype,
 
     /**
      * The PaginationMeta model constructor.

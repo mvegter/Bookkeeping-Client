@@ -67,6 +67,27 @@ namespace Org.OpenAPITools.Api
         /// <returns>ApiResponse of LogResponse</returns>
         ApiResponse<LogResponse> GetLogByIdWithHttpInfo (long logId);
         /// <summary>
+        /// Get the Log tree for a given Log
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="logId">The id of the log to retrieve</param>
+        /// <returns>LogResponse</returns>
+        LogResponse GetLogTree (long logId);
+
+        /// <summary>
+        /// Get the Log tree for a given Log
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="logId">The id of the log to retrieve</param>
+        /// <returns>ApiResponse of LogResponse</returns>
+        ApiResponse<LogResponse> GetLogTreeWithHttpInfo (long logId);
+        /// <summary>
         /// List all logs
         /// </summary>
         /// <remarks>
@@ -156,6 +177,27 @@ namespace Org.OpenAPITools.Api
         /// <param name="logId">The id of the log to retrieve</param>
         /// <returns>Task of ApiResponse (LogResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<LogResponse>> GetLogByIdAsyncWithHttpInfo (long logId);
+        /// <summary>
+        /// Get the Log tree for a given Log
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="logId">The id of the log to retrieve</param>
+        /// <returns>Task of LogResponse</returns>
+        System.Threading.Tasks.Task<LogResponse> GetLogTreeAsync (long logId);
+
+        /// <summary>
+        /// Get the Log tree for a given Log
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="logId">The id of the log to retrieve</param>
+        /// <returns>Task of ApiResponse (LogResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<LogResponse>> GetLogTreeAsyncWithHttpInfo (long logId);
         /// <summary>
         /// List all logs
         /// </summary>
@@ -607,6 +649,149 @@ namespace Org.OpenAPITools.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetLogById", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<LogResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (LogResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LogResponse)));
+        }
+
+        /// <summary>
+        /// Get the Log tree for a given Log 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="logId">The id of the log to retrieve</param>
+        /// <returns>LogResponse</returns>
+        public LogResponse GetLogTree (long logId)
+        {
+             ApiResponse<LogResponse> localVarResponse = GetLogTreeWithHttpInfo(logId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the Log tree for a given Log 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="logId">The id of the log to retrieve</param>
+        /// <returns>ApiResponse of LogResponse</returns>
+        public ApiResponse<LogResponse> GetLogTreeWithHttpInfo (long logId)
+        {
+            // verify the required parameter 'logId' is set
+            if (logId == null)
+                throw new ApiException(400, "Missing required parameter 'logId' when calling LogApi->GetLogTree");
+
+            var localVarPath = "/logs/{logId}/tree";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (logId != null) localVarPathParams.Add("logId", this.Configuration.ApiClient.ParameterToString(logId)); // path parameter
+
+            // authentication (ApiKeyAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("token")))
+            {
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "token", this.Configuration.GetApiKeyWithPrefix("token")));
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetLogTree", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<LogResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (LogResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LogResponse)));
+        }
+
+        /// <summary>
+        /// Get the Log tree for a given Log 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="logId">The id of the log to retrieve</param>
+        /// <returns>Task of LogResponse</returns>
+        public async System.Threading.Tasks.Task<LogResponse> GetLogTreeAsync (long logId)
+        {
+             ApiResponse<LogResponse> localVarResponse = await GetLogTreeAsyncWithHttpInfo(logId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get the Log tree for a given Log 
+        /// </summary>
+        /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="logId">The id of the log to retrieve</param>
+        /// <returns>Task of ApiResponse (LogResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<LogResponse>> GetLogTreeAsyncWithHttpInfo (long logId)
+        {
+            // verify the required parameter 'logId' is set
+            if (logId == null)
+                throw new ApiException(400, "Missing required parameter 'logId' when calling LogApi->GetLogTree");
+
+            var localVarPath = "/logs/{logId}/tree";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (logId != null) localVarPathParams.Add("logId", this.Configuration.ApiClient.ParameterToString(logId)); // path parameter
+
+            // authentication (ApiKeyAuth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("token")))
+            {
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "token", this.Configuration.GetApiKeyWithPrefix("token")));
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetLogTree", localVarResponse);
                 if (exception != null) throw exception;
             }
 

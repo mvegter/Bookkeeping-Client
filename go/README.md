@@ -36,6 +36,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**GetServerInformation**](docs/DefaultApi.md#getserverinformation) | **Get** / | Get server information
 *LogApi* | [**CreateLog**](docs/LogApi.md#createlog) | **Post** /logs | Adds a new log
 *LogApi* | [**GetLogById**](docs/LogApi.md#getlogbyid) | **Get** /logs/{logId} | Gets a log by Id
+*LogApi* | [**GetLogTree**](docs/LogApi.md#getlogtree) | **Get** /logs/{logId}/tree | Get the Log tree for a given Log
 *LogApi* | [**ListLogs**](docs/LogApi.md#listlogs) | **Get** /logs | List all logs
 *LogApi* | [**ListTagsByLogId**](docs/LogApi.md#listtagsbylogid) | **Get** /logs/{logId}/tags | Lists all tags associated with a log
 *TagApi* | [**CreateTag**](docs/TagApi.md#createtag) | **Post** /tags | Adds a new tag
@@ -61,6 +62,7 @@ Class | Method | HTTP request | Description
  - [Log](docs/Log.md)
  - [LogOrigin](docs/LogOrigin.md)
  - [LogResponse](docs/LogResponse.md)
+ - [LogSubtype](docs/LogSubtype.md)
  - [PaginationMeta](docs/PaginationMeta.md)
  - [PaginationOptions](docs/PaginationOptions.md)
  - [SortLogsOptions](docs/SortLogsOptions.md)

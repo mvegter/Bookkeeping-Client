@@ -85,6 +85,33 @@ bool getLogByIdAsync(char * accessToken,
 	, void* userData);
 
 
+/*! \brief Get the Log tree for a given Log. *Synchronous*
+ *
+ * 
+ * \param logId The id of the log to retrieve *Required*
+ * \param handler The callback function to be invoked on completion. *Required*
+ * \param accessToken The Authorization token. *Required*
+ * \param userData The user data to be passed to the callback function.
+ */
+bool getLogTreeSync(char * accessToken,
+	long long logId, 
+	void(* handler)(LogResponse, Error, void* )
+	, void* userData);
+
+/*! \brief Get the Log tree for a given Log. *Asynchronous*
+ *
+ * 
+ * \param logId The id of the log to retrieve *Required*
+ * \param handler The callback function to be invoked on completion. *Required*
+ * \param accessToken The Authorization token. *Required*
+ * \param userData The user data to be passed to the callback function.
+ */
+bool getLogTreeAsync(char * accessToken,
+	long long logId, 
+	void(* handler)(LogResponse, Error, void* )
+	, void* userData);
+
+
 /*! \brief List all logs. *Synchronous*
  *
  * 
