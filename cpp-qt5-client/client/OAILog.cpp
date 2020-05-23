@@ -36,14 +36,23 @@ void OAILog::initializeModel() {
     m_id_isSet = false;
     m_id_isValid = false;
 
+    m_author_id_isSet = false;
+    m_author_id_isValid = false;
+
     m_title_isSet = false;
     m_title_isValid = false;
 
     m_text_isSet = false;
     m_text_isValid = false;
 
+    m_creation_time_isSet = false;
+    m_creation_time_isValid = false;
+
     m_origin_isSet = false;
     m_origin_isValid = false;
+
+    m_subtype_isSet = false;
+    m_subtype_isValid = false;
 
     m_tags_isSet = false;
     m_tags_isValid = false;
@@ -53,6 +62,9 @@ void OAILog::initializeModel() {
 
     m_parent_log_id_isSet = false;
     m_parent_log_id_isValid = false;
+
+    m_children_isSet = false;
+    m_children_isValid = false;
 }
 
 void OAILog::fromJson(QString jsonString) {
@@ -67,14 +79,23 @@ void OAILog::fromJsonObject(QJsonObject json) {
     m_id_isValid = ::OpenAPI::fromJsonValue(id, json[QString("id")]);
     m_id_isSet = !json[QString("id")].isNull() && m_id_isValid;
 
+    m_author_id_isValid = ::OpenAPI::fromJsonValue(author_id, json[QString("authorId")]);
+    m_author_id_isSet = !json[QString("authorId")].isNull() && m_author_id_isValid;
+
     m_title_isValid = ::OpenAPI::fromJsonValue(title, json[QString("title")]);
     m_title_isSet = !json[QString("title")].isNull() && m_title_isValid;
 
     m_text_isValid = ::OpenAPI::fromJsonValue(text, json[QString("text")]);
     m_text_isSet = !json[QString("text")].isNull() && m_text_isValid;
 
+    m_creation_time_isValid = ::OpenAPI::fromJsonValue(creation_time, json[QString("creationTime")]);
+    m_creation_time_isSet = !json[QString("creationTime")].isNull() && m_creation_time_isValid;
+
     m_origin_isValid = ::OpenAPI::fromJsonValue(origin, json[QString("origin")]);
     m_origin_isSet = !json[QString("origin")].isNull() && m_origin_isValid;
+
+    m_subtype_isValid = ::OpenAPI::fromJsonValue(subtype, json[QString("subtype")]);
+    m_subtype_isSet = !json[QString("subtype")].isNull() && m_subtype_isValid;
 
     m_tags_isValid = ::OpenAPI::fromJsonValue(tags, json[QString("tags")]);
     m_tags_isSet = !json[QString("tags")].isNull() && m_tags_isValid;
@@ -84,6 +105,9 @@ void OAILog::fromJsonObject(QJsonObject json) {
 
     m_parent_log_id_isValid = ::OpenAPI::fromJsonValue(parent_log_id, json[QString("parentLogId")]);
     m_parent_log_id_isSet = !json[QString("parentLogId")].isNull() && m_parent_log_id_isValid;
+
+    m_children_isValid = ::OpenAPI::fromJsonValue(children, json[QString("children")]);
+    m_children_isSet = !json[QString("children")].isNull() && m_children_isValid;
 }
 
 QString OAILog::asJson() const {
@@ -98,14 +122,23 @@ QJsonObject OAILog::asJsonObject() const {
     if (m_id_isSet) {
         obj.insert(QString("id"), ::OpenAPI::toJsonValue(id));
     }
+    if (m_author_id_isSet) {
+        obj.insert(QString("authorId"), ::OpenAPI::toJsonValue(author_id));
+    }
     if (m_title_isSet) {
         obj.insert(QString("title"), ::OpenAPI::toJsonValue(title));
     }
     if (m_text_isSet) {
         obj.insert(QString("text"), ::OpenAPI::toJsonValue(text));
     }
+    if (m_creation_time_isSet) {
+        obj.insert(QString("creationTime"), ::OpenAPI::toJsonValue(creation_time));
+    }
     if (origin.isSet()) {
         obj.insert(QString("origin"), ::OpenAPI::toJsonValue(origin));
+    }
+    if (subtype.isSet()) {
+        obj.insert(QString("subtype"), ::OpenAPI::toJsonValue(subtype));
     }
     if (tags.size() > 0) {
         obj.insert(QString("tags"), ::OpenAPI::toJsonValue(tags));
@@ -115,6 +148,9 @@ QJsonObject OAILog::asJsonObject() const {
     }
     if (m_parent_log_id_isSet) {
         obj.insert(QString("parentLogId"), ::OpenAPI::toJsonValue(parent_log_id));
+    }
+    if (children.size() > 0) {
+        obj.insert(QString("children"), ::OpenAPI::toJsonValue(children));
     }
     return obj;
 }
@@ -133,6 +169,22 @@ bool OAILog::is_id_Set() const{
 
 bool OAILog::is_id_Valid() const{
     return m_id_isValid;
+}
+
+QString OAILog::getAuthorId() const {
+    return author_id;
+}
+void OAILog::setAuthorId(const QString &author_id) {
+    this->author_id = author_id;
+    this->m_author_id_isSet = true;
+}
+
+bool OAILog::is_author_id_Set() const{
+    return m_author_id_isSet;
+}
+
+bool OAILog::is_author_id_Valid() const{
+    return m_author_id_isValid;
 }
 
 QString OAILog::getTitle() const {
@@ -167,6 +219,22 @@ bool OAILog::is_text_Valid() const{
     return m_text_isValid;
 }
 
+qint64 OAILog::getCreationTime() const {
+    return creation_time;
+}
+void OAILog::setCreationTime(const qint64 &creation_time) {
+    this->creation_time = creation_time;
+    this->m_creation_time_isSet = true;
+}
+
+bool OAILog::is_creation_time_Set() const{
+    return m_creation_time_isSet;
+}
+
+bool OAILog::is_creation_time_Valid() const{
+    return m_creation_time_isValid;
+}
+
 OAILogOrigin OAILog::getOrigin() const {
     return origin;
 }
@@ -181,6 +249,22 @@ bool OAILog::is_origin_Set() const{
 
 bool OAILog::is_origin_Valid() const{
     return m_origin_isValid;
+}
+
+OAILogSubtype OAILog::getSubtype() const {
+    return subtype;
+}
+void OAILog::setSubtype(const OAILogSubtype &subtype) {
+    this->subtype = subtype;
+    this->m_subtype_isSet = true;
+}
+
+bool OAILog::is_subtype_Set() const{
+    return m_subtype_isSet;
+}
+
+bool OAILog::is_subtype_Valid() const{
+    return m_subtype_isValid;
 }
 
 QList<OAITag> OAILog::getTags() const {
@@ -231,10 +315,31 @@ bool OAILog::is_parent_log_id_Valid() const{
     return m_parent_log_id_isValid;
 }
 
+QList<OAILog> OAILog::getChildren() const {
+    return children;
+}
+void OAILog::setChildren(const QList<OAILog> &children) {
+    this->children = children;
+    this->m_children_isSet = true;
+}
+
+bool OAILog::is_children_Set() const{
+    return m_children_isSet;
+}
+
+bool OAILog::is_children_Valid() const{
+    return m_children_isValid;
+}
+
 bool OAILog::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (m_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_author_id_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -249,7 +354,17 @@ bool OAILog::isSet() const {
             break;
         }
 
+        if (m_creation_time_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
         if (origin.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (subtype.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -268,13 +383,18 @@ bool OAILog::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (children.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool OAILog::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_id_isValid && m_title_isValid && m_text_isValid && m_origin_isValid && m_tags_isValid && m_root_log_id_isValid && m_parent_log_id_isValid && true;
+    return m_id_isValid && m_author_id_isValid && m_title_isValid && m_text_isValid && m_creation_time_isValid && m_origin_isValid && m_subtype_isValid && m_tags_isValid && m_root_log_id_isValid && m_parent_log_id_isValid && true;
 }
 
 } // namespace OpenAPI
