@@ -10,6 +10,7 @@
 
 #include <string>
 #include "LogOrigin.h"
+#include "LogSubtype.h"
 #include "Tag.h"
 #include <list>
 #include "Object.h"
@@ -55,6 +56,13 @@ public:
 	/*! \brief Set The unique identifier of this entity.
 	 */
 	void setId(long long  id);
+	/*! \brief Get Name of the author.
+	 */
+	std::string getAuthorId();
+
+	/*! \brief Set Name of the author.
+	 */
+	void setAuthorId(std::string  authorId);
 	/*! \brief Get Title of the log.
 	 */
 	std::string getTitle();
@@ -69,6 +77,13 @@ public:
 	/*! \brief Set Body of the log.
 	 */
 	void setText(std::string  text);
+	/*! \brief Get Unix timestamp of the creation date time.
+	 */
+	long long getCreationTime();
+
+	/*! \brief Set Unix timestamp of the creation date time.
+	 */
+	void setCreationTime(long long  creationTime);
 	/*! \brief Get 
 	 */
 	LogOrigin getOrigin();
@@ -76,6 +91,13 @@ public:
 	/*! \brief Set 
 	 */
 	void setOrigin(LogOrigin  origin);
+	/*! \brief Get 
+	 */
+	LogSubtype getSubtype();
+
+	/*! \brief Set 
+	 */
+	void setSubtype(LogSubtype  subtype);
 	/*! \brief Get A list of Tag objects.
 	 */
 	std::list<Tag> getTags();
@@ -97,15 +119,26 @@ public:
 	/*! \brief Set The unique identifier of this entity.
 	 */
 	void setParentLogId(long long  parentLogId);
+	/*! \brief Get A list of Log objects.
+	 */
+	std::list<Log> getChildren();
+
+	/*! \brief Set A list of Log objects.
+	 */
+	void setChildren(std::list <Log> children);
 
 private:
 	long long id;
+	std::string authorId;
 	std::string title;
 	std::string text;
+	long long creationTime;
 	LogOrigin origin;
+	LogSubtype subtype;
 	std::list <Tag>tags;
 	long long rootLogId;
 	long long parentLogId;
+	std::list <Log>children;
 	void __init();
 	void __cleanup();
 
