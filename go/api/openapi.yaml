@@ -189,6 +189,46 @@ paths:
       summary: Lists all tags associated with a log
       tags:
       - log
+  /logs/{logId}/tree:
+    get:
+      operationId: getLogTree
+      parameters:
+      - description: The id of the log to retrieve
+        explode: false
+        in: path
+        name: logId
+        required: true
+        schema:
+          $ref: '#/components/schemas/EntityId'
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LogResponse'
+          description: Expected response to a valid request.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Unexpected Error
+      summary: Get the Log tree for a given Log
+      tags:
+      - log
   /status:
     get:
       operationId: getDeployInformation
@@ -541,9 +581,14 @@ components:
       example:
         data:
         - parentLogId: 1
+          creationTime: 1
+          children:
+          - null
+          - null
           rootLogId: 1
           id: 1
           text: text
+          authorId: authorId
           title: title
           tags:
           - createdAt: createdAt
@@ -555,9 +600,14 @@ components:
             id: 1
             text: text
         - parentLogId: 1
+          creationTime: 1
+          children:
+          - null
+          - null
           rootLogId: 1
           id: 1
           text: text
+          authorId: authorId
           title: title
           tags:
           - createdAt: createdAt
@@ -734,12 +784,18 @@ components:
           type: integer
       type: object
     Log:
+      additionalProperties: false
       description: Describes an intervention or an event that happened.
       example:
         parentLogId: 1
+        creationTime: 1
+        children:
+        - null
+        - null
         rootLogId: 1
         id: 1
         text: text
+        authorId: authorId
         title: title
         tags:
         - createdAt: createdAt
@@ -756,6 +812,9 @@ components:
           format: int64
           minimum: 1
           type: integer
+        authorId:
+          description: Name of the author.
+          type: string
         title:
           description: Title of the log.
           maxLength: 140
@@ -765,8 +824,14 @@ components:
           description: Body of the log.
           minLength: 3
           type: string
+        creationTime:
+          description: Unix timestamp of the creation date time.
+          format: int64
+          type: integer
         origin:
           $ref: '#/components/schemas/LogOrigin'
+        subtype:
+          $ref: '#/components/schemas/LogSubtype'
         tags:
           description: A list of Tag objects.
           items:
@@ -782,11 +847,19 @@ components:
           format: int64
           minimum: 1
           type: integer
+        children:
+          description: A list of Log objects.
+          items:
+            $ref: '#/components/schemas/Log'
+          type: array
       required:
+      - authorId
+      - creationTime
       - id
       - origin
       - parentLogId
       - rootLogId
+      - subtype
       - tags
       - text
       - title
@@ -803,9 +876,14 @@ components:
       example:
         data:
           parentLogId: 1
+          creationTime: 1
+          children:
+          - null
+          - null
           rootLogId: 1
           id: 1
           text: text
+          authorId: authorId
           title: title
           tags:
           - createdAt: createdAt
@@ -822,6 +900,15 @@ components:
       required:
       - data
       type: object
+    LogSubtype:
+      description: The subtype of a Log.
+      enum:
+      - run
+      - subsystem
+      - announcement
+      - intervention
+      - comment
+      type: string
     LogText:
       description: Body of the log.
       minLength: 3
