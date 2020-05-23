@@ -17,14 +17,22 @@ pub struct Log {
     /// The unique identifier of this entity.
     #[serde(rename = "id")]
     pub id: i64,
+    /// Name of the author.
+    #[serde(rename = "authorId")]
+    pub author_id: String,
     /// Title of the log.
     #[serde(rename = "title")]
     pub title: String,
     /// Body of the log.
     #[serde(rename = "text")]
     pub text: String,
+    /// Unix timestamp of the creation date time.
+    #[serde(rename = "creationTime")]
+    pub creation_time: i64,
     #[serde(rename = "origin")]
     pub origin: crate::models::LogOrigin,
+    #[serde(rename = "subtype")]
+    pub subtype: crate::models::LogSubtype,
     /// A list of Tag objects.
     #[serde(rename = "tags")]
     pub tags: Vec<crate::models::Tag>,
@@ -34,19 +42,26 @@ pub struct Log {
     /// The unique identifier of this entity.
     #[serde(rename = "parentLogId")]
     pub parent_log_id: i64,
+    /// A list of Log objects.
+    #[serde(rename = "children", skip_serializing_if = "Option::is_none")]
+    pub children: Option<Vec<crate::models::Log>>,
 }
 
 impl Log {
     /// Describes an intervention or an event that happened.
-    pub fn new(id: i64, title: String, text: String, origin: crate::models::LogOrigin, tags: Vec<crate::models::Tag>, root_log_id: i64, parent_log_id: i64) -> Log {
+    pub fn new(id: i64, author_id: String, title: String, text: String, creation_time: i64, origin: crate::models::LogOrigin, subtype: crate::models::LogSubtype, tags: Vec<crate::models::Tag>, root_log_id: i64, parent_log_id: i64) -> Log {
         Log {
             id,
+            author_id,
             title,
             text,
+            creation_time,
             origin,
+            subtype,
             tags,
             root_log_id,
             parent_log_id,
+            children: None,
         }
     }
 }
