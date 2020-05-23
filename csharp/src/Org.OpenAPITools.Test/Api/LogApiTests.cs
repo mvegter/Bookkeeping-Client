@@ -88,6 +88,18 @@ namespace Org.OpenAPITools.Test
         }
         
         /// <summary>
+        /// Test GetLogTree
+        /// </summary>
+        [Test]
+        public void GetLogTreeTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //long logId = null;
+            //var response = instance.GetLogTree(logId);
+            //Assert.IsInstanceOf(typeof(LogResponse), response, "response is LogResponse");
+        }
+        
+        /// <summary>
         /// Test ListLogs
         /// </summary>
         [Test]

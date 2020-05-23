@@ -113,6 +113,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**GetServerInformation**](docs/DefaultApi.md#getserverinformation) | **GET** / | Get server information
 *LogApi* | [**CreateLog**](docs/LogApi.md#createlog) | **POST** /logs | Adds a new log
 *LogApi* | [**GetLogById**](docs/LogApi.md#getlogbyid) | **GET** /logs/{logId} | Gets a log by Id
+*LogApi* | [**GetLogTree**](docs/LogApi.md#getlogtree) | **GET** /logs/{logId}/tree | Get the Log tree for a given Log
 *LogApi* | [**ListLogs**](docs/LogApi.md#listlogs) | **GET** /logs | List all logs
 *LogApi* | [**ListTagsByLogId**](docs/LogApi.md#listtagsbylogid) | **GET** /logs/{logId}/tags | Lists all tags associated with a log
 *TagApi* | [**CreateTag**](docs/TagApi.md#createtag) | **POST** /tags | Adds a new tag
@@ -138,6 +139,7 @@ Class | Method | HTTP request | Description
  - [Model.Log](docs/Log.md)
  - [Model.LogOrigin](docs/LogOrigin.md)
  - [Model.LogResponse](docs/LogResponse.md)
+ - [Model.LogSubtype](docs/LogSubtype.md)
  - [Model.PaginationMeta](docs/PaginationMeta.md)
  - [Model.PaginationOptions](docs/PaginationOptions.md)
  - [Model.SortLogsOptions](docs/SortLogsOptions.md)
