@@ -21,10 +21,12 @@
 
 #include "../ModelBase.h"
 
+#include "LogSubtype.h"
 #include "Tag.h"
 #include <cpprest/details/basic_types.h>
 #include "LogOrigin.h"
 #include <vector>
+#include "Log.h"
 
 namespace org {
 namespace openapitools {
@@ -66,6 +68,15 @@ public:
     void setId(int64_t value);
 
     /// <summary>
+    /// Name of the author.
+    /// </summary>
+    utility::string_t getAuthorId() const;
+    bool authorIdIsSet() const;
+    void unsetAuthorId();
+
+    void setAuthorId(const utility::string_t& value);
+
+    /// <summary>
     /// Title of the log.
     /// </summary>
     utility::string_t getTitle() const;
@@ -84,6 +95,15 @@ public:
     void setText(const utility::string_t& value);
 
     /// <summary>
+    /// Unix timestamp of the creation date time.
+    /// </summary>
+    int64_t getCreationTime() const;
+    bool creationTimeIsSet() const;
+    void unsetCreationTime();
+
+    void setCreationTime(int64_t value);
+
+    /// <summary>
     /// 
     /// </summary>
     std::shared_ptr<LogOrigin> getOrigin() const;
@@ -91,6 +111,15 @@ public:
     void unsetOrigin();
 
     void setOrigin(const std::shared_ptr<LogOrigin>& value);
+
+    /// <summary>
+    /// 
+    /// </summary>
+    std::shared_ptr<LogSubtype> getSubtype() const;
+    bool subtypeIsSet() const;
+    void unsetSubtype();
+
+    void setSubtype(const std::shared_ptr<LogSubtype>& value);
 
     /// <summary>
     /// A list of Tag objects.
@@ -119,22 +148,39 @@ public:
 
     void setParentLogId(int64_t value);
 
+    /// <summary>
+    /// A list of Log objects.
+    /// </summary>
+    std::vector<std::shared_ptr<Log>>& getChildren();
+    bool childrenIsSet() const;
+    void unsetChildren();
+
+    void setChildren(const std::vector<std::shared_ptr<Log>>& value);
+
 
 protected:
     int64_t m_Id;
     bool m_IdIsSet;
+    utility::string_t m_AuthorId;
+    bool m_AuthorIdIsSet;
     utility::string_t m_Title;
     bool m_TitleIsSet;
     utility::string_t m_Text;
     bool m_TextIsSet;
+    int64_t m_CreationTime;
+    bool m_CreationTimeIsSet;
     std::shared_ptr<LogOrigin> m_Origin;
     bool m_OriginIsSet;
+    std::shared_ptr<LogSubtype> m_Subtype;
+    bool m_SubtypeIsSet;
     std::vector<std::shared_ptr<Tag>> m_Tags;
     bool m_TagsIsSet;
     int64_t m_RootLogId;
     bool m_RootLogIdIsSet;
     int64_t m_ParentLogId;
     bool m_ParentLogIdIsSet;
+    std::vector<std::shared_ptr<Log>> m_Children;
+    bool m_ChildrenIsSet;
 };
 
 
