@@ -68,6 +68,16 @@
         done();
       });
     });
+    describe('getLogTree', function() {
+      it('should call getLogTree successfully', function(done) {
+        //uncomment below and update the code to test getLogTree
+        //instance.getLogTree(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('listLogs', function() {
       it('should call listLogs successfully', function(done) {
         //uncomment below and update the code to test listLogs

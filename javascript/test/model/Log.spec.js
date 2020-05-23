@@ -60,6 +60,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property authorId (base name: "authorId")', function() {
+      // uncomment below and update the code to test the property authorId
+      //var instane = new AliceBookkeeping.Log();
+      //expect(instance).to.be();
+    });
+
     it('should have the property title (base name: "title")', function() {
       // uncomment below and update the code to test the property title
       //var instane = new AliceBookkeeping.Log();
@@ -72,8 +78,20 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property creationTime (base name: "creationTime")', function() {
+      // uncomment below and update the code to test the property creationTime
+      //var instane = new AliceBookkeeping.Log();
+      //expect(instance).to.be();
+    });
+
     it('should have the property origin (base name: "origin")', function() {
       // uncomment below and update the code to test the property origin
+      //var instane = new AliceBookkeeping.Log();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property subtype (base name: "subtype")', function() {
+      // uncomment below and update the code to test the property subtype
       //var instane = new AliceBookkeeping.Log();
       //expect(instance).to.be();
     });
@@ -92,6 +110,12 @@
 
     it('should have the property parentLogId (base name: "parentLogId")', function() {
       // uncomment below and update the code to test the property parentLogId
+      //var instane = new AliceBookkeeping.Log();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property children (base name: "children")', function() {
+      // uncomment below and update the code to test the property children
       //var instane = new AliceBookkeeping.Log();
       //expect(instance).to.be();
     });
