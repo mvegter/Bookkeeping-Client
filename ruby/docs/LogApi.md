@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_log**](LogApi.md#create_log) | **POST** /logs | Adds a new log
 [**get_log_by_id**](LogApi.md#get_log_by_id) | **GET** /logs/{logId} | Gets a log by Id
+[**get_log_tree**](LogApi.md#get_log_tree) | **GET** /logs/{logId}/tree | Get the Log tree for a given Log
 [**list_logs**](LogApi.md#list_logs) | **GET** /logs | List all logs
 [**list_tags_by_log_id**](LogApi.md#list_tags_by_log_id) | **GET** /logs/{logId}/tags | Lists all tags associated with a log
 
@@ -91,6 +92,58 @@ begin
   p result
 rescue OpenapiClient::ApiError => e
   puts "Exception when calling LogApi->get_log_by_id: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **log_id** | **Integer**| The id of the log to retrieve | 
+
+### Return type
+
+[**LogResponse**](LogResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_log_tree
+
+> LogResponse get_log_tree(log_id)
+
+Get the Log tree for a given Log
+
+### Example
+
+```ruby
+# load the gem
+require 'openapi_client'
+# setup authorization
+OpenapiClient.configure do |config|
+  # Configure API key authorization: ApiKeyAuth
+  config.api_key['token'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['token'] = 'Bearer'
+end
+
+api_instance = OpenapiClient::LogApi.new
+log_id = 56 # Integer | The id of the log to retrieve
+
+begin
+  #Get the Log tree for a given Log
+  result = api_instance.get_log_tree(log_id)
+  p result
+rescue OpenapiClient::ApiError => e
+  puts "Exception when calling LogApi->get_log_tree: #{e}"
 end
 ```
 

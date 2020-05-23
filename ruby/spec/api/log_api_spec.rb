@@ -54,6 +54,17 @@ describe 'LogApi' do
     end
   end
 
+  # unit tests for get_log_tree
+  # Get the Log tree for a given Log
+  # @param log_id The id of the log to retrieve
+  # @param [Hash] opts the optional parameters
+  # @return [LogResponse]
+  describe 'get_log_tree test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for list_logs
   # List all logs
   # @param [Hash] opts the optional parameters
