@@ -72,6 +72,22 @@ public class LogApiTest {
     }
     
     /**
+     * Get the Log tree for a given Log
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getLogTreeTest() throws ApiException {
+        Long logId = null;
+        LogResponse response = api.getLogTree(logId);
+
+        // TODO: test validations
+    }
+    
+    /**
      * List all logs
      *
      * 

@@ -26,17 +26,22 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.client.model.LogOrigin;
+import org.openapitools.client.model.LogSubtype;
 import org.openapitools.client.model.Tag;
 
 /**
  * Describes an intervention or an event that happened.
  */
 @ApiModel(description = "Describes an intervention or an event that happened.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-22T13:17:39.534+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-23T10:17:43.845+01:00[Europe/London]")
 public class Log {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private Long id;
+
+  public static final String SERIALIZED_NAME_AUTHOR_ID = "authorId";
+  @SerializedName(SERIALIZED_NAME_AUTHOR_ID)
+  private String authorId;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -46,9 +51,17 @@ public class Log {
   @SerializedName(SERIALIZED_NAME_TEXT)
   private String text;
 
+  public static final String SERIALIZED_NAME_CREATION_TIME = "creationTime";
+  @SerializedName(SERIALIZED_NAME_CREATION_TIME)
+  private Long creationTime;
+
   public static final String SERIALIZED_NAME_ORIGIN = "origin";
   @SerializedName(SERIALIZED_NAME_ORIGIN)
   private LogOrigin origin;
+
+  public static final String SERIALIZED_NAME_SUBTYPE = "subtype";
+  @SerializedName(SERIALIZED_NAME_SUBTYPE)
+  private LogSubtype subtype;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -61,6 +74,10 @@ public class Log {
   public static final String SERIALIZED_NAME_PARENT_LOG_ID = "parentLogId";
   @SerializedName(SERIALIZED_NAME_PARENT_LOG_ID)
   private Long parentLogId;
+
+  public static final String SERIALIZED_NAME_CHILDREN = "children";
+  @SerializedName(SERIALIZED_NAME_CHILDREN)
+  private List<Log> children = null;
 
 
   public Log id(Long id) {
@@ -83,6 +100,28 @@ public class Log {
 
   public void setId(Long id) {
     this.id = id;
+  }
+
+
+  public Log authorId(String authorId) {
+    
+    this.authorId = authorId;
+    return this;
+  }
+
+   /**
+   * Name of the author.
+   * @return authorId
+  **/
+  @ApiModelProperty(required = true, value = "Name of the author.")
+
+  public String getAuthorId() {
+    return authorId;
+  }
+
+
+  public void setAuthorId(String authorId) {
+    this.authorId = authorId;
   }
 
 
@@ -130,6 +169,28 @@ public class Log {
   }
 
 
+  public Log creationTime(Long creationTime) {
+    
+    this.creationTime = creationTime;
+    return this;
+  }
+
+   /**
+   * Unix timestamp of the creation date time.
+   * @return creationTime
+  **/
+  @ApiModelProperty(required = true, value = "Unix timestamp of the creation date time.")
+
+  public Long getCreationTime() {
+    return creationTime;
+  }
+
+
+  public void setCreationTime(Long creationTime) {
+    this.creationTime = creationTime;
+  }
+
+
   public Log origin(LogOrigin origin) {
     
     this.origin = origin;
@@ -149,6 +210,28 @@ public class Log {
 
   public void setOrigin(LogOrigin origin) {
     this.origin = origin;
+  }
+
+
+  public Log subtype(LogSubtype subtype) {
+    
+    this.subtype = subtype;
+    return this;
+  }
+
+   /**
+   * Get subtype
+   * @return subtype
+  **/
+  @ApiModelProperty(required = true, value = "")
+
+  public LogSubtype getSubtype() {
+    return subtype;
+  }
+
+
+  public void setSubtype(LogSubtype subtype) {
+    this.subtype = subtype;
   }
 
 
@@ -225,6 +308,37 @@ public class Log {
   }
 
 
+  public Log children(List<Log> children) {
+    
+    this.children = children;
+    return this;
+  }
+
+  public Log addChildrenItem(Log childrenItem) {
+    if (this.children == null) {
+      this.children = new ArrayList<Log>();
+    }
+    this.children.add(childrenItem);
+    return this;
+  }
+
+   /**
+   * A list of Log objects.
+   * @return children
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A list of Log objects.")
+
+  public List<Log> getChildren() {
+    return children;
+  }
+
+
+  public void setChildren(List<Log> children) {
+    this.children = children;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -235,17 +349,21 @@ public class Log {
     }
     Log log = (Log) o;
     return Objects.equals(this.id, log.id) &&
+        Objects.equals(this.authorId, log.authorId) &&
         Objects.equals(this.title, log.title) &&
         Objects.equals(this.text, log.text) &&
+        Objects.equals(this.creationTime, log.creationTime) &&
         Objects.equals(this.origin, log.origin) &&
+        Objects.equals(this.subtype, log.subtype) &&
         Objects.equals(this.tags, log.tags) &&
         Objects.equals(this.rootLogId, log.rootLogId) &&
-        Objects.equals(this.parentLogId, log.parentLogId);
+        Objects.equals(this.parentLogId, log.parentLogId) &&
+        Objects.equals(this.children, log.children);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, text, origin, tags, rootLogId, parentLogId);
+    return Objects.hash(id, authorId, title, text, creationTime, origin, subtype, tags, rootLogId, parentLogId, children);
   }
 
 
@@ -254,12 +372,16 @@ public class Log {
     StringBuilder sb = new StringBuilder();
     sb.append("class Log {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    authorId: ").append(toIndentedString(authorId)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
+    sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    origin: ").append(toIndentedString(origin)).append("\n");
+    sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    rootLogId: ").append(toIndentedString(rootLogId)).append("\n");
     sb.append("    parentLogId: ").append(toIndentedString(parentLogId)).append("\n");
+    sb.append("    children: ").append(toIndentedString(children)).append("\n");
     sb.append("}");
     return sb.toString();
   }
