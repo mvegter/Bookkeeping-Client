@@ -23,16 +23,22 @@ PaginationMeta::~PaginationMeta()
 void
 PaginationMeta::__init()
 {
-	//total = int(0);
+	//pageCount = int(0);
+	//totalCount = int(0);
 }
 
 void
 PaginationMeta::__cleanup()
 {
-	//if(total != NULL) {
+	//if(pageCount != NULL) {
 	//
-	//delete total;
-	//total = NULL;
+	//delete pageCount;
+	//pageCount = NULL;
+	//}
+	//if(totalCount != NULL) {
+	//
+	//delete totalCount;
+	//totalCount = NULL;
 	//}
 	//
 }
@@ -42,13 +48,24 @@ PaginationMeta::fromJson(char* jsonStr)
 {
 	JsonObject *pJsonObject = json_node_get_object(json_from_string(jsonStr,NULL));
 	JsonNode *node;
-	const gchar *totalKey = "total";
-	node = json_object_get_member(pJsonObject, totalKey);
+	const gchar *pageCountKey = "pageCount";
+	node = json_object_get_member(pJsonObject, pageCountKey);
 	if (node !=NULL) {
 	
 
 		if (isprimitive("int")) {
-			jsonToValue(&total, node, "int", "");
+			jsonToValue(&pageCount, node, "int", "");
+		} else {
+			
+		}
+	}
+	const gchar *totalCountKey = "totalCount";
+	node = json_object_get_member(pJsonObject, totalCountKey);
+	if (node !=NULL) {
+	
+
+		if (isprimitive("int")) {
+			jsonToValue(&totalCount, node, "int", "");
 		} else {
 			
 		}
@@ -66,14 +83,23 @@ PaginationMeta::toJson()
 	JsonObject *pJsonObject = json_object_new();
 	JsonNode *node;
 	if (isprimitive("int")) {
-		int obj = getTotal();
+		int obj = getPageCount();
 		node = converttoJson(&obj, "int", "");
 	}
 	else {
 		
 	}
-	const gchar *totalKey = "total";
-	json_object_set_member(pJsonObject, totalKey, node);
+	const gchar *pageCountKey = "pageCount";
+	json_object_set_member(pJsonObject, pageCountKey, node);
+	if (isprimitive("int")) {
+		int obj = getTotalCount();
+		node = converttoJson(&obj, "int", "");
+	}
+	else {
+		
+	}
+	const gchar *totalCountKey = "totalCount";
+	json_object_set_member(pJsonObject, totalCountKey, node);
 	node = json_node_alloc();
 	json_node_init(node, JSON_NODE_OBJECT);
 	json_node_take_object(node, pJsonObject);
@@ -83,15 +109,27 @@ PaginationMeta::toJson()
 }
 
 int
-PaginationMeta::getTotal()
+PaginationMeta::getPageCount()
 {
-	return total;
+	return pageCount;
 }
 
 void
-PaginationMeta::setTotal(int  total)
+PaginationMeta::setPageCount(int  pageCount)
 {
-	this->total = total;
+	this->pageCount = pageCount;
+}
+
+int
+PaginationMeta::getTotalCount()
+{
+	return totalCount;
+}
+
+void
+PaginationMeta::setTotalCount(int  totalCount)
+{
+	this->totalCount = totalCount;
 }
 
 
