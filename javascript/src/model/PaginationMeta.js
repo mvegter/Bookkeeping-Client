@@ -23,11 +23,12 @@ class PaginationMeta {
      * Constructs a new <code>PaginationMeta</code>.
      * The metadata related to pagination.
      * @alias module:model/PaginationMeta
-     * @param total {Number} The number of pages which contain data.
+     * @param pageCount {Number} The total number of pages which contain data.
+     * @param totalCount {Number} The total number of elements in the collection
      */
-    constructor(total) { 
+    constructor(pageCount, totalCount) { 
         
-        PaginationMeta.initialize(this, total);
+        PaginationMeta.initialize(this, pageCount, totalCount);
     }
 
     /**
@@ -35,8 +36,9 @@ class PaginationMeta {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, total) { 
-        obj['total'] = total;
+    static initialize(obj, pageCount, totalCount) { 
+        obj['pageCount'] = pageCount;
+        obj['totalCount'] = totalCount;
     }
 
     /**
@@ -50,8 +52,11 @@ class PaginationMeta {
         if (data) {
             obj = obj || new PaginationMeta();
 
-            if (data.hasOwnProperty('total')) {
-                obj['total'] = ApiClient.convertToType(data['total'], 'Number');
+            if (data.hasOwnProperty('pageCount')) {
+                obj['pageCount'] = ApiClient.convertToType(data['pageCount'], 'Number');
+            }
+            if (data.hasOwnProperty('totalCount')) {
+                obj['totalCount'] = ApiClient.convertToType(data['totalCount'], 'Number');
             }
         }
         return obj;
@@ -61,10 +66,16 @@ class PaginationMeta {
 }
 
 /**
- * The number of pages which contain data.
- * @member {Number} total
+ * The total number of pages which contain data.
+ * @member {Number} pageCount
  */
-PaginationMeta.prototype['total'] = undefined;
+PaginationMeta.prototype['pageCount'] = undefined;
+
+/**
+ * The total number of elements in the collection
+ * @member {Number} totalCount
+ */
+PaginationMeta.prototype['totalCount'] = undefined;
 
 
 
