@@ -41,11 +41,19 @@ public class PaginationMetaTest {
     }
 
     /**
-     * Test the property 'total'
+     * Test the property 'pageCount'
      */
     @Test
-    public void totalTest() {
-        // TODO: test total
+    public void pageCountTest() {
+        // TODO: test pageCount
+    }
+
+    /**
+     * Test the property 'totalCount'
+     */
+    @Test
+    public void totalCountTest() {
+        // TODO: test totalCount
     }
 
 }

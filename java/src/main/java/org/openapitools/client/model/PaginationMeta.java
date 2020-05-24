@@ -28,33 +28,60 @@ import java.io.IOException;
  * The metadata related to pagination.
  */
 @ApiModel(description = "The metadata related to pagination.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-23T10:17:43.845+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-24T10:53:02.136+01:00[Europe/London]")
 public class PaginationMeta {
-  public static final String SERIALIZED_NAME_TOTAL = "total";
-  @SerializedName(SERIALIZED_NAME_TOTAL)
-  private Integer total;
+  public static final String SERIALIZED_NAME_PAGE_COUNT = "pageCount";
+  @SerializedName(SERIALIZED_NAME_PAGE_COUNT)
+  private Integer pageCount;
+
+  public static final String SERIALIZED_NAME_TOTAL_COUNT = "totalCount";
+  @SerializedName(SERIALIZED_NAME_TOTAL_COUNT)
+  private Integer totalCount;
 
 
-  public PaginationMeta total(Integer total) {
+  public PaginationMeta pageCount(Integer pageCount) {
     
-    this.total = total;
+    this.pageCount = pageCount;
     return this;
   }
 
    /**
-   * The number of pages which contain data.
+   * The total number of pages which contain data.
    * minimum: 0
-   * @return total
+   * @return pageCount
   **/
-  @ApiModelProperty(required = true, value = "The number of pages which contain data.")
+  @ApiModelProperty(required = true, value = "The total number of pages which contain data.")
 
-  public Integer getTotal() {
-    return total;
+  public Integer getPageCount() {
+    return pageCount;
   }
 
 
-  public void setTotal(Integer total) {
-    this.total = total;
+  public void setPageCount(Integer pageCount) {
+    this.pageCount = pageCount;
+  }
+
+
+  public PaginationMeta totalCount(Integer totalCount) {
+    
+    this.totalCount = totalCount;
+    return this;
+  }
+
+   /**
+   * The total number of elements in the collection
+   * minimum: 0
+   * @return totalCount
+  **/
+  @ApiModelProperty(required = true, value = "The total number of elements in the collection")
+
+  public Integer getTotalCount() {
+    return totalCount;
+  }
+
+
+  public void setTotalCount(Integer totalCount) {
+    this.totalCount = totalCount;
   }
 
 
@@ -67,12 +94,13 @@ public class PaginationMeta {
       return false;
     }
     PaginationMeta paginationMeta = (PaginationMeta) o;
-    return Objects.equals(this.total, paginationMeta.total);
+    return Objects.equals(this.pageCount, paginationMeta.pageCount) &&
+        Objects.equals(this.totalCount, paginationMeta.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(total);
+    return Objects.hash(pageCount, totalCount);
   }
 
 
@@ -80,7 +108,8 @@ public class PaginationMeta {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaginationMeta {\n");
-    sb.append("    total: ").append(toIndentedString(total)).append("\n");
+    sb.append("    pageCount: ").append(toIndentedString(pageCount)).append("\n");
+    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }
