@@ -10,6 +10,8 @@
 package openapi
 // PaginationMeta The metadata related to pagination.
 type PaginationMeta struct {
-	// The number of pages which contain data.
-	Total int32 `json:"total"`
+	// The total number of pages which contain data.
+	PageCount int32 `json:"pageCount"`
+	// The total number of elements in the collection
+	TotalCount int32 `json:"totalCount"`
 }
