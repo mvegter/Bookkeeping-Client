@@ -14,16 +14,20 @@
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PaginationMeta {
-    /// The number of pages which contain data.
-    #[serde(rename = "total")]
-    pub total: i32,
+    /// The total number of pages which contain data.
+    #[serde(rename = "pageCount")]
+    pub page_count: i32,
+    /// The total number of elements in the collection
+    #[serde(rename = "totalCount")]
+    pub total_count: i32,
 }
 
 impl PaginationMeta {
     /// The metadata related to pagination.
-    pub fn new(total: i32) -> PaginationMeta {
+    pub fn new(page_count: i32, total_count: i32) -> PaginationMeta {
         PaginationMeta {
-            total,
+            page_count,
+            total_count,
         }
     }
 }
