@@ -66,12 +66,20 @@ namespace Org.OpenAPITools.Test
 
 
         /// <summary>
-        /// Test the property 'Total'
+        /// Test the property 'PageCount'
         /// </summary>
         [Test]
-        public void TotalTest()
+        public void PageCountTest()
         {
-            // TODO unit test for the property 'Total'
+            // TODO unit test for the property 'PageCount'
+        }
+        /// <summary>
+        /// Test the property 'TotalCount'
+        /// </summary>
+        [Test]
+        public void TotalCountTest()
+        {
+            // TODO unit test for the property 'TotalCount'
         }
 
     }

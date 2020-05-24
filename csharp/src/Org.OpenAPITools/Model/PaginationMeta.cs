@@ -38,27 +38,45 @@ namespace Org.OpenAPITools.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaginationMeta" /> class.
         /// </summary>
-        /// <param name="total">The number of pages which contain data. (required).</param>
-        public PaginationMeta(int total = default(int))
+        /// <param name="pageCount">The total number of pages which contain data. (required).</param>
+        /// <param name="totalCount">The total number of elements in the collection (required).</param>
+        public PaginationMeta(int pageCount = default(int), int totalCount = default(int))
         {
-            // to ensure "total" is required (not null)
-            if (total == null)
+            // to ensure "pageCount" is required (not null)
+            if (pageCount == null)
             {
-                throw new InvalidDataException("total is a required property for PaginationMeta and cannot be null");
+                throw new InvalidDataException("pageCount is a required property for PaginationMeta and cannot be null");
             }
             else
             {
-                this.Total = total;
+                this.PageCount = pageCount;
+            }
+            
+            // to ensure "totalCount" is required (not null)
+            if (totalCount == null)
+            {
+                throw new InvalidDataException("totalCount is a required property for PaginationMeta and cannot be null");
+            }
+            else
+            {
+                this.TotalCount = totalCount;
             }
             
         }
         
         /// <summary>
-        /// The number of pages which contain data.
+        /// The total number of pages which contain data.
         /// </summary>
-        /// <value>The number of pages which contain data.</value>
-        [DataMember(Name="total", EmitDefaultValue=true)]
-        public int Total { get; set; }
+        /// <value>The total number of pages which contain data.</value>
+        [DataMember(Name="pageCount", EmitDefaultValue=true)]
+        public int PageCount { get; set; }
+
+        /// <summary>
+        /// The total number of elements in the collection
+        /// </summary>
+        /// <value>The total number of elements in the collection</value>
+        [DataMember(Name="totalCount", EmitDefaultValue=true)]
+        public int TotalCount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,7 +86,8 @@ namespace Org.OpenAPITools.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PaginationMeta {\n");
-            sb.Append("  Total: ").Append(Total).Append("\n");
+            sb.Append("  PageCount: ").Append(PageCount).Append("\n");
+            sb.Append("  TotalCount: ").Append(TotalCount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -104,9 +123,14 @@ namespace Org.OpenAPITools.Model
 
             return 
                 (
-                    this.Total == input.Total ||
-                    (this.Total != null &&
-                    this.Total.Equals(input.Total))
+                    this.PageCount == input.PageCount ||
+                    (this.PageCount != null &&
+                    this.PageCount.Equals(input.PageCount))
+                ) && 
+                (
+                    this.TotalCount == input.TotalCount ||
+                    (this.TotalCount != null &&
+                    this.TotalCount.Equals(input.TotalCount))
                 );
         }
 
@@ -119,8 +143,10 @@ namespace Org.OpenAPITools.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Total != null)
-                    hashCode = hashCode * 59 + this.Total.GetHashCode();
+                if (this.PageCount != null)
+                    hashCode = hashCode * 59 + this.PageCount.GetHashCode();
+                if (this.TotalCount != null)
+                    hashCode = hashCode * 59 + this.TotalCount.GetHashCode();
                 return hashCode;
             }
         }
@@ -134,10 +160,18 @@ namespace Org.OpenAPITools.Model
         {
 
             
-            // Total (int) minimum
-            if(this.Total < (int)0)
+            // PageCount (int) minimum
+            if(this.PageCount < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Total, must be a value greater than or equal to 0.", new [] { "Total" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PageCount, must be a value greater than or equal to 0.", new [] { "PageCount" });
+            }
+
+
+            
+            // TotalCount (int) minimum
+            if(this.TotalCount < (int)0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalCount, must be a value greater than or equal to 0.", new [] { "TotalCount" });
             }
 
             yield break;
