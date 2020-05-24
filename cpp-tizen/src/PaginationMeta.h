@@ -45,16 +45,24 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get The number of pages which contain data.
+	/*! \brief Get The total number of pages which contain data.
 	 */
-	int getTotal();
+	int getPageCount();
 
-	/*! \brief Set The number of pages which contain data.
+	/*! \brief Set The total number of pages which contain data.
 	 */
-	void setTotal(int  total);
+	void setPageCount(int  pageCount);
+	/*! \brief Get The total number of elements in the collection
+	 */
+	int getTotalCount();
+
+	/*! \brief Set The total number of elements in the collection
+	 */
+	void setTotalCount(int  totalCount);
 
 private:
-	int total;
+	int pageCount;
+	int totalCount;
 	void __init();
 	void __cleanup();
 

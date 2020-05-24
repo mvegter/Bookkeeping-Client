@@ -23,8 +23,10 @@ namespace model {
 
 PaginationMeta::PaginationMeta()
 {
-    m_Total = 0;
-    m_TotalIsSet = false;
+    m_PageCount = 0;
+    m_PageCountIsSet = false;
+    m_TotalCount = 0;
+    m_TotalCountIsSet = false;
 }
 
 PaginationMeta::~PaginationMeta()
@@ -41,9 +43,13 @@ web::json::value PaginationMeta::toJson() const
 
     web::json::value val = web::json::value::object();
     
-    if(m_TotalIsSet)
+    if(m_PageCountIsSet)
     {
-        val[utility::conversions::to_string_t("total")] = ModelBase::toJson(m_Total);
+        val[utility::conversions::to_string_t("pageCount")] = ModelBase::toJson(m_PageCount);
+    }
+    if(m_TotalCountIsSet)
+    {
+        val[utility::conversions::to_string_t("totalCount")] = ModelBase::toJson(m_TotalCount);
     }
 
     return val;
@@ -53,14 +59,24 @@ bool PaginationMeta::fromJson(const web::json::value& val)
 {
     bool ok = true;
     
-    if(val.has_field(utility::conversions::to_string_t("total")))
+    if(val.has_field(utility::conversions::to_string_t("pageCount")))
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("total"));
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("pageCount"));
         if(!fieldValue.is_null())
         {
-            int32_t refVal_total;
-            ok &= ModelBase::fromJson(fieldValue, refVal_total);
-            setTotal(refVal_total);
+            int32_t refVal_pageCount;
+            ok &= ModelBase::fromJson(fieldValue, refVal_pageCount);
+            setPageCount(refVal_pageCount);
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("totalCount")))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("totalCount"));
+        if(!fieldValue.is_null())
+        {
+            int32_t refVal_totalCount;
+            ok &= ModelBase::fromJson(fieldValue, refVal_totalCount);
+            setTotalCount(refVal_totalCount);
         }
     }
     return ok;
@@ -73,9 +89,13 @@ void PaginationMeta::toMultipart(std::shared_ptr<MultipartFormData> multipart, c
     {
         namePrefix += utility::conversions::to_string_t(".");
     }
-    if(m_TotalIsSet)
+    if(m_PageCountIsSet)
     {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("total"), m_Total));
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("pageCount"), m_PageCount));
+    }
+    if(m_TotalCountIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("totalCount"), m_TotalCount));
     }
 }
 
@@ -88,34 +108,60 @@ bool PaginationMeta::fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    if(multipart->hasContent(utility::conversions::to_string_t("total")))
+    if(multipart->hasContent(utility::conversions::to_string_t("pageCount")))
     {
-        int32_t refVal_total;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("total")), refVal_total );
-        setTotal(refVal_total);
+        int32_t refVal_pageCount;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("pageCount")), refVal_pageCount );
+        setPageCount(refVal_pageCount);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("totalCount")))
+    {
+        int32_t refVal_totalCount;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("totalCount")), refVal_totalCount );
+        setTotalCount(refVal_totalCount);
     }
     return ok;
 }
 
-int32_t PaginationMeta::getTotal() const
+int32_t PaginationMeta::getPageCount() const
 {
-    return m_Total;
+    return m_PageCount;
 }
 
-void PaginationMeta::setTotal(int32_t value)
+void PaginationMeta::setPageCount(int32_t value)
 {
-    m_Total = value;
-    m_TotalIsSet = true;
+    m_PageCount = value;
+    m_PageCountIsSet = true;
 }
 
-bool PaginationMeta::totalIsSet() const
+bool PaginationMeta::pageCountIsSet() const
 {
-    return m_TotalIsSet;
+    return m_PageCountIsSet;
 }
 
-void PaginationMeta::unsetTotal()
+void PaginationMeta::unsetPageCount()
 {
-    m_TotalIsSet = false;
+    m_PageCountIsSet = false;
+}
+int32_t PaginationMeta::getTotalCount() const
+{
+    return m_TotalCount;
+}
+
+void PaginationMeta::setTotalCount(int32_t value)
+{
+    m_TotalCount = value;
+    m_TotalCountIsSet = true;
+}
+
+bool PaginationMeta::totalCountIsSet() const
+{
+    return m_TotalCountIsSet;
+}
+
+void PaginationMeta::unsetTotalCount()
+{
+    m_TotalCountIsSet = false;
 }
 }
 }

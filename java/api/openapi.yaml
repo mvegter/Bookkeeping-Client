@@ -595,7 +595,7 @@ components:
       example:
         data:
         - parentLogId: 1
-          creationTime: 1
+          creationTime: 5
           children:
           - null
           - null
@@ -614,7 +614,7 @@ components:
             id: 1
             text: text
         - parentLogId: 1
-          creationTime: 1
+          creationTime: 5
           children:
           - null
           - null
@@ -634,7 +634,8 @@ components:
             text: text
         meta:
           page:
-            total: 0
+            pageCount: 0
+            totalCount: 0
       properties:
         meta:
           $ref: '#/components/schemas/ArrayOfLogsResponseMeta'
@@ -651,7 +652,8 @@ components:
       description: The metadata related to an array of logs response.
       example:
         page:
-          total: 0
+          pageCount: 0
+          totalCount: 0
       properties:
         page:
           $ref: '#/components/schemas/PaginationMeta'
@@ -802,7 +804,7 @@ components:
       description: Describes an intervention or an event that happened.
       example:
         parentLogId: 1
-        creationTime: 1
+        creationTime: 5
         children:
         - null
         - null
@@ -890,7 +892,7 @@ components:
       example:
         data:
           parentLogId: 1
-          creationTime: 1
+          creationTime: 5
           children:
           - null
           - null
@@ -942,14 +944,20 @@ components:
       additionalProperties: false
       description: The metadata related to pagination.
       example:
-        total: 0
+        pageCount: 0
+        totalCount: 0
       properties:
-        total:
-          description: The number of pages which contain data.
+        pageCount:
+          description: The total number of pages which contain data.
+          minimum: 0
+          type: integer
+        totalCount:
+          description: The total number of elements in the collection
           minimum: 0
           type: integer
       required:
-      - total
+      - pageCount
+      - totalCount
       type: object
     PaginationOffset:
       default: 0

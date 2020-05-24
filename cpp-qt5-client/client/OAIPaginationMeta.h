@@ -37,10 +37,15 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    qint32 getTotal() const;
-    void setTotal(const qint32 &total);
-    bool is_total_Set() const;
-    bool is_total_Valid() const;
+    qint32 getPageCount() const;
+    void setPageCount(const qint32 &page_count);
+    bool is_page_count_Set() const;
+    bool is_page_count_Valid() const;
+
+    qint32 getTotalCount() const;
+    void setTotalCount(const qint32 &total_count);
+    bool is_total_count_Set() const;
+    bool is_total_count_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -48,9 +53,13 @@ public:
 private:
     void initializeModel();
 
-    qint32 total;
-    bool m_total_isSet;
-    bool m_total_isValid;
+    qint32 page_count;
+    bool m_page_count_isSet;
+    bool m_page_count_isValid;
+
+    qint32 total_count;
+    bool m_total_count_isSet;
+    bool m_total_count_isValid;
 };
 
 } // namespace OpenAPI

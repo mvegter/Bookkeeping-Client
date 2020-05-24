@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**total** | **Number** | The number of pages which contain data. | 
+**pageCount** | **Number** | The total number of pages which contain data. | 
+**totalCount** | **Number** | The total number of elements in the collection | 
 
 

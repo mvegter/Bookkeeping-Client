@@ -32,7 +32,13 @@ describe 'PaginationMeta' do
       expect(@instance).to be_instance_of(OpenapiClient::PaginationMeta)
     end
   end
-  describe 'test attribute "total"' do
+  describe 'test attribute "page_count"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "total_count"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

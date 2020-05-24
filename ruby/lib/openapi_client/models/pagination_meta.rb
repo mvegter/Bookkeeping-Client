@@ -15,20 +15,25 @@ require 'date'
 module OpenapiClient
   # The metadata related to pagination.
   class PaginationMeta
-    # The number of pages which contain data.
-    attr_accessor :total
+    # The total number of pages which contain data.
+    attr_accessor :page_count
+
+    # The total number of elements in the collection
+    attr_accessor :total_count
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'total' => :'total'
+        :'page_count' => :'pageCount',
+        :'total_count' => :'totalCount'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'total' => :'Integer'
+        :'page_count' => :'Integer',
+        :'total_count' => :'Integer'
       }
     end
 
@@ -53,8 +58,12 @@ module OpenapiClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'total')
-        self.total = attributes[:'total']
+      if attributes.key?(:'page_count')
+        self.page_count = attributes[:'page_count']
+      end
+
+      if attributes.key?(:'total_count')
+        self.total_count = attributes[:'total_count']
       end
     end
 
@@ -62,12 +71,20 @@ module OpenapiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @total.nil?
-        invalid_properties.push('invalid value for "total", total cannot be nil.')
+      if @page_count.nil?
+        invalid_properties.push('invalid value for "page_count", page_count cannot be nil.')
       end
 
-      if @total < 0
-        invalid_properties.push('invalid value for "total", must be greater than or equal to 0.')
+      if @page_count < 0
+        invalid_properties.push('invalid value for "page_count", must be greater than or equal to 0.')
+      end
+
+      if @total_count.nil?
+        invalid_properties.push('invalid value for "total_count", total_count cannot be nil.')
+      end
+
+      if @total_count < 0
+        invalid_properties.push('invalid value for "total_count", must be greater than or equal to 0.')
       end
 
       invalid_properties
@@ -76,23 +93,39 @@ module OpenapiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @total.nil?
-      return false if @total < 0
+      return false if @page_count.nil?
+      return false if @page_count < 0
+      return false if @total_count.nil?
+      return false if @total_count < 0
       true
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] total Value to be assigned
-    def total=(total)
-      if total.nil?
-        fail ArgumentError, 'total cannot be nil'
+    # @param [Object] page_count Value to be assigned
+    def page_count=(page_count)
+      if page_count.nil?
+        fail ArgumentError, 'page_count cannot be nil'
       end
 
-      if total < 0
-        fail ArgumentError, 'invalid value for "total", must be greater than or equal to 0.'
+      if page_count < 0
+        fail ArgumentError, 'invalid value for "page_count", must be greater than or equal to 0.'
       end
 
-      @total = total
+      @page_count = page_count
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] total_count Value to be assigned
+    def total_count=(total_count)
+      if total_count.nil?
+        fail ArgumentError, 'total_count cannot be nil'
+      end
+
+      if total_count < 0
+        fail ArgumentError, 'invalid value for "total_count", must be greater than or equal to 0.'
+      end
+
+      @total_count = total_count
     end
 
     # Checks equality by comparing each attribute.
@@ -100,7 +133,8 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          total == o.total
+          page_count == o.page_count &&
+          total_count == o.total_count
     end
 
     # @see the `==` method
@@ -112,7 +146,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [total].hash
+      [page_count, total_count].hash
     end
 
     # Builds the object from hash

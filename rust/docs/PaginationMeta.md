@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**total** | **i32** | The number of pages which contain data. | 
+**page_count** | **i32** | The total number of pages which contain data. | 
+**total_count** | **i32** | The total number of elements in the collection | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

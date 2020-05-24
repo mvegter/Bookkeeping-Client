@@ -53,18 +53,29 @@ public:
     /// PaginationMeta members
 
     /// <summary>
-    /// The number of pages which contain data.
+    /// The total number of pages which contain data.
     /// </summary>
-    int32_t getTotal() const;
-    bool totalIsSet() const;
-    void unsetTotal();
+    int32_t getPageCount() const;
+    bool pageCountIsSet() const;
+    void unsetPageCount();
 
-    void setTotal(int32_t value);
+    void setPageCount(int32_t value);
+
+    /// <summary>
+    /// The total number of elements in the collection
+    /// </summary>
+    int32_t getTotalCount() const;
+    bool totalCountIsSet() const;
+    void unsetTotalCount();
+
+    void setTotalCount(int32_t value);
 
 
 protected:
-    int32_t m_Total;
-    bool m_TotalIsSet;
+    int32_t m_PageCount;
+    bool m_PageCountIsSet;
+    int32_t m_TotalCount;
+    bool m_TotalCountIsSet;
 };
 
 

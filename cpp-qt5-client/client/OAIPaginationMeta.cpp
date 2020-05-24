@@ -33,8 +33,11 @@ OAIPaginationMeta::~OAIPaginationMeta() {}
 
 void OAIPaginationMeta::initializeModel() {
 
-    m_total_isSet = false;
-    m_total_isValid = false;
+    m_page_count_isSet = false;
+    m_page_count_isValid = false;
+
+    m_total_count_isSet = false;
+    m_total_count_isValid = false;
 }
 
 void OAIPaginationMeta::fromJson(QString jsonString) {
@@ -46,8 +49,11 @@ void OAIPaginationMeta::fromJson(QString jsonString) {
 
 void OAIPaginationMeta::fromJsonObject(QJsonObject json) {
 
-    m_total_isValid = ::OpenAPI::fromJsonValue(total, json[QString("total")]);
-    m_total_isSet = !json[QString("total")].isNull() && m_total_isValid;
+    m_page_count_isValid = ::OpenAPI::fromJsonValue(page_count, json[QString("pageCount")]);
+    m_page_count_isSet = !json[QString("pageCount")].isNull() && m_page_count_isValid;
+
+    m_total_count_isValid = ::OpenAPI::fromJsonValue(total_count, json[QString("totalCount")]);
+    m_total_count_isSet = !json[QString("totalCount")].isNull() && m_total_count_isValid;
 }
 
 QString OAIPaginationMeta::asJson() const {
@@ -59,32 +65,56 @@ QString OAIPaginationMeta::asJson() const {
 
 QJsonObject OAIPaginationMeta::asJsonObject() const {
     QJsonObject obj;
-    if (m_total_isSet) {
-        obj.insert(QString("total"), ::OpenAPI::toJsonValue(total));
+    if (m_page_count_isSet) {
+        obj.insert(QString("pageCount"), ::OpenAPI::toJsonValue(page_count));
+    }
+    if (m_total_count_isSet) {
+        obj.insert(QString("totalCount"), ::OpenAPI::toJsonValue(total_count));
     }
     return obj;
 }
 
-qint32 OAIPaginationMeta::getTotal() const {
-    return total;
+qint32 OAIPaginationMeta::getPageCount() const {
+    return page_count;
 }
-void OAIPaginationMeta::setTotal(const qint32 &total) {
-    this->total = total;
-    this->m_total_isSet = true;
-}
-
-bool OAIPaginationMeta::is_total_Set() const{
-    return m_total_isSet;
+void OAIPaginationMeta::setPageCount(const qint32 &page_count) {
+    this->page_count = page_count;
+    this->m_page_count_isSet = true;
 }
 
-bool OAIPaginationMeta::is_total_Valid() const{
-    return m_total_isValid;
+bool OAIPaginationMeta::is_page_count_Set() const{
+    return m_page_count_isSet;
+}
+
+bool OAIPaginationMeta::is_page_count_Valid() const{
+    return m_page_count_isValid;
+}
+
+qint32 OAIPaginationMeta::getTotalCount() const {
+    return total_count;
+}
+void OAIPaginationMeta::setTotalCount(const qint32 &total_count) {
+    this->total_count = total_count;
+    this->m_total_count_isSet = true;
+}
+
+bool OAIPaginationMeta::is_total_count_Set() const{
+    return m_total_count_isSet;
+}
+
+bool OAIPaginationMeta::is_total_count_Valid() const{
+    return m_total_count_isValid;
 }
 
 bool OAIPaginationMeta::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (m_total_isSet) {
+        if (m_page_count_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_total_count_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -94,7 +124,7 @@ bool OAIPaginationMeta::isSet() const {
 
 bool OAIPaginationMeta::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_total_isValid && true;
+    return m_page_count_isValid && m_total_count_isValid && true;
 }
 
 } // namespace OpenAPI

@@ -28,7 +28,7 @@ import java.io.IOException;
  * Specifies the pagination requirements of a request.
  */
 @ApiModel(description = "Specifies the pagination requirements of a request.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-23T10:17:43.845+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-24T10:53:02.136+01:00[Europe/London]")
 public class PaginationOptions {
   public static final String SERIALIZED_NAME_LIMIT = "limit";
   @SerializedName(SERIALIZED_NAME_LIMIT)

@@ -54,8 +54,14 @@
       //expect(instance).to.be.a(AliceBookkeeping.PaginationMeta);
     });
 
-    it('should have the property total (base name: "total")', function() {
-      // uncomment below and update the code to test the property total
+    it('should have the property pageCount (base name: "pageCount")', function() {
+      // uncomment below and update the code to test the property pageCount
+      //var instane = new AliceBookkeeping.PaginationMeta();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property totalCount (base name: "totalCount")', function() {
+      // uncomment below and update the code to test the property totalCount
       //var instane = new AliceBookkeeping.PaginationMeta();
       //expect(instance).to.be();
     });
