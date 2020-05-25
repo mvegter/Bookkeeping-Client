@@ -33,6 +33,7 @@ import org.openapitools.client.model.CreateLog;
 import org.openapitools.client.model.Errors;
 import org.openapitools.client.model.FilterLogsOptions;
 import org.openapitools.client.model.LogResponse;
+import org.openapitools.client.model.LogTreeResponse;
 import org.openapitools.client.model.PaginationOptions;
 import org.openapitools.client.model.SortLogsOptions;
 
@@ -72,6 +73,7 @@ public class LogApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
@@ -129,6 +131,7 @@ public class LogApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
@@ -148,6 +151,7 @@ public class LogApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
@@ -169,6 +173,7 @@ public class LogApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
@@ -191,6 +196,7 @@ public class LogApi {
         <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
@@ -250,6 +256,7 @@ public class LogApi {
         <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
@@ -270,6 +277,7 @@ public class LogApi {
         <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
@@ -292,6 +300,7 @@ public class LogApi {
         <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
@@ -314,6 +323,7 @@ public class LogApi {
         <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
@@ -365,7 +375,7 @@ public class LogApi {
      * Get the Log tree for a given Log
      * 
      * @param logId The id of the log to retrieve (required)
-     * @return LogResponse
+     * @return LogTreeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -373,11 +383,12 @@ public class LogApi {
         <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
-    public LogResponse getLogTree(Long logId) throws ApiException {
-        ApiResponse<LogResponse> localVarResp = getLogTreeWithHttpInfo(logId);
+    public LogTreeResponse getLogTree(Long logId) throws ApiException {
+        ApiResponse<LogTreeResponse> localVarResp = getLogTreeWithHttpInfo(logId);
         return localVarResp.getData();
     }
 
@@ -385,7 +396,7 @@ public class LogApi {
      * Get the Log tree for a given Log
      * 
      * @param logId The id of the log to retrieve (required)
-     * @return ApiResponse&lt;LogResponse&gt;
+     * @return ApiResponse&lt;LogTreeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -393,12 +404,13 @@ public class LogApi {
         <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LogResponse> getLogTreeWithHttpInfo(Long logId) throws ApiException {
+    public ApiResponse<LogTreeResponse> getLogTreeWithHttpInfo(Long logId) throws ApiException {
         okhttp3.Call localVarCall = getLogTreeValidateBeforeCall(logId, null);
-        Type localVarReturnType = new TypeToken<LogResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<LogTreeResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -415,13 +427,14 @@ public class LogApi {
         <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLogTreeAsync(Long logId, final ApiCallback<LogResponse> _callback) throws ApiException {
+    public okhttp3.Call getLogTreeAsync(Long logId, final ApiCallback<LogTreeResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getLogTreeValidateBeforeCall(logId, _callback);
-        Type localVarReturnType = new TypeToken<LogResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<LogTreeResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -438,6 +451,7 @@ public class LogApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
@@ -504,6 +518,7 @@ public class LogApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
@@ -525,6 +540,7 @@ public class LogApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
@@ -548,6 +564,7 @@ public class LogApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
@@ -570,6 +587,7 @@ public class LogApi {
         <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
@@ -629,6 +647,7 @@ public class LogApi {
         <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
@@ -649,6 +668,7 @@ public class LogApi {
         <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
@@ -671,6 +691,7 @@ public class LogApi {
         <tr><td> 200 </td><td> Expected response to a valid request. </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */

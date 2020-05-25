@@ -32,17 +32,17 @@ import org.junit.Test;
 
 
 /**
- * Model tests for Log
+ * Model tests for LogTree
  */
-public class LogTest {
-    private final Log model = new Log();
+public class LogTreeTest {
+    private final LogTree model = new LogTree();
 
     /**
-     * Model tests for Log
+     * Model tests for LogTree
      */
     @Test
-    public void testLog() {
-        // TODO: test Log
+    public void testLogTree() {
+        // TODO: test LogTree
     }
 
     /**
@@ -123,6 +123,14 @@ public class LogTest {
     @Test
     public void parentLogIdTest() {
         // TODO: test parentLogId
+    }
+
+    /**
+     * Test the property 'children'
+     */
+    @Test
+    public void childrenTest() {
+        // TODO: test children
     }
 
 }

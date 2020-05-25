@@ -75,6 +75,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
           description: Bad Request
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Service Unavailable
         default:
           content:
             application/json:
@@ -102,6 +108,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
           description: Bad Request
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Service Unavailable
         default:
           content:
             application/json:
@@ -144,6 +156,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
           description: Not Found
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Service Unavailable
         default:
           content:
             application/json:
@@ -185,6 +203,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
           description: Not Found
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Service Unavailable
         default:
           content:
             application/json:
@@ -212,7 +236,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/LogResponse'
+                $ref: '#/components/schemas/LogTreeResponse'
           description: Expected response to a valid request.
         "400":
           content:
@@ -226,6 +250,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
           description: Not Found
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Service Unavailable
         default:
           content:
             application/json:
@@ -285,6 +315,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
           description: Bad Request
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Service Unavailable
         default:
           content:
             application/json:
@@ -318,6 +354,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
           description: Conflict
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Service Unavailable
         default:
           content:
             application/json:
@@ -360,6 +402,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
           description: Not Found
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Service Unavailable
         default:
           content:
             application/json:
@@ -400,6 +448,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
           description: Not Found
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Service Unavailable
         default:
           content:
             application/json:
@@ -441,6 +495,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
           description: Not Found
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Service Unavailable
         default:
           content:
             application/json:
@@ -542,6 +602,12 @@ components:
           schema:
             $ref: '#/components/schemas/LogResponse'
       description: Expected response to a valid request.
+    LogTree:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/LogTreeResponse'
+      description: Expected response to a valid request.
     NotFound:
       content:
         application/json:
@@ -584,6 +650,11 @@ components:
       - name
       - version
       type: object
+    ArrayOfLogTrees:
+      description: A list of Log tree objects.
+      items:
+        $ref: '#/components/schemas/LogTree'
+      type: array
     ArrayOfLogs:
       description: A list of Log objects.
       items:
@@ -596,9 +667,6 @@ components:
         data:
         - parentLogId: 1
           creationTime: 5
-          children:
-          - null
-          - null
           rootLogId: 1
           id: 1
           text: text
@@ -615,9 +683,6 @@ components:
             text: text
         - parentLogId: 1
           creationTime: 5
-          children:
-          - null
-          - null
           rootLogId: 1
           id: 1
           text: text
@@ -805,6 +870,130 @@ components:
       example:
         parentLogId: 1
         creationTime: 5
+        rootLogId: 1
+        id: 1
+        text: text
+        authorId: authorId
+        title: title
+        tags:
+        - createdAt: createdAt
+          updateAt: updateAt
+          id: 1
+          text: text
+        - createdAt: createdAt
+          updateAt: updateAt
+          id: 1
+          text: text
+      properties:
+        id:
+          description: The unique identifier of this entity.
+          format: int64
+          minimum: 1
+          type: integer
+        authorId:
+          description: Name of the author.
+          type: string
+        title:
+          description: Title of the log.
+          maxLength: 140
+          minLength: 3
+          type: string
+        text:
+          description: Body of the log.
+          minLength: 3
+          type: string
+        creationTime:
+          description: Unix timestamp of the creation date time.
+          format: int64
+          type: integer
+        origin:
+          $ref: '#/components/schemas/LogOrigin'
+        subtype:
+          $ref: '#/components/schemas/LogSubtype'
+        tags:
+          description: A list of Tag objects.
+          items:
+            $ref: '#/components/schemas/Tag'
+          type: array
+        rootLogId:
+          description: The unique identifier of this entity.
+          format: int64
+          minimum: 1
+          type: integer
+        parentLogId:
+          description: The unique identifier of this entity.
+          format: int64
+          minimum: 1
+          type: integer
+      required:
+      - authorId
+      - creationTime
+      - id
+      - origin
+      - parentLogId
+      - rootLogId
+      - subtype
+      - tags
+      - text
+      - title
+      type: object
+    LogOrigin:
+      description: Type of creator.
+      enum:
+      - human
+      - process
+      type: string
+    LogResponse:
+      additionalProperties: false
+      description: Response containing a single log.
+      example:
+        data:
+          parentLogId: 1
+          creationTime: 5
+          rootLogId: 1
+          id: 1
+          text: text
+          authorId: authorId
+          title: title
+          tags:
+          - createdAt: createdAt
+            updateAt: updateAt
+            id: 1
+            text: text
+          - createdAt: createdAt
+            updateAt: updateAt
+            id: 1
+            text: text
+      properties:
+        data:
+          $ref: '#/components/schemas/Log'
+      required:
+      - data
+      type: object
+    LogSubtype:
+      description: The subtype of a Log.
+      enum:
+      - run
+      - subsystem
+      - announcement
+      - intervention
+      - comment
+      type: string
+    LogText:
+      description: Body of the log.
+      minLength: 3
+      type: string
+    LogTitle:
+      description: Title of the log.
+      maxLength: 140
+      minLength: 3
+      type: string
+    LogTree:
+      additionalProperties: false
+      description: Describes an intervention or an event that happened.
+      example:
+        parentLogId: 1
+        creationTime: 6
         children:
         - null
         - null
@@ -864,12 +1053,13 @@ components:
           minimum: 1
           type: integer
         children:
-          description: A list of Log objects.
+          description: A list of Log tree objects.
           items:
-            $ref: '#/components/schemas/Log'
+            $ref: '#/components/schemas/LogTree'
           type: array
       required:
       - authorId
+      - children
       - creationTime
       - id
       - origin
@@ -880,19 +1070,13 @@ components:
       - text
       - title
       type: object
-    LogOrigin:
-      description: Type of creator.
-      enum:
-      - human
-      - process
-      type: string
-    LogResponse:
+    LogTreeResponse:
       additionalProperties: false
-      description: Response containing a single log.
+      description: Response containing a single log tree.
       example:
         data:
           parentLogId: 1
-          creationTime: 5
+          creationTime: 6
           children:
           - null
           - null
@@ -912,28 +1096,10 @@ components:
             text: text
       properties:
         data:
-          $ref: '#/components/schemas/Log'
+          $ref: '#/components/schemas/LogTree'
       required:
       - data
       type: object
-    LogSubtype:
-      description: The subtype of a Log.
-      enum:
-      - run
-      - subsystem
-      - announcement
-      - intervention
-      - comment
-      type: string
-    LogText:
-      description: Body of the log.
-      minLength: 3
-      type: string
-    LogTitle:
-      description: Title of the log.
-      maxLength: 140
-      minLength: 3
-      type: string
     PaginationLimit:
       default: 100
       description: The numbers of items to return.

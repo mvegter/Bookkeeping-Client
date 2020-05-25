@@ -78,6 +78,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **201** | Expected response to a valid request. |  -  |
 **400** | Bad Request |  -  |
+**503** | Service Unavailable |  -  |
 **0** | Unexpected Error |  -  |
 
 <a name="getLogById"></a>
@@ -148,11 +149,12 @@ Name | Type | Description  | Notes
 **200** | Expected response to a valid request. |  -  |
 **400** | Bad Request |  -  |
 **404** | Not Found |  -  |
+**503** | Service Unavailable |  -  |
 **0** | Unexpected Error |  -  |
 
 <a name="getLogTree"></a>
 # **getLogTree**
-> LogResponse getLogTree(logId)
+> LogTreeResponse getLogTree(logId)
 
 Get the Log tree for a given Log
 
@@ -180,7 +182,7 @@ public class Example {
     LogApi apiInstance = new LogApi(defaultClient);
     Long logId = 56L; // Long | The id of the log to retrieve
     try {
-      LogResponse result = apiInstance.getLogTree(logId);
+      LogTreeResponse result = apiInstance.getLogTree(logId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LogApi#getLogTree");
@@ -201,7 +203,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LogResponse**](LogResponse.md)
+[**LogTreeResponse**](LogTreeResponse.md)
 
 ### Authorization
 
@@ -218,6 +220,7 @@ Name | Type | Description  | Notes
 **200** | Expected response to a valid request. |  -  |
 **400** | Bad Request |  -  |
 **404** | Not Found |  -  |
+**503** | Service Unavailable |  -  |
 **0** | Unexpected Error |  -  |
 
 <a name="listLogs"></a>
@@ -291,6 +294,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Expected response to a valid request. |  -  |
 **400** | Bad Request |  -  |
+**503** | Service Unavailable |  -  |
 **0** | Unexpected Error |  -  |
 
 <a name="listTagsByLogId"></a>
@@ -361,5 +365,6 @@ Name | Type | Description  | Notes
 **200** | Expected response to a valid request. |  -  |
 **400** | Bad Request |  -  |
 **404** | Not Found |  -  |
+**503** | Service Unavailable |  -  |
 **0** | Unexpected Error |  -  |
 

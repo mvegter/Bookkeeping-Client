@@ -34,7 +34,7 @@ import org.openapitools.client.model.Tag;
  */
 @ApiModel(description = "Describes an intervention or an event that happened.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-25T16:52:45.403+01:00[Europe/London]")
-public class Log {
+public class LogTree {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private Long id;
@@ -75,8 +75,12 @@ public class Log {
   @SerializedName(SERIALIZED_NAME_PARENT_LOG_ID)
   private Long parentLogId;
 
+  public static final String SERIALIZED_NAME_CHILDREN = "children";
+  @SerializedName(SERIALIZED_NAME_CHILDREN)
+  private List<LogTree> children = new ArrayList<LogTree>();
 
-  public Log id(Long id) {
+
+  public LogTree id(Long id) {
     
     this.id = id;
     return this;
@@ -99,7 +103,7 @@ public class Log {
   }
 
 
-  public Log authorId(String authorId) {
+  public LogTree authorId(String authorId) {
     
     this.authorId = authorId;
     return this;
@@ -121,7 +125,7 @@ public class Log {
   }
 
 
-  public Log title(String title) {
+  public LogTree title(String title) {
     
     this.title = title;
     return this;
@@ -143,7 +147,7 @@ public class Log {
   }
 
 
-  public Log text(String text) {
+  public LogTree text(String text) {
     
     this.text = text;
     return this;
@@ -165,7 +169,7 @@ public class Log {
   }
 
 
-  public Log creationTime(Long creationTime) {
+  public LogTree creationTime(Long creationTime) {
     
     this.creationTime = creationTime;
     return this;
@@ -187,7 +191,7 @@ public class Log {
   }
 
 
-  public Log origin(LogOrigin origin) {
+  public LogTree origin(LogOrigin origin) {
     
     this.origin = origin;
     return this;
@@ -209,7 +213,7 @@ public class Log {
   }
 
 
-  public Log subtype(LogSubtype subtype) {
+  public LogTree subtype(LogSubtype subtype) {
     
     this.subtype = subtype;
     return this;
@@ -231,13 +235,13 @@ public class Log {
   }
 
 
-  public Log tags(List<Tag> tags) {
+  public LogTree tags(List<Tag> tags) {
     
     this.tags = tags;
     return this;
   }
 
-  public Log addTagsItem(Tag tagsItem) {
+  public LogTree addTagsItem(Tag tagsItem) {
     this.tags.add(tagsItem);
     return this;
   }
@@ -258,7 +262,7 @@ public class Log {
   }
 
 
-  public Log rootLogId(Long rootLogId) {
+  public LogTree rootLogId(Long rootLogId) {
     
     this.rootLogId = rootLogId;
     return this;
@@ -281,7 +285,7 @@ public class Log {
   }
 
 
-  public Log parentLogId(Long parentLogId) {
+  public LogTree parentLogId(Long parentLogId) {
     
     this.parentLogId = parentLogId;
     return this;
@@ -304,6 +308,33 @@ public class Log {
   }
 
 
+  public LogTree children(List<LogTree> children) {
+    
+    this.children = children;
+    return this;
+  }
+
+  public LogTree addChildrenItem(LogTree childrenItem) {
+    this.children.add(childrenItem);
+    return this;
+  }
+
+   /**
+   * A list of Log tree objects.
+   * @return children
+  **/
+  @ApiModelProperty(required = true, value = "A list of Log tree objects.")
+
+  public List<LogTree> getChildren() {
+    return children;
+  }
+
+
+  public void setChildren(List<LogTree> children) {
+    this.children = children;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -312,29 +343,30 @@ public class Log {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Log log = (Log) o;
-    return Objects.equals(this.id, log.id) &&
-        Objects.equals(this.authorId, log.authorId) &&
-        Objects.equals(this.title, log.title) &&
-        Objects.equals(this.text, log.text) &&
-        Objects.equals(this.creationTime, log.creationTime) &&
-        Objects.equals(this.origin, log.origin) &&
-        Objects.equals(this.subtype, log.subtype) &&
-        Objects.equals(this.tags, log.tags) &&
-        Objects.equals(this.rootLogId, log.rootLogId) &&
-        Objects.equals(this.parentLogId, log.parentLogId);
+    LogTree logTree = (LogTree) o;
+    return Objects.equals(this.id, logTree.id) &&
+        Objects.equals(this.authorId, logTree.authorId) &&
+        Objects.equals(this.title, logTree.title) &&
+        Objects.equals(this.text, logTree.text) &&
+        Objects.equals(this.creationTime, logTree.creationTime) &&
+        Objects.equals(this.origin, logTree.origin) &&
+        Objects.equals(this.subtype, logTree.subtype) &&
+        Objects.equals(this.tags, logTree.tags) &&
+        Objects.equals(this.rootLogId, logTree.rootLogId) &&
+        Objects.equals(this.parentLogId, logTree.parentLogId) &&
+        Objects.equals(this.children, logTree.children);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, authorId, title, text, creationTime, origin, subtype, tags, rootLogId, parentLogId);
+    return Objects.hash(id, authorId, title, text, creationTime, origin, subtype, tags, rootLogId, parentLogId, children);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Log {\n");
+    sb.append("class LogTree {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    authorId: ").append(toIndentedString(authorId)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
@@ -345,6 +377,7 @@ public class Log {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    rootLogId: ").append(toIndentedString(rootLogId)).append("\n");
     sb.append("    parentLogId: ").append(toIndentedString(parentLogId)).append("\n");
+    sb.append("    children: ").append(toIndentedString(children)).append("\n");
     sb.append("}");
     return sb.toString();
   }

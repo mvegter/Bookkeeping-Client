@@ -1,6 +1,6 @@
 
 
-# Log
+# LogTree
 
 Describes an intervention or an event that happened.
 ## Properties
@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **tags** | [**List&lt;Tag&gt;**](Tag.md) | A list of Tag objects. | 
 **rootLogId** | **Long** | The unique identifier of this entity. | 
 **parentLogId** | **Long** | The unique identifier of this entity. | 
+**children** | [**List&lt;LogTree&gt;**](LogTree.md) | A list of Log tree objects. | 
 
 
 

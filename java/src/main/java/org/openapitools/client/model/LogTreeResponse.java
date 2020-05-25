@@ -23,37 +23,38 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.openapitools.client.model.LogTree;
 
 /**
- * A label attached to something for the purpose of identification.
+ * Response containing a single log tree.
  */
-@ApiModel(description = "A label attached to something for the purpose of identification.")
+@ApiModel(description = "Response containing a single log tree.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-25T16:52:45.403+01:00[Europe/London]")
-public class CreateTag {
-  public static final String SERIALIZED_NAME_TEXT = "text";
-  @SerializedName(SERIALIZED_NAME_TEXT)
-  private String text;
+public class LogTreeResponse {
+  public static final String SERIALIZED_NAME_DATA = "data";
+  @SerializedName(SERIALIZED_NAME_DATA)
+  private LogTree data;
 
 
-  public CreateTag text(String text) {
+  public LogTreeResponse data(LogTree data) {
     
-    this.text = text;
+    this.data = data;
     return this;
   }
 
    /**
-   * The label value of the tag.
-   * @return text
+   * Get data
+   * @return data
   **/
-  @ApiModelProperty(required = true, value = "The label value of the tag.")
+  @ApiModelProperty(required = true, value = "")
 
-  public String getText() {
-    return text;
+  public LogTree getData() {
+    return data;
   }
 
 
-  public void setText(String text) {
-    this.text = text;
+  public void setData(LogTree data) {
+    this.data = data;
   }
 
 
@@ -65,21 +66,21 @@ public class CreateTag {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateTag createTag = (CreateTag) o;
-    return Objects.equals(this.text, createTag.text);
+    LogTreeResponse logTreeResponse = (LogTreeResponse) o;
+    return Objects.equals(this.data, logTreeResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(text);
+    return Objects.hash(data);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateTag {\n");
-    sb.append("    text: ").append(toIndentedString(text)).append("\n");
+    sb.append("class LogTreeResponse {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }
