@@ -1,11 +1,11 @@
 /*
- * Log.h
+ * LogTree.h
  *
  * Describes an intervention or an event that happened.
  */
 
-#ifndef _Log_H_
-#define _Log_H_
+#ifndef _LogTree_H_
+#define _LogTree_H_
 
 
 #include <string>
@@ -30,16 +30,16 @@ namespace ArtikCloud {
  *
  */
 
-class Log : public Object {
+class LogTree : public Object {
 public:
 	/*! \brief Constructor.
 	 */
-	Log();
-	Log(char* str);
+	LogTree();
+	LogTree(char* str);
 
 	/*! \brief Destructor.
 	 */
-	virtual ~Log();
+	virtual ~LogTree();
 
 	/*! \brief Retrieve a string JSON representation of this class.
 	 */
@@ -119,6 +119,13 @@ public:
 	/*! \brief Set The unique identifier of this entity.
 	 */
 	void setParentLogId(long long  parentLogId);
+	/*! \brief Get A list of Log tree objects.
+	 */
+	std::list<LogTree> getChildren();
+
+	/*! \brief Set A list of Log tree objects.
+	 */
+	void setChildren(std::list <LogTree> children);
 
 private:
 	long long id;
@@ -131,6 +138,7 @@ private:
 	std::list <Tag>tags;
 	long long rootLogId;
 	long long parentLogId;
+	std::list <LogTree>children;
 	void __init();
 	void __cleanup();
 
@@ -138,4 +146,4 @@ private:
 }
 }
 
-#endif /* _Log_H_ */
+#endif /* _LogTree_H_ */

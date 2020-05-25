@@ -5,23 +5,23 @@
 #include "Helpers.h"
 
 
-#include "Log.h"
+#include "LogTree.h"
 
 using namespace std;
 using namespace Tizen::ArtikCloud;
 
-Log::Log()
+LogTree::LogTree()
 {
 	//__init();
 }
 
-Log::~Log()
+LogTree::~LogTree()
 {
 	//__cleanup();
 }
 
 void
-Log::__init()
+LogTree::__init()
 {
 	//id = long(0);
 	//authorId = std::string();
@@ -33,10 +33,11 @@ Log::__init()
 	//new std::list()std::list> tags;
 	//rootLogId = long(0);
 	//parentLogId = long(0);
+	//new std::list()std::list> children;
 }
 
 void
-Log::__cleanup()
+LogTree::__cleanup()
 {
 	//if(id != NULL) {
 	//
@@ -88,11 +89,16 @@ Log::__cleanup()
 	//delete parentLogId;
 	//parentLogId = NULL;
 	//}
+	//if(children != NULL) {
+	//children.RemoveAll(true);
+	//delete children;
+	//children = NULL;
+	//}
 	//
 }
 
 void
-Log::fromJson(char* jsonStr)
+LogTree::fromJson(char* jsonStr)
 {
 	JsonObject *pJsonObject = json_node_get_object(json_from_string(jsonStr,NULL));
 	JsonNode *node;
@@ -225,15 +231,39 @@ Log::fromJson(char* jsonStr)
 			
 		}
 	}
+	const gchar *childrenKey = "children";
+	node = json_object_get_member(pJsonObject, childrenKey);
+	if (node !=NULL) {
+	
+		{
+			JsonArray* arr = json_node_get_array(node);
+			JsonNode*  temp_json;
+			list<LogTree> new_list;
+			LogTree inst;
+			for (guint i=0;i<json_array_get_length(arr);i++) {
+				temp_json = json_array_get_element(arr,i);
+				if (isprimitive("LogTree")) {
+					jsonToValue(&inst, temp_json, "LogTree", "");
+				} else {
+					
+					inst.fromJson(json_to_string(temp_json, false));
+					
+				}
+				new_list.push_back(inst);
+			}
+			children = new_list;
+		}
+		
+	}
 }
 
-Log::Log(char* json)
+LogTree::LogTree(char* json)
 {
 	this->fromJson(json);
 }
 
 char*
-Log::toJson()
+LogTree::toJson()
 {
 	JsonObject *pJsonObject = json_object_new();
 	JsonNode *node;
@@ -353,6 +383,31 @@ Log::toJson()
 	}
 	const gchar *parentLogIdKey = "parentLogId";
 	json_object_set_member(pJsonObject, parentLogIdKey, node);
+	if (isprimitive("LogTree")) {
+		list<LogTree> new_list = static_cast<list <LogTree> > (getChildren());
+		node = converttoJson(&new_list, "LogTree", "array");
+	} else {
+		node = json_node_alloc();
+		list<LogTree> new_list = static_cast<list <LogTree> > (getChildren());
+		JsonArray* json_array = json_array_new();
+		GError *mygerror;
+		
+		for (list<LogTree>::iterator it = new_list.begin(); it != new_list.end(); it++) {
+			mygerror = NULL;
+			LogTree obj = *it;
+			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
+			json_array_add_element(json_array, node_temp);
+			g_clear_error(&mygerror);
+		}
+		json_node_init_array(node, json_array);
+		json_array_unref(json_array);
+		
+	}
+
+
+	
+	const gchar *childrenKey = "children";
+	json_object_set_member(pJsonObject, childrenKey, node);
 	node = json_node_alloc();
 	json_node_init(node, JSON_NODE_OBJECT);
 	json_node_take_object(node, pJsonObject);
@@ -362,123 +417,135 @@ Log::toJson()
 }
 
 long long
-Log::getId()
+LogTree::getId()
 {
 	return id;
 }
 
 void
-Log::setId(long long  id)
+LogTree::setId(long long  id)
 {
 	this->id = id;
 }
 
 std::string
-Log::getAuthorId()
+LogTree::getAuthorId()
 {
 	return authorId;
 }
 
 void
-Log::setAuthorId(std::string  authorId)
+LogTree::setAuthorId(std::string  authorId)
 {
 	this->authorId = authorId;
 }
 
 std::string
-Log::getTitle()
+LogTree::getTitle()
 {
 	return title;
 }
 
 void
-Log::setTitle(std::string  title)
+LogTree::setTitle(std::string  title)
 {
 	this->title = title;
 }
 
 std::string
-Log::getText()
+LogTree::getText()
 {
 	return text;
 }
 
 void
-Log::setText(std::string  text)
+LogTree::setText(std::string  text)
 {
 	this->text = text;
 }
 
 long long
-Log::getCreationTime()
+LogTree::getCreationTime()
 {
 	return creationTime;
 }
 
 void
-Log::setCreationTime(long long  creationTime)
+LogTree::setCreationTime(long long  creationTime)
 {
 	this->creationTime = creationTime;
 }
 
 LogOrigin
-Log::getOrigin()
+LogTree::getOrigin()
 {
 	return origin;
 }
 
 void
-Log::setOrigin(LogOrigin  origin)
+LogTree::setOrigin(LogOrigin  origin)
 {
 	this->origin = origin;
 }
 
 LogSubtype
-Log::getSubtype()
+LogTree::getSubtype()
 {
 	return subtype;
 }
 
 void
-Log::setSubtype(LogSubtype  subtype)
+LogTree::setSubtype(LogSubtype  subtype)
 {
 	this->subtype = subtype;
 }
 
 std::list<Tag>
-Log::getTags()
+LogTree::getTags()
 {
 	return tags;
 }
 
 void
-Log::setTags(std::list <Tag> tags)
+LogTree::setTags(std::list <Tag> tags)
 {
 	this->tags = tags;
 }
 
 long long
-Log::getRootLogId()
+LogTree::getRootLogId()
 {
 	return rootLogId;
 }
 
 void
-Log::setRootLogId(long long  rootLogId)
+LogTree::setRootLogId(long long  rootLogId)
 {
 	this->rootLogId = rootLogId;
 }
 
 long long
-Log::getParentLogId()
+LogTree::getParentLogId()
 {
 	return parentLogId;
 }
 
 void
-Log::setParentLogId(long long  parentLogId)
+LogTree::setParentLogId(long long  parentLogId)
 {
 	this->parentLogId = parentLogId;
+}
+
+std::list<LogTree>
+LogTree::getChildren()
+{
+	return children;
+}
+
+void
+LogTree::setChildren(std::list <LogTree> children)
+{
+	this->children = children;
 }
 
 

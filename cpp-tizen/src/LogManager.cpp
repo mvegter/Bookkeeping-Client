@@ -94,6 +94,11 @@ static bool createLogProcessor(MemoryStruct_s p_chunk, long code, char* errormsg
 			printf("\n%s\n", jsonStr);
 			g_free(static_cast<gpointer>(jsonStr));
 			
+			out.fromJson(data);
+			char *jsonStr =  out.toJson();
+			printf("\n%s\n", jsonStr);
+			g_free(static_cast<gpointer>(jsonStr));
+			
 		}
 		handler(out, error, userData);
 		return true;
@@ -268,6 +273,11 @@ static bool getLogByIdProcessor(MemoryStruct_s p_chunk, long code, char* errorms
 			printf("\n%s\n", jsonStr);
 			g_free(static_cast<gpointer>(jsonStr));
 			
+			out.fromJson(data);
+			char *jsonStr =  out.toJson();
+			printf("\n%s\n", jsonStr);
+			g_free(static_cast<gpointer>(jsonStr));
+			
 		}
 		handler(out, error, userData);
 		return true;
@@ -387,14 +397,14 @@ bool LogManager::getLogByIdSync(char * accessToken,
 static bool getLogTreeProcessor(MemoryStruct_s p_chunk, long code, char* errormsg, void* userData,
 	void(* voidHandler)())
 {
-	void(* handler)(LogResponse, Error, void* )
-	= reinterpret_cast<void(*)(LogResponse, Error, void* )> (voidHandler);
+	void(* handler)(LogTreeResponse, Error, void* )
+	= reinterpret_cast<void(*)(LogTreeResponse, Error, void* )> (voidHandler);
 	
 	JsonNode* pJson;
 	char * data = p_chunk.memory;
 
 	
-	LogResponse out;
+	LogTreeResponse out;
 
 	if (code >= 200 && code < 300) {
 		Error error(code, string("No Error"));
@@ -402,18 +412,23 @@ static bool getLogTreeProcessor(MemoryStruct_s p_chunk, long code, char* errorms
 
 
 
-		if (isprimitive("LogResponse")) {
+		if (isprimitive("LogTreeResponse")) {
 			pJson = json_from_string(data, NULL);
-			jsonToValue(&out, pJson, "LogResponse", "LogResponse");
+			jsonToValue(&out, pJson, "LogTreeResponse", "LogTreeResponse");
 			json_node_free(pJson);
 
-			if ("LogResponse" == "std::string") {
+			if ("LogTreeResponse" == "std::string") {
 				string* val = (std::string*)(&out);
 				if (val->empty() && p_chunk.size>4) {
 					*val = string(p_chunk.memory, p_chunk.size);
 				}
 			}
 		} else {
+			
+			out.fromJson(data);
+			char *jsonStr =  out.toJson();
+			printf("\n%s\n", jsonStr);
+			g_free(static_cast<gpointer>(jsonStr));
 			
 			out.fromJson(data);
 			char *jsonStr =  out.toJson();
@@ -456,7 +471,7 @@ static bool getLogTreeProcessor(MemoryStruct_s p_chunk, long code, char* errorms
 
 static bool getLogTreeHelper(char * accessToken,
 	long long logId, 
-	void(* handler)(LogResponse, Error, void* )
+	void(* handler)(LogTreeResponse, Error, void* )
 	, void* userData, bool isAsync)
 {
 
@@ -533,7 +548,7 @@ static bool getLogTreeHelper(char * accessToken,
 
 bool LogManager::getLogTreeAsync(char * accessToken,
 	long long logId, 
-	void(* handler)(LogResponse, Error, void* )
+	void(* handler)(LogTreeResponse, Error, void* )
 	, void* userData)
 {
 	return getLogTreeHelper(accessToken,
@@ -543,7 +558,7 @@ bool LogManager::getLogTreeAsync(char * accessToken,
 
 bool LogManager::getLogTreeSync(char * accessToken,
 	long long logId, 
-	void(* handler)(LogResponse, Error, void* )
+	void(* handler)(LogTreeResponse, Error, void* )
 	, void* userData)
 {
 	return getLogTreeHelper(accessToken,
@@ -581,6 +596,11 @@ static bool listLogsProcessor(MemoryStruct_s p_chunk, long code, char* errormsg,
 				}
 			}
 		} else {
+			
+			out.fromJson(data);
+			char *jsonStr =  out.toJson();
+			printf("\n%s\n", jsonStr);
+			g_free(static_cast<gpointer>(jsonStr));
 			
 			out.fromJson(data);
 			char *jsonStr =  out.toJson();
@@ -758,6 +778,11 @@ static bool listTagsByLogIdProcessor(MemoryStruct_s p_chunk, long code, char* er
 				}
 			}
 		} else {
+			
+			out.fromJson(data);
+			char *jsonStr =  out.toJson();
+			printf("\n%s\n", jsonStr);
+			g_free(static_cast<gpointer>(jsonStr));
 			
 			out.fromJson(data);
 			char *jsonStr =  out.toJson();

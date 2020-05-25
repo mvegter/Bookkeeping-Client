@@ -11,6 +11,7 @@
 #include "Errors.h"
 #include "FilterLogsOptions.h"
 #include "LogResponse.h"
+#include "LogTreeResponse.h"
 #include "PaginationOptions.h"
 #include "SortLogsOptions.h"
 #include "Error.h"
@@ -95,7 +96,7 @@ bool getLogByIdAsync(char * accessToken,
  */
 bool getLogTreeSync(char * accessToken,
 	long long logId, 
-	void(* handler)(LogResponse, Error, void* )
+	void(* handler)(LogTreeResponse, Error, void* )
 	, void* userData);
 
 /*! \brief Get the Log tree for a given Log. *Asynchronous*
@@ -108,7 +109,7 @@ bool getLogTreeSync(char * accessToken,
  */
 bool getLogTreeAsync(char * accessToken,
 	long long logId, 
-	void(* handler)(LogResponse, Error, void* )
+	void(* handler)(LogTreeResponse, Error, void* )
 	, void* userData);
 
 
