@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 
 ## get_log_tree
 
-> LogResponse get_log_tree(log_id)
+> LogTreeResponse get_log_tree(log_id)
 
 Get the Log tree for a given Log
 
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LogResponse**](LogResponse.md)
+[**LogTreeResponse**](LogTreeResponse.md)
 
 ### Authorization
 

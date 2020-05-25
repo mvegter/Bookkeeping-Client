@@ -14,7 +14,7 @@ require 'date'
 
 module OpenapiClient
   # Describes an intervention or an event that happened.
-  class Log
+  class LogTree
     # The unique identifier of this entity.
     attr_accessor :id
 
@@ -43,6 +43,9 @@ module OpenapiClient
     # The unique identifier of this entity.
     attr_accessor :parent_log_id
 
+    # A list of Log tree objects.
+    attr_accessor :children
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -55,7 +58,8 @@ module OpenapiClient
         :'subtype' => :'subtype',
         :'tags' => :'tags',
         :'root_log_id' => :'rootLogId',
-        :'parent_log_id' => :'parentLogId'
+        :'parent_log_id' => :'parentLogId',
+        :'children' => :'children'
       }
     end
 
@@ -71,7 +75,8 @@ module OpenapiClient
         :'subtype' => :'LogSubtype',
         :'tags' => :'Array<Tag>',
         :'root_log_id' => :'Integer',
-        :'parent_log_id' => :'Integer'
+        :'parent_log_id' => :'Integer',
+        :'children' => :'Array<LogTree>'
       }
     end
 
@@ -85,13 +90,13 @@ module OpenapiClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `OpenapiClient::Log` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `OpenapiClient::LogTree` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `OpenapiClient::Log`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `OpenapiClient::LogTree`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -136,6 +141,12 @@ module OpenapiClient
 
       if attributes.key?(:'parent_log_id')
         self.parent_log_id = attributes[:'parent_log_id']
+      end
+
+      if attributes.key?(:'children')
+        if (value = attributes[:'children']).is_a?(Array)
+          self.children = value
+        end
       end
     end
 
@@ -207,6 +218,10 @@ module OpenapiClient
         invalid_properties.push('invalid value for "parent_log_id", must be greater than or equal to 1.')
       end
 
+      if @children.nil?
+        invalid_properties.push('invalid value for "children", children cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -229,6 +244,7 @@ module OpenapiClient
       return false if @root_log_id < 1
       return false if @parent_log_id.nil?
       return false if @parent_log_id < 1
+      return false if @children.nil?
       true
     end
 
@@ -320,7 +336,8 @@ module OpenapiClient
           subtype == o.subtype &&
           tags == o.tags &&
           root_log_id == o.root_log_id &&
-          parent_log_id == o.parent_log_id
+          parent_log_id == o.parent_log_id &&
+          children == o.children
     end
 
     # @see the `==` method
@@ -332,7 +349,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, author_id, title, text, creation_time, origin, subtype, tags, root_log_id, parent_log_id].hash
+      [id, author_id, title, text, creation_time, origin, subtype, tags, root_log_id, parent_log_id, children].hash
     end
 
     # Builds the object from hash
