@@ -8,8 +8,8 @@
  */
 
 package openapi
-// Log Describes an intervention or an event that happened.
-type Log struct {
+// LogTree Describes an intervention or an event that happened.
+type LogTree struct {
 	// The unique identifier of this entity.
 	Id int64 `json:"id"`
 	// Name of the author.
@@ -28,4 +28,6 @@ type Log struct {
 	RootLogId int64 `json:"rootLogId"`
 	// The unique identifier of this entity.
 	ParentLogId int64 `json:"parentLogId"`
+	// A list of Log tree objects.
+	Children []LogTree `json:"children"`
 }

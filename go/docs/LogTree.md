@@ -1,4 +1,4 @@
-# Log
+# LogTree
 
 ## Properties
 
@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **Tags** | [**[]Tag**](Tag.md) | A list of Tag objects. | 
 **RootLogId** | **int64** | The unique identifier of this entity. | 
 **ParentLogId** | **int64** | The unique identifier of this entity. | 
+**Children** | [**[]LogTree**](LogTree.md) | A list of Log tree objects. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
