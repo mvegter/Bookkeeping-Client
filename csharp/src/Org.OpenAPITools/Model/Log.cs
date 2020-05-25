@@ -58,8 +58,7 @@ namespace Org.OpenAPITools.Model
         /// <param name="tags">A list of Tag objects. (required).</param>
         /// <param name="rootLogId">The unique identifier of this entity. (required).</param>
         /// <param name="parentLogId">The unique identifier of this entity. (required).</param>
-        /// <param name="children">A list of Log objects..</param>
-        public Log(long id = default(long), string authorId = default(string), string title = default(string), string text = default(string), long creationTime = default(long), LogOrigin origin = default(LogOrigin), LogSubtype subtype = default(LogSubtype), List<Tag> tags = default(List<Tag>), long rootLogId = default(long), long parentLogId = default(long), List<Log> children = default(List<Log>))
+        public Log(long id = default(long), string authorId = default(string), string title = default(string), string text = default(string), long creationTime = default(long), LogOrigin origin = default(LogOrigin), LogSubtype subtype = default(LogSubtype), List<Tag> tags = default(List<Tag>), long rootLogId = default(long), long parentLogId = default(long))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -161,7 +160,6 @@ namespace Org.OpenAPITools.Model
                 this.ParentLogId = parentLogId;
             }
             
-            this.Children = children;
         }
         
         /// <summary>
@@ -223,13 +221,6 @@ namespace Org.OpenAPITools.Model
         public long ParentLogId { get; set; }
 
         /// <summary>
-        /// A list of Log objects.
-        /// </summary>
-        /// <value>A list of Log objects.</value>
-        [DataMember(Name="children", EmitDefaultValue=false)]
-        public List<Log> Children { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -247,7 +238,6 @@ namespace Org.OpenAPITools.Model
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  RootLogId: ").Append(RootLogId).Append("\n");
             sb.Append("  ParentLogId: ").Append(ParentLogId).Append("\n");
-            sb.Append("  Children: ").Append(Children).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -332,12 +322,6 @@ namespace Org.OpenAPITools.Model
                     this.ParentLogId == input.ParentLogId ||
                     (this.ParentLogId != null &&
                     this.ParentLogId.Equals(input.ParentLogId))
-                ) && 
-                (
-                    this.Children == input.Children ||
-                    this.Children != null &&
-                    input.Children != null &&
-                    this.Children.SequenceEqual(input.Children)
                 );
         }
 
@@ -370,8 +354,6 @@ namespace Org.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.RootLogId.GetHashCode();
                 if (this.ParentLogId != null)
                     hashCode = hashCode * 59 + this.ParentLogId.GetHashCode();
-                if (this.Children != null)
-                    hashCode = hashCode * 59 + this.Children.GetHashCode();
                 return hashCode;
             }
         }

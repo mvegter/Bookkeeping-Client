@@ -148,7 +148,7 @@ module OpenapiClient
     # Get the Log tree for a given Log
     # @param log_id [Integer] The id of the log to retrieve
     # @param [Hash] opts the optional parameters
-    # @return [LogResponse]
+    # @return [LogTreeResponse]
     def get_log_tree(log_id, opts = {})
       data, _status_code, _headers = get_log_tree_with_http_info(log_id, opts)
       data
@@ -157,7 +157,7 @@ module OpenapiClient
     # Get the Log tree for a given Log
     # @param log_id [Integer] The id of the log to retrieve
     # @param [Hash] opts the optional parameters
-    # @return [Array<(LogResponse, Integer, Hash)>] LogResponse data, response status code and response headers
+    # @return [Array<(LogTreeResponse, Integer, Hash)>] LogTreeResponse data, response status code and response headers
     def get_log_tree_with_http_info(log_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LogApi.get_log_tree ...'
@@ -188,7 +188,7 @@ module OpenapiClient
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] || 'LogResponse' 
+      return_type = opts[:return_type] || 'LogTreeResponse' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['ApiKeyAuth']

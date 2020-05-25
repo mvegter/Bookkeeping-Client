@@ -92,11 +92,6 @@ public:
     bool is_parent_log_id_Set() const;
     bool is_parent_log_id_Valid() const;
 
-    QList<OAILog> getChildren() const;
-    void setChildren(const QList<OAILog> &children);
-    bool is_children_Set() const;
-    bool is_children_Valid() const;
-
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -142,10 +137,6 @@ private:
     qint64 parent_log_id;
     bool m_parent_log_id_isSet;
     bool m_parent_log_id_isValid;
-
-    QList<OAILog> children;
-    bool m_children_isSet;
-    bool m_children_isValid;
 };
 
 } // namespace OpenAPI

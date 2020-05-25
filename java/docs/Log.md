@@ -17,7 +17,6 @@ Name | Type | Description | Notes
 **tags** | [**List&lt;Tag&gt;**](Tag.md) | A list of Tag objects. | 
 **rootLogId** | **Long** | The unique identifier of this entity. | 
 **parentLogId** | **Long** | The unique identifier of this entity. | 
-**children** | [**List&lt;Log&gt;**](Log.md) | A list of Log objects. |  [optional]
 
 
 

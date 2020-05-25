@@ -42,9 +42,6 @@ pub struct Log {
     /// The unique identifier of this entity.
     #[serde(rename = "parentLogId")]
     pub parent_log_id: i64,
-    /// A list of Log objects.
-    #[serde(rename = "children", skip_serializing_if = "Option::is_none")]
-    pub children: Option<Vec<crate::models::Log>>,
 }
 
 impl Log {
@@ -61,7 +58,6 @@ impl Log {
             tags,
             root_log_id,
             parent_log_id,
-            children: None,
         }
     }
 }

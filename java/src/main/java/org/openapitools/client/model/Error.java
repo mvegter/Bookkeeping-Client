@@ -29,7 +29,7 @@ import org.openapitools.client.model.ErrorSource;
  * An Error object.
  */
 @ApiModel(description = "An Error object.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-24T10:53:02.136+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-25T16:52:45.403+01:00[Europe/London]")
 public class Error {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)

@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **tags** | [**Array&lt;Tag&gt;**](Tag.md) | A list of Tag objects. | 
 **root_log_id** | **Integer** | The unique identifier of this entity. | 
 **parent_log_id** | **Integer** | The unique identifier of this entity. | 
-**children** | [**Array&lt;Log&gt;**](Log.md) | A list of Log objects. | [optional] 
 
 ## Code Sample
 
@@ -30,8 +29,7 @@ instance = OpenapiClient::Log.new(id: null,
                                  subtype: null,
                                  tags: null,
                                  root_log_id: null,
-                                 parent_log_id: null,
-                                 children: null)
+                                 parent_log_id: null)
 ```
 
 

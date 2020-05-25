@@ -28,6 +28,4 @@ type Log struct {
 	RootLogId int64 `json:"rootLogId"`
 	// The unique identifier of this entity.
 	ParentLogId int64 `json:"parentLogId"`
-	// A list of Log objects.
-	Children []Log `json:"children,omitempty"`
 }

@@ -70,7 +70,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_log_tree
 
-> crate::models::LogResponse get_log_tree(log_id)
+> crate::models::LogTreeResponse get_log_tree(log_id)
 Get the Log tree for a given Log
 
 ### Parameters
@@ -82,7 +82,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::LogResponse**](LogResponse.md)
+[**crate::models::LogTreeResponse**](LogTreeResponse.md)
 
 ### Authorization
 

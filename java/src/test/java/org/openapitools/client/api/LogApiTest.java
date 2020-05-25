@@ -20,6 +20,7 @@ import org.openapitools.client.model.CreateLog;
 import org.openapitools.client.model.Errors;
 import org.openapitools.client.model.FilterLogsOptions;
 import org.openapitools.client.model.LogResponse;
+import org.openapitools.client.model.LogTreeResponse;
 import org.openapitools.client.model.PaginationOptions;
 import org.openapitools.client.model.SortLogsOptions;
 import org.junit.Test;
@@ -82,7 +83,7 @@ public class LogApiTest {
     @Test
     public void getLogTreeTest() throws ApiException {
         Long logId = null;
-        LogResponse response = api.getLogTree(logId);
+        LogTreeResponse response = api.getLogTree(logId);
 
         // TODO: test validations
     }

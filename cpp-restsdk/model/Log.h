@@ -26,7 +26,6 @@
 #include <cpprest/details/basic_types.h>
 #include "LogOrigin.h"
 #include <vector>
-#include "Log.h"
 
 namespace org {
 namespace openapitools {
@@ -148,15 +147,6 @@ public:
 
     void setParentLogId(int64_t value);
 
-    /// <summary>
-    /// A list of Log objects.
-    /// </summary>
-    std::vector<std::shared_ptr<Log>>& getChildren();
-    bool childrenIsSet() const;
-    void unsetChildren();
-
-    void setChildren(const std::vector<std::shared_ptr<Log>>& value);
-
 
 protected:
     int64_t m_Id;
@@ -179,8 +169,6 @@ protected:
     bool m_RootLogIdIsSet;
     int64_t m_ParentLogId;
     bool m_ParentLogIdIsSet;
-    std::vector<std::shared_ptr<Log>> m_Children;
-    bool m_ChildrenIsSet;
 };
 
 

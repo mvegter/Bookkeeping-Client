@@ -62,9 +62,6 @@ void OAILog::initializeModel() {
 
     m_parent_log_id_isSet = false;
     m_parent_log_id_isValid = false;
-
-    m_children_isSet = false;
-    m_children_isValid = false;
 }
 
 void OAILog::fromJson(QString jsonString) {
@@ -105,9 +102,6 @@ void OAILog::fromJsonObject(QJsonObject json) {
 
     m_parent_log_id_isValid = ::OpenAPI::fromJsonValue(parent_log_id, json[QString("parentLogId")]);
     m_parent_log_id_isSet = !json[QString("parentLogId")].isNull() && m_parent_log_id_isValid;
-
-    m_children_isValid = ::OpenAPI::fromJsonValue(children, json[QString("children")]);
-    m_children_isSet = !json[QString("children")].isNull() && m_children_isValid;
 }
 
 QString OAILog::asJson() const {
@@ -148,9 +142,6 @@ QJsonObject OAILog::asJsonObject() const {
     }
     if (m_parent_log_id_isSet) {
         obj.insert(QString("parentLogId"), ::OpenAPI::toJsonValue(parent_log_id));
-    }
-    if (children.size() > 0) {
-        obj.insert(QString("children"), ::OpenAPI::toJsonValue(children));
     }
     return obj;
 }
@@ -315,22 +306,6 @@ bool OAILog::is_parent_log_id_Valid() const{
     return m_parent_log_id_isValid;
 }
 
-QList<OAILog> OAILog::getChildren() const {
-    return children;
-}
-void OAILog::setChildren(const QList<OAILog> &children) {
-    this->children = children;
-    this->m_children_isSet = true;
-}
-
-bool OAILog::is_children_Set() const{
-    return m_children_isSet;
-}
-
-bool OAILog::is_children_Valid() const{
-    return m_children_isValid;
-}
-
 bool OAILog::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -380,11 +355,6 @@ bool OAILog::isSet() const {
         }
 
         if (m_parent_log_id_isSet) {
-            isObjectUpdated = true;
-            break;
-        }
-
-        if (children.size() > 0) {
             isObjectUpdated = true;
             break;
         }

@@ -140,6 +140,8 @@ Class | Method | HTTP request | Description
  - [Model.LogOrigin](docs/LogOrigin.md)
  - [Model.LogResponse](docs/LogResponse.md)
  - [Model.LogSubtype](docs/LogSubtype.md)
+ - [Model.LogTree](docs/LogTree.md)
+ - [Model.LogTreeResponse](docs/LogTreeResponse.md)
  - [Model.PaginationMeta](docs/PaginationMeta.md)
  - [Model.PaginationOptions](docs/PaginationOptions.md)
  - [Model.SortLogsOptions](docs/SortLogsOptions.md)

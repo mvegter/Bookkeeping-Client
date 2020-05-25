@@ -156,6 +156,8 @@ Class | Method | HTTP request | Description
  - [AliceBookkeeping.LogOrigin](docs/LogOrigin.md)
  - [AliceBookkeeping.LogResponse](docs/LogResponse.md)
  - [AliceBookkeeping.LogSubtype](docs/LogSubtype.md)
+ - [AliceBookkeeping.LogTree](docs/LogTree.md)
+ - [AliceBookkeeping.LogTreeResponse](docs/LogTreeResponse.md)
  - [AliceBookkeeping.PaginationMeta](docs/PaginationMeta.md)
  - [AliceBookkeeping.PaginationOptions](docs/PaginationOptions.md)
  - [AliceBookkeeping.SortLogsOptions](docs/SortLogsOptions.md)

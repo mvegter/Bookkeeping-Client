@@ -33,7 +33,7 @@ import org.openapitools.client.model.Tag;
  * Describes an intervention or an event that happened.
  */
 @ApiModel(description = "Describes an intervention or an event that happened.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-24T10:53:02.136+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-25T16:52:45.403+01:00[Europe/London]")
 public class Log {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -74,10 +74,6 @@ public class Log {
   public static final String SERIALIZED_NAME_PARENT_LOG_ID = "parentLogId";
   @SerializedName(SERIALIZED_NAME_PARENT_LOG_ID)
   private Long parentLogId;
-
-  public static final String SERIALIZED_NAME_CHILDREN = "children";
-  @SerializedName(SERIALIZED_NAME_CHILDREN)
-  private List<Log> children = null;
 
 
   public Log id(Long id) {
@@ -308,37 +304,6 @@ public class Log {
   }
 
 
-  public Log children(List<Log> children) {
-    
-    this.children = children;
-    return this;
-  }
-
-  public Log addChildrenItem(Log childrenItem) {
-    if (this.children == null) {
-      this.children = new ArrayList<Log>();
-    }
-    this.children.add(childrenItem);
-    return this;
-  }
-
-   /**
-   * A list of Log objects.
-   * @return children
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of Log objects.")
-
-  public List<Log> getChildren() {
-    return children;
-  }
-
-
-  public void setChildren(List<Log> children) {
-    this.children = children;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -357,13 +322,12 @@ public class Log {
         Objects.equals(this.subtype, log.subtype) &&
         Objects.equals(this.tags, log.tags) &&
         Objects.equals(this.rootLogId, log.rootLogId) &&
-        Objects.equals(this.parentLogId, log.parentLogId) &&
-        Objects.equals(this.children, log.children);
+        Objects.equals(this.parentLogId, log.parentLogId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, authorId, title, text, creationTime, origin, subtype, tags, rootLogId, parentLogId, children);
+    return Objects.hash(id, authorId, title, text, creationTime, origin, subtype, tags, rootLogId, parentLogId);
   }
 
 
@@ -381,7 +345,6 @@ public class Log {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    rootLogId: ").append(toIndentedString(rootLogId)).append("\n");
     sb.append("    parentLogId: ").append(toIndentedString(parentLogId)).append("\n");
-    sb.append("    children: ").append(toIndentedString(children)).append("\n");
     sb.append("}");
     return sb.toString();
   }

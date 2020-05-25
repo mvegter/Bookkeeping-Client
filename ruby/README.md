@@ -113,6 +113,8 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::LogOrigin](docs/LogOrigin.md)
  - [OpenapiClient::LogResponse](docs/LogResponse.md)
  - [OpenapiClient::LogSubtype](docs/LogSubtype.md)
+ - [OpenapiClient::LogTree](docs/LogTree.md)
+ - [OpenapiClient::LogTreeResponse](docs/LogTreeResponse.md)
  - [OpenapiClient::PaginationMeta](docs/PaginationMeta.md)
  - [OpenapiClient::PaginationOptions](docs/PaginationOptions.md)
  - [OpenapiClient::SortLogsOptions](docs/SortLogsOptions.md)

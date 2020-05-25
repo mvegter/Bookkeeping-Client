@@ -99,6 +99,11 @@ static bool createTagProcessor(MemoryStruct_s p_chunk, long code, char* errormsg
 			printf("\n%s\n", jsonStr);
 			g_free(static_cast<gpointer>(jsonStr));
 			
+			out.fromJson(data);
+			char *jsonStr =  out.toJson();
+			printf("\n%s\n", jsonStr);
+			g_free(static_cast<gpointer>(jsonStr));
+			
 		}
 		handler(out, error, userData);
 		return true;
@@ -252,6 +257,11 @@ static bool deleteTagByIdProcessor(MemoryStruct_s p_chunk, long code, char* erro
 				}
 			}
 		} else {
+			
+			out.fromJson(data);
+			char *jsonStr =  out.toJson();
+			printf("\n%s\n", jsonStr);
+			g_free(static_cast<gpointer>(jsonStr));
 			
 			out.fromJson(data);
 			char *jsonStr =  out.toJson();
@@ -440,6 +450,11 @@ static bool getLogsByTagIdProcessor(MemoryStruct_s p_chunk, long code, char* err
 			printf("\n%s\n", jsonStr);
 			g_free(static_cast<gpointer>(jsonStr));
 			
+			out.fromJson(data);
+			char *jsonStr =  out.toJson();
+			printf("\n%s\n", jsonStr);
+			g_free(static_cast<gpointer>(jsonStr));
+			
 		}
 		handler(out, error, userData);
 		return true;
@@ -607,6 +622,11 @@ static bool getTagByIdProcessor(MemoryStruct_s p_chunk, long code, char* errorms
 			printf("\n%s\n", jsonStr);
 			g_free(static_cast<gpointer>(jsonStr));
 			
+			out.fromJson(data);
+			char *jsonStr =  out.toJson();
+			printf("\n%s\n", jsonStr);
+			g_free(static_cast<gpointer>(jsonStr));
+			
 		}
 		handler(out, error, userData);
 		return true;
@@ -753,6 +773,11 @@ static bool listTagsProcessor(MemoryStruct_s p_chunk, long code, char* errormsg,
 				}
 			}
 		} else {
+			
+			out.fromJson(data);
+			char *jsonStr =  out.toJson();
+			printf("\n%s\n", jsonStr);
+			g_free(static_cast<gpointer>(jsonStr));
 			
 			out.fromJson(data);
 			char *jsonStr =  out.toJson();

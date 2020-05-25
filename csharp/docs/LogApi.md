@@ -84,6 +84,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **201** | Expected response to a valid request. |  -  |
 | **400** | Bad Request |  -  |
+| **503** | Service Unavailable |  -  |
 | **0** | Unexpected Error |  -  |
 
 [[Back to top]](#)
@@ -165,6 +166,7 @@ Name | Type | Description  | Notes
 | **200** | Expected response to a valid request. |  -  |
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
+| **503** | Service Unavailable |  -  |
 | **0** | Unexpected Error |  -  |
 
 [[Back to top]](#)
@@ -175,7 +177,7 @@ Name | Type | Description  | Notes
 
 ## GetLogTree
 
-> LogResponse GetLogTree (long logId)
+> LogTreeResponse GetLogTree (long logId)
 
 Get the Log tree for a given Log
 
@@ -206,7 +208,7 @@ namespace Example
             try
             {
                 // Get the Log tree for a given Log
-                LogResponse result = apiInstance.GetLogTree(logId);
+                LogTreeResponse result = apiInstance.GetLogTree(logId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -229,7 +231,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LogResponse**](LogResponse.md)
+[**LogTreeResponse**](LogTreeResponse.md)
 
 ### Authorization
 
@@ -246,6 +248,7 @@ Name | Type | Description  | Notes
 | **200** | Expected response to a valid request. |  -  |
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
+| **503** | Service Unavailable |  -  |
 | **0** | Unexpected Error |  -  |
 
 [[Back to top]](#)
@@ -330,6 +333,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | Expected response to a valid request. |  -  |
 | **400** | Bad Request |  -  |
+| **503** | Service Unavailable |  -  |
 | **0** | Unexpected Error |  -  |
 
 [[Back to top]](#)
@@ -411,6 +415,7 @@ Name | Type | Description  | Notes
 | **200** | Expected response to a valid request. |  -  |
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
+| **503** | Service Unavailable |  -  |
 | **0** | Unexpected Error |  -  |
 
 [[Back to top]](#)

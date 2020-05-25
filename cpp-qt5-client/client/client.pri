@@ -17,6 +17,8 @@ HEADERS += \
     $${PWD}/OAILogOrigin.h \
     $${PWD}/OAILogResponse.h \
     $${PWD}/OAILogSubtype.h \
+    $${PWD}/OAILogTree.h \
+    $${PWD}/OAILogTreeResponse.h \
     $${PWD}/OAIPaginationMeta.h \
     $${PWD}/OAIPaginationOptions.h \
     $${PWD}/OAISortLogsOptions.h \
@@ -51,6 +53,8 @@ SOURCES += \
     $${PWD}/OAILogOrigin.cpp \
     $${PWD}/OAILogResponse.cpp \
     $${PWD}/OAILogSubtype.cpp \
+    $${PWD}/OAILogTree.cpp \
+    $${PWD}/OAILogTreeResponse.cpp \
     $${PWD}/OAIPaginationMeta.cpp \
     $${PWD}/OAIPaginationOptions.cpp \
     $${PWD}/OAISortLogsOptions.cpp \

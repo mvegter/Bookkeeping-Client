@@ -114,12 +114,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property children (base name: "children")', function() {
-      // uncomment below and update the code to test the property children
-      //var instane = new AliceBookkeeping.Log();
-      //expect(instance).to.be();
-    });
-
   });
 
 }));

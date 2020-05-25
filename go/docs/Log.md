@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **Tags** | [**[]Tag**](Tag.md) | A list of Tag objects. | 
 **RootLogId** | **int64** | The unique identifier of this entity. | 
 **ParentLogId** | **int64** | The unique identifier of this entity. | 
-**Children** | [**[]Log**](Log.md) | A list of Log objects. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

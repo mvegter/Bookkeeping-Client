@@ -145,14 +145,6 @@ namespace Org.OpenAPITools.Test
         {
             // TODO unit test for the property 'ParentLogId'
         }
-        /// <summary>
-        /// Test the property 'Children'
-        /// </summary>
-        [Test]
-        public void ChildrenTest()
-        {
-            // TODO unit test for the property 'Children'
-        }
 
     }
 

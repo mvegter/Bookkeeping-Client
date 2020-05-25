@@ -125,12 +125,4 @@ public class LogTest {
         // TODO: test parentLogId
     }
 
-    /**
-     * Test the property 'children'
-     */
-    @Test
-    public void childrenTest() {
-        // TODO: test children
-    }
-
 }

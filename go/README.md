@@ -63,6 +63,8 @@ Class | Method | HTTP request | Description
  - [LogOrigin](docs/LogOrigin.md)
  - [LogResponse](docs/LogResponse.md)
  - [LogSubtype](docs/LogSubtype.md)
+ - [LogTree](docs/LogTree.md)
+ - [LogTreeResponse](docs/LogTreeResponse.md)
  - [PaginationMeta](docs/PaginationMeta.md)
  - [PaginationOptions](docs/PaginationOptions.md)
  - [SortLogsOptions](docs/SortLogsOptions.md)

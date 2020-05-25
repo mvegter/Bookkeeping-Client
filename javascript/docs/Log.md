@@ -14,6 +14,5 @@ Name | Type | Description | Notes
 **tags** | [**[Tag]**](Tag.md) | A list of Tag objects. | 
 **rootLogId** | **Number** | The unique identifier of this entity. | 
 **parentLogId** | **Number** | The unique identifier of this entity. | 
-**children** | [**[Log]**](Log.md) | A list of Log objects. | [optional] 
 
 

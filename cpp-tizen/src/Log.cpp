@@ -33,7 +33,6 @@ Log::__init()
 	//new std::list()std::list> tags;
 	//rootLogId = long(0);
 	//parentLogId = long(0);
-	//new std::list()std::list> children;
 }
 
 void
@@ -88,11 +87,6 @@ Log::__cleanup()
 	//
 	//delete parentLogId;
 	//parentLogId = NULL;
-	//}
-	//if(children != NULL) {
-	//children.RemoveAll(true);
-	//delete children;
-	//children = NULL;
 	//}
 	//
 }
@@ -231,30 +225,6 @@ Log::fromJson(char* jsonStr)
 			
 		}
 	}
-	const gchar *childrenKey = "children";
-	node = json_object_get_member(pJsonObject, childrenKey);
-	if (node !=NULL) {
-	
-		{
-			JsonArray* arr = json_node_get_array(node);
-			JsonNode*  temp_json;
-			list<Log> new_list;
-			Log inst;
-			for (guint i=0;i<json_array_get_length(arr);i++) {
-				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("Log")) {
-					jsonToValue(&inst, temp_json, "Log", "");
-				} else {
-					
-					inst.fromJson(json_to_string(temp_json, false));
-					
-				}
-				new_list.push_back(inst);
-			}
-			children = new_list;
-		}
-		
-	}
 }
 
 Log::Log(char* json)
@@ -383,31 +353,6 @@ Log::toJson()
 	}
 	const gchar *parentLogIdKey = "parentLogId";
 	json_object_set_member(pJsonObject, parentLogIdKey, node);
-	if (isprimitive("Log")) {
-		list<Log> new_list = static_cast<list <Log> > (getChildren());
-		node = converttoJson(&new_list, "Log", "array");
-	} else {
-		node = json_node_alloc();
-		list<Log> new_list = static_cast<list <Log> > (getChildren());
-		JsonArray* json_array = json_array_new();
-		GError *mygerror;
-		
-		for (list<Log>::iterator it = new_list.begin(); it != new_list.end(); it++) {
-			mygerror = NULL;
-			Log obj = *it;
-			JsonNode *node_temp = json_from_string(obj.toJson(), &mygerror);
-			json_array_add_element(json_array, node_temp);
-			g_clear_error(&mygerror);
-		}
-		json_node_init_array(node, json_array);
-		json_array_unref(json_array);
-		
-	}
-
-
-	
-	const gchar *childrenKey = "children";
-	json_object_set_member(pJsonObject, childrenKey, node);
 	node = json_node_alloc();
 	json_node_init(node, JSON_NODE_OBJECT);
 	json_node_take_object(node, pJsonObject);
@@ -534,18 +479,6 @@ void
 Log::setParentLogId(long long  parentLogId)
 {
 	this->parentLogId = parentLogId;
-}
-
-std::list<Log>
-Log::getChildren()
-{
-	return children;
-}
-
-void
-Log::setChildren(std::list <Log> children)
-{
-	this->children = children;
 }
 
 

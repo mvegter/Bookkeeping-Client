@@ -93,6 +93,8 @@ Class | Description
  *LogOrigin* | Type of creator.
  *LogResponse* | Response containing a single log.
  *LogSubtype* | The subtype of a Log.
+ *LogTree* | Describes an intervention or an event that happened.
+ *LogTreeResponse* | Response containing a single log tree.
  *PaginationMeta* | The metadata related to pagination.
  *PaginationOptions* | Specifies the pagination requirements of a request.
  *SortLogsOptions* | Specifies the sorting requirements of a request.

@@ -20,6 +20,7 @@
 #include "OAIErrors.h"
 #include "OAIFilterLogsOptions.h"
 #include "OAILogResponse.h"
+#include "OAILogTreeResponse.h"
 #include "OAIPaginationOptions.h"
 #include "OAISortLogsOptions.h"
 #include <QString>
@@ -72,19 +73,19 @@ signals:
 
     void createLogSignal(OAILogResponse summary);
     void getLogByIdSignal(OAILogResponse summary);
-    void getLogTreeSignal(OAILogResponse summary);
+    void getLogTreeSignal(OAILogTreeResponse summary);
     void listLogsSignal(OAIArrayOfLogsResponse summary);
     void listTagsByLogIdSignal(OAIArrayOfTagsResponse summary);
 
     void createLogSignalFull(OAIHttpRequestWorker *worker, OAILogResponse summary);
     void getLogByIdSignalFull(OAIHttpRequestWorker *worker, OAILogResponse summary);
-    void getLogTreeSignalFull(OAIHttpRequestWorker *worker, OAILogResponse summary);
+    void getLogTreeSignalFull(OAIHttpRequestWorker *worker, OAILogTreeResponse summary);
     void listLogsSignalFull(OAIHttpRequestWorker *worker, OAIArrayOfLogsResponse summary);
     void listTagsByLogIdSignalFull(OAIHttpRequestWorker *worker, OAIArrayOfTagsResponse summary);
 
     void createLogSignalE(OAILogResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
     void getLogByIdSignalE(OAILogResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void getLogTreeSignalE(OAILogResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void getLogTreeSignalE(OAILogTreeResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
     void listLogsSignalE(OAIArrayOfLogsResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
     void listTagsByLogIdSignalE(OAIArrayOfTagsResponse summary, QNetworkReply::NetworkError error_type, QString error_str);
 

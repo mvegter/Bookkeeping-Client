@@ -43,9 +43,6 @@ module OpenapiClient
     # The unique identifier of this entity.
     attr_accessor :parent_log_id
 
-    # A list of Log objects.
-    attr_accessor :children
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -58,8 +55,7 @@ module OpenapiClient
         :'subtype' => :'subtype',
         :'tags' => :'tags',
         :'root_log_id' => :'rootLogId',
-        :'parent_log_id' => :'parentLogId',
-        :'children' => :'children'
+        :'parent_log_id' => :'parentLogId'
       }
     end
 
@@ -75,8 +71,7 @@ module OpenapiClient
         :'subtype' => :'LogSubtype',
         :'tags' => :'Array<Tag>',
         :'root_log_id' => :'Integer',
-        :'parent_log_id' => :'Integer',
-        :'children' => :'Array<Log>'
+        :'parent_log_id' => :'Integer'
       }
     end
 
@@ -141,12 +136,6 @@ module OpenapiClient
 
       if attributes.key?(:'parent_log_id')
         self.parent_log_id = attributes[:'parent_log_id']
-      end
-
-      if attributes.key?(:'children')
-        if (value = attributes[:'children']).is_a?(Array)
-          self.children = value
-        end
       end
     end
 
@@ -331,8 +320,7 @@ module OpenapiClient
           subtype == o.subtype &&
           tags == o.tags &&
           root_log_id == o.root_log_id &&
-          parent_log_id == o.parent_log_id &&
-          children == o.children
+          parent_log_id == o.parent_log_id
     end
 
     # @see the `==` method
@@ -344,7 +332,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, author_id, title, text, creation_time, origin, subtype, tags, root_log_id, parent_log_id, children].hash
+      [id, author_id, title, text, creation_time, origin, subtype, tags, root_log_id, parent_log_id].hash
     end
 
     # Builds the object from hash

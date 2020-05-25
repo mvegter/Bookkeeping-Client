@@ -40,7 +40,6 @@ Log::Log()
     m_RootLogIdIsSet = false;
     m_ParentLogId = 0L;
     m_ParentLogIdIsSet = false;
-    m_ChildrenIsSet = false;
 }
 
 Log::~Log()
@@ -96,10 +95,6 @@ web::json::value Log::toJson() const
     if(m_ParentLogIdIsSet)
     {
         val[utility::conversions::to_string_t("parentLogId")] = ModelBase::toJson(m_ParentLogId);
-    }
-    if(m_ChildrenIsSet)
-    {
-        val[utility::conversions::to_string_t("children")] = ModelBase::toJson(m_Children);
     }
 
     return val;
@@ -209,16 +204,6 @@ bool Log::fromJson(const web::json::value& val)
             setParentLogId(refVal_parentLogId);
         }
     }
-    if(val.has_field(utility::conversions::to_string_t("children")))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("children"));
-        if(!fieldValue.is_null())
-        {
-            std::vector<std::shared_ptr<Log>> refVal_children;
-            ok &= ModelBase::fromJson(fieldValue, refVal_children);
-            setChildren(refVal_children);
-        }
-    }
     return ok;
 }
 
@@ -268,10 +253,6 @@ void Log::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utilit
     if(m_ParentLogIdIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("parentLogId"), m_ParentLogId));
-    }
-    if(m_ChildrenIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("children"), m_Children));
     }
 }
 
@@ -343,12 +324,6 @@ bool Log::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const util
         int64_t refVal_parentLogId;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("parentLogId")), refVal_parentLogId );
         setParentLogId(refVal_parentLogId);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t("children")))
-    {
-        std::vector<std::shared_ptr<Log>> refVal_children;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("children")), refVal_children );
-        setChildren(refVal_children);
     }
     return ok;
 }
@@ -552,26 +527,6 @@ bool Log::parentLogIdIsSet() const
 void Log::unsetParentLogId()
 {
     m_ParentLogIdIsSet = false;
-}
-std::vector<std::shared_ptr<Log>>& Log::getChildren()
-{
-    return m_Children;
-}
-
-void Log::setChildren(const std::vector<std::shared_ptr<Log>>& value)
-{
-    m_Children = value;
-    m_ChildrenIsSet = true;
-}
-
-bool Log::childrenIsSet() const
-{
-    return m_ChildrenIsSet;
-}
-
-void Log::unsetChildren()
-{
-    m_ChildrenIsSet = false;
 }
 }
 }

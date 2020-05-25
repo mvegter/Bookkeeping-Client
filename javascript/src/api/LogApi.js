@@ -19,6 +19,7 @@ import CreateLog from '../model/CreateLog';
 import Errors from '../model/Errors';
 import FilterLogsOptions from '../model/FilterLogsOptions';
 import LogResponse from '../model/LogResponse';
+import LogTreeResponse from '../model/LogTreeResponse';
 import PaginationOptions from '../model/PaginationOptions';
 import SortLogsOptions from '../model/SortLogsOptions';
 
@@ -128,7 +129,7 @@ export default class LogApi {
      * Callback function to receive the result of the getLogTree operation.
      * @callback module:api/LogApi~getLogTreeCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/LogResponse} data The data returned by the service call.
+     * @param {module:model/LogTreeResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -136,7 +137,7 @@ export default class LogApi {
      * Get the Log tree for a given Log
      * @param {Number} logId The id of the log to retrieve
      * @param {module:api/LogApi~getLogTreeCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/LogResponse}
+     * data is of type: {@link module:model/LogTreeResponse}
      */
     getLogTree(logId, callback) {
       let postBody = null;
@@ -158,7 +159,7 @@ export default class LogApi {
       let authNames = ['ApiKeyAuth'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = LogResponse;
+      let returnType = LogTreeResponse;
       return this.apiClient.callApi(
         '/logs/{logId}/tree', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,

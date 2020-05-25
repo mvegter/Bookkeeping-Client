@@ -119,13 +119,6 @@ public:
 	/*! \brief Set The unique identifier of this entity.
 	 */
 	void setParentLogId(long long  parentLogId);
-	/*! \brief Get A list of Log objects.
-	 */
-	std::list<Log> getChildren();
-
-	/*! \brief Set A list of Log objects.
-	 */
-	void setChildren(std::list <Log> children);
 
 private:
 	long long id;
@@ -138,7 +131,6 @@ private:
 	std::list <Tag>tags;
 	long long rootLogId;
 	long long parentLogId;
-	std::list <Log>children;
 	void __init();
 	void __cleanup();
 

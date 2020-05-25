@@ -101,9 +101,6 @@ class Log {
             if (data.hasOwnProperty('parentLogId')) {
                 obj['parentLogId'] = ApiClient.convertToType(data['parentLogId'], 'Number');
             }
-            if (data.hasOwnProperty('children')) {
-                obj['children'] = ApiClient.convertToType(data['children'], [Log]);
-            }
         }
         return obj;
     }
@@ -168,12 +165,6 @@ Log.prototype['rootLogId'] = undefined;
  * @member {Number} parentLogId
  */
 Log.prototype['parentLogId'] = undefined;
-
-/**
- * A list of Log objects.
- * @member {Array.<module:model/Log>} children
- */
-Log.prototype['children'] = undefined;
 
 
 

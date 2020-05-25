@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 ## GetLogTree
 
-> LogResponse GetLogTree(ctx, logId)
+> LogTreeResponse GetLogTree(ctx, logId)
 
 Get the Log tree for a given Log
 
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LogResponse**](LogResponse.md)
+[**LogTreeResponse**](LogTreeResponse.md)
 
 ### Authorization
 
