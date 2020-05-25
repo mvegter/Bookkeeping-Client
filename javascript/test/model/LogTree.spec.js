@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new AliceBookkeeping.Log();
+    instance = new AliceBookkeeping.LogTree();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,70 +47,76 @@
       object[property] = value;
   }
 
-  describe('Log', function() {
-    it('should create an instance of Log', function() {
-      // uncomment below and update the code to test Log
-      //var instane = new AliceBookkeeping.Log();
-      //expect(instance).to.be.a(AliceBookkeeping.Log);
+  describe('LogTree', function() {
+    it('should create an instance of LogTree', function() {
+      // uncomment below and update the code to test LogTree
+      //var instane = new AliceBookkeeping.LogTree();
+      //expect(instance).to.be.a(AliceBookkeeping.LogTree);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new AliceBookkeeping.Log();
+      //var instane = new AliceBookkeeping.LogTree();
       //expect(instance).to.be();
     });
 
     it('should have the property authorId (base name: "authorId")', function() {
       // uncomment below and update the code to test the property authorId
-      //var instane = new AliceBookkeeping.Log();
+      //var instane = new AliceBookkeeping.LogTree();
       //expect(instance).to.be();
     });
 
     it('should have the property title (base name: "title")', function() {
       // uncomment below and update the code to test the property title
-      //var instane = new AliceBookkeeping.Log();
+      //var instane = new AliceBookkeeping.LogTree();
       //expect(instance).to.be();
     });
 
     it('should have the property text (base name: "text")', function() {
       // uncomment below and update the code to test the property text
-      //var instane = new AliceBookkeeping.Log();
+      //var instane = new AliceBookkeeping.LogTree();
       //expect(instance).to.be();
     });
 
     it('should have the property creationTime (base name: "creationTime")', function() {
       // uncomment below and update the code to test the property creationTime
-      //var instane = new AliceBookkeeping.Log();
+      //var instane = new AliceBookkeeping.LogTree();
       //expect(instance).to.be();
     });
 
     it('should have the property origin (base name: "origin")', function() {
       // uncomment below and update the code to test the property origin
-      //var instane = new AliceBookkeeping.Log();
+      //var instane = new AliceBookkeeping.LogTree();
       //expect(instance).to.be();
     });
 
     it('should have the property subtype (base name: "subtype")', function() {
       // uncomment below and update the code to test the property subtype
-      //var instane = new AliceBookkeeping.Log();
+      //var instane = new AliceBookkeeping.LogTree();
       //expect(instance).to.be();
     });
 
     it('should have the property tags (base name: "tags")', function() {
       // uncomment below and update the code to test the property tags
-      //var instane = new AliceBookkeeping.Log();
+      //var instane = new AliceBookkeeping.LogTree();
       //expect(instance).to.be();
     });
 
     it('should have the property rootLogId (base name: "rootLogId")', function() {
       // uncomment below and update the code to test the property rootLogId
-      //var instane = new AliceBookkeeping.Log();
+      //var instane = new AliceBookkeeping.LogTree();
       //expect(instance).to.be();
     });
 
     it('should have the property parentLogId (base name: "parentLogId")', function() {
       // uncomment below and update the code to test the property parentLogId
-      //var instane = new AliceBookkeeping.Log();
+      //var instane = new AliceBookkeeping.LogTree();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property children (base name: "children")', function() {
+      // uncomment below and update the code to test the property children
+      //var instane = new AliceBookkeeping.LogTree();
       //expect(instance).to.be();
     });
 

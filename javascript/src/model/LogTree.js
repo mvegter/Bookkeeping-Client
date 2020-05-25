@@ -17,15 +17,15 @@ import LogSubtype from './LogSubtype';
 import Tag from './Tag';
 
 /**
- * The Log model module.
- * @module model/Log
+ * The LogTree model module.
+ * @module model/LogTree
  * @version 0.0.0
  */
-class Log {
+class LogTree {
     /**
-     * Constructs a new <code>Log</code>.
+     * Constructs a new <code>LogTree</code>.
      * Describes an intervention or an event that happened.
-     * @alias module:model/Log
+     * @alias module:model/LogTree
      * @param id {Number} The unique identifier of this entity.
      * @param authorId {String} Name of the author.
      * @param title {String} Title of the log.
@@ -36,10 +36,11 @@ class Log {
      * @param tags {Array.<module:model/Tag>} A list of Tag objects.
      * @param rootLogId {Number} The unique identifier of this entity.
      * @param parentLogId {Number} The unique identifier of this entity.
+     * @param children {Array.<module:model/LogTree>} A list of Log tree objects.
      */
-    constructor(id, authorId, title, text, creationTime, origin, subtype, tags, rootLogId, parentLogId) { 
+    constructor(id, authorId, title, text, creationTime, origin, subtype, tags, rootLogId, parentLogId, children) { 
         
-        Log.initialize(this, id, authorId, title, text, creationTime, origin, subtype, tags, rootLogId, parentLogId);
+        LogTree.initialize(this, id, authorId, title, text, creationTime, origin, subtype, tags, rootLogId, parentLogId, children);
     }
 
     /**
@@ -47,7 +48,7 @@ class Log {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, authorId, title, text, creationTime, origin, subtype, tags, rootLogId, parentLogId) { 
+    static initialize(obj, id, authorId, title, text, creationTime, origin, subtype, tags, rootLogId, parentLogId, children) { 
         obj['id'] = id;
         obj['authorId'] = authorId;
         obj['title'] = title;
@@ -58,18 +59,19 @@ class Log {
         obj['tags'] = tags;
         obj['rootLogId'] = rootLogId;
         obj['parentLogId'] = parentLogId;
+        obj['children'] = children;
     }
 
     /**
-     * Constructs a <code>Log</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>LogTree</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/Log} obj Optional instance to populate.
-     * @return {module:model/Log} The populated <code>Log</code> instance.
+     * @param {module:model/LogTree} obj Optional instance to populate.
+     * @return {module:model/LogTree} The populated <code>LogTree</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new Log();
+            obj = obj || new LogTree();
 
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
@@ -101,6 +103,9 @@ class Log {
             if (data.hasOwnProperty('parentLogId')) {
                 obj['parentLogId'] = ApiClient.convertToType(data['parentLogId'], 'Number');
             }
+            if (data.hasOwnProperty('children')) {
+                obj['children'] = ApiClient.convertToType(data['children'], [LogTree]);
+            }
         }
         return obj;
     }
@@ -112,64 +117,70 @@ class Log {
  * The unique identifier of this entity.
  * @member {Number} id
  */
-Log.prototype['id'] = undefined;
+LogTree.prototype['id'] = undefined;
 
 /**
  * Name of the author.
  * @member {String} authorId
  */
-Log.prototype['authorId'] = undefined;
+LogTree.prototype['authorId'] = undefined;
 
 /**
  * Title of the log.
  * @member {String} title
  */
-Log.prototype['title'] = undefined;
+LogTree.prototype['title'] = undefined;
 
 /**
  * Body of the log.
  * @member {String} text
  */
-Log.prototype['text'] = undefined;
+LogTree.prototype['text'] = undefined;
 
 /**
  * Unix timestamp of the creation date time.
  * @member {Number} creationTime
  */
-Log.prototype['creationTime'] = undefined;
+LogTree.prototype['creationTime'] = undefined;
 
 /**
  * @member {module:model/LogOrigin} origin
  */
-Log.prototype['origin'] = undefined;
+LogTree.prototype['origin'] = undefined;
 
 /**
  * @member {module:model/LogSubtype} subtype
  */
-Log.prototype['subtype'] = undefined;
+LogTree.prototype['subtype'] = undefined;
 
 /**
  * A list of Tag objects.
  * @member {Array.<module:model/Tag>} tags
  */
-Log.prototype['tags'] = undefined;
+LogTree.prototype['tags'] = undefined;
 
 /**
  * The unique identifier of this entity.
  * @member {Number} rootLogId
  */
-Log.prototype['rootLogId'] = undefined;
+LogTree.prototype['rootLogId'] = undefined;
 
 /**
  * The unique identifier of this entity.
  * @member {Number} parentLogId
  */
-Log.prototype['parentLogId'] = undefined;
+LogTree.prototype['parentLogId'] = undefined;
+
+/**
+ * A list of Log tree objects.
+ * @member {Array.<module:model/LogTree>} children
+ */
+LogTree.prototype['children'] = undefined;
 
 
 
 
 
 
-export default Log;
+export default LogTree;
 
