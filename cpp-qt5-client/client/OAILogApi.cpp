@@ -195,7 +195,7 @@ void OAILogApi::getLogTreeCallback(OAIHttpRequestWorker *worker) {
         msg = "Error: " + worker->error_str;
         error_str = QString("%1, %2").arg(worker->error_str).arg(QString(worker->response));
     }
-    OAILogResponse output(QString(worker->response));
+    OAILogTreeResponse output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {

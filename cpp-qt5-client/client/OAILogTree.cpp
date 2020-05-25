@@ -9,7 +9,7 @@
  * Do not edit the class manually.
  */
 
-#include "OAILog.h"
+#include "OAILogTree.h"
 
 #include <QDebug>
 #include <QJsonArray>
@@ -20,18 +20,18 @@
 
 namespace OpenAPI {
 
-OAILog::OAILog(QString json) {
+OAILogTree::OAILogTree(QString json) {
     this->initializeModel();
     this->fromJson(json);
 }
 
-OAILog::OAILog() {
+OAILogTree::OAILogTree() {
     this->initializeModel();
 }
 
-OAILog::~OAILog() {}
+OAILogTree::~OAILogTree() {}
 
-void OAILog::initializeModel() {
+void OAILogTree::initializeModel() {
 
     m_id_isSet = false;
     m_id_isValid = false;
@@ -62,16 +62,19 @@ void OAILog::initializeModel() {
 
     m_parent_log_id_isSet = false;
     m_parent_log_id_isValid = false;
+
+    m_children_isSet = false;
+    m_children_isValid = false;
 }
 
-void OAILog::fromJson(QString jsonString) {
+void OAILogTree::fromJson(QString jsonString) {
     QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void OAILog::fromJsonObject(QJsonObject json) {
+void OAILogTree::fromJsonObject(QJsonObject json) {
 
     m_id_isValid = ::OpenAPI::fromJsonValue(id, json[QString("id")]);
     m_id_isSet = !json[QString("id")].isNull() && m_id_isValid;
@@ -102,16 +105,19 @@ void OAILog::fromJsonObject(QJsonObject json) {
 
     m_parent_log_id_isValid = ::OpenAPI::fromJsonValue(parent_log_id, json[QString("parentLogId")]);
     m_parent_log_id_isSet = !json[QString("parentLogId")].isNull() && m_parent_log_id_isValid;
+
+    m_children_isValid = ::OpenAPI::fromJsonValue(children, json[QString("children")]);
+    m_children_isSet = !json[QString("children")].isNull() && m_children_isValid;
 }
 
-QString OAILog::asJson() const {
+QString OAILogTree::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject OAILog::asJsonObject() const {
+QJsonObject OAILogTree::asJsonObject() const {
     QJsonObject obj;
     if (m_id_isSet) {
         obj.insert(QString("id"), ::OpenAPI::toJsonValue(id));
@@ -143,170 +149,189 @@ QJsonObject OAILog::asJsonObject() const {
     if (m_parent_log_id_isSet) {
         obj.insert(QString("parentLogId"), ::OpenAPI::toJsonValue(parent_log_id));
     }
+    if (children.size() > 0) {
+        obj.insert(QString("children"), ::OpenAPI::toJsonValue(children));
+    }
     return obj;
 }
 
-qint64 OAILog::getId() const {
+qint64 OAILogTree::getId() const {
     return id;
 }
-void OAILog::setId(const qint64 &id) {
+void OAILogTree::setId(const qint64 &id) {
     this->id = id;
     this->m_id_isSet = true;
 }
 
-bool OAILog::is_id_Set() const{
+bool OAILogTree::is_id_Set() const{
     return m_id_isSet;
 }
 
-bool OAILog::is_id_Valid() const{
+bool OAILogTree::is_id_Valid() const{
     return m_id_isValid;
 }
 
-QString OAILog::getAuthorId() const {
+QString OAILogTree::getAuthorId() const {
     return author_id;
 }
-void OAILog::setAuthorId(const QString &author_id) {
+void OAILogTree::setAuthorId(const QString &author_id) {
     this->author_id = author_id;
     this->m_author_id_isSet = true;
 }
 
-bool OAILog::is_author_id_Set() const{
+bool OAILogTree::is_author_id_Set() const{
     return m_author_id_isSet;
 }
 
-bool OAILog::is_author_id_Valid() const{
+bool OAILogTree::is_author_id_Valid() const{
     return m_author_id_isValid;
 }
 
-QString OAILog::getTitle() const {
+QString OAILogTree::getTitle() const {
     return title;
 }
-void OAILog::setTitle(const QString &title) {
+void OAILogTree::setTitle(const QString &title) {
     this->title = title;
     this->m_title_isSet = true;
 }
 
-bool OAILog::is_title_Set() const{
+bool OAILogTree::is_title_Set() const{
     return m_title_isSet;
 }
 
-bool OAILog::is_title_Valid() const{
+bool OAILogTree::is_title_Valid() const{
     return m_title_isValid;
 }
 
-QString OAILog::getText() const {
+QString OAILogTree::getText() const {
     return text;
 }
-void OAILog::setText(const QString &text) {
+void OAILogTree::setText(const QString &text) {
     this->text = text;
     this->m_text_isSet = true;
 }
 
-bool OAILog::is_text_Set() const{
+bool OAILogTree::is_text_Set() const{
     return m_text_isSet;
 }
 
-bool OAILog::is_text_Valid() const{
+bool OAILogTree::is_text_Valid() const{
     return m_text_isValid;
 }
 
-qint64 OAILog::getCreationTime() const {
+qint64 OAILogTree::getCreationTime() const {
     return creation_time;
 }
-void OAILog::setCreationTime(const qint64 &creation_time) {
+void OAILogTree::setCreationTime(const qint64 &creation_time) {
     this->creation_time = creation_time;
     this->m_creation_time_isSet = true;
 }
 
-bool OAILog::is_creation_time_Set() const{
+bool OAILogTree::is_creation_time_Set() const{
     return m_creation_time_isSet;
 }
 
-bool OAILog::is_creation_time_Valid() const{
+bool OAILogTree::is_creation_time_Valid() const{
     return m_creation_time_isValid;
 }
 
-OAILogOrigin OAILog::getOrigin() const {
+OAILogOrigin OAILogTree::getOrigin() const {
     return origin;
 }
-void OAILog::setOrigin(const OAILogOrigin &origin) {
+void OAILogTree::setOrigin(const OAILogOrigin &origin) {
     this->origin = origin;
     this->m_origin_isSet = true;
 }
 
-bool OAILog::is_origin_Set() const{
+bool OAILogTree::is_origin_Set() const{
     return m_origin_isSet;
 }
 
-bool OAILog::is_origin_Valid() const{
+bool OAILogTree::is_origin_Valid() const{
     return m_origin_isValid;
 }
 
-OAILogSubtype OAILog::getSubtype() const {
+OAILogSubtype OAILogTree::getSubtype() const {
     return subtype;
 }
-void OAILog::setSubtype(const OAILogSubtype &subtype) {
+void OAILogTree::setSubtype(const OAILogSubtype &subtype) {
     this->subtype = subtype;
     this->m_subtype_isSet = true;
 }
 
-bool OAILog::is_subtype_Set() const{
+bool OAILogTree::is_subtype_Set() const{
     return m_subtype_isSet;
 }
 
-bool OAILog::is_subtype_Valid() const{
+bool OAILogTree::is_subtype_Valid() const{
     return m_subtype_isValid;
 }
 
-QList<OAITag> OAILog::getTags() const {
+QList<OAITag> OAILogTree::getTags() const {
     return tags;
 }
-void OAILog::setTags(const QList<OAITag> &tags) {
+void OAILogTree::setTags(const QList<OAITag> &tags) {
     this->tags = tags;
     this->m_tags_isSet = true;
 }
 
-bool OAILog::is_tags_Set() const{
+bool OAILogTree::is_tags_Set() const{
     return m_tags_isSet;
 }
 
-bool OAILog::is_tags_Valid() const{
+bool OAILogTree::is_tags_Valid() const{
     return m_tags_isValid;
 }
 
-qint64 OAILog::getRootLogId() const {
+qint64 OAILogTree::getRootLogId() const {
     return root_log_id;
 }
-void OAILog::setRootLogId(const qint64 &root_log_id) {
+void OAILogTree::setRootLogId(const qint64 &root_log_id) {
     this->root_log_id = root_log_id;
     this->m_root_log_id_isSet = true;
 }
 
-bool OAILog::is_root_log_id_Set() const{
+bool OAILogTree::is_root_log_id_Set() const{
     return m_root_log_id_isSet;
 }
 
-bool OAILog::is_root_log_id_Valid() const{
+bool OAILogTree::is_root_log_id_Valid() const{
     return m_root_log_id_isValid;
 }
 
-qint64 OAILog::getParentLogId() const {
+qint64 OAILogTree::getParentLogId() const {
     return parent_log_id;
 }
-void OAILog::setParentLogId(const qint64 &parent_log_id) {
+void OAILogTree::setParentLogId(const qint64 &parent_log_id) {
     this->parent_log_id = parent_log_id;
     this->m_parent_log_id_isSet = true;
 }
 
-bool OAILog::is_parent_log_id_Set() const{
+bool OAILogTree::is_parent_log_id_Set() const{
     return m_parent_log_id_isSet;
 }
 
-bool OAILog::is_parent_log_id_Valid() const{
+bool OAILogTree::is_parent_log_id_Valid() const{
     return m_parent_log_id_isValid;
 }
 
-bool OAILog::isSet() const {
+QList<OAILogTree> OAILogTree::getChildren() const {
+    return children;
+}
+void OAILogTree::setChildren(const QList<OAILogTree> &children) {
+    this->children = children;
+    this->m_children_isSet = true;
+}
+
+bool OAILogTree::is_children_Set() const{
+    return m_children_isSet;
+}
+
+bool OAILogTree::is_children_Valid() const{
+    return m_children_isValid;
+}
+
+bool OAILogTree::isSet() const {
     bool isObjectUpdated = false;
     do {
         if (m_id_isSet) {
@@ -358,13 +383,18 @@ bool OAILog::isSet() const {
             isObjectUpdated = true;
             break;
         }
+
+        if (children.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
     } while (false);
     return isObjectUpdated;
 }
 
-bool OAILog::isValid() const {
+bool OAILogTree::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_id_isValid && m_author_id_isValid && m_title_isValid && m_text_isValid && m_creation_time_isValid && m_origin_isValid && m_subtype_isValid && m_tags_isValid && m_root_log_id_isValid && m_parent_log_id_isValid && true;
+    return m_id_isValid && m_author_id_isValid && m_title_isValid && m_text_isValid && m_creation_time_isValid && m_origin_isValid && m_subtype_isValid && m_tags_isValid && m_root_log_id_isValid && m_parent_log_id_isValid && m_children_isValid && true;
 }
 
 } // namespace OpenAPI

@@ -10,13 +10,13 @@
  */
 
 /*
- * OAILog.h
+ * OAILogTree.h
  *
  * Describes an intervention or an event that happened.
  */
 
-#ifndef OAILog_H
-#define OAILog_H
+#ifndef OAILogTree_H
+#define OAILogTree_H
 
 #include <QJsonObject>
 
@@ -31,11 +31,11 @@
 
 namespace OpenAPI {
 
-class OAILog : public OAIObject {
+class OAILogTree : public OAIObject {
 public:
-    OAILog();
-    OAILog(QString json);
-    ~OAILog() override;
+    OAILogTree();
+    OAILogTree(QString json);
+    ~OAILogTree() override;
 
     QString asJson() const override;
     QJsonObject asJsonObject() const override;
@@ -92,6 +92,11 @@ public:
     bool is_parent_log_id_Set() const;
     bool is_parent_log_id_Valid() const;
 
+    QList<OAILogTree> getChildren() const;
+    void setChildren(const QList<OAILogTree> &children);
+    bool is_children_Set() const;
+    bool is_children_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -137,10 +142,14 @@ private:
     qint64 parent_log_id;
     bool m_parent_log_id_isSet;
     bool m_parent_log_id_isValid;
+
+    QList<OAILogTree> children;
+    bool m_children_isSet;
+    bool m_children_isValid;
 };
 
 } // namespace OpenAPI
 
-Q_DECLARE_METATYPE(OpenAPI::OAILog)
+Q_DECLARE_METATYPE(OpenAPI::OAILogTree)
 
-#endif // OAILog_H
+#endif // OAILogTree_H
