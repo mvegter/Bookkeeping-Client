@@ -96,7 +96,7 @@ namespace Org.OpenAPITools.Test
             // TODO uncomment below to test the method and replace null with proper value
             //long logId = null;
             //var response = instance.GetLogTree(logId);
-            //Assert.IsInstanceOf(typeof(LogResponse), response, "response is LogResponse");
+            //Assert.IsInstanceOf(typeof(LogTreeResponse), response, "response is LogTreeResponse");
         }
         
         /// <summary>

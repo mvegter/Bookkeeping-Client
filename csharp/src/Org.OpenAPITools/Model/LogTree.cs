@@ -28,7 +28,7 @@ namespace Org.OpenAPITools.Model
     /// Describes an intervention or an event that happened.
     /// </summary>
     [DataContract]
-    public partial class Log :  IEquatable<Log>, IValidatableObject
+    public partial class LogTree :  IEquatable<LogTree>, IValidatableObject
     {
         /// <summary>
         /// Gets or Sets Origin
@@ -41,12 +41,12 @@ namespace Org.OpenAPITools.Model
         [DataMember(Name="subtype", EmitDefaultValue=true)]
         public LogSubtype Subtype { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="Log" /> class.
+        /// Initializes a new instance of the <see cref="LogTree" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected Log() { }
+        protected LogTree() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="Log" /> class.
+        /// Initializes a new instance of the <see cref="LogTree" /> class.
         /// </summary>
         /// <param name="id">The unique identifier of this entity. (required).</param>
         /// <param name="authorId">Name of the author. (required).</param>
@@ -58,12 +58,13 @@ namespace Org.OpenAPITools.Model
         /// <param name="tags">A list of Tag objects. (required).</param>
         /// <param name="rootLogId">The unique identifier of this entity. (required).</param>
         /// <param name="parentLogId">The unique identifier of this entity. (required).</param>
-        public Log(long id = default(long), string authorId = default(string), string title = default(string), string text = default(string), long creationTime = default(long), LogOrigin origin = default(LogOrigin), LogSubtype subtype = default(LogSubtype), List<Tag> tags = default(List<Tag>), long rootLogId = default(long), long parentLogId = default(long))
+        /// <param name="children">A list of Log tree objects. (required).</param>
+        public LogTree(long id = default(long), string authorId = default(string), string title = default(string), string text = default(string), long creationTime = default(long), LogOrigin origin = default(LogOrigin), LogSubtype subtype = default(LogSubtype), List<Tag> tags = default(List<Tag>), long rootLogId = default(long), long parentLogId = default(long), List<LogTree> children = default(List<LogTree>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
             {
-                throw new InvalidDataException("id is a required property for Log and cannot be null");
+                throw new InvalidDataException("id is a required property for LogTree and cannot be null");
             }
             else
             {
@@ -73,7 +74,7 @@ namespace Org.OpenAPITools.Model
             // to ensure "authorId" is required (not null)
             if (authorId == null)
             {
-                throw new InvalidDataException("authorId is a required property for Log and cannot be null");
+                throw new InvalidDataException("authorId is a required property for LogTree and cannot be null");
             }
             else
             {
@@ -83,7 +84,7 @@ namespace Org.OpenAPITools.Model
             // to ensure "title" is required (not null)
             if (title == null)
             {
-                throw new InvalidDataException("title is a required property for Log and cannot be null");
+                throw new InvalidDataException("title is a required property for LogTree and cannot be null");
             }
             else
             {
@@ -93,7 +94,7 @@ namespace Org.OpenAPITools.Model
             // to ensure "text" is required (not null)
             if (text == null)
             {
-                throw new InvalidDataException("text is a required property for Log and cannot be null");
+                throw new InvalidDataException("text is a required property for LogTree and cannot be null");
             }
             else
             {
@@ -103,7 +104,7 @@ namespace Org.OpenAPITools.Model
             // to ensure "creationTime" is required (not null)
             if (creationTime == null)
             {
-                throw new InvalidDataException("creationTime is a required property for Log and cannot be null");
+                throw new InvalidDataException("creationTime is a required property for LogTree and cannot be null");
             }
             else
             {
@@ -113,7 +114,7 @@ namespace Org.OpenAPITools.Model
             // to ensure "origin" is required (not null)
             if (origin == null)
             {
-                throw new InvalidDataException("origin is a required property for Log and cannot be null");
+                throw new InvalidDataException("origin is a required property for LogTree and cannot be null");
             }
             else
             {
@@ -123,7 +124,7 @@ namespace Org.OpenAPITools.Model
             // to ensure "subtype" is required (not null)
             if (subtype == null)
             {
-                throw new InvalidDataException("subtype is a required property for Log and cannot be null");
+                throw new InvalidDataException("subtype is a required property for LogTree and cannot be null");
             }
             else
             {
@@ -133,7 +134,7 @@ namespace Org.OpenAPITools.Model
             // to ensure "tags" is required (not null)
             if (tags == null)
             {
-                throw new InvalidDataException("tags is a required property for Log and cannot be null");
+                throw new InvalidDataException("tags is a required property for LogTree and cannot be null");
             }
             else
             {
@@ -143,7 +144,7 @@ namespace Org.OpenAPITools.Model
             // to ensure "rootLogId" is required (not null)
             if (rootLogId == null)
             {
-                throw new InvalidDataException("rootLogId is a required property for Log and cannot be null");
+                throw new InvalidDataException("rootLogId is a required property for LogTree and cannot be null");
             }
             else
             {
@@ -153,11 +154,21 @@ namespace Org.OpenAPITools.Model
             // to ensure "parentLogId" is required (not null)
             if (parentLogId == null)
             {
-                throw new InvalidDataException("parentLogId is a required property for Log and cannot be null");
+                throw new InvalidDataException("parentLogId is a required property for LogTree and cannot be null");
             }
             else
             {
                 this.ParentLogId = parentLogId;
+            }
+            
+            // to ensure "children" is required (not null)
+            if (children == null)
+            {
+                throw new InvalidDataException("children is a required property for LogTree and cannot be null");
+            }
+            else
+            {
+                this.Children = children;
             }
             
         }
@@ -221,13 +232,20 @@ namespace Org.OpenAPITools.Model
         public long ParentLogId { get; set; }
 
         /// <summary>
+        /// A list of Log tree objects.
+        /// </summary>
+        /// <value>A list of Log tree objects.</value>
+        [DataMember(Name="children", EmitDefaultValue=true)]
+        public List<LogTree> Children { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Log {\n");
+            sb.Append("class LogTree {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  AuthorId: ").Append(AuthorId).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
@@ -238,6 +256,7 @@ namespace Org.OpenAPITools.Model
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  RootLogId: ").Append(RootLogId).Append("\n");
             sb.Append("  ParentLogId: ").Append(ParentLogId).Append("\n");
+            sb.Append("  Children: ").Append(Children).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -258,15 +277,15 @@ namespace Org.OpenAPITools.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Log);
+            return this.Equals(input as LogTree);
         }
 
         /// <summary>
-        /// Returns true if Log instances are equal
+        /// Returns true if LogTree instances are equal
         /// </summary>
-        /// <param name="input">Instance of Log to be compared</param>
+        /// <param name="input">Instance of LogTree to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Log input)
+        public bool Equals(LogTree input)
         {
             if (input == null)
                 return false;
@@ -322,6 +341,12 @@ namespace Org.OpenAPITools.Model
                     this.ParentLogId == input.ParentLogId ||
                     (this.ParentLogId != null &&
                     this.ParentLogId.Equals(input.ParentLogId))
+                ) && 
+                (
+                    this.Children == input.Children ||
+                    this.Children != null &&
+                    input.Children != null &&
+                    this.Children.SequenceEqual(input.Children)
                 );
         }
 
@@ -354,6 +379,8 @@ namespace Org.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.RootLogId.GetHashCode();
                 if (this.ParentLogId != null)
                     hashCode = hashCode * 59 + this.ParentLogId.GetHashCode();
+                if (this.Children != null)
+                    hashCode = hashCode * 59 + this.Children.GetHashCode();
                 return hashCode;
             }
         }

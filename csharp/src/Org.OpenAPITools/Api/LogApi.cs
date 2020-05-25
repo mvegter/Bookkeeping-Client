@@ -74,8 +74,8 @@ namespace Org.OpenAPITools.Api
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="logId">The id of the log to retrieve</param>
-        /// <returns>LogResponse</returns>
-        LogResponse GetLogTree (long logId);
+        /// <returns>LogTreeResponse</returns>
+        LogTreeResponse GetLogTree (long logId);
 
         /// <summary>
         /// Get the Log tree for a given Log
@@ -85,8 +85,8 @@ namespace Org.OpenAPITools.Api
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="logId">The id of the log to retrieve</param>
-        /// <returns>ApiResponse of LogResponse</returns>
-        ApiResponse<LogResponse> GetLogTreeWithHttpInfo (long logId);
+        /// <returns>ApiResponse of LogTreeResponse</returns>
+        ApiResponse<LogTreeResponse> GetLogTreeWithHttpInfo (long logId);
         /// <summary>
         /// List all logs
         /// </summary>
@@ -185,8 +185,8 @@ namespace Org.OpenAPITools.Api
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="logId">The id of the log to retrieve</param>
-        /// <returns>Task of LogResponse</returns>
-        System.Threading.Tasks.Task<LogResponse> GetLogTreeAsync (long logId);
+        /// <returns>Task of LogTreeResponse</returns>
+        System.Threading.Tasks.Task<LogTreeResponse> GetLogTreeAsync (long logId);
 
         /// <summary>
         /// Get the Log tree for a given Log
@@ -196,8 +196,8 @@ namespace Org.OpenAPITools.Api
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="logId">The id of the log to retrieve</param>
-        /// <returns>Task of ApiResponse (LogResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LogResponse>> GetLogTreeAsyncWithHttpInfo (long logId);
+        /// <returns>Task of ApiResponse (LogTreeResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<LogTreeResponse>> GetLogTreeAsyncWithHttpInfo (long logId);
         /// <summary>
         /// List all logs
         /// </summary>
@@ -662,10 +662,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="logId">The id of the log to retrieve</param>
-        /// <returns>LogResponse</returns>
-        public LogResponse GetLogTree (long logId)
+        /// <returns>LogTreeResponse</returns>
+        public LogTreeResponse GetLogTree (long logId)
         {
-             ApiResponse<LogResponse> localVarResponse = GetLogTreeWithHttpInfo(logId);
+             ApiResponse<LogTreeResponse> localVarResponse = GetLogTreeWithHttpInfo(logId);
              return localVarResponse.Data;
         }
 
@@ -674,8 +674,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="logId">The id of the log to retrieve</param>
-        /// <returns>ApiResponse of LogResponse</returns>
-        public ApiResponse<LogResponse> GetLogTreeWithHttpInfo (long logId)
+        /// <returns>ApiResponse of LogTreeResponse</returns>
+        public ApiResponse<LogTreeResponse> GetLogTreeWithHttpInfo (long logId)
         {
             // verify the required parameter 'logId' is set
             if (logId == null)
@@ -723,9 +723,9 @@ namespace Org.OpenAPITools.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<LogResponse>(localVarStatusCode,
+            return new ApiResponse<LogTreeResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (LogResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LogResponse)));
+                (LogTreeResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LogTreeResponse)));
         }
 
         /// <summary>
@@ -733,10 +733,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="logId">The id of the log to retrieve</param>
-        /// <returns>Task of LogResponse</returns>
-        public async System.Threading.Tasks.Task<LogResponse> GetLogTreeAsync (long logId)
+        /// <returns>Task of LogTreeResponse</returns>
+        public async System.Threading.Tasks.Task<LogTreeResponse> GetLogTreeAsync (long logId)
         {
-             ApiResponse<LogResponse> localVarResponse = await GetLogTreeAsyncWithHttpInfo(logId);
+             ApiResponse<LogTreeResponse> localVarResponse = await GetLogTreeAsyncWithHttpInfo(logId);
              return localVarResponse.Data;
 
         }
@@ -746,8 +746,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="logId">The id of the log to retrieve</param>
-        /// <returns>Task of ApiResponse (LogResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<LogResponse>> GetLogTreeAsyncWithHttpInfo (long logId)
+        /// <returns>Task of ApiResponse (LogTreeResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<LogTreeResponse>> GetLogTreeAsyncWithHttpInfo (long logId)
         {
             // verify the required parameter 'logId' is set
             if (logId == null)
@@ -795,9 +795,9 @@ namespace Org.OpenAPITools.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<LogResponse>(localVarStatusCode,
+            return new ApiResponse<LogTreeResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (LogResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LogResponse)));
+                (LogTreeResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LogTreeResponse)));
         }
 
         /// <summary>
