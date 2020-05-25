@@ -10,13 +10,13 @@
  */
 
 /*
- * Log.h
+ * LogTree.h
  *
  * Describes an intervention or an event that happened.
  */
 
-#ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_Log_H_
-#define ORG_OPENAPITOOLS_CLIENT_MODEL_Log_H_
+#ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_LogTree_H_
+#define ORG_OPENAPITOOLS_CLIENT_MODEL_LogTree_H_
 
 
 #include "../ModelBase.h"
@@ -25,6 +25,7 @@
 #include "Tag.h"
 #include <cpprest/details/basic_types.h>
 #include "LogOrigin.h"
+#include "LogTree.h"
 #include <vector>
 
 namespace org {
@@ -36,12 +37,12 @@ namespace model {
 /// <summary>
 /// Describes an intervention or an event that happened.
 /// </summary>
-class  Log
+class  LogTree
     : public ModelBase
 {
 public:
-    Log();
-    virtual ~Log();
+    LogTree();
+    virtual ~LogTree();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -55,7 +56,7 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// Log members
+    /// LogTree members
 
     /// <summary>
     /// The unique identifier of this entity.
@@ -147,6 +148,15 @@ public:
 
     void setParentLogId(int64_t value);
 
+    /// <summary>
+    /// A list of Log tree objects.
+    /// </summary>
+    std::vector<std::shared_ptr<LogTree>>& getChildren();
+    bool childrenIsSet() const;
+    void unsetChildren();
+
+    void setChildren(const std::vector<std::shared_ptr<LogTree>>& value);
+
 
 protected:
     int64_t m_Id;
@@ -169,6 +179,8 @@ protected:
     bool m_RootLogIdIsSet;
     int64_t m_ParentLogId;
     bool m_ParentLogIdIsSet;
+    std::vector<std::shared_ptr<LogTree>> m_Children;
+    bool m_ChildrenIsSet;
 };
 
 
@@ -177,4 +189,4 @@ protected:
 }
 }
 
-#endif /* ORG_OPENAPITOOLS_CLIENT_MODEL_Log_H_ */
+#endif /* ORG_OPENAPITOOLS_CLIENT_MODEL_LogTree_H_ */

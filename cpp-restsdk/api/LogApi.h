@@ -27,6 +27,7 @@
 #include "Errors.h"
 #include "FilterLogsOptions.h"
 #include "LogResponse.h"
+#include "LogTreeResponse.h"
 #include "PaginationOptions.h"
 #include "SortLogsOptions.h"
 
@@ -77,7 +78,7 @@ public:
     /// 
     /// </remarks>
     /// <param name="logId">The id of the log to retrieve</param>
-    pplx::task<std::shared_ptr<LogResponse>> getLogTree(
+    pplx::task<std::shared_ptr<LogTreeResponse>> getLogTree(
         int64_t logId
     ) const;
     /// <summary>

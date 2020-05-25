@@ -11,7 +11,7 @@
 
 
 
-#include "Log.h"
+#include "LogTree.h"
 
 namespace org {
 namespace openapitools {
@@ -21,7 +21,7 @@ namespace model {
 
 
 
-Log::Log()
+LogTree::LogTree()
 {
     m_Id = 0L;
     m_IdIsSet = false;
@@ -40,18 +40,19 @@ Log::Log()
     m_RootLogIdIsSet = false;
     m_ParentLogId = 0L;
     m_ParentLogIdIsSet = false;
+    m_ChildrenIsSet = false;
 }
 
-Log::~Log()
+LogTree::~LogTree()
 {
 }
 
-void Log::validate()
+void LogTree::validate()
 {
     // TODO: implement validation
 }
 
-web::json::value Log::toJson() const
+web::json::value LogTree::toJson() const
 {
 
     web::json::value val = web::json::value::object();
@@ -96,11 +97,15 @@ web::json::value Log::toJson() const
     {
         val[utility::conversions::to_string_t("parentLogId")] = ModelBase::toJson(m_ParentLogId);
     }
+    if(m_ChildrenIsSet)
+    {
+        val[utility::conversions::to_string_t("children")] = ModelBase::toJson(m_Children);
+    }
 
     return val;
 }
 
-bool Log::fromJson(const web::json::value& val)
+bool LogTree::fromJson(const web::json::value& val)
 {
     bool ok = true;
     
@@ -204,10 +209,20 @@ bool Log::fromJson(const web::json::value& val)
             setParentLogId(refVal_parentLogId);
         }
     }
+    if(val.has_field(utility::conversions::to_string_t("children")))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("children"));
+        if(!fieldValue.is_null())
+        {
+            std::vector<std::shared_ptr<LogTree>> refVal_children;
+            ok &= ModelBase::fromJson(fieldValue, refVal_children);
+            setChildren(refVal_children);
+        }
+    }
     return ok;
 }
 
-void Log::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
+void LogTree::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
 {
     utility::string_t namePrefix = prefix;
     if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t("."))
@@ -254,9 +269,13 @@ void Log::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utilit
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("parentLogId"), m_ParentLogId));
     }
+    if(m_ChildrenIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("children"), m_Children));
+    }
 }
 
-bool Log::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
+bool LogTree::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
 {
     bool ok = true;
     utility::string_t namePrefix = prefix;
@@ -325,208 +344,234 @@ bool Log::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const util
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("parentLogId")), refVal_parentLogId );
         setParentLogId(refVal_parentLogId);
     }
+    if(multipart->hasContent(utility::conversions::to_string_t("children")))
+    {
+        std::vector<std::shared_ptr<LogTree>> refVal_children;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("children")), refVal_children );
+        setChildren(refVal_children);
+    }
     return ok;
 }
 
-int64_t Log::getId() const
+int64_t LogTree::getId() const
 {
     return m_Id;
 }
 
-void Log::setId(int64_t value)
+void LogTree::setId(int64_t value)
 {
     m_Id = value;
     m_IdIsSet = true;
 }
 
-bool Log::idIsSet() const
+bool LogTree::idIsSet() const
 {
     return m_IdIsSet;
 }
 
-void Log::unsetId()
+void LogTree::unsetId()
 {
     m_IdIsSet = false;
 }
-utility::string_t Log::getAuthorId() const
+utility::string_t LogTree::getAuthorId() const
 {
     return m_AuthorId;
 }
 
-void Log::setAuthorId(const utility::string_t& value)
+void LogTree::setAuthorId(const utility::string_t& value)
 {
     m_AuthorId = value;
     m_AuthorIdIsSet = true;
 }
 
-bool Log::authorIdIsSet() const
+bool LogTree::authorIdIsSet() const
 {
     return m_AuthorIdIsSet;
 }
 
-void Log::unsetAuthorId()
+void LogTree::unsetAuthorId()
 {
     m_AuthorIdIsSet = false;
 }
-utility::string_t Log::getTitle() const
+utility::string_t LogTree::getTitle() const
 {
     return m_Title;
 }
 
-void Log::setTitle(const utility::string_t& value)
+void LogTree::setTitle(const utility::string_t& value)
 {
     m_Title = value;
     m_TitleIsSet = true;
 }
 
-bool Log::titleIsSet() const
+bool LogTree::titleIsSet() const
 {
     return m_TitleIsSet;
 }
 
-void Log::unsetTitle()
+void LogTree::unsetTitle()
 {
     m_TitleIsSet = false;
 }
-utility::string_t Log::getText() const
+utility::string_t LogTree::getText() const
 {
     return m_Text;
 }
 
-void Log::setText(const utility::string_t& value)
+void LogTree::setText(const utility::string_t& value)
 {
     m_Text = value;
     m_TextIsSet = true;
 }
 
-bool Log::textIsSet() const
+bool LogTree::textIsSet() const
 {
     return m_TextIsSet;
 }
 
-void Log::unsetText()
+void LogTree::unsetText()
 {
     m_TextIsSet = false;
 }
-int64_t Log::getCreationTime() const
+int64_t LogTree::getCreationTime() const
 {
     return m_CreationTime;
 }
 
-void Log::setCreationTime(int64_t value)
+void LogTree::setCreationTime(int64_t value)
 {
     m_CreationTime = value;
     m_CreationTimeIsSet = true;
 }
 
-bool Log::creationTimeIsSet() const
+bool LogTree::creationTimeIsSet() const
 {
     return m_CreationTimeIsSet;
 }
 
-void Log::unsetCreationTime()
+void LogTree::unsetCreationTime()
 {
     m_CreationTimeIsSet = false;
 }
-std::shared_ptr<LogOrigin> Log::getOrigin() const
+std::shared_ptr<LogOrigin> LogTree::getOrigin() const
 {
     return m_Origin;
 }
 
-void Log::setOrigin(const std::shared_ptr<LogOrigin>& value)
+void LogTree::setOrigin(const std::shared_ptr<LogOrigin>& value)
 {
     m_Origin = value;
     m_OriginIsSet = true;
 }
 
-bool Log::originIsSet() const
+bool LogTree::originIsSet() const
 {
     return m_OriginIsSet;
 }
 
-void Log::unsetOrigin()
+void LogTree::unsetOrigin()
 {
     m_OriginIsSet = false;
 }
-std::shared_ptr<LogSubtype> Log::getSubtype() const
+std::shared_ptr<LogSubtype> LogTree::getSubtype() const
 {
     return m_Subtype;
 }
 
-void Log::setSubtype(const std::shared_ptr<LogSubtype>& value)
+void LogTree::setSubtype(const std::shared_ptr<LogSubtype>& value)
 {
     m_Subtype = value;
     m_SubtypeIsSet = true;
 }
 
-bool Log::subtypeIsSet() const
+bool LogTree::subtypeIsSet() const
 {
     return m_SubtypeIsSet;
 }
 
-void Log::unsetSubtype()
+void LogTree::unsetSubtype()
 {
     m_SubtypeIsSet = false;
 }
-std::vector<std::shared_ptr<Tag>>& Log::getTags()
+std::vector<std::shared_ptr<Tag>>& LogTree::getTags()
 {
     return m_Tags;
 }
 
-void Log::setTags(const std::vector<std::shared_ptr<Tag>>& value)
+void LogTree::setTags(const std::vector<std::shared_ptr<Tag>>& value)
 {
     m_Tags = value;
     m_TagsIsSet = true;
 }
 
-bool Log::tagsIsSet() const
+bool LogTree::tagsIsSet() const
 {
     return m_TagsIsSet;
 }
 
-void Log::unsetTags()
+void LogTree::unsetTags()
 {
     m_TagsIsSet = false;
 }
-int64_t Log::getRootLogId() const
+int64_t LogTree::getRootLogId() const
 {
     return m_RootLogId;
 }
 
-void Log::setRootLogId(int64_t value)
+void LogTree::setRootLogId(int64_t value)
 {
     m_RootLogId = value;
     m_RootLogIdIsSet = true;
 }
 
-bool Log::rootLogIdIsSet() const
+bool LogTree::rootLogIdIsSet() const
 {
     return m_RootLogIdIsSet;
 }
 
-void Log::unsetRootLogId()
+void LogTree::unsetRootLogId()
 {
     m_RootLogIdIsSet = false;
 }
-int64_t Log::getParentLogId() const
+int64_t LogTree::getParentLogId() const
 {
     return m_ParentLogId;
 }
 
-void Log::setParentLogId(int64_t value)
+void LogTree::setParentLogId(int64_t value)
 {
     m_ParentLogId = value;
     m_ParentLogIdIsSet = true;
 }
 
-bool Log::parentLogIdIsSet() const
+bool LogTree::parentLogIdIsSet() const
 {
     return m_ParentLogIdIsSet;
 }
 
-void Log::unsetParentLogId()
+void LogTree::unsetParentLogId()
 {
     m_ParentLogIdIsSet = false;
+}
+std::vector<std::shared_ptr<LogTree>>& LogTree::getChildren()
+{
+    return m_Children;
+}
+
+void LogTree::setChildren(const std::vector<std::shared_ptr<LogTree>>& value)
+{
+    m_Children = value;
+    m_ChildrenIsSet = true;
+}
+
+bool LogTree::childrenIsSet() const
+{
+    return m_ChildrenIsSet;
+}
+
+void LogTree::unsetChildren()
+{
+    m_ChildrenIsSet = false;
 }
 }
 }

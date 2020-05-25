@@ -311,7 +311,7 @@ pplx::task<std::shared_ptr<LogResponse>> LogApi::getLogById(int64_t logId) const
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<LogResponse>> LogApi::getLogTree(int64_t logId) const
+pplx::task<std::shared_ptr<LogTreeResponse>> LogApi::getLogTree(int64_t logId) const
 {
 
 
@@ -417,7 +417,7 @@ pplx::task<std::shared_ptr<LogResponse>> LogApi::getLogTree(int64_t logId) const
     })
     .then([=](utility::string_t localVarResponse)
     {
-        std::shared_ptr<LogResponse> localVarResult(new LogResponse());
+        std::shared_ptr<LogTreeResponse> localVarResult(new LogTreeResponse());
 
         if(localVarResponseHttpContentType == utility::conversions::to_string_t("application/json"))
         {
