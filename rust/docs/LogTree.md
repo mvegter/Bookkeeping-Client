@@ -1,4 +1,4 @@
-# Log
+# LogTree
 
 ## Properties
 
@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **tags** | [**Vec<crate::models::Tag>**](Tag.md) | A list of Tag objects. | 
 **root_log_id** | **i64** | The unique identifier of this entity. | 
 **parent_log_id** | **i64** | The unique identifier of this entity. | 
+**children** | [**Vec<crate::models::LogTree>**](LogTree.md) | A list of Log tree objects. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
