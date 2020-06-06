@@ -39,6 +39,10 @@ Class | Method | HTTP request | Description
 *LogApi* | [**GetLogTree**](docs/LogApi.md#getlogtree) | **Get** /logs/{logId}/tree | Get the Log tree for a given Log
 *LogApi* | [**ListLogs**](docs/LogApi.md#listlogs) | **Get** /logs | List all logs
 *LogApi* | [**ListTagsByLogId**](docs/LogApi.md#listtagsbylogid) | **Get** /logs/{logId}/tags | Lists all tags associated with a log
+*SubsystemApi* | [**CreateSubsystem**](docs/SubsystemApi.md#createsubsystem) | **Post** /subsystems | Adds a new subsystem
+*SubsystemApi* | [**DeleteSubsystem**](docs/SubsystemApi.md#deletesubsystem) | **Delete** /subsystems/{subsystemId} | Deletes a subsystem by Id
+*SubsystemApi* | [**GetSubsystem**](docs/SubsystemApi.md#getsubsystem) | **Get** /subsystems/{subsystemId} | Get a subsystem by Id
+*SubsystemApi* | [**ListSubsystems**](docs/SubsystemApi.md#listsubsystems) | **Get** /subsystems | List all subsystems
 *TagApi* | [**CreateTag**](docs/TagApi.md#createtag) | **Post** /tags | Adds a new tag
 *TagApi* | [**DeleteTagById**](docs/TagApi.md#deletetagbyid) | **Delete** /tags/{tagId} | Deletes a tag by Id
 *TagApi* | [**GetLogsByTagId**](docs/TagApi.md#getlogsbytagid) | **Get** /tags/{tagId}/logs | Gets all logs with this tag id
@@ -51,8 +55,11 @@ Class | Method | HTTP request | Description
  - [ApiInformation](docs/ApiInformation.md)
  - [ArrayOfLogsResponse](docs/ArrayOfLogsResponse.md)
  - [ArrayOfLogsResponseMeta](docs/ArrayOfLogsResponseMeta.md)
+ - [ArrayOfSubsystemsResponse](docs/ArrayOfSubsystemsResponse.md)
+ - [ArrayOfSubsystemsResponseMeta](docs/ArrayOfSubsystemsResponseMeta.md)
  - [ArrayOfTagsResponse](docs/ArrayOfTagsResponse.md)
  - [CreateLog](docs/CreateLog.md)
+ - [CreateSubsystem](docs/CreateSubsystem.md)
  - [CreateTag](docs/CreateTag.md)
  - [DeployInformation](docs/DeployInformation.md)
  - [Error](docs/Error.md)
@@ -70,6 +77,8 @@ Class | Method | HTTP request | Description
  - [PaginationOptions](docs/PaginationOptions.md)
  - [SortLogsOptions](docs/SortLogsOptions.md)
  - [SortOrder](docs/SortOrder.md)
+ - [Subsystem](docs/Subsystem.md)
+ - [SubsystemResponse](docs/SubsystemResponse.md)
  - [Tag](docs/Tag.md)
  - [TagResponse](docs/TagResponse.md)
 

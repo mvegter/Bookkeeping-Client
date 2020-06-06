@@ -116,6 +116,10 @@ Class | Method | HTTP request | Description
 *LogApi* | [**GetLogTree**](docs/LogApi.md#getlogtree) | **GET** /logs/{logId}/tree | Get the Log tree for a given Log
 *LogApi* | [**ListLogs**](docs/LogApi.md#listlogs) | **GET** /logs | List all logs
 *LogApi* | [**ListTagsByLogId**](docs/LogApi.md#listtagsbylogid) | **GET** /logs/{logId}/tags | Lists all tags associated with a log
+*SubsystemApi* | [**CreateSubsystem**](docs/SubsystemApi.md#createsubsystem) | **POST** /subsystems | Adds a new subsystem
+*SubsystemApi* | [**DeleteSubsystem**](docs/SubsystemApi.md#deletesubsystem) | **DELETE** /subsystems/{subsystemId} | Deletes a subsystem by Id
+*SubsystemApi* | [**GetSubsystem**](docs/SubsystemApi.md#getsubsystem) | **GET** /subsystems/{subsystemId} | Get a subsystem by Id
+*SubsystemApi* | [**ListSubsystems**](docs/SubsystemApi.md#listsubsystems) | **GET** /subsystems | List all subsystems
 *TagApi* | [**CreateTag**](docs/TagApi.md#createtag) | **POST** /tags | Adds a new tag
 *TagApi* | [**DeleteTagById**](docs/TagApi.md#deletetagbyid) | **DELETE** /tags/{tagId} | Deletes a tag by Id
 *TagApi* | [**GetLogsByTagId**](docs/TagApi.md#getlogsbytagid) | **GET** /tags/{tagId}/logs | Gets all logs with this tag id
@@ -128,8 +132,11 @@ Class | Method | HTTP request | Description
  - [Model.ApiInformation](docs/ApiInformation.md)
  - [Model.ArrayOfLogsResponse](docs/ArrayOfLogsResponse.md)
  - [Model.ArrayOfLogsResponseMeta](docs/ArrayOfLogsResponseMeta.md)
+ - [Model.ArrayOfSubsystemsResponse](docs/ArrayOfSubsystemsResponse.md)
+ - [Model.ArrayOfSubsystemsResponseMeta](docs/ArrayOfSubsystemsResponseMeta.md)
  - [Model.ArrayOfTagsResponse](docs/ArrayOfTagsResponse.md)
  - [Model.CreateLog](docs/CreateLog.md)
+ - [Model.CreateSubsystem](docs/CreateSubsystem.md)
  - [Model.CreateTag](docs/CreateTag.md)
  - [Model.DeployInformation](docs/DeployInformation.md)
  - [Model.Error](docs/Error.md)
@@ -147,6 +154,8 @@ Class | Method | HTTP request | Description
  - [Model.PaginationOptions](docs/PaginationOptions.md)
  - [Model.SortLogsOptions](docs/SortLogsOptions.md)
  - [Model.SortOrder](docs/SortOrder.md)
+ - [Model.Subsystem](docs/Subsystem.md)
+ - [Model.SubsystemResponse](docs/SubsystemResponse.md)
  - [Model.Tag](docs/Tag.md)
  - [Model.TagResponse](docs/TagResponse.md)
 

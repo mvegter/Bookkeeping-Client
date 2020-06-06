@@ -248,6 +248,156 @@ paths:
           description: Unexpected Error
       summary: Get deploy information
       x-accepts: application/json
+  /subsystems:
+    get:
+      operationId: listSubsystems
+      parameters:
+      - description: Specifies the pagination requirements.
+        explode: false
+        in: query
+        name: page
+        required: false
+        schema:
+          $ref: '#/components/schemas/PaginationOptions'
+        style: deepObject
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfSubsystemsResponse'
+          description: Expected response to a valid request.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Bad Request
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Unexpected Error
+      summary: List all subsystems
+      tags:
+      - subsystem
+      x-accepts: application/json
+    post:
+      operationId: createSubsystem
+      requestBody:
+        $ref: '#/components/requestBodies/CreateSubsystem'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubsystemResponse'
+          description: Expected response to a valid request.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Bad Request
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Conflict
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Unexpected Error
+      summary: Adds a new subsystem
+      tags:
+      - subsystem
+      x-contentType: application/json
+      x-accepts: application/json
+  /subsystems/{subsystemId}:
+    delete:
+      operationId: deleteSubsystem
+      parameters:
+      - description: The id of the subsystem to retrieve
+        explode: false
+        in: path
+        name: subsystemId
+        required: true
+        schema:
+          $ref: '#/components/schemas/EntityId'
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubsystemResponse'
+          description: Expected response to a valid request.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Unexpected Error
+      summary: Deletes a subsystem by Id
+      tags:
+      - subsystem
+      x-accepts: application/json
+    get:
+      operationId: getSubsystem
+      parameters:
+      - description: The id of the subsystem to retrieve
+        explode: false
+        in: path
+        name: subsystemId
+        required: true
+        schema:
+          $ref: '#/components/schemas/EntityId'
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubsystemResponse'
+          description: Expected response to a valid request.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Not Found
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+          description: Unexpected Error
+      summary: Get a subsystem by Id
+      tags:
+      - subsystem
+      x-accepts: application/json
   /tags:
     get:
       operationId: listTags
@@ -477,6 +627,15 @@ components:
       schema:
         $ref: '#/components/schemas/SortLogsOptions'
       style: deepObject
+    SubsystemId:
+      description: The id of the subsystem to retrieve
+      explode: false
+      in: path
+      name: subsystemId
+      required: true
+      schema:
+        $ref: '#/components/schemas/EntityId'
+      style: simple
     TagId:
       description: The id of the tag to retrieve
       explode: false
@@ -493,6 +652,12 @@ components:
           schema:
             $ref: '#/components/schemas/CreateLog'
       required: true
+    CreateSubsystem:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CreateSubsystem'
+      required: true
     CreateTag:
       content:
         application/json:
@@ -505,6 +670,12 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ArrayOfLogsResponse'
+      description: Expected response to a valid request.
+    ArrayOfSubsystems:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ArrayOfSubsystemsResponse'
       description: Expected response to a valid request.
     ArrayOfTags:
       content:
@@ -548,6 +719,12 @@ components:
           schema:
             $ref: '#/components/schemas/Errors'
       description: Service Unavailable
+    Subsystem:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SubsystemResponse'
+      description: Expected response to a valid request.
     Tag:
       content:
         application/json:
@@ -653,6 +830,52 @@ components:
       required:
       - page
       type: object
+    ArrayOfSubsystems:
+      description: A list of Subsystem objects.
+      items:
+        $ref: '#/components/schemas/Subsystem'
+      type: array
+    ArrayOfSubsystemsResponseMeta:
+      additionalProperties: false
+      description: The metadata related to an array of logs response.
+      example:
+        page:
+          pageCount: 0
+          totalCount: 0
+      properties:
+        page:
+          $ref: '#/components/schemas/PaginationMeta'
+      required:
+      - page
+      type: object
+    ArrayOfSubsystemsResponse:
+      additionalProperties: false
+      description: Response containing multiple subsystems.
+      example:
+        data:
+        - createdAt: createdAt
+          updateAt: updateAt
+          id: 1
+          text: text
+        - createdAt: createdAt
+          updateAt: updateAt
+          id: 1
+          text: text
+        meta:
+          page:
+            pageCount: 0
+            totalCount: 0
+      properties:
+        meta:
+          $ref: '#/components/schemas/ArrayOfSubsystemsResponseMeta'
+        data:
+          description: A list of Subsystem objects.
+          items:
+            $ref: '#/components/schemas/Subsystem'
+          type: array
+      required:
+      - data
+      type: object
     ArrayOfTags:
       description: A list of Tag objects.
       items:
@@ -716,6 +939,18 @@ components:
       required:
       - text
       - title
+      type: object
+    CreateSubsystem:
+      additionalProperties: false
+      description: A label attached to something for the purpose of identification.
+      example:
+        text: text
+      properties:
+        text:
+          description: The label value of the subsystem.
+          type: string
+      required:
+      - text
       type: object
     CreateTag:
       additionalProperties: false
@@ -1129,6 +1364,48 @@ components:
       - asc
       - desc
       type: string
+    Subsystem:
+      additionalProperties: false
+      description: A label attached to something for the purpose of identification.
+      example:
+        createdAt: createdAt
+        updateAt: updateAt
+        id: 1
+        text: text
+      properties:
+        id:
+          description: The unique identifier of this entity.
+          format: int64
+          minimum: 1
+          type: integer
+        text:
+          description: The label value of the subsystem.
+          type: string
+        createdAt:
+          description: Date when the subsystem was created.
+          type: string
+        updateAt:
+          description: Date when the subsystem was last updated.
+          type: string
+      required:
+      - id
+      - text
+      type: object
+    SubsystemResponse:
+      additionalProperties: false
+      description: Response containing a single subsystem.
+      example:
+        data:
+          createdAt: createdAt
+          updateAt: updateAt
+          id: 1
+          text: text
+      properties:
+        data:
+          $ref: '#/components/schemas/Subsystem'
+      required:
+      - data
+      type: object
     Tag:
       additionalProperties: false
       description: A label attached to something for the purpose of identification.

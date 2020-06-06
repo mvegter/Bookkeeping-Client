@@ -52,6 +52,8 @@ type APIClient struct {
 
 	LogApi *LogApiService
 
+	SubsystemApi *SubsystemApiService
+
 	TagApi *TagApiService
 }
 
@@ -73,6 +75,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	// API Services
 	c.DefaultApi = (*DefaultApiService)(&c.common)
 	c.LogApi = (*LogApiService)(&c.common)
+	c.SubsystemApi = (*SubsystemApiService)(&c.common)
 	c.TagApi = (*TagApiService)(&c.common)
 
 	return c

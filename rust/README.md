@@ -31,6 +31,10 @@ Class | Method | HTTP request | Description
 *LogApi* | [**get_log_tree**](docs/LogApi.md#get_log_tree) | **Get** /logs/{logId}/tree | Get the Log tree for a given Log
 *LogApi* | [**list_logs**](docs/LogApi.md#list_logs) | **Get** /logs | List all logs
 *LogApi* | [**list_tags_by_log_id**](docs/LogApi.md#list_tags_by_log_id) | **Get** /logs/{logId}/tags | Lists all tags associated with a log
+*SubsystemApi* | [**create_subsystem**](docs/SubsystemApi.md#create_subsystem) | **Post** /subsystems | Adds a new subsystem
+*SubsystemApi* | [**delete_subsystem**](docs/SubsystemApi.md#delete_subsystem) | **Delete** /subsystems/{subsystemId} | Deletes a subsystem by Id
+*SubsystemApi* | [**get_subsystem**](docs/SubsystemApi.md#get_subsystem) | **Get** /subsystems/{subsystemId} | Get a subsystem by Id
+*SubsystemApi* | [**list_subsystems**](docs/SubsystemApi.md#list_subsystems) | **Get** /subsystems | List all subsystems
 *TagApi* | [**create_tag**](docs/TagApi.md#create_tag) | **Post** /tags | Adds a new tag
 *TagApi* | [**delete_tag_by_id**](docs/TagApi.md#delete_tag_by_id) | **Delete** /tags/{tagId} | Deletes a tag by Id
 *TagApi* | [**get_logs_by_tag_id**](docs/TagApi.md#get_logs_by_tag_id) | **Get** /tags/{tagId}/logs | Gets all logs with this tag id
@@ -43,8 +47,11 @@ Class | Method | HTTP request | Description
  - [ApiInformation](docs/ApiInformation.md)
  - [ArrayOfLogsResponse](docs/ArrayOfLogsResponse.md)
  - [ArrayOfLogsResponseMeta](docs/ArrayOfLogsResponseMeta.md)
+ - [ArrayOfSubsystemsResponse](docs/ArrayOfSubsystemsResponse.md)
+ - [ArrayOfSubsystemsResponseMeta](docs/ArrayOfSubsystemsResponseMeta.md)
  - [ArrayOfTagsResponse](docs/ArrayOfTagsResponse.md)
  - [CreateLog](docs/CreateLog.md)
+ - [CreateSubsystem](docs/CreateSubsystem.md)
  - [CreateTag](docs/CreateTag.md)
  - [DeployInformation](docs/DeployInformation.md)
  - [Error](docs/Error.md)
@@ -62,6 +69,8 @@ Class | Method | HTTP request | Description
  - [PaginationOptions](docs/PaginationOptions.md)
  - [SortLogsOptions](docs/SortLogsOptions.md)
  - [SortOrder](docs/SortOrder.md)
+ - [Subsystem](docs/Subsystem.md)
+ - [SubsystemResponse](docs/SubsystemResponse.md)
  - [Tag](docs/Tag.md)
  - [TagResponse](docs/TagResponse.md)
 

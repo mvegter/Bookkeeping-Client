@@ -29,7 +29,7 @@ import org.openapitools.client.model.LogTree;
  * Response containing a single log tree.
  */
 @ApiModel(description = "Response containing a single log tree.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-06T15:47:20.423+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-06T17:07:38.845+01:00[Europe/London]")
 public class LogTreeResponse {
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
