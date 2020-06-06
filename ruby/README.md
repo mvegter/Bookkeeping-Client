@@ -89,6 +89,10 @@ Class | Method | HTTP request | Description
 *OpenapiClient::LogApi* | [**get_log_tree**](docs/LogApi.md#get_log_tree) | **GET** /logs/{logId}/tree | Get the Log tree for a given Log
 *OpenapiClient::LogApi* | [**list_logs**](docs/LogApi.md#list_logs) | **GET** /logs | List all logs
 *OpenapiClient::LogApi* | [**list_tags_by_log_id**](docs/LogApi.md#list_tags_by_log_id) | **GET** /logs/{logId}/tags | Lists all tags associated with a log
+*OpenapiClient::SubsystemApi* | [**create_subsystem**](docs/SubsystemApi.md#create_subsystem) | **POST** /subsystems | Adds a new subsystem
+*OpenapiClient::SubsystemApi* | [**delete_subsystem**](docs/SubsystemApi.md#delete_subsystem) | **DELETE** /subsystems/{subsystemId} | Deletes a subsystem by Id
+*OpenapiClient::SubsystemApi* | [**get_subsystem**](docs/SubsystemApi.md#get_subsystem) | **GET** /subsystems/{subsystemId} | Get a subsystem by Id
+*OpenapiClient::SubsystemApi* | [**list_subsystems**](docs/SubsystemApi.md#list_subsystems) | **GET** /subsystems | List all subsystems
 *OpenapiClient::TagApi* | [**create_tag**](docs/TagApi.md#create_tag) | **POST** /tags | Adds a new tag
 *OpenapiClient::TagApi* | [**delete_tag_by_id**](docs/TagApi.md#delete_tag_by_id) | **DELETE** /tags/{tagId} | Deletes a tag by Id
 *OpenapiClient::TagApi* | [**get_logs_by_tag_id**](docs/TagApi.md#get_logs_by_tag_id) | **GET** /tags/{tagId}/logs | Gets all logs with this tag id
@@ -101,8 +105,11 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::ApiInformation](docs/ApiInformation.md)
  - [OpenapiClient::ArrayOfLogsResponse](docs/ArrayOfLogsResponse.md)
  - [OpenapiClient::ArrayOfLogsResponseMeta](docs/ArrayOfLogsResponseMeta.md)
+ - [OpenapiClient::ArrayOfSubsystemsResponse](docs/ArrayOfSubsystemsResponse.md)
+ - [OpenapiClient::ArrayOfSubsystemsResponseMeta](docs/ArrayOfSubsystemsResponseMeta.md)
  - [OpenapiClient::ArrayOfTagsResponse](docs/ArrayOfTagsResponse.md)
  - [OpenapiClient::CreateLog](docs/CreateLog.md)
+ - [OpenapiClient::CreateSubsystem](docs/CreateSubsystem.md)
  - [OpenapiClient::CreateTag](docs/CreateTag.md)
  - [OpenapiClient::DeployInformation](docs/DeployInformation.md)
  - [OpenapiClient::Error](docs/Error.md)
@@ -120,6 +127,8 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::PaginationOptions](docs/PaginationOptions.md)
  - [OpenapiClient::SortLogsOptions](docs/SortLogsOptions.md)
  - [OpenapiClient::SortOrder](docs/SortOrder.md)
+ - [OpenapiClient::Subsystem](docs/Subsystem.md)
+ - [OpenapiClient::SubsystemResponse](docs/SubsystemResponse.md)
  - [OpenapiClient::Tag](docs/Tag.md)
  - [OpenapiClient::TagResponse](docs/TagResponse.md)
 
