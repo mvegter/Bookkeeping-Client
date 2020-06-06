@@ -28,6 +28,7 @@ FilterLogsOptions::FilterLogsOptions()
     m_ParentLogIsSet = false;
     m_RootLog = 0L;
     m_RootLogIsSet = false;
+    m_TagIsSet = false;
 }
 
 FilterLogsOptions::~FilterLogsOptions()
@@ -55,6 +56,10 @@ web::json::value FilterLogsOptions::toJson() const
     if(m_RootLogIsSet)
     {
         val[utility::conversions::to_string_t("rootLog")] = ModelBase::toJson(m_RootLog);
+    }
+    if(m_TagIsSet)
+    {
+        val[utility::conversions::to_string_t("tag")] = ModelBase::toJson(m_Tag);
     }
 
     return val;
@@ -94,6 +99,16 @@ bool FilterLogsOptions::fromJson(const web::json::value& val)
             setRootLog(refVal_rootLog);
         }
     }
+    if(val.has_field(utility::conversions::to_string_t("tag")))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("tag"));
+        if(!fieldValue.is_null())
+        {
+            std::shared_ptr<FilterLogsTagOptions> refVal_tag;
+            ok &= ModelBase::fromJson(fieldValue, refVal_tag);
+            setTag(refVal_tag);
+        }
+    }
     return ok;
 }
 
@@ -115,6 +130,10 @@ void FilterLogsOptions::toMultipart(std::shared_ptr<MultipartFormData> multipart
     if(m_RootLogIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("rootLog"), m_RootLog));
+    }
+    if(m_TagIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("tag"), m_Tag));
     }
 }
 
@@ -144,6 +163,12 @@ bool FilterLogsOptions::fromMultiPart(std::shared_ptr<MultipartFormData> multipa
         int64_t refVal_rootLog;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("rootLog")), refVal_rootLog );
         setRootLog(refVal_rootLog);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("tag")))
+    {
+        std::shared_ptr<FilterLogsTagOptions> refVal_tag;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("tag")), refVal_tag );
+        setTag(refVal_tag);
     }
     return ok;
 }
@@ -207,6 +232,26 @@ bool FilterLogsOptions::rootLogIsSet() const
 void FilterLogsOptions::unsetRootLog()
 {
     m_RootLogIsSet = false;
+}
+std::shared_ptr<FilterLogsTagOptions> FilterLogsOptions::getTag() const
+{
+    return m_Tag;
+}
+
+void FilterLogsOptions::setTag(const std::shared_ptr<FilterLogsTagOptions>& value)
+{
+    m_Tag = value;
+    m_TagIsSet = true;
+}
+
+bool FilterLogsOptions::tagIsSet() const
+{
+    return m_TagIsSet;
+}
+
+void FilterLogsOptions::unsetTag()
+{
+    m_TagIsSet = false;
 }
 }
 }
