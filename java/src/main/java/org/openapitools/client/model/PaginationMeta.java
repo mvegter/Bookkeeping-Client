@@ -28,7 +28,7 @@ import java.io.IOException;
  * The metadata related to pagination.
  */
 @ApiModel(description = "The metadata related to pagination.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-06T10:57:52.187+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-06T12:22:38.956+01:00[Europe/London]")
 public class PaginationMeta {
   public static final String SERIALIZED_NAME_PAGE_COUNT = "pageCount";
   @SerializedName(SERIALIZED_NAME_PAGE_COUNT)

@@ -20,12 +20,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiInformation'
           description: API information
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Errors'
-          description: Service Unavailable
         default:
           content:
             application/json:
@@ -74,12 +68,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
           description: Bad Request
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Errors'
-          description: Service Unavailable
         default:
           content:
             application/json:
@@ -106,12 +94,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
           description: Bad Request
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Errors'
-          description: Service Unavailable
         default:
           content:
             application/json:
@@ -152,12 +134,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
           description: Not Found
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Errors'
-          description: Service Unavailable
         default:
           content:
             application/json:
@@ -198,12 +174,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
           description: Not Found
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Errors'
-          description: Service Unavailable
         default:
           content:
             application/json:
@@ -244,12 +214,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
           description: Not Found
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Errors'
-          description: Service Unavailable
         default:
           content:
             application/json:
@@ -269,12 +233,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/DeployInformation'
           description: Deploy information
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Errors'
-          description: Service Unavailable
         default:
           content:
             application/json:
@@ -307,12 +265,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
           description: Bad Request
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Errors'
-          description: Service Unavailable
         default:
           content:
             application/json:
@@ -345,12 +297,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
           description: Conflict
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Errors'
-          description: Service Unavailable
         default:
           content:
             application/json:
@@ -391,12 +337,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
           description: Not Found
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Errors'
-          description: Service Unavailable
         default:
           content:
             application/json:
@@ -436,12 +376,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
           description: Not Found
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Errors'
-          description: Service Unavailable
         default:
           content:
             application/json:
@@ -482,12 +416,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
           description: Not Found
-        "503":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Errors'
-          description: Service Unavailable
         default:
           content:
             application/json:

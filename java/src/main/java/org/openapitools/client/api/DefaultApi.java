@@ -65,7 +65,6 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Deploy information </td><td>  -  </td></tr>
-        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
@@ -116,7 +115,6 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Deploy information </td><td>  -  </td></tr>
-        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
@@ -134,7 +132,6 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Deploy information </td><td>  -  </td></tr>
-        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
@@ -154,7 +151,6 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Deploy information </td><td>  -  </td></tr>
-        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
@@ -174,7 +170,6 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> API information </td><td>  -  </td></tr>
-        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
@@ -225,7 +220,6 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> API information </td><td>  -  </td></tr>
-        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
@@ -243,7 +237,6 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> API information </td><td>  -  </td></tr>
-        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
@@ -263,7 +256,6 @@ public class DefaultApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> API information </td><td>  -  </td></tr>
-        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
         <tr><td> 0 </td><td> Unexpected Error </td><td>  -  </td></tr>
      </table>
      */
