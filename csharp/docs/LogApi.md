@@ -84,7 +84,6 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **201** | Expected response to a valid request. |  -  |
 | **400** | Bad Request |  -  |
-| **503** | Service Unavailable |  -  |
 | **0** | Unexpected Error |  -  |
 
 [[Back to top]](#)
@@ -166,7 +165,6 @@ Name | Type | Description  | Notes
 | **200** | Expected response to a valid request. |  -  |
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
-| **503** | Service Unavailable |  -  |
 | **0** | Unexpected Error |  -  |
 
 [[Back to top]](#)
@@ -248,7 +246,6 @@ Name | Type | Description  | Notes
 | **200** | Expected response to a valid request. |  -  |
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
-| **503** | Service Unavailable |  -  |
 | **0** | Unexpected Error |  -  |
 
 [[Back to top]](#)
@@ -333,7 +330,6 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | Expected response to a valid request. |  -  |
 | **400** | Bad Request |  -  |
-| **503** | Service Unavailable |  -  |
 | **0** | Unexpected Error |  -  |
 
 [[Back to top]](#)
@@ -415,7 +411,6 @@ Name | Type | Description  | Notes
 | **200** | Expected response to a valid request. |  -  |
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
-| **503** | Service Unavailable |  -  |
 | **0** | Unexpected Error |  -  |
 
 [[Back to top]](#)
