@@ -23,20 +23,20 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.openapitools.client.model.Log;
+import org.openapitools.client.model.Subsystem;
 
 /**
- * Response containing a single log.
+ * Response containing a single subsystem.
  */
-@ApiModel(description = "Response containing a single log.")
+@ApiModel(description = "Response containing a single subsystem.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-06T17:07:38.845+01:00[Europe/London]")
-public class LogResponse {
+public class SubsystemResponse {
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
-  private Log data;
+  private Subsystem data;
 
 
-  public LogResponse data(Log data) {
+  public SubsystemResponse data(Subsystem data) {
     
     this.data = data;
     return this;
@@ -48,12 +48,12 @@ public class LogResponse {
   **/
   @ApiModelProperty(required = true, value = "")
 
-  public Log getData() {
+  public Subsystem getData() {
     return data;
   }
 
 
-  public void setData(Log data) {
+  public void setData(Subsystem data) {
     this.data = data;
   }
 
@@ -66,8 +66,8 @@ public class LogResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LogResponse logResponse = (LogResponse) o;
-    return Objects.equals(this.data, logResponse.data);
+    SubsystemResponse subsystemResponse = (SubsystemResponse) o;
+    return Objects.equals(this.data, subsystemResponse.data);
   }
 
   @Override
@@ -79,7 +79,7 @@ public class LogResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LogResponse {\n");
+    sb.append("class SubsystemResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();

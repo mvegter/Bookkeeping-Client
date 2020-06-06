@@ -23,38 +23,38 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.openapitools.client.model.Log;
+import org.openapitools.client.model.PaginationMeta;
 
 /**
- * Response containing a single log.
+ * The metadata related to an array of logs response.
  */
-@ApiModel(description = "Response containing a single log.")
+@ApiModel(description = "The metadata related to an array of logs response.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-06T17:07:38.845+01:00[Europe/London]")
-public class LogResponse {
-  public static final String SERIALIZED_NAME_DATA = "data";
-  @SerializedName(SERIALIZED_NAME_DATA)
-  private Log data;
+public class ArrayOfSubsystemsResponseMeta {
+  public static final String SERIALIZED_NAME_PAGE = "page";
+  @SerializedName(SERIALIZED_NAME_PAGE)
+  private PaginationMeta page;
 
 
-  public LogResponse data(Log data) {
+  public ArrayOfSubsystemsResponseMeta page(PaginationMeta page) {
     
-    this.data = data;
+    this.page = page;
     return this;
   }
 
    /**
-   * Get data
-   * @return data
+   * Get page
+   * @return page
   **/
   @ApiModelProperty(required = true, value = "")
 
-  public Log getData() {
-    return data;
+  public PaginationMeta getPage() {
+    return page;
   }
 
 
-  public void setData(Log data) {
-    this.data = data;
+  public void setPage(PaginationMeta page) {
+    this.page = page;
   }
 
 
@@ -66,21 +66,21 @@ public class LogResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LogResponse logResponse = (LogResponse) o;
-    return Objects.equals(this.data, logResponse.data);
+    ArrayOfSubsystemsResponseMeta arrayOfSubsystemsResponseMeta = (ArrayOfSubsystemsResponseMeta) o;
+    return Objects.equals(this.page, arrayOfSubsystemsResponseMeta.page);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(page);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LogResponse {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class ArrayOfSubsystemsResponseMeta {\n");
+    sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("}");
     return sb.toString();
   }

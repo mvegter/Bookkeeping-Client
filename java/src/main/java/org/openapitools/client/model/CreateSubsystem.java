@@ -23,38 +23,37 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.openapitools.client.model.Log;
 
 /**
- * Response containing a single log.
+ * A label attached to something for the purpose of identification.
  */
-@ApiModel(description = "Response containing a single log.")
+@ApiModel(description = "A label attached to something for the purpose of identification.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-06T17:07:38.845+01:00[Europe/London]")
-public class LogResponse {
-  public static final String SERIALIZED_NAME_DATA = "data";
-  @SerializedName(SERIALIZED_NAME_DATA)
-  private Log data;
+public class CreateSubsystem {
+  public static final String SERIALIZED_NAME_TEXT = "text";
+  @SerializedName(SERIALIZED_NAME_TEXT)
+  private String text;
 
 
-  public LogResponse data(Log data) {
+  public CreateSubsystem text(String text) {
     
-    this.data = data;
+    this.text = text;
     return this;
   }
 
    /**
-   * Get data
-   * @return data
+   * The label value of the subsystem.
+   * @return text
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The label value of the subsystem.")
 
-  public Log getData() {
-    return data;
+  public String getText() {
+    return text;
   }
 
 
-  public void setData(Log data) {
-    this.data = data;
+  public void setText(String text) {
+    this.text = text;
   }
 
 
@@ -66,21 +65,21 @@ public class LogResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LogResponse logResponse = (LogResponse) o;
-    return Objects.equals(this.data, logResponse.data);
+    CreateSubsystem createSubsystem = (CreateSubsystem) o;
+    return Objects.equals(this.text, createSubsystem.text);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(text);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LogResponse {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class CreateSubsystem {\n");
+    sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("}");
     return sb.toString();
   }

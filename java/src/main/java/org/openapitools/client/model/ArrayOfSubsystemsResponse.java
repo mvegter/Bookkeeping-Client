@@ -23,37 +23,72 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.openapitools.client.model.Log;
+import java.util.ArrayList;
+import java.util.List;
+import org.openapitools.client.model.ArrayOfSubsystemsResponseMeta;
+import org.openapitools.client.model.Subsystem;
 
 /**
- * Response containing a single log.
+ * Response containing multiple subsystems.
  */
-@ApiModel(description = "Response containing a single log.")
+@ApiModel(description = "Response containing multiple subsystems.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-06T17:07:38.845+01:00[Europe/London]")
-public class LogResponse {
+public class ArrayOfSubsystemsResponse {
+  public static final String SERIALIZED_NAME_META = "meta";
+  @SerializedName(SERIALIZED_NAME_META)
+  private ArrayOfSubsystemsResponseMeta meta;
+
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
-  private Log data;
+  private List<Subsystem> data = new ArrayList<Subsystem>();
 
 
-  public LogResponse data(Log data) {
+  public ArrayOfSubsystemsResponse meta(ArrayOfSubsystemsResponseMeta meta) {
+    
+    this.meta = meta;
+    return this;
+  }
+
+   /**
+   * Get meta
+   * @return meta
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ArrayOfSubsystemsResponseMeta getMeta() {
+    return meta;
+  }
+
+
+  public void setMeta(ArrayOfSubsystemsResponseMeta meta) {
+    this.meta = meta;
+  }
+
+
+  public ArrayOfSubsystemsResponse data(List<Subsystem> data) {
     
     this.data = data;
     return this;
   }
 
+  public ArrayOfSubsystemsResponse addDataItem(Subsystem dataItem) {
+    this.data.add(dataItem);
+    return this;
+  }
+
    /**
-   * Get data
+   * A list of Subsystem objects.
    * @return data
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "A list of Subsystem objects.")
 
-  public Log getData() {
+  public List<Subsystem> getData() {
     return data;
   }
 
 
-  public void setData(Log data) {
+  public void setData(List<Subsystem> data) {
     this.data = data;
   }
 
@@ -66,20 +101,22 @@ public class LogResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LogResponse logResponse = (LogResponse) o;
-    return Objects.equals(this.data, logResponse.data);
+    ArrayOfSubsystemsResponse arrayOfSubsystemsResponse = (ArrayOfSubsystemsResponse) o;
+    return Objects.equals(this.meta, arrayOfSubsystemsResponse.meta) &&
+        Objects.equals(this.data, arrayOfSubsystemsResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(meta, data);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LogResponse {\n");
+    sb.append("class ArrayOfSubsystemsResponse {\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();

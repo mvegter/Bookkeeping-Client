@@ -29,7 +29,7 @@ import java.io.IOException;
  */
 @ApiModel(description = "A label attached to something for the purpose of identification.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-06T17:07:38.845+01:00[Europe/London]")
-public class Tag {
+public class Subsystem {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private Long id;
@@ -47,7 +47,7 @@ public class Tag {
   private String updateAt;
 
 
-  public Tag id(Long id) {
+  public Subsystem id(Long id) {
     
     this.id = id;
     return this;
@@ -70,17 +70,17 @@ public class Tag {
   }
 
 
-  public Tag text(String text) {
+  public Subsystem text(String text) {
     
     this.text = text;
     return this;
   }
 
    /**
-   * The label value of the tag.
+   * The label value of the subsystem.
    * @return text
   **/
-  @ApiModelProperty(required = true, value = "The label value of the tag.")
+  @ApiModelProperty(required = true, value = "The label value of the subsystem.")
 
   public String getText() {
     return text;
@@ -92,18 +92,18 @@ public class Tag {
   }
 
 
-  public Tag createdAt(String createdAt) {
+  public Subsystem createdAt(String createdAt) {
     
     this.createdAt = createdAt;
     return this;
   }
 
    /**
-   * Date when the tag was created.
+   * Date when the subsystem was created.
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Date when the tag was created.")
+  @ApiModelProperty(value = "Date when the subsystem was created.")
 
   public String getCreatedAt() {
     return createdAt;
@@ -115,18 +115,18 @@ public class Tag {
   }
 
 
-  public Tag updateAt(String updateAt) {
+  public Subsystem updateAt(String updateAt) {
     
     this.updateAt = updateAt;
     return this;
   }
 
    /**
-   * Date when the tag was last updated.
+   * Date when the subsystem was last updated.
    * @return updateAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Date when the tag was last updated.")
+  @ApiModelProperty(value = "Date when the subsystem was last updated.")
 
   public String getUpdateAt() {
     return updateAt;
@@ -146,11 +146,11 @@ public class Tag {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Tag tag = (Tag) o;
-    return Objects.equals(this.id, tag.id) &&
-        Objects.equals(this.text, tag.text) &&
-        Objects.equals(this.createdAt, tag.createdAt) &&
-        Objects.equals(this.updateAt, tag.updateAt);
+    Subsystem subsystem = (Subsystem) o;
+    return Objects.equals(this.id, subsystem.id) &&
+        Objects.equals(this.text, subsystem.text) &&
+        Objects.equals(this.createdAt, subsystem.createdAt) &&
+        Objects.equals(this.updateAt, subsystem.updateAt);
   }
 
   @Override
@@ -162,7 +162,7 @@ public class Tag {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Tag {\n");
+    sb.append("class Subsystem {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
