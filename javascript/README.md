@@ -132,6 +132,10 @@ Class | Method | HTTP request | Description
 *AliceBookkeeping.LogApi* | [**getLogTree**](docs/LogApi.md#getLogTree) | **GET** /logs/{logId}/tree | Get the Log tree for a given Log
 *AliceBookkeeping.LogApi* | [**listLogs**](docs/LogApi.md#listLogs) | **GET** /logs | List all logs
 *AliceBookkeeping.LogApi* | [**listTagsByLogId**](docs/LogApi.md#listTagsByLogId) | **GET** /logs/{logId}/tags | Lists all tags associated with a log
+*AliceBookkeeping.SubsystemApi* | [**createSubsystem**](docs/SubsystemApi.md#createSubsystem) | **POST** /subsystems | Adds a new subsystem
+*AliceBookkeeping.SubsystemApi* | [**deleteSubsystem**](docs/SubsystemApi.md#deleteSubsystem) | **DELETE** /subsystems/{subsystemId} | Deletes a subsystem by Id
+*AliceBookkeeping.SubsystemApi* | [**getSubsystem**](docs/SubsystemApi.md#getSubsystem) | **GET** /subsystems/{subsystemId} | Get a subsystem by Id
+*AliceBookkeeping.SubsystemApi* | [**listSubsystems**](docs/SubsystemApi.md#listSubsystems) | **GET** /subsystems | List all subsystems
 *AliceBookkeeping.TagApi* | [**createTag**](docs/TagApi.md#createTag) | **POST** /tags | Adds a new tag
 *AliceBookkeeping.TagApi* | [**deleteTagById**](docs/TagApi.md#deleteTagById) | **DELETE** /tags/{tagId} | Deletes a tag by Id
 *AliceBookkeeping.TagApi* | [**getLogsByTagId**](docs/TagApi.md#getLogsByTagId) | **GET** /tags/{tagId}/logs | Gets all logs with this tag id
@@ -144,8 +148,11 @@ Class | Method | HTTP request | Description
  - [AliceBookkeeping.ApiInformation](docs/ApiInformation.md)
  - [AliceBookkeeping.ArrayOfLogsResponse](docs/ArrayOfLogsResponse.md)
  - [AliceBookkeeping.ArrayOfLogsResponseMeta](docs/ArrayOfLogsResponseMeta.md)
+ - [AliceBookkeeping.ArrayOfSubsystemsResponse](docs/ArrayOfSubsystemsResponse.md)
+ - [AliceBookkeeping.ArrayOfSubsystemsResponseMeta](docs/ArrayOfSubsystemsResponseMeta.md)
  - [AliceBookkeeping.ArrayOfTagsResponse](docs/ArrayOfTagsResponse.md)
  - [AliceBookkeeping.CreateLog](docs/CreateLog.md)
+ - [AliceBookkeeping.CreateSubsystem](docs/CreateSubsystem.md)
  - [AliceBookkeeping.CreateTag](docs/CreateTag.md)
  - [AliceBookkeeping.DeployInformation](docs/DeployInformation.md)
  - [AliceBookkeeping.Error](docs/Error.md)
@@ -163,6 +170,8 @@ Class | Method | HTTP request | Description
  - [AliceBookkeeping.PaginationOptions](docs/PaginationOptions.md)
  - [AliceBookkeeping.SortLogsOptions](docs/SortLogsOptions.md)
  - [AliceBookkeeping.SortOrder](docs/SortOrder.md)
+ - [AliceBookkeeping.Subsystem](docs/Subsystem.md)
+ - [AliceBookkeeping.SubsystemResponse](docs/SubsystemResponse.md)
  - [AliceBookkeeping.Tag](docs/Tag.md)
  - [AliceBookkeeping.TagResponse](docs/TagResponse.md)
 

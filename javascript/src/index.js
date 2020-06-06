@@ -16,8 +16,11 @@ import ApiClient from './ApiClient';
 import ApiInformation from './model/ApiInformation';
 import ArrayOfLogsResponse from './model/ArrayOfLogsResponse';
 import ArrayOfLogsResponseMeta from './model/ArrayOfLogsResponseMeta';
+import ArrayOfSubsystemsResponse from './model/ArrayOfSubsystemsResponse';
+import ArrayOfSubsystemsResponseMeta from './model/ArrayOfSubsystemsResponseMeta';
 import ArrayOfTagsResponse from './model/ArrayOfTagsResponse';
 import CreateLog from './model/CreateLog';
+import CreateSubsystem from './model/CreateSubsystem';
 import CreateTag from './model/CreateTag';
 import DeployInformation from './model/DeployInformation';
 import Error from './model/Error';
@@ -35,10 +38,13 @@ import PaginationMeta from './model/PaginationMeta';
 import PaginationOptions from './model/PaginationOptions';
 import SortLogsOptions from './model/SortLogsOptions';
 import SortOrder from './model/SortOrder';
+import Subsystem from './model/Subsystem';
+import SubsystemResponse from './model/SubsystemResponse';
 import Tag from './model/Tag';
 import TagResponse from './model/TagResponse';
 import DefaultApi from './api/DefaultApi';
 import LogApi from './api/LogApi';
+import SubsystemApi from './api/SubsystemApi';
 import TagApi from './api/TagApi';
 
 
@@ -99,6 +105,18 @@ export {
     ArrayOfLogsResponseMeta,
 
     /**
+     * The ArrayOfSubsystemsResponse model constructor.
+     * @property {module:model/ArrayOfSubsystemsResponse}
+     */
+    ArrayOfSubsystemsResponse,
+
+    /**
+     * The ArrayOfSubsystemsResponseMeta model constructor.
+     * @property {module:model/ArrayOfSubsystemsResponseMeta}
+     */
+    ArrayOfSubsystemsResponseMeta,
+
+    /**
      * The ArrayOfTagsResponse model constructor.
      * @property {module:model/ArrayOfTagsResponse}
      */
@@ -109,6 +127,12 @@ export {
      * @property {module:model/CreateLog}
      */
     CreateLog,
+
+    /**
+     * The CreateSubsystem model constructor.
+     * @property {module:model/CreateSubsystem}
+     */
+    CreateSubsystem,
 
     /**
      * The CreateTag model constructor.
@@ -213,6 +237,18 @@ export {
     SortOrder,
 
     /**
+     * The Subsystem model constructor.
+     * @property {module:model/Subsystem}
+     */
+    Subsystem,
+
+    /**
+     * The SubsystemResponse model constructor.
+     * @property {module:model/SubsystemResponse}
+     */
+    SubsystemResponse,
+
+    /**
      * The Tag model constructor.
      * @property {module:model/Tag}
      */
@@ -235,6 +271,12 @@ export {
     * @property {module:api/LogApi}
     */
     LogApi,
+
+    /**
+    * The SubsystemApi service constructor.
+    * @property {module:api/SubsystemApi}
+    */
+    SubsystemApi,
 
     /**
     * The TagApi service constructor.
