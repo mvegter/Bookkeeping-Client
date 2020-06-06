@@ -738,6 +738,11 @@ components:
       required:
       - data
       type: object
+    CommaSeparatedEntityIds:
+      description: CSV style string of EntityIds.
+      example: 1,2,3
+      pattern: ^([1-9]+\d*,)*[1-9]+\d*$
+      type: string
     CreateLog:
       additionalProperties: false
       description: Describes an intervention or an event that happened.
@@ -849,6 +854,27 @@ components:
           format: int64
           minimum: 1
           type: integer
+        tag:
+          $ref: '#/components/schemas/FilterLogsTagOptions'
+      type: object
+    FilterLogsTagOptions:
+      additionalProperties: false
+      description: Specifies the tag related filter requirements for a request.
+      properties:
+        values:
+          description: CSV style string of EntityIds.
+          example: 1,2,3
+          pattern: ^([1-9]+\d*,)*[1-9]+\d*$
+          type: string
+        operation:
+          description: The operation indicating the relation between the data.
+          enum:
+          - and
+          - or
+          type: string
+      required:
+      - operation
+      - values
       type: object
     Log:
       additionalProperties: false
