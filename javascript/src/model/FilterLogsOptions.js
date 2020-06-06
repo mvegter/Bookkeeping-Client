@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import FilterLogsTagOptions from './FilterLogsTagOptions';
 import LogOrigin from './LogOrigin';
 
 /**
@@ -58,6 +59,9 @@ class FilterLogsOptions {
             if (data.hasOwnProperty('rootLog')) {
                 obj['rootLog'] = ApiClient.convertToType(data['rootLog'], 'Number');
             }
+            if (data.hasOwnProperty('tag')) {
+                obj['tag'] = FilterLogsTagOptions.constructFromObject(data['tag']);
+            }
         }
         return obj;
     }
@@ -81,6 +85,11 @@ FilterLogsOptions.prototype['parentLog'] = undefined;
  * @member {Number} rootLog
  */
 FilterLogsOptions.prototype['rootLog'] = undefined;
+
+/**
+ * @member {module:model/FilterLogsTagOptions} tag
+ */
+FilterLogsOptions.prototype['tag'] = undefined;
 
 
 

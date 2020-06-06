@@ -24,6 +24,7 @@ import Error from './model/Error';
 import ErrorSource from './model/ErrorSource';
 import Errors from './model/Errors';
 import FilterLogsOptions from './model/FilterLogsOptions';
+import FilterLogsTagOptions from './model/FilterLogsTagOptions';
 import Log from './model/Log';
 import LogOrigin from './model/LogOrigin';
 import LogResponse from './model/LogResponse';
@@ -144,6 +145,12 @@ export {
      * @property {module:model/FilterLogsOptions}
      */
     FilterLogsOptions,
+
+    /**
+     * The FilterLogsTagOptions model constructor.
+     * @property {module:model/FilterLogsTagOptions}
+     */
+    FilterLogsTagOptions,
 
     /**
      * The Log model constructor.

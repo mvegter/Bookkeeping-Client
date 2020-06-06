@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new AliceBookkeeping.FilterLogsOptions();
+    instance = new AliceBookkeeping.FilterLogsTagOptions();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,34 +47,22 @@
       object[property] = value;
   }
 
-  describe('FilterLogsOptions', function() {
-    it('should create an instance of FilterLogsOptions', function() {
-      // uncomment below and update the code to test FilterLogsOptions
-      //var instane = new AliceBookkeeping.FilterLogsOptions();
-      //expect(instance).to.be.a(AliceBookkeeping.FilterLogsOptions);
+  describe('FilterLogsTagOptions', function() {
+    it('should create an instance of FilterLogsTagOptions', function() {
+      // uncomment below and update the code to test FilterLogsTagOptions
+      //var instane = new AliceBookkeeping.FilterLogsTagOptions();
+      //expect(instance).to.be.a(AliceBookkeeping.FilterLogsTagOptions);
     });
 
-    it('should have the property origin (base name: "origin")', function() {
-      // uncomment below and update the code to test the property origin
-      //var instane = new AliceBookkeeping.FilterLogsOptions();
+    it('should have the property values (base name: "values")', function() {
+      // uncomment below and update the code to test the property values
+      //var instane = new AliceBookkeeping.FilterLogsTagOptions();
       //expect(instance).to.be();
     });
 
-    it('should have the property parentLog (base name: "parentLog")', function() {
-      // uncomment below and update the code to test the property parentLog
-      //var instane = new AliceBookkeeping.FilterLogsOptions();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property rootLog (base name: "rootLog")', function() {
-      // uncomment below and update the code to test the property rootLog
-      //var instane = new AliceBookkeeping.FilterLogsOptions();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property tag (base name: "tag")', function() {
-      // uncomment below and update the code to test the property tag
-      //var instane = new AliceBookkeeping.FilterLogsOptions();
+    it('should have the property operation (base name: "operation")', function() {
+      // uncomment below and update the code to test the property operation
+      //var instane = new AliceBookkeeping.FilterLogsTagOptions();
       //expect(instance).to.be();
     });
 
