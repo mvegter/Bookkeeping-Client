@@ -13,6 +13,7 @@ HEADERS += \
     $${PWD}/OAIErrorSource.h \
     $${PWD}/OAIErrors.h \
     $${PWD}/OAIFilterLogsOptions.h \
+    $${PWD}/OAIFilterLogsTagOptions.h \
     $${PWD}/OAILog.h \
     $${PWD}/OAILogOrigin.h \
     $${PWD}/OAILogResponse.h \
@@ -49,6 +50,7 @@ SOURCES += \
     $${PWD}/OAIErrorSource.cpp \
     $${PWD}/OAIErrors.cpp \
     $${PWD}/OAIFilterLogsOptions.cpp \
+    $${PWD}/OAIFilterLogsTagOptions.cpp \
     $${PWD}/OAILog.cpp \
     $${PWD}/OAILogOrigin.cpp \
     $${PWD}/OAILogResponse.cpp \
