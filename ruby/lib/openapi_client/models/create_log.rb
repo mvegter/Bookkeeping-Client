@@ -21,11 +21,19 @@ module OpenapiClient
     # Body of the log.
     attr_accessor :text
 
+    # The unique identifier of this entity.
+    attr_accessor :root_log_id
+
+    # The unique identifier of this entity.
+    attr_accessor :parent_log_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'title' => :'title',
-        :'text' => :'text'
+        :'text' => :'text',
+        :'root_log_id' => :'rootLogId',
+        :'parent_log_id' => :'parentLogId'
       }
     end
 
@@ -33,7 +41,9 @@ module OpenapiClient
     def self.openapi_types
       {
         :'title' => :'String',
-        :'text' => :'String'
+        :'text' => :'String',
+        :'root_log_id' => :'Integer',
+        :'parent_log_id' => :'Integer'
       }
     end
 
@@ -65,6 +75,14 @@ module OpenapiClient
       if attributes.key?(:'text')
         self.text = attributes[:'text']
       end
+
+      if attributes.key?(:'root_log_id')
+        self.root_log_id = attributes[:'root_log_id']
+      end
+
+      if attributes.key?(:'parent_log_id')
+        self.parent_log_id = attributes[:'parent_log_id']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -91,6 +109,14 @@ module OpenapiClient
         invalid_properties.push('invalid value for "text", the character length must be great than or equal to 3.')
       end
 
+      if !@root_log_id.nil? && @root_log_id < 1
+        invalid_properties.push('invalid value for "root_log_id", must be greater than or equal to 1.')
+      end
+
+      if !@parent_log_id.nil? && @parent_log_id < 1
+        invalid_properties.push('invalid value for "parent_log_id", must be greater than or equal to 1.')
+      end
+
       invalid_properties
     end
 
@@ -102,6 +128,8 @@ module OpenapiClient
       return false if @title.to_s.length < 3
       return false if @text.nil?
       return false if @text.to_s.length < 3
+      return false if !@root_log_id.nil? && @root_log_id < 1
+      return false if !@parent_log_id.nil? && @parent_log_id < 1
       true
     end
 
@@ -137,13 +165,35 @@ module OpenapiClient
       @text = text
     end
 
+    # Custom attribute writer method with validation
+    # @param [Object] root_log_id Value to be assigned
+    def root_log_id=(root_log_id)
+      if !root_log_id.nil? && root_log_id < 1
+        fail ArgumentError, 'invalid value for "root_log_id", must be greater than or equal to 1.'
+      end
+
+      @root_log_id = root_log_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] parent_log_id Value to be assigned
+    def parent_log_id=(parent_log_id)
+      if !parent_log_id.nil? && parent_log_id < 1
+        fail ArgumentError, 'invalid value for "parent_log_id", must be greater than or equal to 1.'
+      end
+
+      @parent_log_id = parent_log_id
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
           title == o.title &&
-          text == o.text
+          text == o.text &&
+          root_log_id == o.root_log_id &&
+          parent_log_id == o.parent_log_id
     end
 
     # @see the `==` method
@@ -155,7 +205,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [title, text].hash
+      [title, text, root_log_id, parent_log_id].hash
     end
 
     # Builds the object from hash
