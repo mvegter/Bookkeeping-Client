@@ -25,6 +25,8 @@ CreateLog::__init()
 {
 	//title = std::string();
 	//text = std::string();
+	//rootLogId = long(0);
+	//parentLogId = long(0);
 }
 
 void
@@ -39,6 +41,16 @@ CreateLog::__cleanup()
 	//
 	//delete text;
 	//text = NULL;
+	//}
+	//if(rootLogId != NULL) {
+	//
+	//delete rootLogId;
+	//rootLogId = NULL;
+	//}
+	//if(parentLogId != NULL) {
+	//
+	//delete parentLogId;
+	//parentLogId = NULL;
 	//}
 	//
 }
@@ -66,6 +78,28 @@ CreateLog::fromJson(char* jsonStr)
 
 		if (isprimitive("std::string")) {
 			jsonToValue(&text, node, "std::string", "");
+		} else {
+			
+		}
+	}
+	const gchar *rootLogIdKey = "rootLogId";
+	node = json_object_get_member(pJsonObject, rootLogIdKey);
+	if (node !=NULL) {
+	
+
+		if (isprimitive("long long")) {
+			jsonToValue(&rootLogId, node, "long long", "");
+		} else {
+			
+		}
+	}
+	const gchar *parentLogIdKey = "parentLogId";
+	node = json_object_get_member(pJsonObject, parentLogIdKey);
+	if (node !=NULL) {
+	
+
+		if (isprimitive("long long")) {
+			jsonToValue(&parentLogId, node, "long long", "");
 		} else {
 			
 		}
@@ -100,6 +134,24 @@ CreateLog::toJson()
 	}
 	const gchar *textKey = "text";
 	json_object_set_member(pJsonObject, textKey, node);
+	if (isprimitive("long long")) {
+		long long obj = getRootLogId();
+		node = converttoJson(&obj, "long long", "");
+	}
+	else {
+		
+	}
+	const gchar *rootLogIdKey = "rootLogId";
+	json_object_set_member(pJsonObject, rootLogIdKey, node);
+	if (isprimitive("long long")) {
+		long long obj = getParentLogId();
+		node = converttoJson(&obj, "long long", "");
+	}
+	else {
+		
+	}
+	const gchar *parentLogIdKey = "parentLogId";
+	json_object_set_member(pJsonObject, parentLogIdKey, node);
 	node = json_node_alloc();
 	json_node_init(node, JSON_NODE_OBJECT);
 	json_node_take_object(node, pJsonObject);
@@ -130,6 +182,30 @@ void
 CreateLog::setText(std::string  text)
 {
 	this->text = text;
+}
+
+long long
+CreateLog::getRootLogId()
+{
+	return rootLogId;
+}
+
+void
+CreateLog::setRootLogId(long long  rootLogId)
+{
+	this->rootLogId = rootLogId;
+}
+
+long long
+CreateLog::getParentLogId()
+{
+	return parentLogId;
+}
+
+void
+CreateLog::setParentLogId(long long  parentLogId)
+{
+	this->parentLogId = parentLogId;
 }
 
 
