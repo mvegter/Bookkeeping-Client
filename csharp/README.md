@@ -136,6 +136,7 @@ Class | Method | HTTP request | Description
  - [Model.ErrorSource](docs/ErrorSource.md)
  - [Model.Errors](docs/Errors.md)
  - [Model.FilterLogsOptions](docs/FilterLogsOptions.md)
+ - [Model.FilterLogsTagOptions](docs/FilterLogsTagOptions.md)
  - [Model.Log](docs/Log.md)
  - [Model.LogOrigin](docs/LogOrigin.md)
  - [Model.LogResponse](docs/LogResponse.md)
