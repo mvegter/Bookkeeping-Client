@@ -26,6 +26,7 @@ FilterLogsOptions::__init()
 	//origin = new LogOrigin();
 	//parentLog = long(0);
 	//rootLog = long(0);
+	//tag = new FilterLogsTagOptions();
 }
 
 void
@@ -45,6 +46,11 @@ FilterLogsOptions::__cleanup()
 	//
 	//delete rootLog;
 	//rootLog = NULL;
+	//}
+	//if(tag != NULL) {
+	//
+	//delete tag;
+	//tag = NULL;
 	//}
 	//
 }
@@ -87,6 +93,20 @@ FilterLogsOptions::fromJson(char* jsonStr)
 		if (isprimitive("long long")) {
 			jsonToValue(&rootLog, node, "long long", "");
 		} else {
+			
+		}
+	}
+	const gchar *tagKey = "tag";
+	node = json_object_get_member(pJsonObject, tagKey);
+	if (node !=NULL) {
+	
+
+		if (isprimitive("FilterLogsTagOptions")) {
+			jsonToValue(&tag, node, "FilterLogsTagOptions", "FilterLogsTagOptions");
+		} else {
+			
+			FilterLogsTagOptions* obj = static_cast<FilterLogsTagOptions*> (&tag);
+			obj->fromJson(json_to_string(node, false));
 			
 		}
 	}
@@ -134,6 +154,20 @@ FilterLogsOptions::toJson()
 	}
 	const gchar *rootLogKey = "rootLog";
 	json_object_set_member(pJsonObject, rootLogKey, node);
+	if (isprimitive("FilterLogsTagOptions")) {
+		FilterLogsTagOptions obj = getTag();
+		node = converttoJson(&obj, "FilterLogsTagOptions", "");
+	}
+	else {
+		
+		FilterLogsTagOptions obj = static_cast<FilterLogsTagOptions> (getTag());
+		GError *mygerror;
+		mygerror = NULL;
+		node = json_from_string(obj.toJson(), &mygerror);
+		
+	}
+	const gchar *tagKey = "tag";
+	json_object_set_member(pJsonObject, tagKey, node);
 	node = json_node_alloc();
 	json_node_init(node, JSON_NODE_OBJECT);
 	json_node_take_object(node, pJsonObject);
@@ -176,6 +210,18 @@ void
 FilterLogsOptions::setRootLog(long long  rootLog)
 {
 	this->rootLog = rootLog;
+}
+
+FilterLogsTagOptions
+FilterLogsOptions::getTag()
+{
+	return tag;
+}
+
+void
+FilterLogsOptions::setTag(FilterLogsTagOptions  tag)
+{
+	this->tag = tag;
 }
 
 
