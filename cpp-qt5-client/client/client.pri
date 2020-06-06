@@ -5,8 +5,11 @@ HEADERS += \
     $${PWD}/OAIApiInformation.h \
     $${PWD}/OAIArrayOfLogsResponse.h \
     $${PWD}/OAIArrayOfLogsResponseMeta.h \
+    $${PWD}/OAIArrayOfSubsystemsResponse.h \
+    $${PWD}/OAIArrayOfSubsystemsResponseMeta.h \
     $${PWD}/OAIArrayOfTagsResponse.h \
     $${PWD}/OAICreateLog.h \
+    $${PWD}/OAICreateSubsystem.h \
     $${PWD}/OAICreateTag.h \
     $${PWD}/OAIDeployInformation.h \
     $${PWD}/OAIError.h \
@@ -24,11 +27,14 @@ HEADERS += \
     $${PWD}/OAIPaginationOptions.h \
     $${PWD}/OAISortLogsOptions.h \
     $${PWD}/OAISortOrder.h \
+    $${PWD}/OAISubsystem.h \
+    $${PWD}/OAISubsystemResponse.h \
     $${PWD}/OAITag.h \
     $${PWD}/OAITagResponse.h \
 # APIs
     $${PWD}/OAIDefaultApi.h \
     $${PWD}/OAILogApi.h \
+    $${PWD}/OAISubsystemApi.h \
     $${PWD}/OAITagApi.h \
 # Others
     $${PWD}/OAIHelpers.h \
@@ -42,8 +48,11 @@ SOURCES += \
     $${PWD}/OAIApiInformation.cpp \
     $${PWD}/OAIArrayOfLogsResponse.cpp \
     $${PWD}/OAIArrayOfLogsResponseMeta.cpp \
+    $${PWD}/OAIArrayOfSubsystemsResponse.cpp \
+    $${PWD}/OAIArrayOfSubsystemsResponseMeta.cpp \
     $${PWD}/OAIArrayOfTagsResponse.cpp \
     $${PWD}/OAICreateLog.cpp \
+    $${PWD}/OAICreateSubsystem.cpp \
     $${PWD}/OAICreateTag.cpp \
     $${PWD}/OAIDeployInformation.cpp \
     $${PWD}/OAIError.cpp \
@@ -61,11 +70,14 @@ SOURCES += \
     $${PWD}/OAIPaginationOptions.cpp \
     $${PWD}/OAISortLogsOptions.cpp \
     $${PWD}/OAISortOrder.cpp \
+    $${PWD}/OAISubsystem.cpp \
+    $${PWD}/OAISubsystemResponse.cpp \
     $${PWD}/OAITag.cpp \
     $${PWD}/OAITagResponse.cpp \
 # APIs
     $${PWD}/OAIDefaultApi.cpp \
     $${PWD}/OAILogApi.cpp \
+    $${PWD}/OAISubsystemApi.cpp \
     $${PWD}/OAITagApi.cpp \
 # Others
     $${PWD}/OAIHelpers.cpp \
