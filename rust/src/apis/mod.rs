@@ -55,6 +55,8 @@ mod default_api;
 pub use self::default_api::{ DefaultApi, DefaultApiClient };
 mod log_api;
 pub use self::log_api::{ LogApi, LogApiClient };
+mod subsystem_api;
+pub use self::subsystem_api::{ SubsystemApi, SubsystemApiClient };
 mod tag_api;
 pub use self::tag_api::{ TagApi, TagApiClient };
 
