@@ -23,13 +23,14 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.openapitools.client.model.FilterLogsTagOptions;
 import org.openapitools.client.model.LogOrigin;
 
 /**
  * Specifies the log related filter requirements for a request.
  */
 @ApiModel(description = "Specifies the log related filter requirements for a request.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-25T16:52:45.403+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-06T10:57:52.187+01:00[Europe/London]")
 public class FilterLogsOptions {
   public static final String SERIALIZED_NAME_ORIGIN = "origin";
   @SerializedName(SERIALIZED_NAME_ORIGIN)
@@ -42,6 +43,10 @@ public class FilterLogsOptions {
   public static final String SERIALIZED_NAME_ROOT_LOG = "rootLog";
   @SerializedName(SERIALIZED_NAME_ROOT_LOG)
   private Long rootLog;
+
+  public static final String SERIALIZED_NAME_TAG = "tag";
+  @SerializedName(SERIALIZED_NAME_TAG)
+  private FilterLogsTagOptions tag;
 
 
   public FilterLogsOptions origin(LogOrigin origin) {
@@ -115,6 +120,29 @@ public class FilterLogsOptions {
   }
 
 
+  public FilterLogsOptions tag(FilterLogsTagOptions tag) {
+    
+    this.tag = tag;
+    return this;
+  }
+
+   /**
+   * Get tag
+   * @return tag
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public FilterLogsTagOptions getTag() {
+    return tag;
+  }
+
+
+  public void setTag(FilterLogsTagOptions tag) {
+    this.tag = tag;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -126,12 +154,13 @@ public class FilterLogsOptions {
     FilterLogsOptions filterLogsOptions = (FilterLogsOptions) o;
     return Objects.equals(this.origin, filterLogsOptions.origin) &&
         Objects.equals(this.parentLog, filterLogsOptions.parentLog) &&
-        Objects.equals(this.rootLog, filterLogsOptions.rootLog);
+        Objects.equals(this.rootLog, filterLogsOptions.rootLog) &&
+        Objects.equals(this.tag, filterLogsOptions.tag);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(origin, parentLog, rootLog);
+    return Objects.hash(origin, parentLog, rootLog, tag);
   }
 
 
@@ -142,6 +171,7 @@ public class FilterLogsOptions {
     sb.append("    origin: ").append(toIndentedString(origin)).append("\n");
     sb.append("    parentLog: ").append(toIndentedString(parentLog)).append("\n");
     sb.append("    rootLog: ").append(toIndentedString(rootLog)).append("\n");
+    sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
     sb.append("}");
     return sb.toString();
   }

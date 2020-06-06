@@ -21,57 +21,39 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.openapitools.client.model.FilterLogsTagOptions;
-import org.openapitools.client.model.LogOrigin;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for FilterLogsOptions
+ * Model tests for FilterLogsTagOptions
  */
-public class FilterLogsOptionsTest {
-    private final FilterLogsOptions model = new FilterLogsOptions();
+public class FilterLogsTagOptionsTest {
+    private final FilterLogsTagOptions model = new FilterLogsTagOptions();
 
     /**
-     * Model tests for FilterLogsOptions
+     * Model tests for FilterLogsTagOptions
      */
     @Test
-    public void testFilterLogsOptions() {
-        // TODO: test FilterLogsOptions
+    public void testFilterLogsTagOptions() {
+        // TODO: test FilterLogsTagOptions
     }
 
     /**
-     * Test the property 'origin'
+     * Test the property 'values'
      */
     @Test
-    public void originTest() {
-        // TODO: test origin
+    public void valuesTest() {
+        // TODO: test values
     }
 
     /**
-     * Test the property 'parentLog'
+     * Test the property 'operation'
      */
     @Test
-    public void parentLogTest() {
-        // TODO: test parentLog
-    }
-
-    /**
-     * Test the property 'rootLog'
-     */
-    @Test
-    public void rootLogTest() {
-        // TODO: test rootLog
-    }
-
-    /**
-     * Test the property 'tag'
-     */
-    @Test
-    public void tagTest() {
-        // TODO: test tag
+    public void operationTest() {
+        // TODO: test operation
     }
 
 }

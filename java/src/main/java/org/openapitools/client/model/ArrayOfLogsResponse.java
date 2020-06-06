@@ -32,7 +32,7 @@ import org.openapitools.client.model.Log;
  * Response containing multiple logs.
  */
 @ApiModel(description = "Response containing multiple logs.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-05-25T16:52:45.403+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-06T10:57:52.187+01:00[Europe/London]")
 public class ArrayOfLogsResponse {
   public static final String SERIALIZED_NAME_META = "meta";
   @SerializedName(SERIALIZED_NAME_META)
