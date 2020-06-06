@@ -51,6 +51,7 @@ Class | Method | HTTP request | Description
  - [ErrorSource](docs/ErrorSource.md)
  - [Errors](docs/Errors.md)
  - [FilterLogsOptions](docs/FilterLogsOptions.md)
+ - [FilterLogsTagOptions](docs/FilterLogsTagOptions.md)
  - [Log](docs/Log.md)
  - [LogOrigin](docs/LogOrigin.md)
  - [LogResponse](docs/LogResponse.md)

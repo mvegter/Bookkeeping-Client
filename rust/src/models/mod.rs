@@ -20,6 +20,8 @@ pub mod errors;
 pub use self::errors::Errors;
 pub mod filter_logs_options;
 pub use self::filter_logs_options::FilterLogsOptions;
+pub mod filter_logs_tag_options;
+pub use self::filter_logs_tag_options::FilterLogsTagOptions;
 pub mod log;
 pub use self::log::Log;
 pub mod log_origin;
