@@ -13,35 +13,49 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module OpenapiClient
-  # Specifies the log related filter requirements for a request.
-  class FilterLogsOptions
-    attr_accessor :origin
+  # Specifies the tag related filter requirements for a request.
+  class FilterLogsTagOptions
+    # CSV style string of EntityIds.
+    attr_accessor :values
 
-    # The unique identifier of this entity.
-    attr_accessor :parent_log
+    # The operation indicating the relation between the data.
+    attr_accessor :operation
 
-    # The unique identifier of this entity.
-    attr_accessor :root_log
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
 
-    attr_accessor :tag
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'origin' => :'origin',
-        :'parent_log' => :'parentLog',
-        :'root_log' => :'rootLog',
-        :'tag' => :'tag'
+        :'values' => :'values',
+        :'operation' => :'operation'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'origin' => :'LogOrigin',
-        :'parent_log' => :'Integer',
-        :'root_log' => :'Integer',
-        :'tag' => :'FilterLogsTagOptions'
+        :'values' => :'String',
+        :'operation' => :'String'
       }
     end
 
@@ -55,31 +69,23 @@ module OpenapiClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `OpenapiClient::FilterLogsOptions` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `OpenapiClient::FilterLogsTagOptions` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `OpenapiClient::FilterLogsOptions`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `OpenapiClient::FilterLogsTagOptions`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'origin')
-        self.origin = attributes[:'origin']
+      if attributes.key?(:'values')
+        self.values = attributes[:'values']
       end
 
-      if attributes.key?(:'parent_log')
-        self.parent_log = attributes[:'parent_log']
-      end
-
-      if attributes.key?(:'root_log')
-        self.root_log = attributes[:'root_log']
-      end
-
-      if attributes.key?(:'tag')
-        self.tag = attributes[:'tag']
+      if attributes.key?(:'operation')
+        self.operation = attributes[:'operation']
       end
     end
 
@@ -87,12 +93,17 @@ module OpenapiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@parent_log.nil? && @parent_log < 1
-        invalid_properties.push('invalid value for "parent_log", must be greater than or equal to 1.')
+      if @values.nil?
+        invalid_properties.push('invalid value for "values", values cannot be nil.')
       end
 
-      if !@root_log.nil? && @root_log < 1
-        invalid_properties.push('invalid value for "root_log", must be greater than or equal to 1.')
+      pattern = Regexp.new(/^([1-9]+\d*,)*[1-9]+\d*$/)
+      if @values !~ pattern
+        invalid_properties.push("invalid value for \"values\", must conform to the pattern #{pattern}.")
+      end
+
+      if @operation.nil?
+        invalid_properties.push('invalid value for "operation", operation cannot be nil.')
       end
 
       invalid_properties
@@ -101,29 +112,37 @@ module OpenapiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if !@parent_log.nil? && @parent_log < 1
-      return false if !@root_log.nil? && @root_log < 1
+      return false if @values.nil?
+      return false if @values !~ Regexp.new(/^([1-9]+\d*,)*[1-9]+\d*$/)
+      return false if @operation.nil?
+      operation_validator = EnumAttributeValidator.new('String', ["and", "or"])
+      return false unless operation_validator.valid?(@operation)
       true
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] parent_log Value to be assigned
-    def parent_log=(parent_log)
-      if !parent_log.nil? && parent_log < 1
-        fail ArgumentError, 'invalid value for "parent_log", must be greater than or equal to 1.'
+    # @param [Object] values Value to be assigned
+    def values=(values)
+      if values.nil?
+        fail ArgumentError, 'values cannot be nil'
       end
 
-      @parent_log = parent_log
+      pattern = Regexp.new(/^([1-9]+\d*,)*[1-9]+\d*$/)
+      if values !~ pattern
+        fail ArgumentError, "invalid value for \"values\", must conform to the pattern #{pattern}."
+      end
+
+      @values = values
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] root_log Value to be assigned
-    def root_log=(root_log)
-      if !root_log.nil? && root_log < 1
-        fail ArgumentError, 'invalid value for "root_log", must be greater than or equal to 1.'
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] operation Object to be assigned
+    def operation=(operation)
+      validator = EnumAttributeValidator.new('String', ["and", "or"])
+      unless validator.valid?(operation)
+        fail ArgumentError, "invalid value for \"operation\", must be one of #{validator.allowable_values}."
       end
-
-      @root_log = root_log
+      @operation = operation
     end
 
     # Checks equality by comparing each attribute.
@@ -131,10 +150,8 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          origin == o.origin &&
-          parent_log == o.parent_log &&
-          root_log == o.root_log &&
-          tag == o.tag
+          values == o.values &&
+          operation == o.operation
     end
 
     # @see the `==` method
@@ -146,7 +163,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [origin, parent_log, root_log, tag].hash
+      [values, operation].hash
     end
 
     # Builds the object from hash
