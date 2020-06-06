@@ -152,6 +152,7 @@ Class | Method | HTTP request | Description
  - [AliceBookkeeping.ErrorSource](docs/ErrorSource.md)
  - [AliceBookkeeping.Errors](docs/Errors.md)
  - [AliceBookkeeping.FilterLogsOptions](docs/FilterLogsOptions.md)
+ - [AliceBookkeeping.FilterLogsTagOptions](docs/FilterLogsTagOptions.md)
  - [AliceBookkeeping.Log](docs/Log.md)
  - [AliceBookkeeping.LogOrigin](docs/LogOrigin.md)
  - [AliceBookkeeping.LogResponse](docs/LogResponse.md)

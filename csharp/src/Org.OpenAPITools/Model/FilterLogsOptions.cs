@@ -41,11 +41,13 @@ namespace Org.OpenAPITools.Model
         /// <param name="origin">origin.</param>
         /// <param name="parentLog">The unique identifier of this entity..</param>
         /// <param name="rootLog">The unique identifier of this entity..</param>
-        public FilterLogsOptions(LogOrigin? origin = default(LogOrigin?), long parentLog = default(long), long rootLog = default(long))
+        /// <param name="tag">tag.</param>
+        public FilterLogsOptions(LogOrigin? origin = default(LogOrigin?), long parentLog = default(long), long rootLog = default(long), FilterLogsTagOptions tag = default(FilterLogsTagOptions))
         {
             this.Origin = origin;
             this.ParentLog = parentLog;
             this.RootLog = rootLog;
+            this.Tag = tag;
         }
         
 
@@ -64,6 +66,12 @@ namespace Org.OpenAPITools.Model
         public long RootLog { get; set; }
 
         /// <summary>
+        /// Gets or Sets Tag
+        /// </summary>
+        [DataMember(Name="tag", EmitDefaultValue=false)]
+        public FilterLogsTagOptions Tag { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -74,6 +82,7 @@ namespace Org.OpenAPITools.Model
             sb.Append("  Origin: ").Append(Origin).Append("\n");
             sb.Append("  ParentLog: ").Append(ParentLog).Append("\n");
             sb.Append("  RootLog: ").Append(RootLog).Append("\n");
+            sb.Append("  Tag: ").Append(Tag).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,6 +131,11 @@ namespace Org.OpenAPITools.Model
                     this.RootLog == input.RootLog ||
                     (this.RootLog != null &&
                     this.RootLog.Equals(input.RootLog))
+                ) && 
+                (
+                    this.Tag == input.Tag ||
+                    (this.Tag != null &&
+                    this.Tag.Equals(input.Tag))
                 );
         }
 
@@ -140,6 +154,8 @@ namespace Org.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.ParentLog.GetHashCode();
                 if (this.RootLog != null)
                     hashCode = hashCode * 59 + this.RootLog.GetHashCode();
+                if (this.Tag != null)
+                    hashCode = hashCode * 59 + this.Tag.GetHashCode();
                 return hashCode;
             }
         }

@@ -109,6 +109,7 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::ErrorSource](docs/ErrorSource.md)
  - [OpenapiClient::Errors](docs/Errors.md)
  - [OpenapiClient::FilterLogsOptions](docs/FilterLogsOptions.md)
+ - [OpenapiClient::FilterLogsTagOptions](docs/FilterLogsTagOptions.md)
  - [OpenapiClient::Log](docs/Log.md)
  - [OpenapiClient::LogOrigin](docs/LogOrigin.md)
  - [OpenapiClient::LogResponse](docs/LogResponse.md)

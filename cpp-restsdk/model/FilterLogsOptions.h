@@ -21,6 +21,7 @@
 
 #include "../ModelBase.h"
 
+#include "FilterLogsTagOptions.h"
 #include "LogOrigin.h"
 
 namespace org {
@@ -80,6 +81,15 @@ public:
 
     void setRootLog(int64_t value);
 
+    /// <summary>
+    /// 
+    /// </summary>
+    std::shared_ptr<FilterLogsTagOptions> getTag() const;
+    bool tagIsSet() const;
+    void unsetTag();
+
+    void setTag(const std::shared_ptr<FilterLogsTagOptions>& value);
+
 
 protected:
     std::shared_ptr<LogOrigin> m_Origin;
@@ -88,6 +98,8 @@ protected:
     bool m_ParentLogIsSet;
     int64_t m_RootLog;
     bool m_RootLogIsSet;
+    std::shared_ptr<FilterLogsTagOptions> m_Tag;
+    bool m_TagIsSet;
 };
 
 

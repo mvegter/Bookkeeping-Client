@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.openapitools.client.model.FilterLogsTagOptions;
 import org.openapitools.client.model.LogOrigin;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -63,6 +64,14 @@ public class FilterLogsOptionsTest {
     @Test
     public void rootLogTest() {
         // TODO: test rootLog
+    }
+
+    /**
+     * Test the property 'tag'
+     */
+    @Test
+    public void tagTest() {
+        // TODO: test tag
     }
 
 }

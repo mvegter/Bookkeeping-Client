@@ -22,6 +22,8 @@ pub struct FilterLogsOptions {
     /// The unique identifier of this entity.
     #[serde(rename = "rootLog", skip_serializing_if = "Option::is_none")]
     pub root_log: Option<i64>,
+    #[serde(rename = "tag", skip_serializing_if = "Option::is_none")]
+    pub tag: Option<crate::models::FilterLogsTagOptions>,
 }
 
 impl FilterLogsOptions {
@@ -31,6 +33,7 @@ impl FilterLogsOptions {
             origin: None,
             parent_log: None,
             root_log: None,
+            tag: None,
         }
     }
 }

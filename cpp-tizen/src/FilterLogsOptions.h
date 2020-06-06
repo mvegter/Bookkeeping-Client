@@ -9,6 +9,7 @@
 
 
 #include <string>
+#include "FilterLogsTagOptions.h"
 #include "LogOrigin.h"
 #include "Object.h"
 
@@ -67,11 +68,19 @@ public:
 	/*! \brief Set The unique identifier of this entity.
 	 */
 	void setRootLog(long long  rootLog);
+	/*! \brief Get 
+	 */
+	FilterLogsTagOptions getTag();
+
+	/*! \brief Set 
+	 */
+	void setTag(FilterLogsTagOptions  tag);
 
 private:
 	LogOrigin origin;
 	long long parentLog;
 	long long rootLog;
+	FilterLogsTagOptions tag;
 	void __init();
 	void __cleanup();
 

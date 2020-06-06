@@ -89,6 +89,7 @@ Class | Description
  *ErrorSource* | An object containing references to the source of the error.
  *Errors* | A list of Error objects.
  *FilterLogsOptions* | Specifies the log related filter requirements for a request.
+ *FilterLogsTagOptions* | Specifies the tag related filter requirements for a request.
  *Log* | Describes an intervention or an event that happened.
  *LogOrigin* | Type of creator.
  *LogResponse* | Response containing a single log.

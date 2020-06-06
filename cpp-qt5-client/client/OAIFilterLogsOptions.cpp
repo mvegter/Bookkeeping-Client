@@ -41,6 +41,9 @@ void OAIFilterLogsOptions::initializeModel() {
 
     m_root_log_isSet = false;
     m_root_log_isValid = false;
+
+    m_tag_isSet = false;
+    m_tag_isValid = false;
 }
 
 void OAIFilterLogsOptions::fromJson(QString jsonString) {
@@ -60,6 +63,9 @@ void OAIFilterLogsOptions::fromJsonObject(QJsonObject json) {
 
     m_root_log_isValid = ::OpenAPI::fromJsonValue(root_log, json[QString("rootLog")]);
     m_root_log_isSet = !json[QString("rootLog")].isNull() && m_root_log_isValid;
+
+    m_tag_isValid = ::OpenAPI::fromJsonValue(tag, json[QString("tag")]);
+    m_tag_isSet = !json[QString("tag")].isNull() && m_tag_isValid;
 }
 
 QString OAIFilterLogsOptions::asJson() const {
@@ -79,6 +85,9 @@ QJsonObject OAIFilterLogsOptions::asJsonObject() const {
     }
     if (m_root_log_isSet) {
         obj.insert(QString("rootLog"), ::OpenAPI::toJsonValue(root_log));
+    }
+    if (tag.isSet()) {
+        obj.insert(QString("tag"), ::OpenAPI::toJsonValue(tag));
     }
     return obj;
 }
@@ -131,6 +140,22 @@ bool OAIFilterLogsOptions::is_root_log_Valid() const{
     return m_root_log_isValid;
 }
 
+OAIFilterLogsTagOptions OAIFilterLogsOptions::getTag() const {
+    return tag;
+}
+void OAIFilterLogsOptions::setTag(const OAIFilterLogsTagOptions &tag) {
+    this->tag = tag;
+    this->m_tag_isSet = true;
+}
+
+bool OAIFilterLogsOptions::is_tag_Set() const{
+    return m_tag_isSet;
+}
+
+bool OAIFilterLogsOptions::is_tag_Valid() const{
+    return m_tag_isValid;
+}
+
 bool OAIFilterLogsOptions::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -145,6 +170,11 @@ bool OAIFilterLogsOptions::isSet() const {
         }
 
         if (m_root_log_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (tag.isSet()) {
             isObjectUpdated = true;
             break;
         }

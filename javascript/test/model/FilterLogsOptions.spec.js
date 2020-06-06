@@ -72,6 +72,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property tag (base name: "tag")', function() {
+      // uncomment below and update the code to test the property tag
+      //var instane = new AliceBookkeeping.FilterLogsOptions();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

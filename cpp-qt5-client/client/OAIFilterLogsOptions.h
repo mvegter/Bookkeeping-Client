@@ -20,6 +20,7 @@
 
 #include <QJsonObject>
 
+#include "OAIFilterLogsTagOptions.h"
 #include "OAILogOrigin.h"
 
 #include "OAIEnum.h"
@@ -53,6 +54,11 @@ public:
     bool is_root_log_Set() const;
     bool is_root_log_Valid() const;
 
+    OAIFilterLogsTagOptions getTag() const;
+    void setTag(const OAIFilterLogsTagOptions &tag);
+    bool is_tag_Set() const;
+    bool is_tag_Valid() const;
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -70,6 +76,10 @@ private:
     qint64 root_log;
     bool m_root_log_isSet;
     bool m_root_log_isValid;
+
+    OAIFilterLogsTagOptions tag;
+    bool m_tag_isSet;
+    bool m_tag_isValid;
 };
 
 } // namespace OpenAPI

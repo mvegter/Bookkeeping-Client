@@ -23,12 +23,15 @@ module OpenapiClient
     # The unique identifier of this entity.
     attr_accessor :root_log
 
+    attr_accessor :tag
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'origin' => :'origin',
         :'parent_log' => :'parentLog',
-        :'root_log' => :'rootLog'
+        :'root_log' => :'rootLog',
+        :'tag' => :'tag'
       }
     end
 
@@ -37,7 +40,8 @@ module OpenapiClient
       {
         :'origin' => :'LogOrigin',
         :'parent_log' => :'Integer',
-        :'root_log' => :'Integer'
+        :'root_log' => :'Integer',
+        :'tag' => :'FilterLogsTagOptions'
       }
     end
 
@@ -72,6 +76,10 @@ module OpenapiClient
 
       if attributes.key?(:'root_log')
         self.root_log = attributes[:'root_log']
+      end
+
+      if attributes.key?(:'tag')
+        self.tag = attributes[:'tag']
       end
     end
 
@@ -125,7 +133,8 @@ module OpenapiClient
       self.class == o.class &&
           origin == o.origin &&
           parent_log == o.parent_log &&
-          root_log == o.root_log
+          root_log == o.root_log &&
+          tag == o.tag
     end
 
     # @see the `==` method
@@ -137,7 +146,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [origin, parent_log, root_log].hash
+      [origin, parent_log, root_log, tag].hash
     end
 
     # Builds the object from hash

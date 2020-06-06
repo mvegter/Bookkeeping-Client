@@ -15,4 +15,5 @@ type FilterLogsOptions struct {
 	ParentLog int64 `json:"parentLog,omitempty"`
 	// The unique identifier of this entity.
 	RootLog int64 `json:"rootLog,omitempty"`
+	Tag FilterLogsTagOptions `json:"tag,omitempty"`
 }
