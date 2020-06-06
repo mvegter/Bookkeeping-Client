@@ -60,6 +60,18 @@ Method | HTTP request | Description
 *listTagsByLogIdSync* | *GET* /logs/{logId}/tags | Lists all tags associated with a log.
 *listTagsByLogIdASync* | *GET* /logs/{logId}/tags | Lists all tags associated with a log.
 
+### SubsystemManager
+Method | HTTP request | Description
+------------- | ------------- | -------------
+*createSubsystemSync* | *POST* /subsystems | Adds a new subsystem.
+*createSubsystemASync* | *POST* /subsystems | Adds a new subsystem.
+*deleteSubsystemSync* | *DELETE* /subsystems/{subsystemId} | Deletes a subsystem by Id.
+*deleteSubsystemASync* | *DELETE* /subsystems/{subsystemId} | Deletes a subsystem by Id.
+*getSubsystemSync* | *GET* /subsystems/{subsystemId} | Get a subsystem by Id.
+*getSubsystemASync* | *GET* /subsystems/{subsystemId} | Get a subsystem by Id.
+*listSubsystemsSync* | *GET* /subsystems | List all subsystems.
+*listSubsystemsASync* | *GET* /subsystems | List all subsystems.
+
 ### TagManager
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -81,8 +93,11 @@ Class | Description
  *ApiInformation* | API information
  *ArrayOfLogsResponse* | Response containing multiple logs.
  *ArrayOfLogsResponseMeta* | The metadata related to an array of logs response.
+ *ArrayOfSubsystemsResponse* | Response containing multiple subsystems.
+ *ArrayOfSubsystemsResponseMeta* | The metadata related to an array of logs response.
  *ArrayOfTagsResponse* | Response containing multiple tags.
  *CreateLog* | Describes an intervention or an event that happened.
+ *CreateSubsystem* | A label attached to something for the purpose of identification.
  *CreateTag* | A label attached to something for the purpose of identification.
  *DeployInformation* | Deploy information
  *Error* | An Error object.
@@ -100,6 +115,8 @@ Class | Description
  *PaginationOptions* | Specifies the pagination requirements of a request.
  *SortLogsOptions* | Specifies the sorting requirements of a request.
  *SortOrder* | Specifies the sorting direction of a sorting option.
+ *Subsystem* | A label attached to something for the purpose of identification.
+ *SubsystemResponse* | Response containing a single subsystem.
  *Tag* | A label attached to something for the purpose of identification.
  *TagResponse* | Response containing a single tag.
 
