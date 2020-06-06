@@ -78,7 +78,6 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **201** | Expected response to a valid request. |  -  |
 **400** | Bad Request |  -  |
-**503** | Service Unavailable |  -  |
 **0** | Unexpected Error |  -  |
 
 <a name="getLogById"></a>
@@ -149,7 +148,6 @@ Name | Type | Description  | Notes
 **200** | Expected response to a valid request. |  -  |
 **400** | Bad Request |  -  |
 **404** | Not Found |  -  |
-**503** | Service Unavailable |  -  |
 **0** | Unexpected Error |  -  |
 
 <a name="getLogTree"></a>
@@ -220,7 +218,6 @@ Name | Type | Description  | Notes
 **200** | Expected response to a valid request. |  -  |
 **400** | Bad Request |  -  |
 **404** | Not Found |  -  |
-**503** | Service Unavailable |  -  |
 **0** | Unexpected Error |  -  |
 
 <a name="listLogs"></a>
@@ -294,7 +291,6 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Expected response to a valid request. |  -  |
 **400** | Bad Request |  -  |
-**503** | Service Unavailable |  -  |
 **0** | Unexpected Error |  -  |
 
 <a name="listTagsByLogId"></a>
@@ -365,6 +361,5 @@ Name | Type | Description  | Notes
 **200** | Expected response to a valid request. |  -  |
 **400** | Bad Request |  -  |
 **404** | Not Found |  -  |
-**503** | Service Unavailable |  -  |
 **0** | Unexpected Error |  -  |
 

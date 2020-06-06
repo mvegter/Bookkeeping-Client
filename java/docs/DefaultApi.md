@@ -70,7 +70,6 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Deploy information |  -  |
-**503** | Service Unavailable |  -  |
 **0** | Unexpected Error |  -  |
 
 <a name="getServerInformation"></a>
@@ -135,6 +134,5 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | API information |  -  |
-**503** | Service Unavailable |  -  |
 **0** | Unexpected Error |  -  |
 
