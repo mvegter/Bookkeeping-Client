@@ -27,8 +27,6 @@ CreateLog::CreateLog()
     m_TitleIsSet = false;
     m_Text = utility::conversions::to_string_t("");
     m_TextIsSet = false;
-    m_RootLogId = 0L;
-    m_RootLogIdIsSet = false;
     m_ParentLogId = 0L;
     m_ParentLogIdIsSet = false;
 }
@@ -54,10 +52,6 @@ web::json::value CreateLog::toJson() const
     if(m_TextIsSet)
     {
         val[utility::conversions::to_string_t("text")] = ModelBase::toJson(m_Text);
-    }
-    if(m_RootLogIdIsSet)
-    {
-        val[utility::conversions::to_string_t("rootLogId")] = ModelBase::toJson(m_RootLogId);
     }
     if(m_ParentLogIdIsSet)
     {
@@ -91,16 +85,6 @@ bool CreateLog::fromJson(const web::json::value& val)
             setText(refVal_text);
         }
     }
-    if(val.has_field(utility::conversions::to_string_t("rootLogId")))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("rootLogId"));
-        if(!fieldValue.is_null())
-        {
-            int64_t refVal_rootLogId;
-            ok &= ModelBase::fromJson(fieldValue, refVal_rootLogId);
-            setRootLogId(refVal_rootLogId);
-        }
-    }
     if(val.has_field(utility::conversions::to_string_t("parentLogId")))
     {
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("parentLogId"));
@@ -129,10 +113,6 @@ void CreateLog::toMultipart(std::shared_ptr<MultipartFormData> multipart, const 
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("text"), m_Text));
     }
-    if(m_RootLogIdIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("rootLogId"), m_RootLogId));
-    }
     if(m_ParentLogIdIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("parentLogId"), m_ParentLogId));
@@ -159,12 +139,6 @@ bool CreateLog::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, cons
         utility::string_t refVal_text;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("text")), refVal_text );
         setText(refVal_text);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t("rootLogId")))
-    {
-        int64_t refVal_rootLogId;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("rootLogId")), refVal_rootLogId );
-        setRootLogId(refVal_rootLogId);
     }
     if(multipart->hasContent(utility::conversions::to_string_t("parentLogId")))
     {
@@ -214,26 +188,6 @@ bool CreateLog::textIsSet() const
 void CreateLog::unsetText()
 {
     m_TextIsSet = false;
-}
-int64_t CreateLog::getRootLogId() const
-{
-    return m_RootLogId;
-}
-
-void CreateLog::setRootLogId(int64_t value)
-{
-    m_RootLogId = value;
-    m_RootLogIdIsSet = true;
-}
-
-bool CreateLog::rootLogIdIsSet() const
-{
-    return m_RootLogIdIsSet;
-}
-
-void CreateLog::unsetRootLogId()
-{
-    m_RootLogIdIsSet = false;
 }
 int64_t CreateLog::getParentLogId() const
 {
