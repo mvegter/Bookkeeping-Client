@@ -94,7 +94,7 @@ Class | Description
  *ArrayOfLogsResponse* | Response containing multiple logs.
  *ArrayOfLogsResponseMeta* | The metadata related to an array of logs response.
  *ArrayOfSubsystemsResponse* | Response containing multiple subsystems.
- *ArrayOfSubsystemsResponseMeta* | The metadata related to an array of logs response.
+ *ArrayOfSubsystemsResponseMeta* | The metadata related to an array of subsystems response.
  *ArrayOfTagsResponse* | Response containing multiple tags.
  *CreateLog* | Describes an intervention or an event that happened.
  *CreateSubsystem* | A label attached to something for the purpose of identification.

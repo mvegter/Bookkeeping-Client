@@ -54,11 +54,11 @@ public:
 	void setId(long long  id);
 	/*! \brief Get The label value of the subsystem.
 	 */
-	std::string getText();
+	std::string getName();
 
 	/*! \brief Set The label value of the subsystem.
 	 */
-	void setText(std::string  text);
+	void setName(std::string  name);
 	/*! \brief Get Date when the subsystem was created.
 	 */
 	std::string getCreatedAt();
@@ -76,7 +76,7 @@ public:
 
 private:
 	long long id;
-	std::string text;
+	std::string name;
 	std::string createdAt;
 	std::string updateAt;
 	void __init();

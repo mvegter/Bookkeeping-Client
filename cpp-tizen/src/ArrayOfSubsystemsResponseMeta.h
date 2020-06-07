@@ -1,7 +1,7 @@
 /*
  * ArrayOfSubsystemsResponseMeta.h
  *
- * The metadata related to an array of logs response.
+ * The metadata related to an array of subsystems response.
  */
 
 #ifndef _ArrayOfSubsystemsResponseMeta_H_
@@ -21,7 +21,7 @@ namespace Tizen {
 namespace ArtikCloud {
 
 
-/*! \brief The metadata related to an array of logs response.
+/*! \brief The metadata related to an array of subsystems response.
  *
  *  \ingroup Models
  *
