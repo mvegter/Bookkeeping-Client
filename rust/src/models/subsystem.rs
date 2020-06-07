@@ -18,8 +18,8 @@ pub struct Subsystem {
     #[serde(rename = "id")]
     pub id: i64,
     /// The label value of the subsystem.
-    #[serde(rename = "text")]
-    pub text: String,
+    #[serde(rename = "name")]
+    pub name: String,
     /// Date when the subsystem was created.
     #[serde(rename = "createdAt", skip_serializing_if = "Option::is_none")]
     pub created_at: Option<String>,
@@ -30,10 +30,10 @@ pub struct Subsystem {
 
 impl Subsystem {
     /// A label attached to something for the purpose of identification.
-    pub fn new(id: i64, text: String) -> Subsystem {
+    pub fn new(id: i64, name: String) -> Subsystem {
         Subsystem {
             id,
-            text,
+            name,
             created_at: None,
             update_at: None,
         }
