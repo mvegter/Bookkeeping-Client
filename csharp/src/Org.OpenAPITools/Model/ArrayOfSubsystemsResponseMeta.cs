@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Org.OpenAPITools.Client.OpenAPIDateConverter;
 namespace Org.OpenAPITools.Model
 {
     /// <summary>
-    /// The metadata related to an array of logs response.
+    /// The metadata related to an array of subsystems response.
     /// </summary>
     [DataContract]
     public partial class ArrayOfSubsystemsResponseMeta :  IEquatable<ArrayOfSubsystemsResponseMeta>, IValidatableObject

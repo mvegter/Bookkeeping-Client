@@ -39,10 +39,10 @@ namespace Org.OpenAPITools.Model
         /// Initializes a new instance of the <see cref="Subsystem" /> class.
         /// </summary>
         /// <param name="id">The unique identifier of this entity. (required).</param>
-        /// <param name="text">The label value of the subsystem. (required).</param>
+        /// <param name="name">The label value of the subsystem. (required).</param>
         /// <param name="createdAt">Date when the subsystem was created..</param>
         /// <param name="updateAt">Date when the subsystem was last updated..</param>
-        public Subsystem(long id = default(long), string text = default(string), string createdAt = default(string), string updateAt = default(string))
+        public Subsystem(long id = default(long), string name = default(string), string createdAt = default(string), string updateAt = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -54,14 +54,14 @@ namespace Org.OpenAPITools.Model
                 this.Id = id;
             }
             
-            // to ensure "text" is required (not null)
-            if (text == null)
+            // to ensure "name" is required (not null)
+            if (name == null)
             {
-                throw new InvalidDataException("text is a required property for Subsystem and cannot be null");
+                throw new InvalidDataException("name is a required property for Subsystem and cannot be null");
             }
             else
             {
-                this.Text = text;
+                this.Name = name;
             }
             
             this.CreatedAt = createdAt;
@@ -79,8 +79,8 @@ namespace Org.OpenAPITools.Model
         /// The label value of the subsystem.
         /// </summary>
         /// <value>The label value of the subsystem.</value>
-        [DataMember(Name="text", EmitDefaultValue=true)]
-        public string Text { get; set; }
+        [DataMember(Name="name", EmitDefaultValue=true)]
+        public string Name { get; set; }
 
         /// <summary>
         /// Date when the subsystem was created.
@@ -105,7 +105,7 @@ namespace Org.OpenAPITools.Model
             var sb = new StringBuilder();
             sb.Append("class Subsystem {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Text: ").Append(Text).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  UpdateAt: ").Append(UpdateAt).Append("\n");
             sb.Append("}\n");
@@ -148,9 +148,9 @@ namespace Org.OpenAPITools.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.Text == input.Text ||
-                    (this.Text != null &&
-                    this.Text.Equals(input.Text))
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
                     this.CreatedAt == input.CreatedAt ||
@@ -175,8 +175,8 @@ namespace Org.OpenAPITools.Model
                 int hashCode = 41;
                 if (this.Id != null)
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.Text != null)
-                    hashCode = hashCode * 59 + this.Text.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.CreatedAt != null)
                     hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
                 if (this.UpdateAt != null)
