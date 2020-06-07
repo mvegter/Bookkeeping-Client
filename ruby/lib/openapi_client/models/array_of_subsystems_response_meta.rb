@@ -13,7 +13,7 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module OpenapiClient
-  # The metadata related to an array of logs response.
+  # The metadata related to an array of subsystems response.
   class ArrayOfSubsystemsResponseMeta
     attr_accessor :page
 
