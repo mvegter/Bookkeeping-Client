@@ -12,7 +12,7 @@
 /*
  * ArrayOfSubsystemsResponseMeta.h
  *
- * The metadata related to an array of logs response.
+ * The metadata related to an array of subsystems response.
  */
 
 #ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_ArrayOfSubsystemsResponseMeta_H_
@@ -30,7 +30,7 @@ namespace model {
 
 
 /// <summary>
-/// The metadata related to an array of logs response.
+/// The metadata related to an array of subsystems response.
 /// </summary>
 class  ArrayOfSubsystemsResponseMeta
     : public ModelBase

@@ -25,8 +25,8 @@ Subsystem::Subsystem()
 {
     m_Id = 0L;
     m_IdIsSet = false;
-    m_Text = utility::conversions::to_string_t("");
-    m_TextIsSet = false;
+    m_Name = utility::conversions::to_string_t("");
+    m_NameIsSet = false;
     m_CreatedAt = utility::conversions::to_string_t("");
     m_CreatedAtIsSet = false;
     m_UpdateAt = utility::conversions::to_string_t("");
@@ -51,9 +51,9 @@ web::json::value Subsystem::toJson() const
     {
         val[utility::conversions::to_string_t("id")] = ModelBase::toJson(m_Id);
     }
-    if(m_TextIsSet)
+    if(m_NameIsSet)
     {
-        val[utility::conversions::to_string_t("text")] = ModelBase::toJson(m_Text);
+        val[utility::conversions::to_string_t("name")] = ModelBase::toJson(m_Name);
     }
     if(m_CreatedAtIsSet)
     {
@@ -81,14 +81,14 @@ bool Subsystem::fromJson(const web::json::value& val)
             setId(refVal_id);
         }
     }
-    if(val.has_field(utility::conversions::to_string_t("text")))
+    if(val.has_field(utility::conversions::to_string_t("name")))
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("text"));
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("name"));
         if(!fieldValue.is_null())
         {
-            utility::string_t refVal_text;
-            ok &= ModelBase::fromJson(fieldValue, refVal_text);
-            setText(refVal_text);
+            utility::string_t refVal_name;
+            ok &= ModelBase::fromJson(fieldValue, refVal_name);
+            setName(refVal_name);
         }
     }
     if(val.has_field(utility::conversions::to_string_t("createdAt")))
@@ -125,9 +125,9 @@ void Subsystem::toMultipart(std::shared_ptr<MultipartFormData> multipart, const 
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("id"), m_Id));
     }
-    if(m_TextIsSet)
+    if(m_NameIsSet)
     {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("text"), m_Text));
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("name"), m_Name));
     }
     if(m_CreatedAtIsSet)
     {
@@ -154,11 +154,11 @@ bool Subsystem::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, cons
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("id")), refVal_id );
         setId(refVal_id);
     }
-    if(multipart->hasContent(utility::conversions::to_string_t("text")))
+    if(multipart->hasContent(utility::conversions::to_string_t("name")))
     {
-        utility::string_t refVal_text;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("text")), refVal_text );
-        setText(refVal_text);
+        utility::string_t refVal_name;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("name")), refVal_name );
+        setName(refVal_name);
     }
     if(multipart->hasContent(utility::conversions::to_string_t("createdAt")))
     {
@@ -195,25 +195,25 @@ void Subsystem::unsetId()
 {
     m_IdIsSet = false;
 }
-utility::string_t Subsystem::getText() const
+utility::string_t Subsystem::getName() const
 {
-    return m_Text;
+    return m_Name;
 }
 
-void Subsystem::setText(const utility::string_t& value)
+void Subsystem::setName(const utility::string_t& value)
 {
-    m_Text = value;
-    m_TextIsSet = true;
+    m_Name = value;
+    m_NameIsSet = true;
 }
 
-bool Subsystem::textIsSet() const
+bool Subsystem::nameIsSet() const
 {
-    return m_TextIsSet;
+    return m_NameIsSet;
 }
 
-void Subsystem::unsetText()
+void Subsystem::unsetName()
 {
-    m_TextIsSet = false;
+    m_NameIsSet = false;
 }
 utility::string_t Subsystem::getCreatedAt() const
 {

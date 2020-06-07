@@ -65,11 +65,11 @@ public:
     /// <summary>
     /// The label value of the subsystem.
     /// </summary>
-    utility::string_t getText() const;
-    bool textIsSet() const;
-    void unsetText();
+    utility::string_t getName() const;
+    bool nameIsSet() const;
+    void unsetName();
 
-    void setText(const utility::string_t& value);
+    void setName(const utility::string_t& value);
 
     /// <summary>
     /// Date when the subsystem was created.
@@ -93,8 +93,8 @@ public:
 protected:
     int64_t m_Id;
     bool m_IdIsSet;
-    utility::string_t m_Text;
-    bool m_TextIsSet;
+    utility::string_t m_Name;
+    bool m_NameIsSet;
     utility::string_t m_CreatedAt;
     bool m_CreatedAtIsSet;
     utility::string_t m_UpdateAt;
