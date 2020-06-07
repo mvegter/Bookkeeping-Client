@@ -58,9 +58,6 @@ class CreateLog {
             if (data.hasOwnProperty('text')) {
                 obj['text'] = ApiClient.convertToType(data['text'], 'String');
             }
-            if (data.hasOwnProperty('rootLogId')) {
-                obj['rootLogId'] = ApiClient.convertToType(data['rootLogId'], 'Number');
-            }
             if (data.hasOwnProperty('parentLogId')) {
                 obj['parentLogId'] = ApiClient.convertToType(data['parentLogId'], 'Number');
             }
@@ -82,12 +79,6 @@ CreateLog.prototype['title'] = undefined;
  * @member {String} text
  */
 CreateLog.prototype['text'] = undefined;
-
-/**
- * The unique identifier of this entity.
- * @member {Number} rootLogId
- */
-CreateLog.prototype['rootLogId'] = undefined;
 
 /**
  * The unique identifier of this entity.

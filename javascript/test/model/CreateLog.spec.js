@@ -66,12 +66,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property rootLogId (base name: "rootLogId")', function() {
-      // uncomment below and update the code to test the property rootLogId
-      //var instane = new AliceBookkeeping.CreateLog();
-      //expect(instance).to.be();
-    });
-
     it('should have the property parentLogId (base name: "parentLogId")', function() {
       // uncomment below and update the code to test the property parentLogId
       //var instane = new AliceBookkeeping.CreateLog();

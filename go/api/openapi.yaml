@@ -894,7 +894,6 @@ components:
       description: Describes an intervention or an event that happened.
       example:
         parentLogId: 1
-        rootLogId: 1
         text: text
         title: title
       properties:
@@ -907,11 +906,6 @@ components:
           description: Body of the log.
           minLength: 3
           type: string
-        rootLogId:
-          description: The unique identifier of this entity.
-          format: int64
-          minimum: 1
-          type: integer
         parentLogId:
           description: The unique identifier of this entity.
           format: int64

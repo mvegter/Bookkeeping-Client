@@ -15,7 +15,5 @@ type CreateLog struct {
 	// Body of the log.
 	Text string `json:"text"`
 	// The unique identifier of this entity.
-	RootLogId int64 `json:"rootLogId,omitempty"`
-	// The unique identifier of this entity.
 	ParentLogId int64 `json:"parentLogId,omitempty"`
 }

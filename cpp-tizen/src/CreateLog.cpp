@@ -25,7 +25,6 @@ CreateLog::__init()
 {
 	//title = std::string();
 	//text = std::string();
-	//rootLogId = long(0);
 	//parentLogId = long(0);
 }
 
@@ -41,11 +40,6 @@ CreateLog::__cleanup()
 	//
 	//delete text;
 	//text = NULL;
-	//}
-	//if(rootLogId != NULL) {
-	//
-	//delete rootLogId;
-	//rootLogId = NULL;
 	//}
 	//if(parentLogId != NULL) {
 	//
@@ -78,17 +72,6 @@ CreateLog::fromJson(char* jsonStr)
 
 		if (isprimitive("std::string")) {
 			jsonToValue(&text, node, "std::string", "");
-		} else {
-			
-		}
-	}
-	const gchar *rootLogIdKey = "rootLogId";
-	node = json_object_get_member(pJsonObject, rootLogIdKey);
-	if (node !=NULL) {
-	
-
-		if (isprimitive("long long")) {
-			jsonToValue(&rootLogId, node, "long long", "");
 		} else {
 			
 		}
@@ -135,15 +118,6 @@ CreateLog::toJson()
 	const gchar *textKey = "text";
 	json_object_set_member(pJsonObject, textKey, node);
 	if (isprimitive("long long")) {
-		long long obj = getRootLogId();
-		node = converttoJson(&obj, "long long", "");
-	}
-	else {
-		
-	}
-	const gchar *rootLogIdKey = "rootLogId";
-	json_object_set_member(pJsonObject, rootLogIdKey, node);
-	if (isprimitive("long long")) {
 		long long obj = getParentLogId();
 		node = converttoJson(&obj, "long long", "");
 	}
@@ -182,18 +156,6 @@ void
 CreateLog::setText(std::string  text)
 {
 	this->text = text;
-}
-
-long long
-CreateLog::getRootLogId()
-{
-	return rootLogId;
-}
-
-void
-CreateLog::setRootLogId(long long  rootLogId)
-{
-	this->rootLogId = rootLogId;
 }
 
 long long

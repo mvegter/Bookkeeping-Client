@@ -61,13 +61,6 @@ public:
 	void setText(std::string  text);
 	/*! \brief Get The unique identifier of this entity.
 	 */
-	long long getRootLogId();
-
-	/*! \brief Set The unique identifier of this entity.
-	 */
-	void setRootLogId(long long  rootLogId);
-	/*! \brief Get The unique identifier of this entity.
-	 */
 	long long getParentLogId();
 
 	/*! \brief Set The unique identifier of this entity.
@@ -77,7 +70,6 @@ public:
 private:
 	std::string title;
 	std::string text;
-	long long rootLogId;
 	long long parentLogId;
 	void __init();
 	void __cleanup();

@@ -21,9 +21,6 @@ pub struct CreateLog {
     #[serde(rename = "text")]
     pub text: String,
     /// The unique identifier of this entity.
-    #[serde(rename = "rootLogId", skip_serializing_if = "Option::is_none")]
-    pub root_log_id: Option<i64>,
-    /// The unique identifier of this entity.
     #[serde(rename = "parentLogId", skip_serializing_if = "Option::is_none")]
     pub parent_log_id: Option<i64>,
 }
@@ -34,7 +31,6 @@ impl CreateLog {
         CreateLog {
             title,
             text,
-            root_log_id: None,
             parent_log_id: None,
         }
     }

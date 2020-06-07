@@ -74,15 +74,6 @@ public:
     /// <summary>
     /// The unique identifier of this entity.
     /// </summary>
-    int64_t getRootLogId() const;
-    bool rootLogIdIsSet() const;
-    void unsetRootLogId();
-
-    void setRootLogId(int64_t value);
-
-    /// <summary>
-    /// The unique identifier of this entity.
-    /// </summary>
     int64_t getParentLogId() const;
     bool parentLogIdIsSet() const;
     void unsetParentLogId();
@@ -95,8 +86,6 @@ protected:
     bool m_TitleIsSet;
     utility::string_t m_Text;
     bool m_TextIsSet;
-    int64_t m_RootLogId;
-    bool m_RootLogIdIsSet;
     int64_t m_ParentLogId;
     bool m_ParentLogIdIsSet;
 };

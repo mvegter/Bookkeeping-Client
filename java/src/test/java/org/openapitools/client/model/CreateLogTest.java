@@ -57,14 +57,6 @@ public class CreateLogTest {
     }
 
     /**
-     * Test the property 'rootLogId'
-     */
-    @Test
-    public void rootLogIdTest() {
-        // TODO: test rootLogId
-    }
-
-    /**
      * Test the property 'parentLogId'
      */
     @Test
