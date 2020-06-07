@@ -36,8 +36,8 @@ void OAISubsystem::initializeModel() {
     m_id_isSet = false;
     m_id_isValid = false;
 
-    m_text_isSet = false;
-    m_text_isValid = false;
+    m_name_isSet = false;
+    m_name_isValid = false;
 
     m_created_at_isSet = false;
     m_created_at_isValid = false;
@@ -58,8 +58,8 @@ void OAISubsystem::fromJsonObject(QJsonObject json) {
     m_id_isValid = ::OpenAPI::fromJsonValue(id, json[QString("id")]);
     m_id_isSet = !json[QString("id")].isNull() && m_id_isValid;
 
-    m_text_isValid = ::OpenAPI::fromJsonValue(text, json[QString("text")]);
-    m_text_isSet = !json[QString("text")].isNull() && m_text_isValid;
+    m_name_isValid = ::OpenAPI::fromJsonValue(name, json[QString("name")]);
+    m_name_isSet = !json[QString("name")].isNull() && m_name_isValid;
 
     m_created_at_isValid = ::OpenAPI::fromJsonValue(created_at, json[QString("createdAt")]);
     m_created_at_isSet = !json[QString("createdAt")].isNull() && m_created_at_isValid;
@@ -80,8 +80,8 @@ QJsonObject OAISubsystem::asJsonObject() const {
     if (m_id_isSet) {
         obj.insert(QString("id"), ::OpenAPI::toJsonValue(id));
     }
-    if (m_text_isSet) {
-        obj.insert(QString("text"), ::OpenAPI::toJsonValue(text));
+    if (m_name_isSet) {
+        obj.insert(QString("name"), ::OpenAPI::toJsonValue(name));
     }
     if (m_created_at_isSet) {
         obj.insert(QString("createdAt"), ::OpenAPI::toJsonValue(created_at));
@@ -108,20 +108,20 @@ bool OAISubsystem::is_id_Valid() const{
     return m_id_isValid;
 }
 
-QString OAISubsystem::getText() const {
-    return text;
+QString OAISubsystem::getName() const {
+    return name;
 }
-void OAISubsystem::setText(const QString &text) {
-    this->text = text;
-    this->m_text_isSet = true;
-}
-
-bool OAISubsystem::is_text_Set() const{
-    return m_text_isSet;
+void OAISubsystem::setName(const QString &name) {
+    this->name = name;
+    this->m_name_isSet = true;
 }
 
-bool OAISubsystem::is_text_Valid() const{
-    return m_text_isValid;
+bool OAISubsystem::is_name_Set() const{
+    return m_name_isSet;
+}
+
+bool OAISubsystem::is_name_Valid() const{
+    return m_name_isValid;
 }
 
 QString OAISubsystem::getCreatedAt() const {
@@ -164,7 +164,7 @@ bool OAISubsystem::isSet() const {
             break;
         }
 
-        if (m_text_isSet) {
+        if (m_name_isSet) {
             isObjectUpdated = true;
             break;
         }
@@ -184,7 +184,7 @@ bool OAISubsystem::isSet() const {
 
 bool OAISubsystem::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_id_isValid && m_text_isValid && true;
+    return m_id_isValid && m_name_isValid && true;
 }
 
 } // namespace OpenAPI

@@ -12,7 +12,7 @@
 /*
  * OAIArrayOfSubsystemsResponseMeta.h
  *
- * The metadata related to an array of logs response.
+ * The metadata related to an array of subsystems response.
  */
 
 #ifndef OAIArrayOfSubsystemsResponseMeta_H
