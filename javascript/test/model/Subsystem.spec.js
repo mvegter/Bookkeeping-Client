@@ -60,8 +60,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property text (base name: "text")', function() {
-      // uncomment below and update the code to test the property text
+    it('should have the property name (base name: "name")', function() {
+      // uncomment below and update the code to test the property name
       //var instane = new AliceBookkeeping.Subsystem();
       //expect(instance).to.be();
     });

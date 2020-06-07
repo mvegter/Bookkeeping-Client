@@ -24,11 +24,11 @@ class Subsystem {
      * A label attached to something for the purpose of identification.
      * @alias module:model/Subsystem
      * @param id {Number} The unique identifier of this entity.
-     * @param text {String} The label value of the subsystem.
+     * @param name {String} The label value of the subsystem.
      */
-    constructor(id, text) { 
+    constructor(id, name) { 
         
-        Subsystem.initialize(this, id, text);
+        Subsystem.initialize(this, id, name);
     }
 
     /**
@@ -36,9 +36,9 @@ class Subsystem {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, text) { 
+    static initialize(obj, id, name) { 
         obj['id'] = id;
-        obj['text'] = text;
+        obj['name'] = name;
     }
 
     /**
@@ -55,8 +55,8 @@ class Subsystem {
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'Number');
             }
-            if (data.hasOwnProperty('text')) {
-                obj['text'] = ApiClient.convertToType(data['text'], 'String');
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
             if (data.hasOwnProperty('createdAt')) {
                 obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'String');
@@ -79,9 +79,9 @@ Subsystem.prototype['id'] = undefined;
 
 /**
  * The label value of the subsystem.
- * @member {String} text
+ * @member {String} name
  */
-Subsystem.prototype['text'] = undefined;
+Subsystem.prototype['name'] = undefined;
 
 /**
  * Date when the subsystem was created.
