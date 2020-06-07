@@ -8,7 +8,7 @@
  */
 
 package openapi
-// ArrayOfSubsystemsResponseMeta The metadata related to an array of logs response.
+// ArrayOfSubsystemsResponseMeta The metadata related to an array of subsystems response.
 type ArrayOfSubsystemsResponseMeta struct {
 	Page PaginationMeta `json:"page"`
 }

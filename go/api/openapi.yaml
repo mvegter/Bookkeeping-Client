@@ -816,32 +816,19 @@ components:
       items:
         $ref: '#/components/schemas/Subsystem'
       type: array
-    ArrayOfSubsystemsResponseMeta:
-      additionalProperties: false
-      description: The metadata related to an array of logs response.
-      example:
-        page:
-          pageCount: 0
-          totalCount: 0
-      properties:
-        page:
-          $ref: '#/components/schemas/PaginationMeta'
-      required:
-      - page
-      type: object
     ArrayOfSubsystemsResponse:
       additionalProperties: false
       description: Response containing multiple subsystems.
       example:
         data:
         - createdAt: createdAt
+          name: name
           updateAt: updateAt
           id: 1
-          text: text
         - createdAt: createdAt
+          name: name
           updateAt: updateAt
           id: 1
-          text: text
         meta:
           page:
             pageCount: 0
@@ -856,6 +843,19 @@ components:
           type: array
       required:
       - data
+      type: object
+    ArrayOfSubsystemsResponseMeta:
+      additionalProperties: false
+      description: The metadata related to an array of subsystems response.
+      example:
+        page:
+          pageCount: 0
+          totalCount: 0
+      properties:
+        page:
+          $ref: '#/components/schemas/PaginationMeta'
+      required:
+      - page
       type: object
     ArrayOfTags:
       description: A list of Tag objects.
@@ -1350,16 +1350,16 @@ components:
       description: A label attached to something for the purpose of identification.
       example:
         createdAt: createdAt
+        name: name
         updateAt: updateAt
         id: 1
-        text: text
       properties:
         id:
           description: The unique identifier of this entity.
           format: int64
           minimum: 1
           type: integer
-        text:
+        name:
           description: The label value of the subsystem.
           type: string
         createdAt:
@@ -1370,7 +1370,7 @@ components:
           type: string
       required:
       - id
-      - text
+      - name
       type: object
     SubsystemResponse:
       additionalProperties: false
@@ -1378,9 +1378,9 @@ components:
       example:
         data:
           createdAt: createdAt
+          name: name
           updateAt: updateAt
           id: 1
-          text: text
       properties:
         data:
           $ref: '#/components/schemas/Subsystem'
