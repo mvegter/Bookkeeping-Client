@@ -74,12 +74,12 @@ namespace Org.OpenAPITools.Test
             // TODO unit test for the property 'Id'
         }
         /// <summary>
-        /// Test the property 'Text'
+        /// Test the property 'Name'
         /// </summary>
         [Test]
-        public void TextTest()
+        public void NameTest()
         {
-            // TODO unit test for the property 'Text'
+            // TODO unit test for the property 'Name'
         }
         /// <summary>
         /// Test the property 'CreatedAt'

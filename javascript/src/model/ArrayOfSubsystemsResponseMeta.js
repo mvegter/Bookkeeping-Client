@@ -22,7 +22,7 @@ import PaginationMeta from './PaginationMeta';
 class ArrayOfSubsystemsResponseMeta {
     /**
      * Constructs a new <code>ArrayOfSubsystemsResponseMeta</code>.
-     * The metadata related to an array of logs response.
+     * The metadata related to an array of subsystems response.
      * @alias module:model/ArrayOfSubsystemsResponseMeta
      * @param page {module:model/PaginationMeta} 
      */

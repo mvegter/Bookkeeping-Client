@@ -19,7 +19,7 @@ module OpenapiClient
     attr_accessor :id
 
     # The label value of the subsystem.
-    attr_accessor :text
+    attr_accessor :name
 
     # Date when the subsystem was created.
     attr_accessor :created_at
@@ -31,7 +31,7 @@ module OpenapiClient
     def self.attribute_map
       {
         :'id' => :'id',
-        :'text' => :'text',
+        :'name' => :'name',
         :'created_at' => :'createdAt',
         :'update_at' => :'updateAt'
       }
@@ -41,7 +41,7 @@ module OpenapiClient
     def self.openapi_types
       {
         :'id' => :'Integer',
-        :'text' => :'String',
+        :'name' => :'String',
         :'created_at' => :'String',
         :'update_at' => :'String'
       }
@@ -72,8 +72,8 @@ module OpenapiClient
         self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'text')
-        self.text = attributes[:'text']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
       if attributes.key?(:'created_at')
@@ -97,8 +97,8 @@ module OpenapiClient
         invalid_properties.push('invalid value for "id", must be greater than or equal to 1.')
       end
 
-      if @text.nil?
-        invalid_properties.push('invalid value for "text", text cannot be nil.')
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
       invalid_properties
@@ -109,7 +109,7 @@ module OpenapiClient
     def valid?
       return false if @id.nil?
       return false if @id < 1
-      return false if @text.nil?
+      return false if @name.nil?
       true
     end
 
@@ -133,7 +133,7 @@ module OpenapiClient
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
-          text == o.text &&
+          name == o.name &&
           created_at == o.created_at &&
           update_at == o.update_at
     end
@@ -147,7 +147,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, text, created_at, update_at].hash
+      [id, name, created_at, update_at].hash
     end
 
     # Builds the object from hash

@@ -13,7 +13,7 @@ type Subsystem struct {
 	// The unique identifier of this entity.
 	Id int64 `json:"id"`
 	// The label value of the subsystem.
-	Text string `json:"text"`
+	Name string `json:"name"`
 	// Date when the subsystem was created.
 	CreatedAt string `json:"createdAt,omitempty"`
 	// Date when the subsystem was last updated.

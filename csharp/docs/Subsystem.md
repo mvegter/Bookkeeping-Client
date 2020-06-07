@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **long** | The unique identifier of this entity. | 
-**Text** | **string** | The label value of the subsystem. | 
+**Name** | **string** | The label value of the subsystem. | 
 **CreatedAt** | **string** | Date when the subsystem was created. | [optional] 
 **UpdateAt** | **string** | Date when the subsystem was last updated. | [optional] 
 

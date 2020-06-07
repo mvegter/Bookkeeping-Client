@@ -28,15 +28,15 @@ import java.io.IOException;
  * A label attached to something for the purpose of identification.
  */
 @ApiModel(description = "A label attached to something for the purpose of identification.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-06T17:07:38.845+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-07T12:27:51.952+01:00[Europe/London]")
 public class Subsystem {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private Long id;
 
-  public static final String SERIALIZED_NAME_TEXT = "text";
-  @SerializedName(SERIALIZED_NAME_TEXT)
-  private String text;
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
@@ -70,25 +70,25 @@ public class Subsystem {
   }
 
 
-  public Subsystem text(String text) {
+  public Subsystem name(String name) {
     
-    this.text = text;
+    this.name = name;
     return this;
   }
 
    /**
    * The label value of the subsystem.
-   * @return text
+   * @return name
   **/
   @ApiModelProperty(required = true, value = "The label value of the subsystem.")
 
-  public String getText() {
-    return text;
+  public String getName() {
+    return name;
   }
 
 
-  public void setText(String text) {
-    this.text = text;
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -148,14 +148,14 @@ public class Subsystem {
     }
     Subsystem subsystem = (Subsystem) o;
     return Objects.equals(this.id, subsystem.id) &&
-        Objects.equals(this.text, subsystem.text) &&
+        Objects.equals(this.name, subsystem.name) &&
         Objects.equals(this.createdAt, subsystem.createdAt) &&
         Objects.equals(this.updateAt, subsystem.updateAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, text, createdAt, updateAt);
+    return Objects.hash(id, name, createdAt, updateAt);
   }
 
 
@@ -164,7 +164,7 @@ public class Subsystem {
     StringBuilder sb = new StringBuilder();
     sb.append("class Subsystem {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    text: ").append(toIndentedString(text)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updateAt: ").append(toIndentedString(updateAt)).append("\n");
     sb.append("}");

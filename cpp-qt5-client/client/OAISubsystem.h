@@ -43,10 +43,10 @@ public:
     bool is_id_Set() const;
     bool is_id_Valid() const;
 
-    QString getText() const;
-    void setText(const QString &text);
-    bool is_text_Set() const;
-    bool is_text_Valid() const;
+    QString getName() const;
+    void setName(const QString &name);
+    bool is_name_Set() const;
+    bool is_name_Valid() const;
 
     QString getCreatedAt() const;
     void setCreatedAt(const QString &created_at);
@@ -68,9 +68,9 @@ private:
     bool m_id_isSet;
     bool m_id_isValid;
 
-    QString text;
-    bool m_text_isSet;
-    bool m_text_isValid;
+    QString name;
+    bool m_name_isSet;
+    bool m_name_isValid;
 
     QString created_at;
     bool m_created_at_isSet;

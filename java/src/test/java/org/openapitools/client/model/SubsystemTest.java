@@ -49,11 +49,11 @@ public class SubsystemTest {
     }
 
     /**
-     * Test the property 'text'
+     * Test the property 'name'
      */
     @Test
-    public void textTest() {
-        // TODO: test text
+    public void nameTest() {
+        // TODO: test name
     }
 
     /**

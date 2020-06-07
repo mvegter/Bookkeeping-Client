@@ -24,7 +24,7 @@ void
 Subsystem::__init()
 {
 	//id = long(0);
-	//text = std::string();
+	//name = std::string();
 	//createdAt = std::string();
 	//updateAt = std::string();
 }
@@ -37,10 +37,10 @@ Subsystem::__cleanup()
 	//delete id;
 	//id = NULL;
 	//}
-	//if(text != NULL) {
+	//if(name != NULL) {
 	//
-	//delete text;
-	//text = NULL;
+	//delete name;
+	//name = NULL;
 	//}
 	//if(createdAt != NULL) {
 	//
@@ -71,13 +71,13 @@ Subsystem::fromJson(char* jsonStr)
 			
 		}
 	}
-	const gchar *textKey = "text";
-	node = json_object_get_member(pJsonObject, textKey);
+	const gchar *nameKey = "name";
+	node = json_object_get_member(pJsonObject, nameKey);
 	if (node !=NULL) {
 	
 
 		if (isprimitive("std::string")) {
-			jsonToValue(&text, node, "std::string", "");
+			jsonToValue(&name, node, "std::string", "");
 		} else {
 			
 		}
@@ -126,14 +126,14 @@ Subsystem::toJson()
 	const gchar *idKey = "id";
 	json_object_set_member(pJsonObject, idKey, node);
 	if (isprimitive("std::string")) {
-		std::string obj = getText();
+		std::string obj = getName();
 		node = converttoJson(&obj, "std::string", "");
 	}
 	else {
 		
 	}
-	const gchar *textKey = "text";
-	json_object_set_member(pJsonObject, textKey, node);
+	const gchar *nameKey = "name";
+	json_object_set_member(pJsonObject, nameKey, node);
 	if (isprimitive("std::string")) {
 		std::string obj = getCreatedAt();
 		node = converttoJson(&obj, "std::string", "");
@@ -173,15 +173,15 @@ Subsystem::setId(long long  id)
 }
 
 std::string
-Subsystem::getText()
+Subsystem::getName()
 {
-	return text;
+	return name;
 }
 
 void
-Subsystem::setText(std::string  text)
+Subsystem::setName(std::string  name)
 {
-	this->text = text;
+	this->name = name;
 }
 
 std::string
