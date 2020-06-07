@@ -40,9 +40,8 @@ namespace Org.OpenAPITools.Model
         /// </summary>
         /// <param name="title">Title of the log. (required).</param>
         /// <param name="text">Body of the log. (required).</param>
-        /// <param name="rootLogId">The unique identifier of this entity..</param>
         /// <param name="parentLogId">The unique identifier of this entity..</param>
-        public CreateLog(string title = default(string), string text = default(string), long rootLogId = default(long), long parentLogId = default(long))
+        public CreateLog(string title = default(string), string text = default(string), long parentLogId = default(long))
         {
             // to ensure "title" is required (not null)
             if (title == null)
@@ -64,7 +63,6 @@ namespace Org.OpenAPITools.Model
                 this.Text = text;
             }
             
-            this.RootLogId = rootLogId;
             this.ParentLogId = parentLogId;
         }
         
@@ -86,13 +84,6 @@ namespace Org.OpenAPITools.Model
         /// The unique identifier of this entity.
         /// </summary>
         /// <value>The unique identifier of this entity.</value>
-        [DataMember(Name="rootLogId", EmitDefaultValue=false)]
-        public long RootLogId { get; set; }
-
-        /// <summary>
-        /// The unique identifier of this entity.
-        /// </summary>
-        /// <value>The unique identifier of this entity.</value>
         [DataMember(Name="parentLogId", EmitDefaultValue=false)]
         public long ParentLogId { get; set; }
 
@@ -106,7 +97,6 @@ namespace Org.OpenAPITools.Model
             sb.Append("class CreateLog {\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Text: ").Append(Text).Append("\n");
-            sb.Append("  RootLogId: ").Append(RootLogId).Append("\n");
             sb.Append("  ParentLogId: ").Append(ParentLogId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -153,11 +143,6 @@ namespace Org.OpenAPITools.Model
                     this.Text.Equals(input.Text))
                 ) && 
                 (
-                    this.RootLogId == input.RootLogId ||
-                    (this.RootLogId != null &&
-                    this.RootLogId.Equals(input.RootLogId))
-                ) && 
-                (
                     this.ParentLogId == input.ParentLogId ||
                     (this.ParentLogId != null &&
                     this.ParentLogId.Equals(input.ParentLogId))
@@ -177,8 +162,6 @@ namespace Org.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.Title.GetHashCode();
                 if (this.Text != null)
                     hashCode = hashCode * 59 + this.Text.GetHashCode();
-                if (this.RootLogId != null)
-                    hashCode = hashCode * 59 + this.RootLogId.GetHashCode();
                 if (this.ParentLogId != null)
                     hashCode = hashCode * 59 + this.ParentLogId.GetHashCode();
                 return hashCode;
@@ -211,14 +194,6 @@ namespace Org.OpenAPITools.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Text, length must be greater than 3.", new [] { "Text" });
             }
             
-
-            
-            // RootLogId (long) minimum
-            if(this.RootLogId < (long)1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RootLogId, must be a value greater than or equal to 1.", new [] { "RootLogId" });
-            }
-
 
             
             // ParentLogId (long) minimum

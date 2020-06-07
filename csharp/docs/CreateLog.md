@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Title** | **string** | Title of the log. | 
 **Text** | **string** | Body of the log. | 
-**RootLogId** | **long** | The unique identifier of this entity. | [optional] 
 **ParentLogId** | **long** | The unique identifier of this entity. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
