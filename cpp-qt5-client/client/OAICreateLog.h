@@ -48,11 +48,6 @@ public:
     bool is_text_Set() const;
     bool is_text_Valid() const;
 
-    qint64 getRootLogId() const;
-    void setRootLogId(const qint64 &root_log_id);
-    bool is_root_log_id_Set() const;
-    bool is_root_log_id_Valid() const;
-
     qint64 getParentLogId() const;
     void setParentLogId(const qint64 &parent_log_id);
     bool is_parent_log_id_Set() const;
@@ -71,10 +66,6 @@ private:
     QString text;
     bool m_text_isSet;
     bool m_text_isValid;
-
-    qint64 root_log_id;
-    bool m_root_log_id_isSet;
-    bool m_root_log_id_isValid;
 
     qint64 parent_log_id;
     bool m_parent_log_id_isSet;

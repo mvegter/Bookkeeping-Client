@@ -39,9 +39,6 @@ void OAICreateLog::initializeModel() {
     m_text_isSet = false;
     m_text_isValid = false;
 
-    m_root_log_id_isSet = false;
-    m_root_log_id_isValid = false;
-
     m_parent_log_id_isSet = false;
     m_parent_log_id_isValid = false;
 }
@@ -61,9 +58,6 @@ void OAICreateLog::fromJsonObject(QJsonObject json) {
     m_text_isValid = ::OpenAPI::fromJsonValue(text, json[QString("text")]);
     m_text_isSet = !json[QString("text")].isNull() && m_text_isValid;
 
-    m_root_log_id_isValid = ::OpenAPI::fromJsonValue(root_log_id, json[QString("rootLogId")]);
-    m_root_log_id_isSet = !json[QString("rootLogId")].isNull() && m_root_log_id_isValid;
-
     m_parent_log_id_isValid = ::OpenAPI::fromJsonValue(parent_log_id, json[QString("parentLogId")]);
     m_parent_log_id_isSet = !json[QString("parentLogId")].isNull() && m_parent_log_id_isValid;
 }
@@ -82,9 +76,6 @@ QJsonObject OAICreateLog::asJsonObject() const {
     }
     if (m_text_isSet) {
         obj.insert(QString("text"), ::OpenAPI::toJsonValue(text));
-    }
-    if (m_root_log_id_isSet) {
-        obj.insert(QString("rootLogId"), ::OpenAPI::toJsonValue(root_log_id));
     }
     if (m_parent_log_id_isSet) {
         obj.insert(QString("parentLogId"), ::OpenAPI::toJsonValue(parent_log_id));
@@ -124,22 +115,6 @@ bool OAICreateLog::is_text_Valid() const{
     return m_text_isValid;
 }
 
-qint64 OAICreateLog::getRootLogId() const {
-    return root_log_id;
-}
-void OAICreateLog::setRootLogId(const qint64 &root_log_id) {
-    this->root_log_id = root_log_id;
-    this->m_root_log_id_isSet = true;
-}
-
-bool OAICreateLog::is_root_log_id_Set() const{
-    return m_root_log_id_isSet;
-}
-
-bool OAICreateLog::is_root_log_id_Valid() const{
-    return m_root_log_id_isValid;
-}
-
 qint64 OAICreateLog::getParentLogId() const {
     return parent_log_id;
 }
@@ -165,11 +140,6 @@ bool OAICreateLog::isSet() const {
         }
 
         if (m_text_isSet) {
-            isObjectUpdated = true;
-            break;
-        }
-
-        if (m_root_log_id_isSet) {
             isObjectUpdated = true;
             break;
         }
